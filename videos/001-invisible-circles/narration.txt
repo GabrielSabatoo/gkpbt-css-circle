@@ -1,0 +1,93 @@
+Right now, somewhere over the Pacific, a plane with just two engines is carrying three hundred people across thousands of kilometres of open water. There is no land beneath it for hours. And yet, every single minute of that journey, it is flying inside an invisible circle.
+
+Pilots have a dark joke about these circles. They say the rule behind them stands for: Engines Turn, Or Passengers Swim.
+
+Its real name is ETOPS. It's the reason your flight so rarely takes the straight line on the map. It's why a tiny island in the middle of the Pacific matters to thousands of flights every year. And it's the reason two engines are now trusted to cross almost anywhere on Earth.
+
+So how did the twin-engine jet go from being kept away from the oceans... to flying towards Antarctica?
+
+Imagine every airport on Earth where a big jet could land in an emergency. A long enough runway. Fire crews. Somewhere for the passengers to go.
+
+Now draw a circle around each one. The size of that circle is surprisingly simple. It's how far the plane can fly in a set amount of time, on just one engine, in still air.
+
+Those circles are the map that really matters. A twin-engine airliner on a long overwater flight has to stay inside them. Every point of its route must be within reach of at least one runway.
+
+Over Europe or North America, the circles overlap so much that you'd never notice them. But out over the oceans, they start to pull apart. And in the gaps between them, there is simply nowhere to go.
+
+The story begins in 1953. Back then, airliners were driven by piston engines. Huge, complicated machines that failed far more often than anything flying today.
+
+So the American regulator, the FAA, wrote a simple rule. A plane with two engines had to stay within sixty minutes of a suitable airport.
+
+Draw those sixty-minute circles on a map of the North Atlantic, and the problem is obvious. They hug the coastlines, and leave the middle of the ocean empty. A twin simply couldn't cross.
+
+So the oceans belonged to planes with three and four engines. In 1964, three-engine jets were exempted from the rule, which opened the way for wide-body trijets like the DC-10 and the Lockheed TriStar. And the four-engine Boeing 747 ruled the long-haul world.
+
+For decades, if you crossed an ocean, you almost certainly did it on three or four engines.
+
+But jet engines kept getting better. Much better.
+
+And airlines noticed something. Two engines burn a lot less fuel than three or four. A twin-engine jet is cheaper to buy, cheaper to maintain, and cheaper to fly.
+
+Under international rules, Airbus A300s had already been flying longer overwater routes since 1976, with a ninety-minute limit.
+
+Then, in 1985, the FAA made its move. Twin-engine jets that met strict new standards could now fly up to one hundred and twenty minutes from an airport.
+
+On the first of February, 1985, a TWA Boeing 767 took off from Boston, bound for Paris, with FAA observers on board. It was one of the very first passenger flights across the Atlantic under the new rule.
+
+On the map, the circles swelled. And the gap in the middle of the Atlantic closed.
+
+The Atlantic was one thing. The Pacific was something else entirely.
+
+It's the largest ocean on Earth, and the distances between usable runways are enormous. To cross it reliably, twins needed even bigger circles.
+
+Soon, the limit was pushed to one hundred and eighty minutes. Three full hours from the nearest airport.
+
+In 1995, the Boeing 777 entered service with United Airlines. The version with Pratt and Whitney engines had been cleared for one hundred and eighty minutes before it carried a single paying passenger. That had never happened before. Until then, a new plane had to prove itself in service first.
+
+With three-hour circles, almost the entire Pacific was suddenly within reach.
+
+Now, this is the part that makes some passengers nervous. Two engines, three hours from land. Is that really safe?
+
+The answer is in the numbers. To qualify for one hundred and eighty minutes, the FAA requires that engine type, across the entire world fleet, to shut down in flight no more than twice in every hundred thousand engine hours.
+
+Modern engines do far better than that. General Electric says its GE90-94B, one of the engines that powers the 777, has an engine-caused shutdown rate of roughly one in every seven hundred thousand hours.
+
+To put that in perspective, an engine running non-stop, day and night, would take about eighty years to reach seven hundred thousand hours.
+
+And ETOPS isn't only about engines. A plane on these routes must carry enough fuel to reach its diversion airport even after a failure. Its fire protection has to last the entire diversion. And it has to be maintained to a stricter standard than an ordinary jet. Every part of the system is built around one question. Can we get everyone safely to that runway?
+
+So what actually happens if an engine stops in the middle of the ocean?
+
+First of all, the plane does not fall out of the sky. A twin-engine jet is designed to fly safely on one engine. The crew descends to a lower altitude, where the remaining engine can keep the plane going, and turns towards the nearest airport inside its circle.
+
+Which brings us to some of the most important runways in the world. Runways you've probably never heard of.
+
+Like this one. Henderson Field, on Midway Atoll. A speck of sand and coral, more than two thousand kilometres north-west of Honolulu. There are no scheduled passenger flights here at all. And yet United Airlines says it plans more than eight thousand flights a year around this island, as their emergency alternate.
+
+In 2026, the FAA asked the industry what would happen if Midway stopped serving that role. The runway needs around one hundred million dollars of work in the next few years. And airlines lined up with the same message: please, keep it open. Without it, some of those invisible circles develop holes, and some routes across the Pacific would have to change.
+
+And sometimes, being inside a circle is the difference between disaster and a miracle.
+
+In August 2001, an Air Transat Airbus A330 was crossing the Atlantic from Toronto to Lisbon when a fuel leak drained its tanks. One engine stopped. Then the other. The crew glided the powerless jet for nineteen minutes, across about sixty-five nautical miles of ocean, and landed at Lajes, an air base in the Azores. All three hundred and six people on board survived.
+
+It wasn't the kind of failure ETOPS was designed for. But it shows exactly why a runway within reach matters.
+
+Today, the circles have grown to sizes the authors of that first rule could hardly have imagined.
+
+Since 2007, the rules have even covered planes with three and four engines, once they fly more than three hours from an airport. But it's the twins that keep pushing the limits.
+
+In 2014, Europe's aviation regulator certified the Airbus A350 for diversion times of up to three hundred and seventy minutes. That's more than six hours on a single engine. A circle with a radius of up to two and a half thousand nautical miles.
+
+The Boeing 787 can be approved for three hundred and thirty minutes. And that is what made one of the most remote routes in the world possible. Qantas flies from Sydney to Santiago, in Chile, on a twin-engine 787, on a track that can bend far to the south, towards Antarctica. Boeing itself said that route simply wasn't possible with one hundred and eighty minutes.
+
+With circles that big, very little of the planet is still out of bounds. Just a few corners. Like the heart of Antarctica.
+
+So the next time you're on a long flight over the ocean, and the little plane on the screen seems to wander away from the straight line, it isn't lost.
+
+It's threading its way through a chain of invisible circles. Each one built around a runway, a fire crew, and a safe place to land.
+
+Engines turn. Passengers don't swim.
+
+And somewhere beneath you, on an island you will probably never visit, a runway is waiting. Just in case.
+
+If you enjoyed this, subscribe. Next time, we'll look at the parts of the sky where planes aren't allowed to fly at all.
