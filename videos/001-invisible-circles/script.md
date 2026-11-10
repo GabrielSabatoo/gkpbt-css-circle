@@ -55,3 +55,8 @@ Narration is AI-generated. Sources are listed below.
 - Use only original animation: maps, icons and silhouettes drawn in Remotion. No airline footage, no logos.
 - Circle radii on the maps should be illustrative and labelled "illustrative" in small text: real ETOPS circles depend on each aircraft's approved one-engine speed.
 - Keep the Midway section respectful of the site (it is also a wildlife refuge); no claims about closure beyond what the FAA said.
+
+## Audio log
+- 2026-11-10: full narration generated (Chatterbox, 34 chunks, 8:19 at 1.0×).
+- Fixed by regenerating chunks 26 and 29: "2014" was read as "2004"; "ETOPS" read as "E-T-O tops" once; "Lajes" mispronounced. Pronunciation fixes now live in `voice/channel_voice.json` → `pronunciations`.
+- Final: slowed to **0.8×** with ffmpeg `atempo=0.8` (pitch kept) → **10:27**. Word timings re-aligned on the slowed file (`word-timings.json`).
