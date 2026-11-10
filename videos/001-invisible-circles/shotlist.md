@@ -14,8 +14,8 @@ Components and look: see `channel/visual-style.md`.
 | 5 | 0:13 | "There is no land beneath it for hours." | Small clock icon spins hours forward | Overlay |
 | 6 | 0:15 | "…it is flying inside an invisible circle." | A huge amber circle sweeps in around the plane, centred on a far-off airport | Reveal |
 | 7 | 0:19 | "Pilots have a dark joke…" | Cut to neutral background | Pattern interrupt |
-| 8 | 0:22 | "Engines Turn, Or Passengers Swim." | Words type in one by one; first letters light up to spell **E·T·O·P·S** | Kinetic text |
-| 9 | 0:28 | "Its real name is ETOPS." | Letters snap together into the logo-style word ETOPS | Text transform |
+| 8 | 0:22 | "Engines Turn, Or Passengers Swim." | Words appear one by one, whole phrase in amber | Kinetic text |
+| 9 | 0:28 | "Its real name is ETOPS." | The phrase shrinks away; the word ETOPS lands in large type in its place | Text transform |
 | 10 | 0:31 | "…rarely takes the straight line on the map." | Map: dashed straight line vs. the real curved route between two cities | Route compare |
 | 11 | 0:38 | "…a tiny island in the middle of the Pacific…" | Quick zoom to an unnamed speck with "?" — **open loop**, we come back at 6:36 | Tease |
 | 12 | 0:43 | "…trusted to cross almost anywhere on Earth." | Pull out to globe; circles bloom across every ocean at once | Big reveal |
