@@ -1,6 +1,6 @@
-Right now, somewhere over the Pacific, a plane with just two engines is carrying three hundred people across thousands of kilometres of open water. There is no land beneath it for hours. And yet, every single minute of that journey, it is flying inside an invisible circle.
+Right now, somewhere over the Pacific, a plane with just two engines is carrying three hundred people across thousands of kilometres of open water. There is no land beneath it for hours. And yet, every single minute of that journey, [pause] it is flying inside an invisible circle.
 
-Pilots have a dark joke about these circles. They say the rule behind them stands for: Engines Turn, Or Passengers Swim.
+Pilots have a dark joke about these circles. They say the rule behind them stands for: [pause] Engines Turn, Or Passengers Swim.
 
 Its real name is ETOPS. It's the reason your flight so rarely takes the straight line on the map. It's why a tiny island in the middle of the Pacific matters to thousands of flights every year. And it's the reason two engines are now trusted to cross almost anywhere on Earth.
 
@@ -12,7 +12,7 @@ Now draw a circle around each one. The size of that circle is surprisingly simpl
 
 Those circles are the map that really matters. A twin-engine airliner on a long overwater flight has to stay inside them. Every point of its route must be within reach of at least one runway.
 
-Over Europe or North America, the circles overlap so much that you'd never notice them. But out over the oceans, they start to pull apart. And in the gaps between them, there is simply nowhere to go.
+Over Europe or North America, the circles overlap so much that you'd never notice them. But out over the oceans, they start to pull apart. And in the gaps between them, [pause] there is simply nowhere to go.
 
 The story begins in 1953. Back then, airliners were driven by piston engines. Huge, complicated machines that failed far more often than anything flying today.
 
@@ -24,7 +24,7 @@ So the oceans belonged to planes with three and four engines. In 1964, three-eng
 
 For decades, if you crossed an ocean, you almost certainly did it on three or four engines.
 
-But jet engines kept getting better. Much better.
+But jet engines kept getting better. [pause] Much better.
 
 And airlines noticed something. Two engines burn a lot less fuel than three or four. A twin-engine jet is cheaper to buy, cheaper to maintain, and cheaper to fly.
 
@@ -34,7 +34,7 @@ Then, in 1985, the FAA made its move. Twin-engine jets that met strict new stand
 
 On the first of February, 1985, a TWA Boeing 767 took off from Boston, bound for Paris, with FAA observers on board. It was one of the very first passenger flights across the Atlantic under the new rule.
 
-On the map, the circles swelled. And the gap in the middle of the Atlantic closed.
+On the map, the circles swelled. [pause] And the gap in the middle of the Atlantic closed.
 
 The Atlantic was one thing. The Pacific was something else entirely.
 
@@ -46,7 +46,7 @@ In 1995, the Boeing 777 entered service with United Airlines. The version with P
 
 With three-hour circles, almost the entire Pacific was suddenly within reach.
 
-Now, this is the part that makes some passengers nervous. Two engines, three hours from land. Is that really safe?
+Now, this is the part that makes some passengers nervous. Two engines, three hours from land. [pause] Is that really safe?
 
 The answer is in the numbers. To qualify for one hundred and eighty minutes, the FAA requires that engine type, across the entire world fleet, to shut down in flight no more than twice in every hundred thousand engine hours.
 
@@ -54,7 +54,7 @@ Modern engines do far better than that. General Electric says its GE90-94B, one 
 
 To put that in perspective, an engine running non-stop, day and night, would take about eighty years to reach seven hundred thousand hours.
 
-And ETOPS isn't only about engines. A plane on these routes must carry enough fuel to reach its diversion airport even after a failure. Its fire protection has to last the entire diversion. And it has to be maintained to a stricter standard than an ordinary jet. Every part of the system is built around one question. Can we get everyone safely to that runway?
+And ETOPS isn't only about engines. A plane on these routes must carry enough fuel to reach its diversion airport even after a failure. Its fire protection has to last the entire diversion. And it has to be maintained to a stricter standard than an ordinary jet. Every part of the system is built around one question. [pause] Can we get everyone safely to that runway?
 
 So what actually happens if an engine stops in the middle of the ocean?
 
@@ -68,7 +68,7 @@ In 2026, the FAA asked the industry what would happen if Midway stopped serving 
 
 And sometimes, being inside a circle is the difference between disaster and a miracle.
 
-In August 2001, an Air Transat Airbus A330 was crossing the Atlantic from Toronto to Lisbon when a fuel leak drained its tanks. One engine stopped. Then the other. The crew glided the powerless jet for nineteen minutes, across about sixty-five nautical miles of ocean, and landed at Lajes, an air base in the Azores. All three hundred and six people on board survived.
+In August 2001, an Air Transat Airbus A330 was crossing the Atlantic from Toronto to Lisbon when a fuel leak drained its tanks. One engine stopped. [pause] Then the other. The crew glided the powerless jet for nineteen minutes, across about sixty-five nautical miles of ocean, and landed at Lajes, an air base in the Azores. [pause] All three hundred and six people on board survived.
 
 It wasn't the kind of failure ETOPS was designed for. But it shows exactly why a runway within reach matters.
 
@@ -80,12 +80,12 @@ In 2014, Europe's aviation regulator certified the Airbus A350 for diversion tim
 
 The Boeing 787 can be approved for three hundred and thirty minutes. And that is what made one of the most remote routes in the world possible. Qantas flies from Sydney to Santiago, in Chile, on a twin-engine 787, on a track that can bend far to the south, towards Antarctica. Boeing itself said that route simply wasn't possible with one hundred and eighty minutes.
 
-With circles that big, very little of the planet is still out of bounds. Just a few corners. Like the heart of Antarctica.
+With circles that big, very little of the planet is still out of bounds. Just a few corners. [pause] Like the heart of Antarctica.
 
 So the next time you're on a long flight over the ocean, and the little plane on the screen seems to wander away from the straight line, it isn't lost.
 
 It's threading its way through a chain of invisible circles. Each one built around a runway, a fire crew, and a safe place to land.
 
-Engines turn. Passengers don't swim.
+Engines turn. [pause] Passengers don't swim.
 
-And somewhere beneath you, on an island you will probably never visit, a runway is waiting. Just in case.
+And somewhere beneath you, on an island you will probably never visit, a runway is waiting. [pause] Just in case.
