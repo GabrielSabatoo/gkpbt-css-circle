@@ -1,8 +1,8 @@
 # The Invisible Circles Your Plane Must Stay Inside
 
-- **Length:** ~1,420 words of narration ≈ 9.5–10 min at documentary pace
+- **Length:** ~1,400 words of narration ≈ 9.5–10 min at documentary pace
 - **Narration text:** `narration.txt` (feed to `voice/narrate.py`)
-- **Status:** draft, waiting for review
+- **Status:** approved 2026-11-10 (ending changed to "…a runway is waiting. Just in case.")
 
 ## Thumbnail
 Dark globe centred on the Pacific. Glowing circles around a few airports (Honolulu, Midway, Anchorage, Tokyo). A small white plane sits in a dark gap between circles. Text: **"NO AIRPORT"**.
@@ -25,7 +25,7 @@ Narration is AI-generated. Sources are listed below.
 | 7 | What happens if an engine fails + Midway | 6:30–8:10 | Plane icon steps down in altitude, turns to nearest airport; zoom to Midway Atoll (satellite-style illustration, not footage); "8,000+ flights a year" card; 2026 FAA question; circle around Midway blinks off to show the hole it leaves. |
 | 8 | Air Transat 236 | 8:10–8:50 | Toronto→Lisbon line; both engine icons go dark; glide line to Lajes (Azores) with timer "19 min · 65 nm"; "306 survived". |
 | 9 | Today: 330 and 370 minutes | 8:50–9:40 | 2007 card (3–4 engine planes now included beyond 180 min); A350 circle (370 min, up to 2,500 nm); Sydney→Santiago track bending south; circles cover nearly everything except central Antarctica. |
-| 10 | Outro | 9:40–10:10 | Back to the opening plane, now shown threading through circles; final line over Midway runway; subscribe card teasing restricted airspace. |
+| 10 | Outro | 9:40–10:00 | Back to the opening plane, now shown threading through circles; final line ("…a runway is waiting. Just in case.") over the Midway runway, then fade to black. Silent end screen (no narration) for YouTube's end-screen elements. |
 
 ## Facts and sources (Reviewer: check each)
 
