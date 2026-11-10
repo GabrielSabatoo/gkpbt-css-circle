@@ -1,0 +1,17 @@
+{
+  "name": "British narrator male",
+  "reference_audio": "voice/reference.wav",
+  "kokoro": {
+    "model": "hexgrad/Kokoro-82M",
+    "lang_code": "b",
+    "blend": { "bm_george": 0.6, "bm_fable": 0.4 },
+    "speed": 0.95,
+    "reference_text": "Some stories are hidden in plain sight. For centuries, people walked past them without a second glance. But once you know where to look, everything changes. So let's take a closer look, and find out what really happened."
+  },
+  "chatterbox": {
+    "exaggeration": 0.5,
+    "cfg_weight": 0.5,
+    "pause_between_chunks_ms": 250,
+    "max_chunk_chars": 280
+  }
+}
