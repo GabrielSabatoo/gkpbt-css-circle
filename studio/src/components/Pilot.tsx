@@ -13,9 +13,9 @@ const PilotSilhouette: React.FC<{ talk: number }> = ({ talk }) => {
       <path d="M60,700 C70,560 150,500 300,490 C450,500 530,560 540,700 Z" fill={ink} />
       {/* epaulettes */}
       <rect x={110} y={545} width={95} height={26} rx={6} fill={ink} stroke={day.bg} strokeWidth={4} transform="rotate(-14 157 558)" />
-      <path d="M125,553 L190,537 M128,563 L193,547" stroke={day.circle} strokeWidth={4} transform="rotate(-0 157 558)" />
+      <path d="M125,553 L190,537 M128,563 L193,547" stroke={day.gold} strokeWidth={4} transform="rotate(-0 157 558)" />
       <rect x={395} y={545} width={95} height={26} rx={6} fill={ink} stroke={day.bg} strokeWidth={4} transform="rotate(14 443 558)" />
-      <path d="M408,537 L473,553 M406,547 L471,563" stroke={day.circle} strokeWidth={4} />
+      <path d="M408,537 L473,553 M406,547 L471,563" stroke={day.gold} strokeWidth={4} />
       {/* collar + tie */}
       <path d="M255,490 L300,560 L345,490 Z" fill={day.bg} />
       <path d="M290,515 L310,515 L318,600 L300,620 L282,600 Z" fill={ink} />
@@ -34,8 +34,8 @@ const PilotSilhouette: React.FC<{ talk: number }> = ({ talk }) => {
       <path d="M160,250 L440,250 L440,268 L160,268 Z" fill={ink} stroke={day.bg} strokeWidth={4} />
       <path d="M180,268 C230,300 370,300 420,268 Z" fill={ink} />
       {/* cap badge: wings */}
-      <path d="M300,195 L338,182 L328,198 L360,192 L320,212 L300,206 L280,212 L240,192 L272,198 L262,182 Z" fill={day.circle} />
-      <circle cx={300} cy={200} r={9} fill={day.circle} />
+      <path d="M300,195 L338,182 L328,198 L360,192 L320,212 L300,206 L280,212 L240,192 L272,198 L262,182 Z" fill={day.gold} />
+      <circle cx={300} cy={200} r={9} fill={day.gold} />
       {/* mouth (only shape cut from the silhouette) */}
       <ellipse cx={318} cy={400} rx={20} ry={mouth / 2} fill={day.bg} opacity={0.9} />
     </g>

@@ -2,10 +2,10 @@ import { displayFont, bodyFont, serifFont, monoFont } from './fonts';
 
 // Channel palette and type (see channel/visual-style.md)
 export const theme = {
-  bg: '#142236', // night navy (neutral background)
-  ocean: '#1d3048',
-  land: '#4a6884',
-  landEdge: '#4a6884',
+  bg: '#1b2738', // night navy (reference-style)
+  ocean: '#2b4b67',
+  land: '#71889c',
+  landEdge: '#71889c',
   graticule: 'rgba(120, 150, 210, 0.08)',
   amber: '#e9b44c',
   amberSoft: 'rgba(255, 181, 71, 0.10)',
@@ -24,19 +24,22 @@ export const theme = {
 
 // Bright "daytime" palette used after the night-time hook (tune against reference screenshots).
 export const day = {
-  bg: '#ece1c8', // warm beige paper (text scenes)
-  mapBg: '#d6c7a8', // deeper tan behind the globe so cream land stands out
-  ocean: '#c3d6de',
-  land: '#e9dcbf',
-  landEdge: '#e9dcbf',
-  graticule: 'rgba(70, 95, 115, 0.18)',
-  circle: '#e2a12f',
-  dot: '#b97c12',
+  bg: '#e9e0c8', // paper beige (all bright scenes)
+  mapBg: '#e9e0c8',
+  ocean: '#b5cedb',
+  land: '#e2d1a9',
+  landEdge: '#d2bf93',
+  graticule: 'rgba(40, 70, 95, 0.14)',
+  outline: '#26323f', // thin dark line around the globe
+  circle: '#2c5578', // navy: range circles, accent italic words
+  gold: '#d9a23c', // routes, highlights
+  dot: '#e0452f', // airport dots: vermilion with a white ring, readable on blue and beige
   text: '#1d2330',
   textMuted: '#5b6273',
-  danger: '#d92f3c',
+  danger: '#c23b2b',
+  coral: '#e2654f', // accent word on night scenes, 'not flown' dashes
   plane: '#16181d',
-};
+}
 
 /** Mix two hex colours (t = 0 → a, 1 → b). */
 export const mix = (a: string, b: string, t: number) => {

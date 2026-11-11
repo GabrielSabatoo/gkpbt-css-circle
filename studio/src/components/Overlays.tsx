@@ -1,6 +1,6 @@
 import React from 'react';
 import { geoDistance, geoInterpolate, geoPath, GeoProjection } from 'd3-geo';
-import { theme } from '../theme';
+import { day, theme } from '../theme';
 import { isFront } from './Globe';
 
 type LL = [number, number];
@@ -71,9 +71,9 @@ export const Pin: React.FC<{ projection: GeoProjection; at: LL; label?: string; 
   if (!p || !isFront(projection, at) || opacity <= 0) return null;
   return (
     <g opacity={opacity}>
-      <circle cx={p[0]} cy={p[1]} r={6} fill={dot} />
+      <circle cx={p[0]} cy={p[1]} r={7} fill={dot} stroke="#ffffff" strokeWidth={2.5} />
       {label ? (
-        <text x={p[0] + 14} y={p[1] - 12} fill={color} fontFamily={theme.fontBody} fontWeight={700} fontSize={size} style={{ paintOrder: 'stroke' }} stroke={halo} strokeWidth={6}>
+        <text x={p[0] + 14} y={p[1] - 14} fill={color} fontFamily={theme.fontSerif} fontWeight={700} fontSize={size * 1.25} style={{ paintOrder: 'stroke' }} stroke={halo} strokeWidth={7}>
           {label}
         </text>
       ) : null}
@@ -86,9 +86,9 @@ export const Ruler: React.FC<{ projection: GeoProjection; a: LL; b: LL; label: s
   const mid = projection(along([a, b], 0.5 * progress));
   return (
     <g>
-      <GeoLine projection={projection} points={[a, b]} progress={progress} color={theme.text} width={2.5} dashed opacity={0.85} />
+      <GeoLine projection={projection} points={[a, b]} progress={progress} color={day.coral} width={4} dashed opacity={0.95} />
       {mid && progress > 0.6 ? (
-        <text x={mid[0]} y={mid[1] - 18} textAnchor="middle" fill={theme.text} fontFamily={theme.fontDisplay} fontSize={34} opacity={(progress - 0.6) / 0.4} style={{ paintOrder: 'stroke' }} stroke={theme.bg} strokeWidth={8}>
+        <text x={mid[0]} y={mid[1] - 18} textAnchor="middle" fill={theme.text} fontFamily={theme.fontMono} fontSize={30} letterSpacing={3} opacity={(progress - 0.6) / 0.4} style={{ paintOrder: 'stroke' }} stroke={theme.bg} strokeWidth={8}>
           {label}
         </text>
       ) : null}

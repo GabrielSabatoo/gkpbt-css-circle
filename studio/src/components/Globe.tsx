@@ -72,6 +72,17 @@ export const Globe: React.FC<GlobeProps> = ({ width, height, camera, dots = [], 
           </radialGradient>
         </defs>
         <path d={sphere} fill={C.ocean} />
+        {day > 0.5 ? (
+          <>
+            <defs>
+              <radialGradient id="oceanShade" cx="42%" cy="38%" r="65%">
+                <stop offset="0%" stopColor="rgba(255,255,255,0.18)" />
+                <stop offset="100%" stopColor="rgba(20,50,80,0.18)" />
+              </radialGradient>
+            </defs>
+            <path d={sphere} fill="url(#oceanShade)" />
+          </>
+        ) : null}
         <path d={path(graticule) ?? undefined} fill="none" stroke={day > 0.5 ? dayP.graticule : theme.graticule} strokeWidth={1} />
         <path
           d={path(land) ?? undefined}
@@ -93,10 +104,10 @@ export const Globe: React.FC<GlobeProps> = ({ width, height, camera, dots = [], 
           return (
             <>
               {/* one combined path per colour: overlaps merge, and it is one shape to draw */}
-              <path d={shapes.filter((s) => !s.c.danger).map((s) => s.d).join('')} fill={C.circle} opacity={(day > 0.5 ? 0.16 : 0.13) * fillOpacity} />
+              <path d={shapes.filter((s) => !s.c.danger).map((s) => s.d).join('')} fill={C.circle} opacity={(day > 0.5 ? 0.11 : 0.13) * fillOpacity} />
               <path d={shapes.filter((s) => s.c.danger).map((s) => s.d).join('')} fill={C.danger} opacity={0.22 * fillOpacity} />
               {shapes.map((s, i) => (
-                <path key={`s${i}`} d={s.d} fill="none" stroke={s.c.danger ? C.danger : C.circle} strokeWidth={s.c.danger ? 2.5 : day > 0.5 ? 2 : 1.6} opacity={Math.min(1, s.c.appear * 1.5) * (shapes.length > 30 ? 0.55 : 0.9)} />
+                <path key={`s${i}`} d={s.d} fill="none" stroke={s.c.danger ? C.danger : C.circle} strokeWidth={s.c.danger ? 2.5 : day > 0.5 ? 2 : 1.6} opacity={Math.min(1, s.c.appear * 1.5) * (shapes.length > 30 ? (day > 0.5 ? 0.32 : 0.55) : 0.9)} />
               ))}
             </>
           );
@@ -108,7 +119,7 @@ export const Globe: React.FC<GlobeProps> = ({ width, height, camera, dots = [], 
           return (
             <g key={`d${i}`} opacity={d.appear}>
               <circle cx={p[0]} cy={p[1]} r={10 * (1 - d.appear) + 4} fill="none" stroke={C.dot} strokeWidth={1.5} opacity={1 - d.appear} />
-              <circle cx={p[0]} cy={p[1]} r={4} fill={C.dot} />
+              <circle cx={p[0]} cy={p[1]} r={day > 0.5 ? 5.5 : 4} fill={C.dot} stroke={day > 0.5 ? '#ffffff' : 'none'} strokeWidth={2.2} />
               {d.label ? (
                 <text x={p[0] + 10} y={p[1] + 5} fill={C.text} fontFamily={theme.fontBody} fontSize={20} fontWeight={600}>
                   {d.airport.name}
@@ -117,7 +128,7 @@ export const Globe: React.FC<GlobeProps> = ({ width, height, camera, dots = [], 
             </g>
           );
         })}
-        <path d={sphere} fill={day > 0.5 ? 'none' : 'url(#glow)'} stroke={day > 0.5 ? dayP.landEdge : 'rgba(120,160,240,0.25)'} strokeWidth={1.5} />
+        <path d={sphere} fill={day > 0.5 ? 'none' : 'url(#glow)'} stroke={day > 0.5 ? dayP.outline : 'rgba(120,160,240,0.25)'} strokeWidth={day > 0.5 ? 2.5 : 1.5} />
         {children?.(projection)}
       </svg>
     </AbsoluteFill>

@@ -3,7 +3,8 @@ import { AbsoluteFill, interpolate, Sequence, useCurrentFrame, useVideoConfig } 
 import { geoDistance } from 'd3-geo';
 import { Globe, Camera } from '../../components/Globe';
 import { GapField, GeoLine, PlaneIcon, Pin, Ruler, along, headingAt } from '../../components/Overlays';
-import { IconCard, NeutralBg, Slam, Words } from '../../components/Neutral';
+import { NeutralBg, Slam } from '../../components/Neutral';
+import { InfoCard, Label } from '../../components/Kit';
 import { airports, byCode, worldAirports } from '../../data/airports';
 import { keyed, ramp, window_ } from '../../anim';
 import { makeCues } from '../../cues';
@@ -62,21 +63,21 @@ export const Part1: React.FC = () => {
     [F.twoEngines - s(0.4), { lon: -150, lat: 28, scale: 380 }],
     [F.twoEngines + s(1.4), { lon: plane[0], lat: plane[1], scale: 2600 }],
     [F.thousands, { lon: plane[0], lat: plane[1], scale: 2500 }],
-    [F.thousands + s(2.2), { lon: -152, lat: 22, scale: 300 }],
-    [F.pilots, { lon: -158, lat: 22, scale: 330 }],
+    [F.thousands + s(2.2), { lon: -152, lat: 22, scale: 430 }],
+    [F.pilots, { lon: -158, lat: 22, scale: 450 }],
     // straight line vs real route (Sydney → Santiago)
-    [F.realName + s(2), { lon: -150, lat: -42, scale: 360 }],
-    [F.straight, { lon: -150, lat: -42, scale: 360 }],
+    [F.realName + s(2), { lon: -150, lat: -42, scale: 470 }],
+    [F.straight, { lon: -150, lat: -42, scale: 470 }],
     // tiny island tease
-    [F.island, { lon: -155, lat: 10, scale: 360 }],
+    [F.island, { lon: -155, lat: 10, scale: 470 }],
     [F.island + s(1.6), { lon: -177.4, lat: 28.2, scale: 2400 }],
     [F.reason, { lon: -177.4, lat: 28.2, scale: 2200 }],
-    [F.reason + s(2.2), { lon: -160, lat: 15, scale: 330 }],
-    [F.soHow, { lon: -120, lat: 10, scale: 330 }],
+    [F.reason + s(2.2), { lon: -160, lat: 15, scale: 460 }],
+    [F.soHow, { lon: -120, lat: 10, scale: 460 }],
     // every airport
-    [F.imagine, { lon: -45, lat: 25, scale: 380 }],
-    [F.draw + s(4), { lon: -25, lat: 30, scale: 400 }],
-    [F.those, { lon: -30, lat: 38, scale: 420 }],
+    [F.imagine, { lon: -45, lat: 25, scale: 470 }],
+    [F.draw + s(4), { lon: -25, lat: 30, scale: 480 }],
+    [F.those, { lon: -30, lat: 38, scale: 500 }],
     [F.stayInside, { lon: -38, lat: 47, scale: 700 }],
     [F.europe, { lon: -35, lat: 48, scale: 760 }],
     [F.europe + s(2), { lon: 2, lat: 49, scale: 1050 }],
@@ -144,10 +145,10 @@ export const Part1: React.FC = () => {
             {/* straight line vs actual route */}
             {inRoute && (
               <>
-                <GeoLine projection={projection} points={[byCode('SYD').at, byCode('SCL').at]} progress={ramp(frame, F.straight - s(1), F.straight + s(0.6))} color={day.text} dashed width={3} opacity={0.7} />
+                <GeoLine projection={projection} points={[byCode('SYD').at, byCode('SCL').at]} progress={ramp(frame, F.straight - s(1), F.straight + s(0.6))} color={day.coral} dashed width={5} opacity={0.95} />
                 <GeoLine projection={projection} points={[byCode('SYD').at, [-178, -30], [-140, -28], [-105, -32], byCode('SCL').at]} progress={ramp(frame, F.straight + s(0.4), F.straight + s(1.8))} color={day.circle} width={5} />
-                <Pin projection={projection} at={byCode('SYD').at} label="SYDNEY" color={day.text} halo={day.land} dot={day.dot} opacity={ramp(frame, F.realName + s(1.5), F.realName + s(2))} />
-                <Pin projection={projection} at={byCode('SCL').at} label="SANTIAGO" color={day.text} halo={day.land} dot={day.dot} opacity={ramp(frame, F.realName + s(1.5), F.realName + s(2))} />
+                <Pin projection={projection} at={byCode('SYD').at} label="Sydney" color={day.text} halo={day.land} dot={day.dot} opacity={ramp(frame, F.realName + s(1.5), F.realName + s(2))} />
+                <Pin projection={projection} at={byCode('SCL').at} label="Santiago" color={day.text} halo={day.land} dot={day.dot} opacity={ramp(frame, F.realName + s(1.5), F.realName + s(2))} />
               </>
             )}
 
@@ -172,9 +173,9 @@ export const Part1: React.FC = () => {
               const o = 1 - ramp(frame, F.europe + s(0.5), F.europe + s(1.2));
               return (
                 <g opacity={o}>
-                  <GeoLine projection={projection} points={crossing} progress={crossT} color={day.text} width={3} />
+                  <GeoLine projection={projection} points={crossing} progress={crossT} color={day.circle} width={4} />
                   {n && p && frame >= F.everyPoint ? (
-                    <line x1={p[0]} y1={p[1]} x2={n[0]} y2={n[1]} stroke={day.text} strokeWidth={2.5} strokeDasharray="8 8" opacity={ramp(frame, F.everyPoint, F.everyPoint + s(0.4))} />
+                    <line x1={p[0]} y1={p[1]} x2={n[0]} y2={n[1]} stroke={day.coral} strokeWidth={3.5} strokeDasharray="10 9" opacity={ramp(frame, F.everyPoint, F.everyPoint + s(0.4))} />
                   ) : null}
                   {worldAirports.filter((a) => geoDistance(a.at, crossPos) <= r90).map((a) => {
                     const q = projection(a.at);
@@ -208,25 +209,26 @@ export const Part1: React.FC = () => {
       )}
       {/* counter "300 people" */}
       {inHook && (
-        <div style={{ position: 'absolute', left: width / 2 + 90, top: height / 2 - 150, opacity: window_(frame, F.people, F.thousands + s(0.6), 6), fontFamily: theme.fontDisplay, color: theme.text }}>
-          <div style={{ fontSize: 120, color: theme.amber, fontFamily: theme.fontSerif }}>{Math.round(interpolate(frame, [F.people, F.people + s(0.8)], [0, 300], { extrapolateRight: 'clamp' }))}</div>
-          <div style={{ fontFamily: theme.fontMono, fontSize: 28, letterSpacing: '0.2em', textTransform: 'uppercase' }}>people on board</div>
+        <div style={{ position: 'absolute', left: width / 2 + 110, top: height / 2 - 170, opacity: window_(frame, F.people, F.thousands + s(0.6), 6), padding: '18px 30px', background: '#f3ecd8', border: `2px solid ${day.text}`, outline: `1.5px solid #f3ecd8`, outlineOffset: 6 }}>
+          <div style={{ fontSize: 110, color: day.text, fontFamily: theme.fontSerif, lineHeight: 1 }}>{Math.round(interpolate(frame, [F.people, F.people + s(0.8)], [0, 300], { extrapolateRight: 'clamp' }))}</div>
+          <Label size={24} color={day.text} style={{ marginTop: 8 }}>people on board</Label>
         </div>
       )}
 
       {/* runway / fire crews / somewhere to go */}
       {inAirports && frame < F.draw + s(2) && (
-        <div style={{ position: 'absolute', left: 70, top: 300, display: 'flex', flexDirection: 'column', gap: 26, padding: 30, borderRadius: 24, background: 'rgba(246,240,226,0.92)', boxShadow: '0 8px 30px rgba(29,35,48,0.15)', opacity: 1 - ramp(frame, F.draw + s(1), F.draw + s(2)) }}>
-          <IconCard light kind="runway" label="A long runway" appear={ramp(frame, F.runway, F.runway + s(0.4))} />
-          <IconCard light kind="fire" label="Fire crews" appear={ramp(frame, F.fire, F.fire + s(0.4))} />
-          <IconCard light kind="terminal" label="Somewhere to go" appear={ramp(frame, F.somewhere, F.somewhere + s(0.4))} />
+        <div style={{ position: 'absolute', right: 56, top: 300, width: 400, padding: '26px 34px', background: '#f3ecd8', border: `2px solid ${day.text}`, outline: `1.5px solid ${day.text}`, outlineOffset: 7, opacity: ramp(frame, F.runway - s(0.6), F.runway) * (1 - ramp(frame, F.draw + s(1), F.draw + s(2))) }}>
+          <Label size={22} color={day.circle}>A diversion airport needs</Label>
+          {[['A long runway', F.runway], ['Fire crews', F.fire], ['Somewhere to go', F.somewhere]].map(([t, at]) => (
+            <div key={t as string} style={{ fontFamily: theme.fontSerif, fontSize: 52, color: day.text, marginTop: 14, opacity: ramp(frame, at as number, (at as number) + s(0.35)) }}>{t as string}</div>
+          ))}
         </div>
       )}
 
       {/* NOWHERE TO GO label */}
       {inAirports && (
-        <div style={{ position: 'absolute', left: 0, right: 0, top: height * 0.5 + 40, textAlign: 'center', fontFamily: theme.fontSerif, fontStyle: 'italic', fontSize: 96, color: day.danger, opacity: ramp(frame, F.nowhere + s(0.3), F.nowhere + s(0.9)), textShadow: `0 0 18px ${day.land}, 0 0 4px ${day.land}` }}>
-          Nowhere to go
+        <div style={{ position: 'absolute', left: 0, right: 0, top: 56, textAlign: 'center', fontFamily: theme.fontSerif, fontSize: 96, color: day.text, opacity: ramp(frame, F.nowhere + s(0.2), F.nowhere + s(0.8)), textShadow: `0 0 22px ${day.bg}, 0 0 8px ${day.bg}` }}>
+          Nowhere to <span style={{ fontStyle: 'italic', color: day.danger }}>go</span>
         </div>
       )}
 
@@ -237,7 +239,14 @@ export const Part1: React.FC = () => {
       </Sequence>
       <Sequence from={F.realName} durationInFrames={s(2)}>
         <NeutralBg beige>
-          <Slam text="ETOPS" color={day.circle} size={240} sub="Extended-range Twin-engine Operations" subColor={day.text} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 110 }}>
+            <svg width={420} height={480} viewBox="-110 -125 220 250">
+              <path d="M0,-115 C9,-108 11,-90 11,-60 L11,-8 L100,40 L100,58 L11,34 L11,78 L42,102 L42,115 L0,104 L-42,115 L-42,102 L-11,78 L-11,34 L-100,58 L-100,40 L-11,-8 L-11,-60 C-11,-90 -9,-108 0,-115 Z" fill="none" stroke={day.text} strokeWidth={4.5} strokeLinejoin="round" />
+              <rect x={30} y={4} width={14} height={34} rx={7} fill={day.circle} stroke={day.text} strokeWidth={3} />
+              <rect x={-44} y={4} width={14} height={34} rx={7} fill={day.circle} stroke={day.text} strokeWidth={3} />
+            </svg>
+            <Slam text="ETOPS" color={day.text} size={200} sub="Extended-range Twin-engine Operations" subColor={day.text} />
+          </div>
         </NeutralBg>
       </Sequence>
       <Sequence from={F.soHow} durationInFrames={F.imagine - F.soHow - s(1.6)}>
@@ -264,8 +273,7 @@ const SplitThenNow: React.FC = () => {
   const panel = (label: string, minutes: number, camera: Camera, sub: string, set = atl) => (
     <div style={{ position: 'relative', width: width / 2, height, overflow: 'hidden', borderRight: `4px solid ${day.bg}` }}>
       <Globe day={1} width={width / 2} height={height} camera={camera} circles={set.map((a) => ({ airport: a, minutes, appear: ramp(frame, fps * 0.3, fps * 1.4) }))} dots={set.map((a) => ({ airport: a, appear: 1 }))} landDim={0.4} />
-      <div style={{ position: 'absolute', top: 60, width: '100%', textAlign: 'center', fontFamily: theme.fontSerif, fontSize: 96, color: day.text }}>{label}</div>
-      <div style={{ position: 'absolute', top: 170, width: '100%', textAlign: 'center', fontFamily: theme.fontMono, fontSize: 30, letterSpacing: '0.18em', textTransform: 'uppercase', color: day.text }}>{sub}</div>
+      <InfoCard head={label} lines={[sub]} width={380} style={{ left: 60, bottom: 70 }} />
     </div>
   );
   return (
