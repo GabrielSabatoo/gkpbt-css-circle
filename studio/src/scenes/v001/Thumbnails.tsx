@@ -39,24 +39,28 @@ export const ThumbA: React.FC = () => (
   </AbsoluteFill>
 );
 
-/** B: paper globe, navy circles, one red uncovered area with the plane inside it. "You can't fly here" */
+/** B: paper globe, navy circles, one red uncovered area with the plane inside it. "Can't fly here" */
 export const ThumbB: React.FC = () => (
   <AbsoluteFill>
-    <Globe width={W} height={H} camera={{ lon: -150, lat: 18, scale: 620 }} day={1}
+    <Globe width={W} height={H} camera={{ lon: -152, lat: 20, scale: 640 }} day={1}
       dots={PAC.map((a) => ({ airport: a, appear: 1 }))} circles={PAC.map((a) => ({ airport: a, minutes: 120, appear: 1 }))}>
       {(p) => {
-        const xy = p([-140, 26])!;
+        const xy = p([-141, 27])!;
         return (
           <>
-            <GapField projection={p} centers={PAC.map((a) => a.at)} minutes={120} bbox={[150, 240, -30, 60]} step={1.6} opacity={1} pulse={1} />
-            <PlaneIcon x={xy[0]} y={xy[1]} size={180} heading={75} />
+            <GapField projection={p} centers={PAC.map((a) => a.at)} minutes={120} bbox={[150, 240, -30, 60]} step={2.4} opacity={0.9} pulse={0.9} />
+            <circle cx={xy[0]} cy={xy[1]} r={150} fill="#f3ecd8" opacity={0.55} />
+            <circle cx={xy[0]} cy={xy[1]} r={150} fill="none" stroke={day.danger} strokeWidth={5} strokeDasharray="14 10" />
+            <PlaneIcon x={xy[0]} y={xy[1]} size={235} heading={75} />
           </>
         );
       }}
     </Globe>
-    <div style={{ position: 'absolute', right: 50, top: 48, textAlign: 'right' }}>
-      <div style={{ ...big(118, day.text), textShadow: '0 3px 0 #f3ecd8' }}>Can't fly</div>
-      <div style={{ ...big(132, day.danger), fontStyle: 'italic', textShadow: '0 3px 0 #f3ecd8' }}>here</div>
+    {/* soft vignette so the corners and text area read */}
+    <AbsoluteFill style={{ background: 'radial-gradient(ellipse at 45% 55%, rgba(0,0,0,0) 55%, rgba(60,45,20,0.28) 100%)' }} />
+    <div style={{ position: 'absolute', right: 44, top: 40, textAlign: 'right' }}>
+      <div style={{ ...big(132, day.text), textShadow: '0 0 18px #f3ecd8, 0 0 6px #f3ecd8' }}>Can't fly</div>
+      <div style={{ ...big(168, day.danger), fontStyle: 'italic', textShadow: '0 0 18px #f3ecd8, 0 0 6px #f3ecd8' }}>here</div>
     </div>
   </AbsoluteFill>
 );
