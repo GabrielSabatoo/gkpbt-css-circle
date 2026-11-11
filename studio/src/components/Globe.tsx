@@ -3,7 +3,7 @@ import { AbsoluteFill } from 'remotion';
 import { geoCircle, geoDistance, geoGraticule10, geoOrthographic, geoPath, GeoProjection } from 'd3-geo';
 import { feature } from 'topojson-client';
 import world from 'world-atlas/land-110m.json';
-import { theme, minutesToDegrees } from '../theme';
+import { day as dayP, mix, theme, minutesToDegrees } from '../theme';
 import { Airport } from '../data/airports';
 
 export const land = feature(world as any, (world as any).objects.land) as any;
@@ -34,10 +34,12 @@ export type GlobeProps = {
   circles?: { airport: Airport; minutes: number; appear: number; danger?: boolean }[];
   /** 0..1 dims the land so only circles read */
   landDim?: number;
+  /** 0 = night palette, 1 = bright day palette */
+  day?: number;
   children?: (projection: GeoProjection) => React.ReactNode;
 };
 
-export const Globe: React.FC<GlobeProps> = ({ width, height, camera, dots = [], circles = [], landDim = 0, children }) => {
+export const Globe: React.FC<GlobeProps> = ({ width, height, camera, dots = [], circles = [], landDim = 0, day = 0, children }) => {
   const projection = useMemo(
     () =>
       geoOrthographic()
@@ -49,9 +51,19 @@ export const Globe: React.FC<GlobeProps> = ({ width, height, camera, dots = [], 
   );
   const path = geoPath(projection);
   const sphere = path({ type: 'Sphere' }) ?? undefined;
+  const C = {
+    bg: mix(theme.bg, dayP.mapBg, day),
+    ocean: mix(theme.ocean, dayP.ocean, day),
+    land: mix(theme.land, dayP.land, day),
+    landEdge: mix(theme.landEdge, dayP.landEdge, day),
+    circle: mix(theme.amber, dayP.circle, day),
+    dot: mix(theme.amber, dayP.dot, day),
+    text: mix(theme.text, dayP.text, day),
+    danger: mix(theme.danger, dayP.danger, day),
+  };
 
   return (
-    <AbsoluteFill style={{ backgroundColor: theme.bg }}>
+    <AbsoluteFill style={{ backgroundColor: C.bg }}>
       <svg width={width} height={height}>
         <defs>
           <radialGradient id="glow" cx="50%" cy="50%" r="50%">
@@ -59,14 +71,14 @@ export const Globe: React.FC<GlobeProps> = ({ width, height, camera, dots = [], 
             <stop offset="100%" stopColor="rgba(80,120,220,0.18)" />
           </radialGradient>
         </defs>
-        <path d={sphere} fill={theme.ocean} />
-        <path d={path(graticule) ?? undefined} fill="none" stroke={theme.graticule} strokeWidth={1} />
+        <path d={sphere} fill={C.ocean} />
+        <path d={path(graticule) ?? undefined} fill="none" stroke={day > 0.5 ? dayP.graticule : theme.graticule} strokeWidth={1} />
         <path
           d={path(land) ?? undefined}
-          fill={theme.land}
-          stroke={theme.landEdge}
+          fill={C.land}
+          stroke={C.landEdge}
           strokeWidth={1}
-          opacity={1 - landDim * 0.75}
+          opacity={1 - landDim * (day > 0.5 ? 0.35 : 0.75)}
         />
         {(() => {
           // Fills are drawn opaque inside one group and the group is made translucent,
@@ -81,10 +93,10 @@ export const Globe: React.FC<GlobeProps> = ({ width, height, camera, dots = [], 
           return (
             <>
               {/* one combined path per colour: overlaps merge, and it is one shape to draw */}
-              <path d={shapes.filter((s) => !s.c.danger).map((s) => s.d).join('')} fill={theme.amber} opacity={0.13 * fillOpacity} />
-              <path d={shapes.filter((s) => s.c.danger).map((s) => s.d).join('')} fill={theme.danger} opacity={0.22 * fillOpacity} />
+              <path d={shapes.filter((s) => !s.c.danger).map((s) => s.d).join('')} fill={C.circle} opacity={(day > 0.5 ? 0.16 : 0.13) * fillOpacity} />
+              <path d={shapes.filter((s) => s.c.danger).map((s) => s.d).join('')} fill={C.danger} opacity={0.22 * fillOpacity} />
               {shapes.map((s, i) => (
-                <path key={`s${i}`} d={s.d} fill="none" stroke={s.c.danger ? theme.danger : theme.amber} strokeWidth={s.c.danger ? 2.5 : 1.6} opacity={Math.min(1, s.c.appear * 1.5) * (shapes.length > 30 ? 0.55 : 0.9)} />
+                <path key={`s${i}`} d={s.d} fill="none" stroke={s.c.danger ? C.danger : C.circle} strokeWidth={s.c.danger ? 2.5 : day > 0.5 ? 2 : 1.6} opacity={Math.min(1, s.c.appear * 1.5) * (shapes.length > 30 ? 0.55 : 0.9)} />
               ))}
             </>
           );
@@ -95,17 +107,17 @@ export const Globe: React.FC<GlobeProps> = ({ width, height, camera, dots = [], 
           if (!p || !visible || d.appear <= 0) return null;
           return (
             <g key={`d${i}`} opacity={d.appear}>
-              <circle cx={p[0]} cy={p[1]} r={10 * (1 - d.appear) + 4} fill="none" stroke={theme.amber} strokeWidth={1.5} opacity={1 - d.appear} />
-              <circle cx={p[0]} cy={p[1]} r={4} fill={theme.amber} />
+              <circle cx={p[0]} cy={p[1]} r={10 * (1 - d.appear) + 4} fill="none" stroke={C.dot} strokeWidth={1.5} opacity={1 - d.appear} />
+              <circle cx={p[0]} cy={p[1]} r={4} fill={C.dot} />
               {d.label ? (
-                <text x={p[0] + 10} y={p[1] + 5} fill={theme.text} fontFamily={theme.fontBody} fontSize={20} fontWeight={600}>
+                <text x={p[0] + 10} y={p[1] + 5} fill={C.text} fontFamily={theme.fontBody} fontSize={20} fontWeight={600}>
                   {d.airport.name}
                 </text>
               ) : null}
             </g>
           );
         })}
-        <path d={sphere} fill="url(#glow)" stroke="rgba(120,160,240,0.25)" strokeWidth={1.5} />
+        <path d={sphere} fill={day > 0.5 ? 'none' : 'url(#glow)'} stroke={day > 0.5 ? dayP.landEdge : 'rgba(120,160,240,0.25)'} strokeWidth={1.5} />
         {children?.(projection)}
       </svg>
     </AbsoluteFill>

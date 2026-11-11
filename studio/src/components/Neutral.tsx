@@ -1,13 +1,15 @@
 import React from 'react';
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
-import { theme } from '../theme';
+import { day, theme } from '../theme';
 
-export const NeutralBg: React.FC<{ children?: React.ReactNode; opacity?: number }> = ({ children, opacity = 1 }) => (
+export const NeutralBg: React.FC<{ children?: React.ReactNode; opacity?: number; beige?: boolean }> = ({ children, opacity = 1, beige = false }) => (
   <AbsoluteFill
     style={{
       opacity,
-      backgroundColor: theme.bg,
-      backgroundImage: 'radial-gradient(ellipse at center, rgba(40,60,110,0.38) 0%, rgba(6,11,24,1) 72%)',
+      backgroundColor: beige ? day.bg : theme.bg,
+      backgroundImage: beige
+        ? 'radial-gradient(ellipse at center, rgba(255,255,255,0.35) 0%, rgba(0,0,0,0.05) 80%)'
+        : 'radial-gradient(ellipse at center, rgba(60,90,130,0.35) 0%, rgba(20,34,54,1) 72%)',
       justifyContent: 'center',
       alignItems: 'center',
     }}
@@ -37,20 +39,20 @@ export const Words: React.FC<{ words: string[]; every?: number; size?: number; c
 };
 
 /** Big word that slams in (scale from 1.4 → 1). */
-export const Slam: React.FC<{ text: string; size?: number; color?: string; sub?: string }> = ({ text, size = 220, color = theme.amber, sub }) => {
+export const Slam: React.FC<{ text: React.ReactNode; size?: number; color?: string; sub?: string; subColor?: string }> = ({ text, size = 220, color = theme.amber, sub, subColor = theme.textMuted }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const s = spring({ frame, fps, config: { damping: 14, stiffness: 180 } });
   return (
     <div style={{ textAlign: 'center' }}>
       <div style={{ fontFamily: theme.fontDisplay, fontSize: size, color, transform: `scale(${interpolate(s, [0, 1], [1.4, 1])})`, opacity: Math.min(1, s * 1.4), letterSpacing: '0.04em' }}>{text}</div>
-      {sub ? <div style={{ fontFamily: theme.fontBody, fontSize: 40, color: theme.textMuted, marginTop: 10, opacity: s }}>{sub}</div> : null}
+      {sub ? <div style={{ fontFamily: theme.fontMono, fontSize: 34, letterSpacing: '0.18em', textTransform: 'uppercase', color: subColor, marginTop: 18, opacity: s }}>{sub}</div> : null}
     </div>
   );
 };
 
 /** Small icon card (runway, fire, terminal) */
-export const IconCard: React.FC<{ kind: 'runway' | 'fire' | 'terminal'; label: string; appear: number }> = ({ kind, label, appear }) => (
+export const IconCard: React.FC<{ kind: 'runway' | 'fire' | 'terminal'; label: string; appear: number; light?: boolean }> = ({ kind, label, appear, light = false }) => (
   <div style={{ display: 'flex', alignItems: 'center', gap: 18, opacity: appear, transform: `translateX(${(1 - appear) * 40}px)` }}>
     <svg width={70} height={70} viewBox="0 0 70 70">
       <rect x={1} y={1} width={68} height={68} rx={16} fill="rgba(255,181,71,0.12)" stroke={theme.amber} strokeWidth={2} />
@@ -71,6 +73,6 @@ export const IconCard: React.FC<{ kind: 'runway' | 'fire' | 'terminal'; label: s
         </g>
       )}
     </svg>
-    <span style={{ fontFamily: theme.fontBody, fontWeight: 700, fontSize: 36, color: theme.text }}>{label}</span>
+    <span style={{ fontFamily: theme.fontMono, fontSize: 30, letterSpacing: '0.12em', textTransform: 'uppercase', color: light ? day.text : theme.text }}>{label}</span>
   </div>
 );

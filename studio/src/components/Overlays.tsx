@@ -6,22 +6,23 @@ import { isFront } from './Globe';
 type LL = [number, number];
 
 /** Top-down airliner. `engines` lists engine states (true = running). */
-export const PlaneIcon: React.FC<{ x: number; y: number; size?: number; heading?: number; engineOut?: boolean; glow?: number }> = ({
-  x, y, size = 46, heading = 0, engineOut = false, glow = 0,
+export const PlaneIcon: React.FC<{ x: number; y: number; size?: number; heading?: number; engineOut?: boolean; glow?: number; color?: string; outline?: string }> = ({
+  x, y, size = 46, heading = 0, engineOut = false, glow = 0, color = '#16181d', outline = '#f6f0e2',
 }) => {
   const s = size / 100;
+  const body = { fill: color, stroke: outline, strokeWidth: 3, strokeLinejoin: 'round' as const };
   return (
     <g transform={`translate(${x},${y}) rotate(${heading}) scale(${s})`}>
-      {glow > 0 ? <circle r={70} fill={theme.amber} opacity={0.18 * glow} /> : null}
+      {glow > 0 ? <circle r={75} fill={theme.amber} opacity={0.35 * glow} /> : null}
       {/* fuselage */}
-      <path d="M0,-50 C6,-46 7,-36 7,-20 L7,30 L0,48 L-7,30 L-7,-20 C-7,-36 -6,-46 0,-50 Z" fill={theme.amber} />
+      <path d="M0,-50 C6,-46 7,-36 7,-20 L7,30 L0,48 L-7,30 L-7,-20 C-7,-36 -6,-46 0,-50 Z" {...body} />
       {/* wings */}
-      <path d="M7,-6 L50,14 L50,22 L7,12 Z M-7,-6 L-50,14 L-50,22 L-7,12 Z" fill={theme.amber} />
+      <path d="M7,-6 L50,14 L50,22 L7,12 Z M-7,-6 L-50,14 L-50,22 L-7,12 Z" {...body} />
       {/* tail */}
-      <path d="M5,30 L20,42 L20,47 L3,42 Z M-5,30 L-20,42 L-20,47 L-3,42 Z" fill={theme.amber} />
+      <path d="M5,30 L20,42 L20,47 L3,42 Z M-5,30 L-20,42 L-20,47 L-3,42 Z" {...body} />
       {/* engines */}
-      <rect x={20} y={2} width={7} height={16} rx={3} fill={theme.bg} stroke={theme.amber} strokeWidth={2} />
-      <rect x={-27} y={2} width={7} height={16} rx={3} fill={engineOut ? theme.danger : theme.bg} stroke={engineOut ? theme.danger : theme.amber} strokeWidth={2} />
+      <rect x={20} y={2} width={7} height={16} rx={3} fill={color} stroke={outline} strokeWidth={2} />
+      <rect x={-27} y={2} width={7} height={16} rx={3} fill={engineOut ? theme.danger : color} stroke={engineOut ? theme.danger : outline} strokeWidth={2} />
     </g>
   );
 };
@@ -63,16 +64,16 @@ export const headingAt = (projection: GeoProjection, points: LL[], t: number) =>
   return (Math.atan2(b[1] - a[1], b[0] - a[0]) * 180) / Math.PI + 90;
 };
 
-export const Pin: React.FC<{ projection: GeoProjection; at: LL; label?: string; opacity?: number; color?: string; size?: number }> = ({
-  projection, at, label, opacity = 1, color = theme.text, size = 26,
+export const Pin: React.FC<{ projection: GeoProjection; at: LL; label?: string; opacity?: number; color?: string; size?: number; halo?: string; dot?: string }> = ({
+  projection, at, label, opacity = 1, color = theme.text, size = 26, halo = theme.bg, dot = theme.amber,
 }) => {
   const p = projection(at);
   if (!p || !isFront(projection, at) || opacity <= 0) return null;
   return (
     <g opacity={opacity}>
-      <circle cx={p[0]} cy={p[1]} r={6} fill={theme.amber} />
+      <circle cx={p[0]} cy={p[1]} r={6} fill={dot} />
       {label ? (
-        <text x={p[0] + 14} y={p[1] - 12} fill={color} fontFamily={theme.fontBody} fontWeight={700} fontSize={size} style={{ paintOrder: 'stroke' }} stroke={theme.bg} strokeWidth={6}>
+        <text x={p[0] + 14} y={p[1] - 12} fill={color} fontFamily={theme.fontBody} fontWeight={700} fontSize={size} style={{ paintOrder: 'stroke' }} stroke={halo} strokeWidth={6}>
           {label}
         </text>
       ) : null}

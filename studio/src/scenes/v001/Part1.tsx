@@ -7,7 +7,8 @@ import { IconCard, NeutralBg, Slam, Words } from '../../components/Neutral';
 import { airports, byCode, worldAirports } from '../../data/airports';
 import { keyed, ramp, window_ } from '../../anim';
 import { makeCues } from '../../cues';
-import { minutesToDegrees, theme } from '../../theme';
+import { day, minutesToDegrees, theme } from '../../theme';
+import { PilotJoke } from '../../components/Pilot';
 import words from '../../data/v001/words.json';
 
 type LL = [number, number];
@@ -52,7 +53,9 @@ export const Part1: React.FC = () => {
   };
 
   // ---- camera ----
-  const plane: LL = [-150, 31];
+  const plane: LL = [-150, 31]; // camera target
+  const drift = ramp(frame, F.twoEngines, F.pilots, (t) => t);
+  const planePos: LL = [plane[0] - 2.4 * drift, plane[1] + 1.4 * drift]; // slow forward motion
   const HNL = byCode('HNL').at;
   const camera = keyed<Camera>(frame, [
     [0, { lon: -95, lat: 18, scale: 330 }],
@@ -119,20 +122,21 @@ export const Part1: React.FC = () => {
   const nearest = worldAirports.reduce((best, a) => (geoDistance(a.at, crossPos) < geoDistance(best.at, crossPos) ? a : best), worldAirports[0]);
 
   const pulse = 0.5 + 0.5 * Math.sin((frame / fps) * Math.PI * 2.5);
+  const isDay = frame >= F.realName ? 1 : 0;
 
   return (
-    <AbsoluteFill style={{ backgroundColor: theme.bg }}>
-      <Globe width={width} height={height} camera={camera} dots={dots} circles={circles} landDim={inAirports ? ramp(frame, F.those, F.those + s(1.5)) * 0.85 : 0}>
+    <AbsoluteFill style={{ backgroundColor: isDay ? day.mapBg : theme.bg }}>
+      <Globe width={width} height={height} camera={camera} dots={dots} circles={circles} day={isDay} landDim={inAirports ? ramp(frame, F.those, F.those + s(1.5)) * 0.85 : 0}>
         {(projection) => (
           <>
             {/* HOOK: the plane over the Pacific */}
             {inHook && (() => {
-              const p = projection(plane);
+              const p = projection(planePos);
               if (!p) return null;
               return (
                 <>
-                  <PlaneIcon x={p[0]} y={p[1]} size={interpolate(camera.scale, [300, 2600], [26, 120])} heading={-60} glow={ramp(frame, F.twoEngines, F.twoEngines + s(0.6))} />
-                  <Ruler projection={projection} a={plane} b={[-124.2, 40.8]} label="≈ 2,500 km to land" progress={ramp(frame, F.thousands + s(1.6), F.thousands + s(3))} />
+                  <PlaneIcon x={p[0]} y={p[1]} size={interpolate(camera.scale, [300, 2600], [26, 120])} heading={-60} glow={0.6 + 0.4 * ramp(frame, F.twoEngines, F.twoEngines + s(0.6))} />
+                  <Ruler projection={projection} a={planePos} b={[-124.2, 40.8]} label="≈ 2,500 km to land" progress={ramp(frame, F.thousands + s(1.6), F.thousands + s(3))} />
                 </>
               );
             })()}
@@ -140,10 +144,10 @@ export const Part1: React.FC = () => {
             {/* straight line vs actual route */}
             {inRoute && (
               <>
-                <GeoLine projection={projection} points={[byCode('SYD').at, byCode('SCL').at]} progress={ramp(frame, F.straight - s(1), F.straight + s(0.6))} color={theme.text} dashed width={3} opacity={0.8} />
-                <GeoLine projection={projection} points={[byCode('SYD').at, [-178, -30], [-140, -28], [-105, -32], byCode('SCL').at]} progress={ramp(frame, F.straight + s(0.4), F.straight + s(1.8))} />
-                <Pin projection={projection} at={byCode('SYD').at} label="Sydney" opacity={ramp(frame, F.realName + s(1.5), F.realName + s(2))} />
-                <Pin projection={projection} at={byCode('SCL').at} label="Santiago" opacity={ramp(frame, F.realName + s(1.5), F.realName + s(2))} />
+                <GeoLine projection={projection} points={[byCode('SYD').at, byCode('SCL').at]} progress={ramp(frame, F.straight - s(1), F.straight + s(0.6))} color={day.text} dashed width={3} opacity={0.7} />
+                <GeoLine projection={projection} points={[byCode('SYD').at, [-178, -30], [-140, -28], [-105, -32], byCode('SCL').at]} progress={ramp(frame, F.straight + s(0.4), F.straight + s(1.8))} color={day.circle} width={5} />
+                <Pin projection={projection} at={byCode('SYD').at} label="SYDNEY" color={day.text} halo={day.land} dot={day.dot} opacity={ramp(frame, F.realName + s(1.5), F.realName + s(2))} />
+                <Pin projection={projection} at={byCode('SCL').at} label="SANTIAGO" color={day.text} halo={day.land} dot={day.dot} opacity={ramp(frame, F.realName + s(1.5), F.realName + s(2))} />
               </>
             )}
 
@@ -154,9 +158,9 @@ export const Part1: React.FC = () => {
               const o = ramp(frame, F.island + s(1.2), F.island + s(1.8)) * (1 - ramp(frame, F.reason + s(1), F.reason + s(1.6)));
               return (
                 <g opacity={o}>
-                  <circle cx={p[0]} cy={p[1]} r={14 + 10 * pulse} fill="none" stroke={theme.amber} strokeWidth={3} />
-                  <circle cx={p[0]} cy={p[1]} r={7} fill={theme.amber} />
-                  <text x={p[0]} y={p[1] - 50} textAnchor="middle" fill={theme.amber} fontFamily={theme.fontDisplay} fontSize={110}>?</text>
+                  <circle cx={p[0]} cy={p[1]} r={14 + 10 * pulse} fill="none" stroke={day.dot} strokeWidth={3} />
+                  <circle cx={p[0]} cy={p[1]} r={7} fill={day.dot} />
+                  <text x={p[0]} y={p[1] - 50} textAnchor="middle" fill={day.text} fontFamily={theme.fontSerif} fontStyle="italic" fontSize={120}>?</text>
                 </g>
               );
             })()}
@@ -168,13 +172,13 @@ export const Part1: React.FC = () => {
               const o = 1 - ramp(frame, F.europe + s(0.5), F.europe + s(1.2));
               return (
                 <g opacity={o}>
-                  <GeoLine projection={projection} points={crossing} progress={crossT} />
+                  <GeoLine projection={projection} points={crossing} progress={crossT} color={day.text} width={3} />
                   {n && p && frame >= F.everyPoint ? (
-                    <line x1={p[0]} y1={p[1]} x2={n[0]} y2={n[1]} stroke={theme.text} strokeWidth={2.5} strokeDasharray="8 8" opacity={ramp(frame, F.everyPoint, F.everyPoint + s(0.4))} />
+                    <line x1={p[0]} y1={p[1]} x2={n[0]} y2={n[1]} stroke={day.text} strokeWidth={2.5} strokeDasharray="8 8" opacity={ramp(frame, F.everyPoint, F.everyPoint + s(0.4))} />
                   ) : null}
                   {worldAirports.filter((a) => geoDistance(a.at, crossPos) <= r90).map((a) => {
                     const q = projection(a.at);
-                    return q ? <circle key={a.code} cx={q[0]} cy={q[1]} r={12} fill="none" stroke={theme.amber} strokeWidth={4} /> : null;
+                    return q ? <circle key={a.code} cx={q[0]} cy={q[1]} r={12} fill="none" stroke={day.dot} strokeWidth={4} /> : null;
                   })}
                   {p ? <PlaneIcon x={p[0]} y={p[1]} size={40} heading={headingAt(projection, crossing, crossT)} /> : null}
                 </g>
@@ -205,54 +209,43 @@ export const Part1: React.FC = () => {
       {/* counter "300 people" */}
       {inHook && (
         <div style={{ position: 'absolute', left: width / 2 + 90, top: height / 2 - 150, opacity: window_(frame, F.people, F.thousands + s(0.6), 6), fontFamily: theme.fontDisplay, color: theme.text }}>
-          <div style={{ fontSize: 110, color: theme.amber }}>{Math.round(interpolate(frame, [F.people, F.people + s(0.8)], [0, 300], { extrapolateRight: 'clamp' }))}</div>
-          <div style={{ fontFamily: theme.fontBody, fontWeight: 700, fontSize: 34 }}>people on board</div>
+          <div style={{ fontSize: 120, color: theme.amber, fontFamily: theme.fontSerif }}>{Math.round(interpolate(frame, [F.people, F.people + s(0.8)], [0, 300], { extrapolateRight: 'clamp' }))}</div>
+          <div style={{ fontFamily: theme.fontMono, fontSize: 28, letterSpacing: '0.2em', textTransform: 'uppercase' }}>people on board</div>
         </div>
       )}
 
       {/* runway / fire crews / somewhere to go */}
       {inAirports && frame < F.draw + s(2) && (
-        <div style={{ position: 'absolute', left: 70, top: 300, display: 'flex', flexDirection: 'column', gap: 26, padding: 30, borderRadius: 24, background: 'rgba(6,11,24,0.72)', opacity: 1 - ramp(frame, F.draw + s(1), F.draw + s(2)) }}>
-          <IconCard kind="runway" label="A long runway" appear={ramp(frame, F.runway, F.runway + s(0.4))} />
-          <IconCard kind="fire" label="Fire crews" appear={ramp(frame, F.fire, F.fire + s(0.4))} />
-          <IconCard kind="terminal" label="Somewhere to go" appear={ramp(frame, F.somewhere, F.somewhere + s(0.4))} />
+        <div style={{ position: 'absolute', left: 70, top: 300, display: 'flex', flexDirection: 'column', gap: 26, padding: 30, borderRadius: 24, background: 'rgba(246,240,226,0.92)', boxShadow: '0 8px 30px rgba(29,35,48,0.15)', opacity: 1 - ramp(frame, F.draw + s(1), F.draw + s(2)) }}>
+          <IconCard light kind="runway" label="A long runway" appear={ramp(frame, F.runway, F.runway + s(0.4))} />
+          <IconCard light kind="fire" label="Fire crews" appear={ramp(frame, F.fire, F.fire + s(0.4))} />
+          <IconCard light kind="terminal" label="Somewhere to go" appear={ramp(frame, F.somewhere, F.somewhere + s(0.4))} />
         </div>
       )}
 
       {/* NOWHERE TO GO label */}
       {inAirports && (
-        <div style={{ position: 'absolute', left: 0, right: 0, top: height * 0.5 + 40, textAlign: 'center', fontFamily: theme.fontDisplay, fontSize: 84, color: theme.danger, opacity: ramp(frame, F.nowhere + s(0.3), F.nowhere + s(0.9)), textShadow: '0 4px 30px rgba(0,0,0,0.8)' }}>
-          NOWHERE TO GO
+        <div style={{ position: 'absolute', left: 0, right: 0, top: height * 0.5 + 40, textAlign: 'center', fontFamily: theme.fontSerif, fontStyle: 'italic', fontSize: 96, color: day.danger, opacity: ramp(frame, F.nowhere + s(0.3), F.nowhere + s(0.9)), textShadow: `0 0 18px ${day.land}, 0 0 4px ${day.land}` }}>
+          Nowhere to go
         </div>
       )}
 
-      {/* "Illustrative" tag on circle maps */}
-      {(inAirports || inWorld) && (
-        <div style={{ position: 'absolute', bottom: 34, left: 56, color: theme.textMuted, fontFamily: theme.fontBody, fontSize: 20, opacity: 0.75 }}>Illustrative circles</div>
-      )}
 
       {/* ---------- neutral-background moments ---------- */}
-      <Sequence from={F.pilots} durationInFrames={F.etopsPhrase - F.pilots}>
-        <NeutralBg>
-          <Words words={['A', "pilot's", 'dark', 'joke']} hi={[2, 3]} every={6} size={104} />
-        </NeutralBg>
-      </Sequence>
-      <Sequence from={F.etopsPhrase} durationInFrames={F.realName - F.etopsPhrase}>
-        <NeutralBg>
-          <Words words={['Engines', 'Turn,', 'Or', 'Passengers', 'Swim']} color={theme.amber} every={7} size={112} />
-        </NeutralBg>
+      <Sequence from={F.pilots} durationInFrames={F.realName - F.pilots}>
+        <PilotJoke zoomOutAt={s(0.9)} balloonAt={c.at('They say') - F.pilots} phraseAt={F.etopsPhrase - F.pilots} phrase={['Engines', 'turn,', 'or', 'passengers', 'swim!']} />
       </Sequence>
       <Sequence from={F.realName} durationInFrames={s(2)}>
-        <NeutralBg>
-          <Slam text="ETOPS" sub="Extended-range Twin-engine Operations" />
+        <NeutralBg beige>
+          <Slam text="ETOPS" color={day.circle} size={240} sub="Extended-range Twin-engine Operations" subColor={day.text} />
         </NeutralBg>
       </Sequence>
       <Sequence from={F.soHow} durationInFrames={F.imagine - F.soHow - s(1.6)}>
         <SplitThenNow />
       </Sequence>
       <Sequence from={F.imagine - s(1.6)} durationInFrames={s(1.6)}>
-        <NeutralBg>
-          <Slam text="THE INVISIBLE CIRCLES" size={120} color={theme.text} />
+        <NeutralBg beige>
+          <Slam text={<>The invisible <span style={{ fontStyle: 'italic', color: day.circle }}>circles</span></>} size={150} color={day.text} />
         </NeutralBg>
       </Sequence>
       <Sequence from={F.howFar} durationInFrames={F.those - F.howFar}>
@@ -269,10 +262,10 @@ const SplitThenNow: React.FC = () => {
   const atl = ['BOS', 'JFK', 'YYT', 'YQX', 'BGSF', 'KEF', 'SNN', 'LHR', 'CDG', 'LIS', 'TER', 'BDA'].map(byCode);
   const today = ['JFK', 'LHR', 'KEF'].map(byCode);
   const panel = (label: string, minutes: number, camera: Camera, sub: string, set = atl) => (
-    <div style={{ position: 'relative', width: width / 2, height, overflow: 'hidden', borderRight: `2px solid ${theme.landEdge}` }}>
-      <Globe width={width / 2} height={height} camera={camera} circles={set.map((a) => ({ airport: a, minutes, appear: ramp(frame, fps * 0.3, fps * 1.4) }))} dots={set.map((a) => ({ airport: a, appear: 1 }))} landDim={0.4} />
-      <div style={{ position: 'absolute', top: 60, width: '100%', textAlign: 'center', fontFamily: theme.fontDisplay, fontSize: 90, color: theme.text }}>{label}</div>
-      <div style={{ position: 'absolute', top: 170, width: '100%', textAlign: 'center', fontFamily: theme.fontBody, fontWeight: 700, fontSize: 34, color: theme.amber }}>{sub}</div>
+    <div style={{ position: 'relative', width: width / 2, height, overflow: 'hidden', borderRight: `4px solid ${day.bg}` }}>
+      <Globe day={1} width={width / 2} height={height} camera={camera} circles={set.map((a) => ({ airport: a, minutes, appear: ramp(frame, fps * 0.3, fps * 1.4) }))} dots={set.map((a) => ({ airport: a, appear: 1 }))} landDim={0.4} />
+      <div style={{ position: 'absolute', top: 60, width: '100%', textAlign: 'center', fontFamily: theme.fontSerif, fontSize: 96, color: day.text }}>{label}</div>
+      <div style={{ position: 'absolute', top: 170, width: '100%', textAlign: 'center', fontFamily: theme.fontMono, fontSize: 30, letterSpacing: '0.18em', textTransform: 'uppercase', color: day.text }}>{sub}</div>
     </div>
   );
   return (
@@ -288,19 +281,19 @@ const Formula: React.FC<{ oneEngineAt: number; stillAirAt: number }> = ({ oneEng
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const part = (i: number) => ramp(frame, i * fps * 0.45, i * fps * 0.45 + 8);
-  const item = (text: string, i: number, color = theme.text) => (
+  const item = (text: string, i: number, color: string = day.text) => (
     <span style={{ opacity: part(i), transform: `translateY(${(1 - part(i)) * 24}px)`, display: 'inline-block', color }}>{text}</span>
   );
   return (
-    <NeutralBg>
-      <div style={{ fontFamily: theme.fontDisplay, fontSize: 84, display: 'flex', gap: 36, alignItems: 'center' }}>
-        {item('TIME', 0)} {item('×', 1, theme.textMuted)} {item('ONE-ENGINE SPEED', 2, theme.amber)} {item('=', 3, theme.textMuted)} {item('RADIUS', 4)}
+    <NeutralBg beige>
+      <div style={{ fontFamily: theme.fontSerif, fontSize: 88, display: 'flex', gap: 36, alignItems: 'center' }}>
+        {item('Time', 0)} {item('×', 1, day.textMuted)} {item('one-engine speed', 2, day.circle)} {item('=', 3, day.textMuted)} {item('radius', 4)}
       </div>
       <div style={{ position: 'absolute', bottom: 210, display: 'flex', gap: 120, alignItems: 'center' }}>
         <svg width={220} height={220} viewBox="-110 -110 220 220" style={{ opacity: ramp(frame, oneEngineAt, oneEngineAt + 8) }}>
           <PlaneIcon x={0} y={0} size={190} engineOut />
         </svg>
-        <div style={{ fontFamily: theme.fontBody, fontWeight: 700, fontSize: 40, color: theme.textMuted, opacity: ramp(frame, stillAirAt, stillAirAt + 8) }}>
+        <div style={{ fontFamily: theme.fontMono, fontSize: 34, letterSpacing: '0.15em', textTransform: 'uppercase', color: day.textMuted, opacity: ramp(frame, stillAirAt, stillAirAt + 8) }}>
           <span style={{ textDecoration: 'line-through' }}>wind</span> → still air
         </div>
       </div>
@@ -312,13 +305,13 @@ const Formula: React.FC<{ oneEngineAt: number; stillAirAt: number }> = ({ oneEng
 const Clock: React.FC<{ hours: number }> = ({ hours }) => {
   const a = ((hours % 1) * 360 * Math.PI) / 180;
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 20, padding: '16px 26px', borderRadius: 20, background: 'rgba(6,11,24,0.75)', border: `2px solid ${theme.landEdge}` }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 20, padding: '16px 26px', borderRadius: 20, background: 'rgba(20,34,54,0.8)', border: `2px solid ${theme.landEdge}` }}>
       <svg width={80} height={80} viewBox="-40 -40 80 80">
         <circle r={34} fill="none" stroke={theme.amber} strokeWidth={4} />
         <line x1={0} y1={0} x2={Math.sin(a) * 26} y2={-Math.cos(a) * 26} stroke={theme.amber} strokeWidth={4} strokeLinecap="round" />
         <circle r={4} fill={theme.amber} />
       </svg>
-      <div style={{ fontFamily: theme.fontDisplay, fontSize: 56, color: theme.text }}>{Math.floor(hours)} h</div>
+      <div style={{ fontFamily: theme.fontSerif, fontSize: 60, color: theme.text }}>{Math.floor(hours)} h</div>
     </div>
   );
 };
