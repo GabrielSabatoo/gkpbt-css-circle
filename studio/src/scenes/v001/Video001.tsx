@@ -8,7 +8,7 @@ import { useCues } from './shared';
 import { day } from '../../theme';
 
 /** Full video 001. Each part draws only during its own time range (absolute frames). */
-export const Video001: React.FC<{ audio?: string }> = ({ audio = 'audio/001-narration.wav' }) => {
+export const Video001: React.FC<{ audio?: string }> = ({ audio = 'audio/001-final-mix.wav' }) => {
   const frame = useCurrentFrame();
   const c = useCues();
   const p2 = c.at('The story begins');
