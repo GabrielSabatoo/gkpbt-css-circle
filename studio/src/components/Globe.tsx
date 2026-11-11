@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { AbsoluteFill } from 'remotion';
-import { geoCircle, geoGraticule10, geoOrthographic, geoPath, GeoProjection } from 'd3-geo';
+import { geoCircle, geoDistance, geoGraticule10, geoOrthographic, geoPath, GeoProjection } from 'd3-geo';
 import { feature } from 'topojson-client';
 import world from 'world-atlas/land-110m.json';
 import { theme, minutesToDegrees } from '../theme';
@@ -8,6 +8,19 @@ import { Airport } from '../data/airports';
 
 export const land = feature(world as any, (world as any).objects.land) as any;
 const graticule = geoGraticule10();
+
+// Circle polygons are cached by centre and (rounded) radius; only the projection changes per frame.
+const circleCache = new Map<string, any>();
+const circleGeom = (at: [number, number], radius: number) => {
+  const key = `${at[0]},${at[1]},${radius.toFixed(2)}`;
+  let g = circleCache.get(key);
+  if (!g) {
+    g = geoCircle().center(at).radius(radius).precision(4)();
+    if (circleCache.size > 20000) circleCache.clear();
+    circleCache.set(key, g);
+  }
+  return g;
+};
 
 export type Camera = { lon: number; lat: number; scale: number; roll?: number };
 
@@ -58,18 +71,18 @@ export const Globe: React.FC<GlobeProps> = ({ width, height, camera, dots = [], 
         {(() => {
           // Fills are drawn opaque inside one group and the group is made translucent,
           // so overlapping circles merge into one even area instead of stacking up.
+          // Skip circles entirely on the far side of the globe.
+          const center: [number, number] = [camera.lon, camera.lat];
           const shapes = circles
             .filter((c) => c.appear > 0)
-            .map((c) => ({ c, d: path(geoCircle().center(c.airport.at).radius(minutesToDegrees(c.minutes) * Math.max(0.001, c.appear))()) ?? undefined }));
+            .filter((c) => (geoDistance(center, c.airport.at) * 180) / Math.PI < 90 + minutesToDegrees(c.minutes) * c.appear)
+            .map((c) => ({ c, d: path(circleGeom(c.airport.at, minutesToDegrees(c.minutes) * Math.max(0.001, c.appear))) ?? '' }));
           const fillOpacity = Math.min(1, Math.max(0, ...shapes.map((s) => s.c.appear)) * 1.5);
           return (
             <>
-              <g opacity={0.13 * fillOpacity}>
-                {shapes.filter((s) => !s.c.danger).map((s, i) => <path key={`f${i}`} d={s.d} fill={theme.amber} />)}
-              </g>
-              <g opacity={0.22 * fillOpacity}>
-                {shapes.filter((s) => s.c.danger).map((s, i) => <path key={`fd${i}`} d={s.d} fill={theme.danger} />)}
-              </g>
+              {/* one combined path per colour: overlaps merge, and it is one shape to draw */}
+              <path d={shapes.filter((s) => !s.c.danger).map((s) => s.d).join('')} fill={theme.amber} opacity={0.13 * fillOpacity} />
+              <path d={shapes.filter((s) => s.c.danger).map((s) => s.d).join('')} fill={theme.danger} opacity={0.22 * fillOpacity} />
               {shapes.map((s, i) => (
                 <path key={`s${i}`} d={s.d} fill="none" stroke={s.c.danger ? theme.danger : theme.amber} strokeWidth={s.c.danger ? 2.5 : 1.6} opacity={Math.min(1, s.c.appear * 1.5) * (shapes.length > 30 ? 0.55 : 0.9)} />
               ))}

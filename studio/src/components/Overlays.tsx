@@ -116,16 +116,21 @@ export const GapField: React.FC<{
   projection: GeoProjection; centers: LL[]; minutes: number; bbox: [number, number, number, number]; step?: number; opacity?: number; pulse?: number;
 }> = ({ projection, centers, minutes, bbox, step = 1.1, opacity = 1, pulse = 0 }) => {
   if (opacity <= 0) return null;
-  const r = (minutesToDegrees(minutes) * Math.PI) / 180;
-  const pts = oceanGrid(bbox[0], bbox[1], bbox[2], bbox[3], step);
-  return (
-    <g opacity={opacity}>
-      {pts.map((p, i) => {
-        if (centers.some((c) => geoDistance(p, c) <= r)) return null;
-        const xy = projection(p);
-        if (!xy || !isFront(projection, p)) return null;
-        return <circle key={i} cx={xy[0]} cy={xy[1]} r={4 + 2 * pulse} fill={theme.danger} opacity={0.55 + 0.35 * pulse} />;
-      })}
-    </g>
-  );
+  // Uncovered points depend only on the inputs, not the camera: compute once and cache.
+  const key = `${bbox.join(',')}|${step}|${minutes}|${centers.length}|${centers[0]?.join(',')}`;
+  if (!gapCache.has(key)) {
+    const r = (minutesToDegrees(minutes) * Math.PI) / 180;
+    gapCache.set(key, oceanGrid(bbox[0], bbox[1], bbox[2], bbox[3], step).filter((p) => !centers.some((c) => geoDistance(p, c) <= r)));
+  }
+  // All dots in one path (one shape for the renderer instead of thousands).
+  const rr = 4 + 2 * pulse;
+  let d = '';
+  for (const p of gapCache.get(key)!) {
+    if (!isFront(projection, p)) continue;
+    const xy = projection(p);
+    if (!xy) continue;
+    d += `M${(xy[0] - rr).toFixed(1)},${xy[1].toFixed(1)}a${rr},${rr} 0 1,0 ${2 * rr},0a${rr},${rr} 0 1,0 ${-2 * rr},0`;
+  }
+  return <path d={d} fill={theme.danger} opacity={opacity * (0.55 + 0.35 * pulse)} />;
 };
+const gapCache = new Map<string, LL[]>();
