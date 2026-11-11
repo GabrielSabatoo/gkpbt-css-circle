@@ -71,3 +71,20 @@ export const BannerGuide: React.FC = () => (
     <div style={{ position: 'absolute', left: (2560 - 2560) / 2, top: (1440 - 423) / 2, width: 2560, height: 423, borderTop: '3px dotted #888', borderBottom: '3px dotted #888' }} />
   </AbsoluteFill>
 );
+
+/** Video watermark (shown bottom-right of the player; YouTube recommends 150×150, transparent PNG).
+ *  Navy disc, cream bell, red "airport dot" as the notification badge. Drawn at 600×600, scaled down. */
+export const Watermark: React.FC = () => (
+  <svg width={600} height={600} viewBox="0 0 600 600">
+    <circle cx={300} cy={300} r={280} fill={day.circle} stroke="#f3ecd8" strokeWidth={20} />
+    {/* bell */}
+    <path
+      d="M300 130 C 230 130 195 185 195 250 L 195 330 C 195 360 175 385 150 405 L 450 405 C 425 385 405 360 405 330 L 405 250 C 405 185 370 130 300 130 Z"
+      fill="#f3ecd8"
+    />
+    <rect x={286} y={105} width={28} height={36} rx={12} fill="#f3ecd8" />
+    <path d="M255 430 A 45 45 0 0 0 345 430 Z" fill="#f3ecd8" />
+    {/* notification dot */}
+    <circle cx={430} cy={165} r={62} fill={day.dot} stroke="#fff" strokeWidth={16} />
+  </svg>
+);
