@@ -1,6 +1,6 @@
 # Project status — YouTube automation (aviation explainers)
 
-_Last updated: 2026-11-11_
+_Last updated: 2026-11-11 (after Part 1 revisions)_
 
 ## Done
 - **Niche:** aviation explainers — `channel/niche.md`
@@ -16,8 +16,12 @@ _Last updated: 2026-11-11_
   - Video 001 Part 1 (0:00–1:36, beats 1–25) built: `studio/src/scenes/v001/Part1.tsx`
 
 ## In progress / next
-1. Render Part 1 preview (720p) and get feedback:
-   `cd studio && npx remotion render src/index.ts V001-Part1 out/v001-part1-720p.mp4 --scale=0.6666666666666666 --concurrency=4`
+1. Part 1 revisions are DONE in code (drifting plane, beige pilot + speech balloon, bright day palette after the hook,
+   black planes, Fraunces + IBM Plex Mono fonts, watermark removed). Render was cancelled at 248/2918 frames —
+   re-render the preview (~30–40 min) and send for review:
+   `cd studio && npx remotion render src/index.ts V001-Part1 out/v001-part1-v2-720p.mp4 --scale=0.6666666666666666 --concurrency=4`
+   - Optional: study the reference video (Manicule, "Why Planes Cross the Atlantic at Night") with the watch-video plugin
+     once its MP4 is in Google Drive (YouTube downloads are blocked on the cloud machine).
 2. Part 2: 1953 → 1985 → Pacific (beats 26–56)
 3. Part 3: safety numbers, Midway, Air Transat (beats 57–85)
 4. Part 4: today (330/370 min), outro, end screen; full 1080p render; sound design
