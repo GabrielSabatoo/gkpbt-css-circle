@@ -6,8 +6,8 @@ import { isFront } from './Globe';
 type LL = [number, number];
 
 /** Top-down airliner. `engines` lists engine states (true = running). */
-export const PlaneIcon: React.FC<{ x: number; y: number; size?: number; heading?: number; engineOut?: boolean; glow?: number; color?: string; outline?: string }> = ({
-  x, y, size = 46, heading = 0, engineOut = false, glow = 0, color = '#16181d', outline = '#f6f0e2',
+export const PlaneIcon: React.FC<{ x: number; y: number; size?: number; heading?: number; engineOut?: boolean; engineOut2?: boolean; glow?: number; color?: string; outline?: string }> = ({
+  x, y, size = 46, heading = 0, engineOut = false, engineOut2 = false, glow = 0, color = '#16181d', outline = '#f6f0e2',
 }) => {
   const s = size / 100;
   const body = { fill: color, stroke: outline, strokeWidth: 3, strokeLinejoin: 'round' as const };
@@ -21,7 +21,7 @@ export const PlaneIcon: React.FC<{ x: number; y: number; size?: number; heading?
       {/* tail */}
       <path d="M5,30 L20,42 L20,47 L3,42 Z M-5,30 L-20,42 L-20,47 L-3,42 Z" {...body} />
       {/* engines */}
-      <rect x={20} y={2} width={7} height={16} rx={3} fill={color} stroke={outline} strokeWidth={2} />
+      <rect x={20} y={2} width={7} height={16} rx={3} fill={engineOut2 ? theme.danger : color} stroke={engineOut2 ? theme.danger : outline} strokeWidth={2} />
       <rect x={-27} y={2} width={7} height={16} rx={3} fill={engineOut ? theme.danger : color} stroke={engineOut ? theme.danger : outline} strokeWidth={2} />
     </g>
   );

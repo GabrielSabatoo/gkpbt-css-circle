@@ -98,8 +98,8 @@ export const Bars: React.FC<{ title: string; rows: { label: string; value: numbe
 };
 
 /** Big serif number that counts up, with a mono caption. */
-export const BigNumber: React.FC<{ value: number; prefix?: string; suffix?: string; caption: string; delay?: number; decimals?: number; color?: string; format?: (v: number) => string }> = ({
-  value, prefix = '', suffix = '', caption, delay = 0, decimals = 0, color = day.text, format,
+export const BigNumber: React.FC<{ value: number; prefix?: string; suffix?: string; caption: string; delay?: number; decimals?: number; color?: string; captionColor?: string; format?: (v: number) => string }> = ({
+  value, prefix = '', suffix = '', caption, delay = 0, decimals = 0, color = day.text, captionColor = day.text, format,
 }) => {
   const frame = useCurrentFrame();
   const p = ramp(frame, delay, delay + 26);
@@ -108,7 +108,7 @@ export const BigNumber: React.FC<{ value: number; prefix?: string; suffix?: stri
   return (
     <div style={{ textAlign: 'center', opacity: Math.min(1, p * 3) }}>
       <div style={{ fontFamily: theme.fontSerif, fontSize: 180, color, lineHeight: 1 }}>{prefix}{txt}{suffix}</div>
-      <Label size={28} color={day.text} style={{ marginTop: 22 }}>{caption}</Label>
+      <Label size={28} color={captionColor} style={{ marginTop: 22 }}>{caption}</Label>
     </div>
   );
 };
