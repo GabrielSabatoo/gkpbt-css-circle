@@ -2,6951 +2,6956 @@
 {
 "w": "Right",
 "start": 0.0,
-"end": 0.5
+"end": 0.22
 },
 {
 "w": "now,",
-"start": 0.5,
-"end": 0.96
+"start": 0.22,
+"end": 0.6
 },
 {
 "w": "somewhere",
-"start": 1.1,
-"end": 1.42
+"start": 0.78,
+"end": 1.02
 },
 {
 "w": "over",
-"start": 1.42,
-"end": 1.76
+"start": 1.02,
+"end": 1.34
 },
 {
 "w": "the",
-"start": 1.76,
-"end": 1.96
+"start": 1.34,
+"end": 1.48
 },
 {
 "w": "Pacific,",
-"start": 1.96,
-"end": 2.32
+"start": 1.48,
+"end": 1.78
 },
 {
 "w": "a",
-"start": 2.98,
-"end": 3.1
+"start": 2.26,
+"end": 2.36
 },
 {
 "w": "plane",
-"start": 3.1,
-"end": 3.38
+"start": 2.36,
+"end": 2.62
 },
 {
 "w": "with",
-"start": 3.38,
-"end": 3.66
+"start": 2.62,
+"end": 2.86
 },
 {
 "w": "just",
-"start": 3.66,
-"end": 3.92
+"start": 2.86,
+"end": 3.08
 },
 {
 "w": "two",
-"start": 3.92,
-"end": 4.26
+"start": 3.08,
+"end": 3.4
 },
 {
 "w": "engines",
-"start": 4.26,
-"end": 4.78
+"start": 3.4,
+"end": 3.76
 },
 {
 "w": "is",
-"start": 4.78,
-"end": 5.12
+"start": 3.76,
+"end": 3.98
 },
 {
 "w": "carrying",
-"start": 5.12,
-"end": 5.64
+"start": 3.98,
+"end": 4.28
 },
 {
 "w": "300",
-"start": 5.64,
-"end": 6.34
+"start": 4.28,
+"end": 4.86
 },
 {
 "w": "people",
-"start": 6.34,
-"end": 7.02
+"start": 4.86,
+"end": 5.3
 },
 {
 "w": "across",
-"start": 7.02,
-"end": 7.48
+"start": 5.3,
+"end": 5.56
 },
 {
 "w": "thousands",
-"start": 7.48,
-"end": 8.1
+"start": 5.56,
+"end": 6.12
 },
 {
 "w": "of",
-"start": 8.1,
-"end": 8.58
+"start": 6.12,
+"end": 6.36
 },
 {
-"w": "kilometers",
-"start": 8.58,
-"end": 8.88
+"w": "kilometres",
+"start": 6.36,
+"end": 6.64
 },
 {
 "w": "of",
-"start": 8.88,
-"end": 9.32
+"start": 6.64,
+"end": 6.9
 },
 {
 "w": "open",
-"start": 9.32,
-"end": 9.62
+"start": 6.9,
+"end": 7.12
 },
 {
 "w": "water.",
-"start": 9.62,
-"end": 10.1
+"start": 7.12,
+"end": 7.52
 },
 {
 "w": "There",
-"start": 10.64,
-"end": 10.82
+"start": 8.12,
+"end": 8.22
 },
 {
 "w": "is",
-"start": 10.82,
-"end": 10.94
+"start": 8.22,
+"end": 8.38
 },
 {
 "w": "no",
-"start": 10.94,
-"end": 11.2
+"start": 8.38,
+"end": 8.74
 },
 {
 "w": "land",
-"start": 11.2,
-"end": 11.64
+"start": 8.74,
+"end": 9.12
 },
 {
 "w": "beneath",
-"start": 11.64,
-"end": 12.04
+"start": 9.12,
+"end": 9.48
 },
 {
 "w": "it",
-"start": 12.04,
-"end": 12.28
+"start": 9.48,
+"end": 9.7
 },
 {
 "w": "for",
-"start": 12.28,
-"end": 12.52
+"start": 9.7,
+"end": 9.9
 },
 {
 "w": "hours,",
-"start": 12.52,
-"end": 13.04
+"start": 9.9,
+"end": 10.32
 },
 {
 "w": "and",
-"start": 13.26,
-"end": 13.5
+"start": 10.84,
+"end": 11.02
 },
 {
 "w": "yet,",
-"start": 13.5,
-"end": 13.72
+"start": 11.02,
+"end": 11.24
 },
 {
 "w": "every",
-"start": 14.02,
-"end": 14.42
+"start": 11.64,
+"end": 11.88
 },
 {
 "w": "single",
-"start": 14.42,
-"end": 14.84
+"start": 11.88,
+"end": 12.26
 },
 {
 "w": "minute",
-"start": 14.84,
-"end": 15.14
+"start": 12.26,
+"end": 12.6
 },
 {
 "w": "of",
-"start": 15.14,
-"end": 15.38
+"start": 12.6,
+"end": 12.8
 },
 {
 "w": "that",
-"start": 15.38,
-"end": 15.6
+"start": 12.8,
+"end": 12.96
 },
 {
-"w": "journey,",
-"start": 15.6,
-"end": 16.02
+"w": "journey.",
+"start": 12.96,
+"end": 13.28
 },
 {
-"w": "it",
-"start": 16.36,
-"end": 16.44
+"w": "It",
+"start": 14.22,
+"end": 14.36
 },
 {
 "w": "is",
-"start": 16.44,
-"end": 16.62
+"start": 14.36,
+"end": 14.5
 },
 {
 "w": "flying",
-"start": 16.62,
-"end": 17.02
+"start": 14.5,
+"end": 14.88
 },
 {
 "w": "inside",
-"start": 17.02,
-"end": 17.58
+"start": 14.88,
+"end": 15.5
 },
 {
 "w": "an",
-"start": 17.58,
-"end": 17.86
+"start": 15.5,
+"end": 15.84
 },
 {
 "w": "invisible",
-"start": 17.86,
-"end": 18.32
+"start": 15.84,
+"end": 16.42
 },
 {
 "w": "circle.",
-"start": 18.32,
-"end": 19.04
+"start": 16.42,
+"end": 17.14
 },
 {
 "w": "Pilots",
-"start": 20.12,
-"end": 20.38
+"start": 18.34,
+"end": 18.5
 },
 {
 "w": "have",
-"start": 20.38,
-"end": 20.58
+"start": 18.5,
+"end": 18.64
 },
 {
 "w": "a",
-"start": 20.58,
-"end": 20.72
+"start": 18.64,
+"end": 18.82
 },
 {
 "w": "dark",
-"start": 20.72,
-"end": 21.16
+"start": 18.82,
+"end": 19.06
 },
 {
 "w": "joke",
-"start": 21.16,
-"end": 21.58
+"start": 19.06,
+"end": 19.36
 },
 {
 "w": "about",
-"start": 21.58,
-"end": 21.98
+"start": 19.36,
+"end": 19.62
 },
 {
 "w": "these",
-"start": 21.98,
-"end": 22.32
+"start": 19.62,
+"end": 19.88
 },
 {
 "w": "circles.",
-"start": 22.32,
-"end": 22.88
+"start": 19.88,
+"end": 20.3
 },
 {
 "w": "They",
-"start": 22.88,
-"end": 23.82
+"start": 20.72,
+"end": 20.84
 },
 {
 "w": "say",
-"start": 23.82,
-"end": 24.24
+"start": 20.84,
+"end": 21.08
 },
 {
 "w": "the",
-"start": 24.24,
-"end": 24.56
+"start": 21.08,
+"end": 21.24
 },
 {
 "w": "rule",
-"start": 24.56,
-"end": 24.88
+"start": 21.24,
+"end": 21.46
 },
 {
 "w": "behind",
-"start": 24.88,
-"end": 25.26
+"start": 21.46,
+"end": 21.78
 },
 {
 "w": "them",
-"start": 25.26,
-"end": 25.58
+"start": 21.78,
+"end": 21.96
 },
 {
 "w": "stands",
-"start": 25.58,
-"end": 25.96
+"start": 21.96,
+"end": 22.24
 },
 {
-"w": "for",
-"start": 25.96,
-"end": 26.44
+"w": "for\u2026",
+"start": 22.24,
+"end": 23.74
 },
 {
-"w": "engines",
-"start": 26.44,
-"end": 27.16
+"w": "Engines",
+"start": 23.74,
+"end": 23.98
 },
 {
 "w": "turn,",
-"start": 27.16,
-"end": 27.76
+"start": 23.98,
+"end": 24.28
 },
 {
 "w": "or",
-"start": 28.44,
-"end": 28.56
+"start": 24.58,
+"end": 24.8
 },
 {
 "w": "passengers",
-"start": 28.56,
-"end": 29.16
+"start": 24.8,
+"end": 25.16
 },
 {
 "w": "swim.",
-"start": 29.16,
-"end": 29.64
+"start": 25.16,
+"end": 25.5
 },
 {
 "w": "Its",
-"start": 30.26,
-"end": 30.48
+"start": 26.56,
+"end": 26.76
 },
 {
 "w": "real",
-"start": 30.48,
-"end": 30.86
+"start": 26.76,
+"end": 27.04
 },
 {
 "w": "name",
-"start": 30.86,
-"end": 31.26
+"start": 27.04,
+"end": 27.36
 },
 {
 "w": "is",
-"start": 31.26,
-"end": 31.72
+"start": 27.36,
+"end": 27.76
 },
 {
 "w": "ETOPS.",
-"start": 31.72,
-"end": 32.42
+"start": 27.76,
+"end": 28.42
 },
 {
 "w": "It's",
-"start": 33.04,
-"end": 33.34
+"start": 29.01,
+"end": 29.28
 },
 {
 "w": "the",
-"start": 33.34,
-"end": 33.5
+"start": 29.28,
+"end": 29.44
 },
 {
 "w": "reason",
-"start": 33.5,
-"end": 33.78
+"start": 29.44,
+"end": 29.7
 },
 {
 "w": "your",
-"start": 33.78,
-"end": 34.08
+"start": 29.7,
+"end": 29.98
 },
 {
 "w": "flight",
-"start": 34.08,
-"end": 34.48
+"start": 29.98,
+"end": 30.34
 },
 {
 "w": "so",
-"start": 34.48,
-"end": 34.78
+"start": 30.34,
+"end": 30.64
 },
 {
 "w": "rarely",
-"start": 34.78,
-"end": 35.16
+"start": 30.64,
+"end": 30.98
 },
 {
 "w": "takes",
-"start": 35.16,
-"end": 35.56
+"start": 30.98,
+"end": 31.32
 },
 {
 "w": "the",
-"start": 35.56,
-"end": 35.84
+"start": 31.32,
+"end": 31.56
 },
 {
 "w": "straight",
-"start": 35.84,
-"end": 36.16
+"start": 31.56,
+"end": 31.82
 },
 {
 "w": "line",
-"start": 36.16,
-"end": 36.5
+"start": 31.82,
+"end": 32.1
 },
 {
 "w": "on",
-"start": 36.5,
-"end": 36.7
+"start": 32.1,
+"end": 32.26
 },
 {
 "w": "the",
-"start": 36.7,
-"end": 36.82
+"start": 32.26,
+"end": 32.38
 },
 {
 "w": "map.",
-"start": 36.82,
-"end": 37.06
+"start": 32.38,
+"end": 32.6
 },
 {
 "w": "It's",
-"start": 38.06,
-"end": 38.34
+"start": 33.24,
+"end": 33.42
 },
 {
 "w": "why",
-"start": 38.34,
-"end": 38.62
+"start": 33.42,
+"end": 33.62
 },
 {
 "w": "a",
-"start": 38.62,
-"end": 38.84
+"start": 33.62,
+"end": 33.8
 },
 {
 "w": "tiny",
-"start": 38.84,
-"end": 39.24
+"start": 33.8,
+"end": 34.12
 },
 {
 "w": "island",
-"start": 39.24,
-"end": 39.72
+"start": 34.12,
+"end": 34.58
 },
 {
 "w": "in",
-"start": 39.72,
-"end": 39.96
+"start": 34.58,
+"end": 34.8
 },
 {
 "w": "the",
-"start": 39.96,
-"end": 40.1
+"start": 34.8,
+"end": 34.88
 },
 {
 "w": "middle",
-"start": 40.1,
-"end": 40.28
+"start": 34.88,
+"end": 35.02
 },
 {
 "w": "of",
-"start": 40.28,
-"end": 40.44
+"start": 35.02,
+"end": 35.2
 },
 {
 "w": "the",
-"start": 40.44,
-"end": 40.58
+"start": 35.2,
+"end": 35.32
 },
 {
 "w": "Pacific",
-"start": 40.58,
-"end": 41.06
+"start": 35.32,
+"end": 35.66
 },
 {
 "w": "matters",
-"start": 41.06,
-"end": 41.78
+"start": 35.66,
+"end": 36.2
 },
 {
 "w": "to",
-"start": 41.78,
-"end": 42.14
+"start": 36.2,
+"end": 36.48
 },
 {
 "w": "thousands",
-"start": 42.14,
-"end": 42.66
+"start": 36.48,
+"end": 36.88
 },
 {
 "w": "of",
-"start": 42.66,
-"end": 43.04
+"start": 36.88,
+"end": 37.2
 },
 {
 "w": "flights",
-"start": 43.04,
-"end": 43.4
+"start": 37.2,
+"end": 37.52
 },
 {
 "w": "every",
-"start": 43.4,
-"end": 43.8
+"start": 37.52,
+"end": 37.78
 },
 {
 "w": "year,",
-"start": 43.8,
-"end": 44.18
+"start": 37.78,
+"end": 38.12
 },
 {
 "w": "and",
-"start": 44.44,
-"end": 44.82
+"start": 38.5,
+"end": 38.72
 },
 {
 "w": "it's",
-"start": 44.82,
-"end": 44.98
+"start": 38.72,
+"end": 38.84
 },
 {
 "w": "the",
-"start": 44.98,
-"end": 45.16
+"start": 38.84,
+"end": 39.02
 },
 {
 "w": "reason",
-"start": 45.16,
-"end": 45.54
+"start": 39.02,
+"end": 39.28
 },
 {
 "w": "two",
-"start": 45.54,
-"end": 45.96
+"start": 39.28,
+"end": 39.64
 },
 {
 "w": "engines",
-"start": 45.96,
-"end": 46.52
+"start": 39.64,
+"end": 40.16
 },
 {
 "w": "are",
-"start": 46.52,
-"end": 46.82
+"start": 40.16,
+"end": 40.38
 },
 {
 "w": "now",
-"start": 46.82,
-"end": 47.1
+"start": 40.38,
+"end": 40.52
 },
 {
 "w": "trusted",
-"start": 47.1,
-"end": 47.66
+"start": 40.52,
+"end": 40.88
 },
 {
 "w": "to",
-"start": 47.66,
-"end": 47.94
+"start": 40.88,
+"end": 41.14
 },
 {
 "w": "cross",
-"start": 47.94,
-"end": 48.24
+"start": 41.14,
+"end": 41.36
 },
 {
 "w": "almost",
-"start": 48.24,
-"end": 48.7
+"start": 41.36,
+"end": 41.8
 },
 {
 "w": "anywhere",
-"start": 48.7,
-"end": 49.28
+"start": 41.8,
+"end": 42.32
 },
 {
 "w": "on",
-"start": 49.28,
-"end": 49.74
+"start": 42.32,
+"end": 42.68
 },
 {
 "w": "Earth.",
-"start": 49.74,
-"end": 49.94
+"start": 42.68,
+"end": 42.92
 },
 {
 "w": "So",
-"start": 49.94,
-"end": 50.68
+"start": 44.04,
+"end": 44.12
 },
 {
 "w": "how",
+"start": 44.12,
+"end": 44.34
+},
+{
+"w": "did",
+"start": 44.34,
+"end": 44.52
+},
+{
+"w": "the",
+"start": 44.52,
+"end": 44.66
+},
+{
+"w": "twin",
+"start": 44.66,
+"end": 44.88
+},
+{
+"w": "-engine",
+"start": 44.88,
+"end": 45.16
+},
+{
+"w": "jet",
+"start": 45.16,
+"end": 45.52
+},
+{
+"w": "go",
+"start": 45.52,
+"end": 45.84
+},
+{
+"w": "from",
+"start": 45.84,
+"end": 46.06
+},
+{
+"w": "being",
+"start": 46.06,
+"end": 46.32
+},
+{
+"w": "kept",
+"start": 46.32,
+"end": 46.58
+},
+{
+"w": "away",
+"start": 46.58,
+"end": 46.86
+},
+{
+"w": "from",
+"start": 46.86,
+"end": 47.06
+},
+{
+"w": "the",
+"start": 47.06,
+"end": 47.2
+},
+{
+"w": "oceans",
+"start": 47.2,
+"end": 47.52
+},
+{
+"w": "to",
+"start": 47.52,
+"end": 48.02
+},
+{
+"w": "flying",
+"start": 48.02,
+"end": 48.36
+},
+{
+"w": "towards",
+"start": 48.36,
+"end": 48.72
+},
+{
+"w": "Antarctica?",
+"start": 48.72,
+"end": 49.3
+},
+{
+"w": "Imagine",
 "start": 50.68,
 "end": 50.96
 },
 {
-"w": "did",
-"start": 50.96,
-"end": 51.16
-},
-{
-"w": "the",
-"start": 51.16,
-"end": 51.38
-},
-{
-"w": "twin",
-"start": 51.38,
-"end": 51.66
-},
-{
-"w": "engine",
-"start": 51.66,
-"end": 52.08
-},
-{
-"w": "jet",
-"start": 52.08,
-"end": 52.44
-},
-{
-"w": "go",
-"start": 52.44,
-"end": 52.82
-},
-{
-"w": "from",
-"start": 52.82,
-"end": 53.08
-},
-{
-"w": "being",
-"start": 53.08,
-"end": 53.38
-},
-{
-"w": "kept",
-"start": 53.38,
-"end": 53.72
-},
-{
-"w": "away",
-"start": 53.72,
-"end": 54.08
-},
-{
-"w": "from",
-"start": 54.08,
-"end": 54.4
-},
-{
-"w": "the",
-"start": 54.4,
-"end": 54.56
-},
-{
-"w": "oceans,",
-"start": 54.56,
-"end": 54.96
-},
-{
-"w": "to",
-"start": 55.98,
-"end": 56.16
-},
-{
-"w": "flying",
-"start": 56.16,
-"end": 56.64
-},
-{
-"w": "towards",
-"start": 56.64,
-"end": 57.22
-},
-{
-"w": "Antarctica?",
-"start": 57.22,
-"end": 57.98
-},
-{
-"w": "Imagine",
-"start": 58.8,
-"end": 59.22
-},
-{
 "w": "every",
-"start": 59.22,
-"end": 59.86
+"start": 50.96,
+"end": 51.62
 },
 {
 "w": "airport",
-"start": 59.86,
-"end": 60.3
+"start": 51.62,
+"end": 51.98
 },
 {
 "w": "on",
-"start": 60.3,
-"end": 60.72
+"start": 51.98,
+"end": 52.28
 },
 {
 "w": "Earth",
-"start": 60.72,
-"end": 61.08
+"start": 52.28,
+"end": 52.64
 },
 {
 "w": "where",
-"start": 61.08,
-"end": 61.42
+"start": 52.64,
+"end": 52.88
 },
 {
 "w": "a",
-"start": 61.42,
-"end": 61.62
+"start": 52.88,
+"end": 53.04
 },
 {
 "w": "big",
-"start": 61.62,
-"end": 61.82
+"start": 53.04,
+"end": 53.26
 },
 {
 "w": "jet",
-"start": 61.82,
-"end": 62.3
+"start": 53.26,
+"end": 53.58
 },
 {
 "w": "could",
-"start": 62.3,
-"end": 62.62
+"start": 53.58,
+"end": 53.82
 },
 {
 "w": "land",
-"start": 62.62,
-"end": 62.98
+"start": 53.82,
+"end": 54.16
 },
 {
 "w": "in",
-"start": 62.98,
-"end": 63.32
+"start": 54.16,
+"end": 54.36
 },
 {
 "w": "an",
-"start": 63.32,
-"end": 63.44
+"start": 54.36,
+"end": 54.48
 },
 {
 "w": "emergency,",
-"start": 63.44,
-"end": 64.08
+"start": 54.48,
+"end": 54.98
 },
 {
 "w": "a",
-"start": 64.58,
-"end": 64.8
+"start": 55.5,
+"end": 55.68
 },
 {
 "w": "long",
-"start": 64.8,
-"end": 65.02
+"start": 55.68,
+"end": 55.84
 },
 {
 "w": "enough",
-"start": 65.02,
-"end": 65.26
+"start": 55.84,
+"end": 56.04
 },
 {
 "w": "runway,",
-"start": 65.26,
-"end": 65.84
+"start": 56.04,
+"end": 56.5
 },
 {
 "w": "fire",
-"start": 66.3,
-"end": 66.78
+"start": 56.76,
+"end": 57.1
 },
 {
 "w": "crews,",
-"start": 66.78,
-"end": 67.16
+"start": 57.1,
+"end": 57.46
 },
 {
 "w": "somewhere",
-"start": 67.6,
-"end": 68.02
+"start": 57.72,
+"end": 58.04
 },
 {
 "w": "for",
-"start": 68.02,
-"end": 68.32
+"start": 58.04,
+"end": 58.32
 },
 {
 "w": "the",
-"start": 68.32,
-"end": 68.44
+"start": 58.32,
+"end": 58.46
 },
 {
 "w": "passengers",
-"start": 68.44,
-"end": 68.88
+"start": 58.46,
+"end": 58.8
 },
 {
 "w": "to",
-"start": 68.88,
-"end": 69.24
-},
-{
-"w": "go,",
-"start": 69.24,
-"end": 69.64
-},
-{
-"w": "now",
-"start": 69.88,
-"end": 70.18
-},
-{
-"w": "draw",
-"start": 70.18,
-"end": 70.48
-},
-{
-"w": "a",
-"start": 70.48,
-"end": 70.7
-},
-{
-"w": "circle",
-"start": 70.7,
-"end": 71.14
-},
-{
-"w": "around",
-"start": 71.14,
-"end": 71.5
-},
-{
-"w": "each",
-"start": 71.5,
-"end": 71.82
-},
-{
-"w": "one.",
-"start": 71.82,
-"end": 72.3
-},
-{
-"w": "The",
-"start": 72.52,
-"end": 72.72
-},
-{
-"w": "size",
-"start": 72.72,
-"end": 73.04
-},
-{
-"w": "of",
-"start": 73.04,
-"end": 73.26
-},
-{
-"w": "that",
-"start": 73.26,
-"end": 73.46
-},
-{
-"w": "circle",
-"start": 73.46,
-"end": 73.96
-},
-{
-"w": "is",
-"start": 73.96,
-"end": 74.28
-},
-{
-"w": "surprisingly",
-"start": 74.28,
-"end": 74.92
-},
-{
-"w": "simple.",
-"start": 74.92,
-"end": 75.54
-},
-{
-"w": "It's",
-"start": 76.26,
-"end": 76.62
-},
-{
-"w": "how",
-"start": 76.62,
-"end": 76.88
-},
-{
-"w": "far",
-"start": 76.88,
-"end": 77.18
-},
-{
-"w": "the",
-"start": 77.18,
-"end": 77.38
-},
-{
-"w": "plane",
-"start": 77.38,
-"end": 77.66
-},
-{
-"w": "can",
-"start": 77.66,
-"end": 77.94
-},
-{
-"w": "fly",
-"start": 77.94,
-"end": 78.34
-},
-{
-"w": "in",
-"start": 78.34,
-"end": 78.62
-},
-{
-"w": "a",
-"start": 78.62,
-"end": 78.76
-},
-{
-"w": "set",
-"start": 78.76,
-"end": 78.98
-},
-{
-"w": "amount",
-"start": 78.98,
-"end": 79.24
-},
-{
-"w": "of",
-"start": 79.24,
-"end": 79.48
-},
-{
-"w": "time",
-"start": 79.48,
-"end": 79.9
-},
-{
-"w": "on",
-"start": 79.9,
-"end": 80.18
-},
-{
-"w": "just",
-"start": 80.18,
-"end": 80.52
-},
-{
-"w": "one",
-"start": 80.52,
-"end": 80.9
-},
-{
-"w": "engine",
-"start": 80.9,
-"end": 81.38
-},
-{
-"w": "in",
-"start": 81.38,
-"end": 81.8
-},
-{
-"w": "still",
-"start": 81.8,
-"end": 82.14
-},
-{
-"w": "air.",
-"start": 82.14,
-"end": 82.58
-},
-{
-"w": "Those",
-"start": 83.18,
-"end": 83.54
-},
-{
-"w": "circles",
-"start": 83.54,
-"end": 84.0
-},
-{
-"w": "are",
-"start": 84.0,
-"end": 84.42
-},
-{
-"w": "the",
-"start": 84.42,
-"end": 84.58
-},
-{
-"w": "map",
-"start": 84.58,
-"end": 84.82
-},
-{
-"w": "that",
-"start": 84.82,
-"end": 85.1
-},
-{
-"w": "really",
-"start": 85.1,
-"end": 85.6
-},
-{
-"w": "matters.",
-"start": 85.6,
-"end": 86.16
-},
-{
-"w": "A",
-"start": 86.58,
-"end": 86.76
-},
-{
-"w": "twin",
-"start": 86.76,
-"end": 87.06
-},
-{
-"w": "engine",
-"start": 87.06,
-"end": 87.48
-},
-{
-"w": "airliner",
-"start": 87.48,
-"end": 87.98
-},
-{
-"w": "on",
-"start": 87.98,
-"end": 88.3
-},
-{
-"w": "a",
-"start": 88.3,
-"end": 88.48
-},
-{
-"w": "long",
-"start": 88.48,
-"end": 88.72
-},
-{
-"w": "over",
-"start": 88.72,
-"end": 89.1
-},
-{
-"w": "-water",
-"start": 89.1,
-"end": 89.4
-},
-{
-"w": "flight",
-"start": 89.4,
-"end": 89.86
-},
-{
-"w": "has",
-"start": 89.86,
-"end": 90.42
-},
-{
-"w": "to",
-"start": 90.42,
-"end": 90.66
-},
-{
-"w": "stay",
-"start": 90.66,
-"end": 91.0
-},
-{
-"w": "inside",
-"start": 91.0,
-"end": 91.46
-},
-{
-"w": "them.",
-"start": 91.46,
-"end": 91.84
-},
-{
-"w": "Every",
-"start": 92.52,
-"end": 92.88
-},
-{
-"w": "point",
-"start": 92.88,
-"end": 93.22
-},
-{
-"w": "of",
-"start": 93.22,
-"end": 93.44
-},
-{
-"w": "its",
-"start": 93.44,
-"end": 93.58
-},
-{
-"w": "route",
-"start": 93.58,
-"end": 93.9
-},
-{
-"w": "must",
-"start": 93.9,
-"end": 94.16
-},
-{
-"w": "be",
-"start": 94.16,
-"end": 94.42
-},
-{
-"w": "within",
-"start": 94.42,
-"end": 94.74
-},
-{
-"w": "reach",
-"start": 94.74,
-"end": 95.1
-},
-{
-"w": "of",
-"start": 95.1,
-"end": 95.32
-},
-{
-"w": "at",
-"start": 95.32,
-"end": 95.44
-},
-{
-"w": "least",
-"start": 95.44,
-"end": 95.74
-},
-{
-"w": "one",
-"start": 95.74,
-"end": 96.22
-},
-{
-"w": "runway.",
-"start": 96.22,
-"end": 96.74
-},
-{
-"w": "Over",
-"start": 97.6,
-"end": 98.02
-},
-{
-"w": "Europe",
-"start": 98.02,
-"end": 98.46
-},
-{
-"w": "or",
-"start": 98.46,
-"end": 98.74
-},
-{
-"w": "North",
-"start": 98.74,
-"end": 99.04
-},
-{
-"w": "America,",
-"start": 99.04,
-"end": 99.6
-},
-{
-"w": "the",
-"start": 100.18,
-"end": 100.24
-},
-{
-"w": "circles",
-"start": 100.24,
-"end": 100.68
-},
-{
-"w": "overlap",
-"start": 100.68,
-"end": 101.38
-},
-{
-"w": "so",
-"start": 101.38,
-"end": 101.78
-},
-{
-"w": "much",
-"start": 101.78,
-"end": 102.26
-},
-{
-"w": "that",
-"start": 102.26,
-"end": 102.48
-},
-{
-"w": "you'd",
-"start": 102.48,
-"end": 102.72
-},
-{
-"w": "never",
-"start": 102.72,
-"end": 102.94
-},
-{
-"w": "notice",
-"start": 102.94,
-"end": 103.34
-},
-{
-"w": "them.",
-"start": 103.34,
-"end": 103.72
-},
-{
-"w": "But",
-"start": 103.72,
-"end": 104.48
-},
-{
-"w": "out",
-"start": 104.48,
-"end": 104.82
-},
-{
-"w": "over",
-"start": 104.82,
-"end": 105.2
-},
-{
-"w": "the",
-"start": 105.2,
-"end": 105.38
-},
-{
-"w": "oceans",
-"start": 105.38,
-"end": 105.78
-},
-{
-"w": "they",
-"start": 105.78,
-"end": 106.16
-},
-{
-"w": "start",
-"start": 106.16,
-"end": 106.5
-},
-{
-"w": "to",
-"start": 106.5,
-"end": 106.72
-},
-{
-"w": "pull",
-"start": 106.72,
-"end": 106.92
-},
-{
-"w": "apart,",
-"start": 106.92,
-"end": 107.4
-},
-{
-"w": "and",
-"start": 108.02,
-"end": 108.26
-},
-{
-"w": "in",
-"start": 108.26,
-"end": 108.42
-},
-{
-"w": "the",
-"start": 108.42,
-"end": 108.58
-},
-{
-"w": "gaps",
-"start": 108.58,
-"end": 108.84
-},
-{
-"w": "between",
-"start": 108.84,
-"end": 109.36
-},
-{
-"w": "them",
-"start": 109.36,
-"end": 109.72
-},
-{
-"w": "there",
-"start": 109.72,
-"end": 110.08
-},
-{
-"w": "is",
-"start": 110.08,
-"end": 110.28
-},
-{
-"w": "simply",
-"start": 110.28,
-"end": 110.7
-},
-{
-"w": "nowhere",
-"start": 110.7,
-"end": 111.16
-},
-{
-"w": "to",
-"start": 111.16,
-"end": 111.56
+"start": 58.8,
+"end": 59.12
 },
 {
 "w": "go.",
-"start": 111.56,
-"end": 111.88
+"start": 59.12,
+"end": 59.4
+},
+{
+"w": "Now",
+"start": 60.34,
+"end": 60.64
+},
+{
+"w": "draw",
+"start": 60.64,
+"end": 60.9
+},
+{
+"w": "a",
+"start": 60.9,
+"end": 61.1
+},
+{
+"w": "circle",
+"start": 61.1,
+"end": 61.32
+},
+{
+"w": "around",
+"start": 61.32,
+"end": 61.7
+},
+{
+"w": "each",
+"start": 61.7,
+"end": 61.96
+},
+{
+"w": "one.",
+"start": 61.96,
+"end": 62.28
 },
 {
 "w": "The",
-"start": 112.94,
-"end": 113.1
+"start": 62.66,
+"end": 62.8
 },
 {
-"w": "story",
-"start": 113.1,
-"end": 113.5
+"w": "size",
+"start": 62.8,
+"end": 63.06
 },
 {
-"w": "begins",
-"start": 113.5,
-"end": 114.12
-},
-{
-"w": "in",
-"start": 114.12,
-"end": 114.52
-},
-{
-"w": "1953.",
-"start": 114.52,
-"end": 115.64
-},
-{
-"w": "Back",
-"start": 116.82,
-"end": 117.0
-},
-{
-"w": "then,",
-"start": 117.0,
-"end": 117.44
-},
-{
-"w": "airliners",
-"start": 118.0,
-"end": 118.38
-},
-{
-"w": "were",
-"start": 118.38,
-"end": 118.8
-},
-{
-"w": "driven",
-"start": 118.8,
-"end": 119.1
-},
-{
-"w": "by",
-"start": 119.1,
-"end": 119.44
-},
-{
-"w": "piston",
-"start": 119.44,
-"end": 119.88
-},
-{
-"w": "engines,",
-"start": 119.88,
-"end": 120.5
-},
-{
-"w": "huge,",
-"start": 121.06,
-"end": 121.4
-},
-{
-"w": "complicated",
-"start": 121.64,
-"end": 122.3
-},
-{
-"w": "machines",
-"start": 122.3,
-"end": 122.94
+"w": "of",
+"start": 63.06,
+"end": 63.22
 },
 {
 "w": "that",
-"start": 122.94,
-"end": 123.36
+"start": 63.22,
+"end": 63.36
 },
 {
-"w": "failed",
-"start": 123.36,
-"end": 123.82
+"w": "circle",
+"start": 63.36,
+"end": 63.72
+},
+{
+"w": "is",
+"start": 63.72,
+"end": 63.9
+},
+{
+"w": "surprisingly",
+"start": 63.9,
+"end": 64.36
+},
+{
+"w": "simple.",
+"start": 64.36,
+"end": 64.84
+},
+{
+"w": "It's",
+"start": 65.18,
+"end": 65.4
+},
+{
+"w": "how",
+"start": 65.4,
+"end": 65.6
 },
 {
 "w": "far",
-"start": 123.82,
-"end": 124.28
-},
-{
-"w": "more",
-"start": 124.28,
-"end": 124.56
-},
-{
-"w": "often",
-"start": 124.56,
-"end": 124.94
-},
-{
-"w": "than",
-"start": 124.94,
-"end": 125.2
-},
-{
-"w": "anything",
-"start": 125.2,
-"end": 125.68
-},
-{
-"w": "flying",
-"start": 125.68,
-"end": 126.22
-},
-{
-"w": "today.",
-"start": 126.22,
-"end": 126.78
-},
-{
-"w": "So",
-"start": 127.32,
-"end": 127.64
+"start": 65.6,
+"end": 65.84
 },
 {
 "w": "the",
-"start": 127.64,
-"end": 127.82
-},
-{
-"w": "American",
-"start": 127.82,
-"end": 128.38
-},
-{
-"w": "regulator,",
-"start": 128.38,
-"end": 129.14
-},
-{
-"w": "the",
-"start": 129.5,
-"end": 129.58
-},
-{
-"w": "FAA,",
-"start": 129.58,
-"end": 130.12
-},
-{
-"w": "wrote",
-"start": 130.72,
-"end": 131.0
-},
-{
-"w": "a",
-"start": 131.0,
-"end": 131.24
-},
-{
-"w": "simple",
-"start": 131.24,
-"end": 131.58
-},
-{
-"w": "rule.",
-"start": 131.58,
-"end": 132.06
-},
-{
-"w": "A",
-"start": 132.76,
-"end": 133.1
+"start": 65.84,
+"end": 66.02
 },
 {
 "w": "plane",
-"start": 133.1,
-"end": 133.42
+"start": 66.02,
+"end": 66.22
 },
 {
-"w": "with",
-"start": 133.42,
-"end": 133.76
+"w": "can",
+"start": 66.22,
+"end": 66.46
 },
 {
-"w": "two",
-"start": 133.76,
-"end": 134.04
+"w": "fly",
+"start": 66.46,
+"end": 66.78
 },
 {
-"w": "engines",
-"start": 134.04,
-"end": 134.6
-},
-{
-"w": "had",
-"start": 134.6,
-"end": 134.84
-},
-{
-"w": "to",
-"start": 134.84,
-"end": 135.02
-},
-{
-"w": "stay",
-"start": 135.02,
-"end": 135.36
-},
-{
-"w": "within",
-"start": 135.36,
-"end": 135.74
-},
-{
-"w": "60",
-"start": 135.74,
-"end": 136.24
-},
-{
-"w": "minutes",
-"start": 136.24,
-"end": 136.62
-},
-{
-"w": "of",
-"start": 136.62,
-"end": 136.86
+"w": "in",
+"start": 66.78,
+"end": 67.0
 },
 {
 "w": "a",
-"start": 136.86,
-"end": 137.02
+"start": 67.0,
+"end": 67.1
 },
 {
-"w": "suitable",
-"start": 137.02,
-"end": 137.36
+"w": "set",
+"start": 67.1,
+"end": 67.26
 },
 {
-"w": "airport.",
-"start": 137.36,
-"end": 137.98
+"w": "amount",
+"start": 67.26,
+"end": 67.48
 },
 {
-"w": "Draw",
-"start": 138.98,
-"end": 139.22
+"w": "of",
+"start": 67.48,
+"end": 67.68
 },
 {
-"w": "those",
-"start": 139.22,
-"end": 139.58
+"w": "time,",
+"start": 67.68,
+"end": 68.0
 },
 {
-"w": "60",
-"start": 139.58,
-"end": 140.1
+"w": "on",
+"start": 68.2,
+"end": 68.38
 },
 {
-"w": "-minute",
-"start": 140.1,
-"end": 140.3
+"w": "just",
+"start": 68.38,
+"end": 68.58
+},
+{
+"w": "one",
+"start": 68.58,
+"end": 68.84
+},
+{
+"w": "engine,",
+"start": 68.84,
+"end": 69.18
+},
+{
+"w": "in",
+"start": 69.44,
+"end": 69.58
+},
+{
+"w": "still",
+"start": 69.58,
+"end": 69.86
+},
+{
+"w": "air.",
+"start": 69.86,
+"end": 70.22
+},
+{
+"w": "Those",
+"start": 71.18,
+"end": 71.5
 },
 {
 "w": "circles",
-"start": 140.3,
-"end": 140.9
+"start": 71.5,
+"end": 71.92
 },
 {
-"w": "on",
-"start": 140.9,
-"end": 141.2
+"w": "are",
+"start": 71.92,
+"end": 72.4
 },
 {
-"w": "a",
-"start": 141.2,
-"end": 141.4
+"w": "the",
+"start": 72.4,
+"end": 72.52
 },
 {
 "w": "map",
-"start": 141.4,
-"end": 141.56
+"start": 72.52,
+"end": 72.82
 },
 {
-"w": "of",
-"start": 141.56,
-"end": 141.82
+"w": "that",
+"start": 72.82,
+"end": 73.12
 },
 {
-"w": "the",
-"start": 141.82,
-"end": 141.96
+"w": "really",
+"start": 73.12,
+"end": 73.54
 },
 {
-"w": "North",
-"start": 141.96,
-"end": 142.2
-},
-{
-"w": "Atlantic",
-"start": 142.2,
-"end": 142.82
-},
-{
-"w": "and",
-"start": 142.82,
-"end": 143.34
-},
-{
-"w": "the",
-"start": 143.34,
-"end": 143.5
-},
-{
-"w": "problem",
-"start": 143.5,
-"end": 143.82
-},
-{
-"w": "is",
-"start": 143.82,
-"end": 144.04
-},
-{
-"w": "obvious.",
-"start": 144.04,
-"end": 144.54
-},
-{
-"w": "They",
-"start": 145.18,
-"end": 145.4
-},
-{
-"w": "hugged",
-"start": 145.4,
-"end": 145.66
-},
-{
-"w": "the",
-"start": 145.66,
-"end": 145.94
-},
-{
-"w": "coastlines",
-"start": 145.94,
-"end": 146.54
-},
-{
-"w": "and",
-"start": 146.54,
-"end": 147.1
-},
-{
-"w": "leave",
-"start": 147.1,
-"end": 147.32
-},
-{
-"w": "the",
-"start": 147.32,
-"end": 147.56
-},
-{
-"w": "middle",
-"start": 147.56,
-"end": 147.76
-},
-{
-"w": "of",
-"start": 147.76,
-"end": 147.98
-},
-{
-"w": "the",
-"start": 147.98,
-"end": 148.12
-},
-{
-"w": "ocean",
-"start": 148.12,
-"end": 148.46
-},
-{
-"w": "empty.",
-"start": 148.46,
-"end": 148.9
+"w": "matters.",
+"start": 73.54,
+"end": 74.12
 },
 {
 "w": "A",
-"start": 149.66,
-"end": 149.82
+"start": 74.54,
+"end": 74.74
 },
 {
 "w": "twin",
-"start": 149.82,
-"end": 150.12
-},
-{
-"w": "simply",
-"start": 150.12,
-"end": 150.7
-},
-{
-"w": "couldn't",
-"start": 150.7,
-"end": 151.12
-},
-{
-"w": "cross.",
-"start": 151.12,
-"end": 151.54
-},
-{
-"w": "So",
-"start": 152.76,
-"end": 152.98
-},
-{
-"w": "the",
-"start": 152.98,
-"end": 153.12
-},
-{
-"w": "oceans",
-"start": 153.12,
-"end": 153.52
-},
-{
-"w": "belonged",
-"start": 153.52,
-"end": 154.0
-},
-{
-"w": "to",
-"start": 154.0,
-"end": 154.32
-},
-{
-"w": "planes",
-"start": 154.32,
-"end": 154.82
-},
-{
-"w": "with",
-"start": 154.82,
-"end": 155.18
-},
-{
-"w": "three",
-"start": 155.18,
-"end": 155.52
-},
-{
-"w": "and",
-"start": 155.52,
-"end": 155.7
-},
-{
-"w": "four",
-"start": 155.7,
-"end": 156.0
-},
-{
-"w": "engines.",
-"start": 156.0,
-"end": 156.5
-},
-{
-"w": "In",
-"start": 156.96,
-"end": 157.32
-},
-{
-"w": "1964,",
-"start": 157.32,
-"end": 158.6
-},
-{
-"w": "three",
-"start": 159.08,
-"end": 159.42
-},
-{
-"w": "engine",
-"start": 159.42,
-"end": 159.86
-},
-{
-"w": "jets",
-"start": 159.86,
-"end": 160.32
-},
-{
-"w": "were",
-"start": 160.32,
-"end": 160.66
-},
-{
-"w": "exempted",
-"start": 160.66,
-"end": 161.14
-},
-{
-"w": "from",
-"start": 161.14,
-"end": 161.54
-},
-{
-"w": "the",
-"start": 161.54,
-"end": 161.7
-},
-{
-"w": "rule,",
-"start": 161.7,
-"end": 162.06
-},
-{
-"w": "which",
-"start": 162.44,
-"end": 162.6
-},
-{
-"w": "opened",
-"start": 162.6,
-"end": 162.96
-},
-{
-"w": "the",
-"start": 162.96,
-"end": 163.16
-},
-{
-"w": "way",
-"start": 163.16,
-"end": 163.38
-},
-{
-"w": "for",
-"start": 163.38,
-"end": 163.64
-},
-{
-"w": "wide",
-"start": 163.64,
-"end": 164.0
-},
-{
-"w": "-body",
-"start": 164.0,
-"end": 164.36
-},
-{
-"w": "tri",
-"start": 164.36,
-"end": 164.76
-},
-{
-"w": "-jets",
-"start": 164.76,
-"end": 165.18
-},
-{
-"w": "like",
-"start": 165.18,
-"end": 165.48
-},
-{
-"w": "the",
-"start": 165.48,
-"end": 165.66
-},
-{
-"w": "DC",
-"start": 165.66,
-"end": 166.06
-},
-{
-"w": "-10",
-"start": 166.06,
-"end": 166.56
-},
-{
-"w": "and",
-"start": 166.56,
-"end": 166.96
-},
-{
-"w": "the",
-"start": 166.96,
-"end": 167.2
-},
-{
-"w": "Lockheed",
-"start": 167.2,
-"end": 167.54
-},
-{
-"w": "Tristar.",
-"start": 167.54,
-"end": 168.3
-},
-{
-"w": "And",
-"start": 168.94,
-"end": 169.14
-},
-{
-"w": "the",
-"start": 169.14,
-"end": 169.26
-},
-{
-"w": "four",
-"start": 169.26,
-"end": 169.6
+"start": 74.74,
+"end": 74.98
 },
 {
 "w": "-engine",
-"start": 169.6,
-"end": 169.98
+"start": 74.98,
+"end": 75.24
 },
 {
-"w": "Boeing",
-"start": 169.98,
-"end": 170.52
-},
-{
-"w": "747",
-"start": 170.52,
-"end": 171.52
-},
-{
-"w": "ruled",
-"start": 171.52,
-"end": 172.22
-},
-{
-"w": "the",
-"start": 172.22,
-"end": 172.48
-},
-{
-"w": "long",
-"start": 172.48,
-"end": 172.78
-},
-{
-"w": "-haul",
-"start": 172.78,
-"end": 173.06
-},
-{
-"w": "world.",
-"start": 173.06,
-"end": 173.64
-},
-{
-"w": "For",
-"start": 174.4,
-"end": 174.66
-},
-{
-"w": "decades,",
-"start": 174.66,
-"end": 175.1
-},
-{
-"w": "if",
-"start": 175.3,
-"end": 175.46
-},
-{
-"w": "you",
-"start": 175.46,
-"end": 175.64
-},
-{
-"w": "crossed",
-"start": 175.64,
-"end": 175.94
-},
-{
-"w": "an",
-"start": 175.94,
-"end": 176.22
-},
-{
-"w": "ocean,",
-"start": 176.22,
-"end": 176.52
-},
-{
-"w": "you",
-"start": 176.78,
-"end": 176.9
-},
-{
-"w": "almost",
-"start": 176.9,
-"end": 177.28
-},
-{
-"w": "certainly",
-"start": 177.28,
-"end": 177.78
-},
-{
-"w": "did",
-"start": 177.78,
-"end": 178.12
-},
-{
-"w": "it",
-"start": 178.12,
-"end": 178.26
+"w": "airliner",
+"start": 75.24,
+"end": 75.6
 },
 {
 "w": "on",
-"start": 178.26,
-"end": 178.44
-},
-{
-"w": "three",
-"start": 178.44,
-"end": 178.8
-},
-{
-"w": "or",
-"start": 178.8,
-"end": 178.92
-},
-{
-"w": "four",
-"start": 178.92,
-"end": 179.24
-},
-{
-"w": "engines.",
-"start": 179.24,
-"end": 179.7
-},
-{
-"w": "But",
-"start": 180.24,
-"end": 180.44
-},
-{
-"w": "jet",
-"start": 180.44,
-"end": 180.7
-},
-{
-"w": "engines",
-"start": 180.7,
-"end": 181.12
-},
-{
-"w": "kept",
-"start": 181.12,
-"end": 181.48
-},
-{
-"w": "getting",
-"start": 181.48,
-"end": 181.86
-},
-{
-"w": "better,",
-"start": 181.86,
-"end": 182.3
-},
-{
-"w": "much",
-"start": 182.68,
-"end": 182.84
-},
-{
-"w": "better.",
-"start": 182.84,
-"end": 183.26
-},
-{
-"w": "And",
-"start": 183.26,
-"end": 183.68
-},
-{
-"w": "airlines",
-"start": 183.68,
-"end": 184.1
-},
-{
-"w": "noticed",
-"start": 184.1,
-"end": 184.68
-},
-{
-"w": "something.",
-"start": 184.68,
-"end": 185.26
-},
-{
-"w": "Two",
-"start": 185.62,
-"end": 185.72
-},
-{
-"w": "engines",
-"start": 185.72,
-"end": 186.16
-},
-{
-"w": "burn",
-"start": 186.16,
-"end": 186.52
+"start": 75.6,
+"end": 75.92
 },
 {
 "w": "a",
-"start": 186.52,
-"end": 186.7
+"start": 75.92,
+"end": 76.08
 },
 {
-"w": "lot",
-"start": 186.7,
-"end": 186.92
+"w": "long",
+"start": 76.08,
+"end": 76.28
 },
 {
-"w": "less",
-"start": 186.92,
-"end": 187.22
+"w": "over",
+"start": 76.28,
+"end": 76.6
 },
 {
-"w": "fuel",
-"start": 187.22,
-"end": 187.62
+"w": "-water",
+"start": 76.6,
+"end": 76.84
 },
 {
-"w": "than",
-"start": 187.62,
-"end": 187.92
+"w": "flight",
+"start": 76.84,
+"end": 77.22
 },
 {
-"w": "three",
-"start": 187.92,
-"end": 188.24
+"w": "has",
+"start": 77.22,
+"end": 77.64
+},
+{
+"w": "to",
+"start": 77.64,
+"end": 77.82
+},
+{
+"w": "stay",
+"start": 77.82,
+"end": 78.14
+},
+{
+"w": "inside",
+"start": 78.14,
+"end": 78.64
+},
+{
+"w": "them.",
+"start": 78.64,
+"end": 78.92
+},
+{
+"w": "Every",
+"start": 79.38,
+"end": 79.66
+},
+{
+"w": "point",
+"start": 79.66,
+"end": 79.94
+},
+{
+"w": "of",
+"start": 79.94,
+"end": 80.08
+},
+{
+"w": "its",
+"start": 80.08,
+"end": 80.22
+},
+{
+"w": "route",
+"start": 80.22,
+"end": 80.5
+},
+{
+"w": "must",
+"start": 80.5,
+"end": 80.86
+},
+{
+"w": "be",
+"start": 80.86,
+"end": 81.08
+},
+{
+"w": "within",
+"start": 81.08,
+"end": 81.32
+},
+{
+"w": "reach",
+"start": 81.32,
+"end": 81.6
+},
+{
+"w": "of",
+"start": 81.6,
+"end": 81.76
+},
+{
+"w": "at",
+"start": 81.76,
+"end": 81.86
+},
+{
+"w": "least",
+"start": 81.86,
+"end": 82.04
+},
+{
+"w": "one",
+"start": 82.04,
+"end": 82.46
+},
+{
+"w": "runway.",
+"start": 82.46,
+"end": 82.84
+},
+{
+"w": "Over",
+"start": 83.58,
+"end": 84.14
+},
+{
+"w": "Europe",
+"start": 84.14,
+"end": 84.56
 },
 {
 "w": "or",
-"start": 188.24,
-"end": 188.44
+"start": 84.56,
+"end": 84.78
 },
 {
-"w": "four.",
-"start": 188.44,
-"end": 188.82
+"w": "North",
+"start": 84.78,
+"end": 84.98
 },
 {
-"w": "A",
-"start": 189.76,
-"end": 189.84
+"w": "America,",
+"start": 84.98,
+"end": 85.42
 },
 {
-"w": "twin",
-"start": 189.84,
-"end": 190.14
+"w": "the",
+"start": 85.82,
+"end": 85.88
 },
 {
-"w": "-engine",
-"start": 190.14,
-"end": 190.54
+"w": "circles",
+"start": 85.88,
+"end": 86.18
 },
 {
-"w": "jet",
-"start": 190.54,
-"end": 191.0
+"w": "overlap",
+"start": 86.18,
+"end": 86.68
 },
 {
-"w": "is",
-"start": 191.0,
-"end": 191.34
+"w": "so",
+"start": 86.68,
+"end": 87.0
 },
 {
-"w": "cheaper",
-"start": 191.34,
-"end": 191.7
+"w": "much",
+"start": 87.0,
+"end": 87.26
+},
+{
+"w": "that",
+"start": 87.26,
+"end": 87.48
+},
+{
+"w": "you'd",
+"start": 87.48,
+"end": 87.64
+},
+{
+"w": "never",
+"start": 87.64,
+"end": 87.86
+},
+{
+"w": "notice",
+"start": 87.86,
+"end": 88.16
+},
+{
+"w": "them,",
+"start": 88.16,
+"end": 88.44
+},
+{
+"w": "but",
+"start": 88.7,
+"end": 88.9
+},
+{
+"w": "out",
+"start": 88.9,
+"end": 89.06
+},
+{
+"w": "over",
+"start": 89.06,
+"end": 89.28
+},
+{
+"w": "the",
+"start": 89.28,
+"end": 89.38
+},
+{
+"w": "oceans,",
+"start": 89.38,
+"end": 89.68
+},
+{
+"w": "they",
+"start": 90.08,
+"end": 90.18
+},
+{
+"w": "start",
+"start": 90.18,
+"end": 90.48
 },
 {
 "w": "to",
-"start": 191.7,
-"end": 191.98
+"start": 90.48,
+"end": 90.68
 },
 {
-"w": "buy,",
-"start": 191.98,
-"end": 192.36
+"w": "pull",
+"start": 90.68,
+"end": 90.84
 },
 {
-"w": "cheaper",
-"start": 192.74,
-"end": 192.88
-},
-{
-"w": "to",
-"start": 192.88,
-"end": 193.18
-},
-{
-"w": "maintain,",
-"start": 193.18,
-"end": 193.72
+"w": "apart,",
+"start": 90.84,
+"end": 91.22
 },
 {
 "w": "and",
-"start": 194.12,
-"end": 194.32
+"start": 91.64,
+"end": 91.8
 },
 {
-"w": "cheaper",
-"start": 194.32,
-"end": 194.58
+"w": "in",
+"start": 91.8,
+"end": 91.88
+},
+{
+"w": "the",
+"start": 91.88,
+"end": 92.02
+},
+{
+"w": "gaps",
+"start": 92.02,
+"end": 92.24
+},
+{
+"w": "between",
+"start": 92.24,
+"end": 92.66
+},
+{
+"w": "them,",
+"start": 92.66,
+"end": 92.96
+},
+{
+"w": "there",
+"start": 93.84,
+"end": 93.98
+},
+{
+"w": "is",
+"start": 93.98,
+"end": 94.12
+},
+{
+"w": "simply",
+"start": 94.12,
+"end": 94.4
+},
+{
+"w": "nowhere",
+"start": 94.4,
+"end": 94.74
 },
 {
 "w": "to",
+"start": 94.74,
+"end": 95.04
+},
+{
+"w": "go.",
+"start": 95.04,
+"end": 95.32
+},
+{
+"w": "The",
+"start": 96.28,
+"end": 96.42
+},
+{
+"w": "story",
+"start": 96.42,
+"end": 96.64
+},
+{
+"w": "begins",
+"start": 96.64,
+"end": 97.06
+},
+{
+"w": "in",
+"start": 97.06,
+"end": 97.26
+},
+{
+"w": "1953.",
+"start": 97.26,
+"end": 98.14
+},
+{
+"w": "Back",
+"start": 99.04,
+"end": 99.16
+},
+{
+"w": "then,",
+"start": 99.16,
+"end": 99.44
+},
+{
+"w": "airliners",
+"start": 99.68,
+"end": 99.96
+},
+{
+"w": "were",
+"start": 99.96,
+"end": 100.22
+},
+{
+"w": "driven",
+"start": 100.22,
+"end": 100.44
+},
+{
+"w": "by",
+"start": 100.44,
+"end": 100.68
+},
+{
+"w": "piston",
+"start": 100.68,
+"end": 100.98
+},
+{
+"w": "engines,",
+"start": 100.98,
+"end": 101.38
+},
+{
+"w": "huge,",
+"start": 101.84,
+"end": 102.08
+},
+{
+"w": "complicated",
+"start": 102.24,
+"end": 102.7
+},
+{
+"w": "machines",
+"start": 102.7,
+"end": 103.16
+},
+{
+"w": "that",
+"start": 103.16,
+"end": 103.48
+},
+{
+"w": "failed",
+"start": 103.48,
+"end": 103.8
+},
+{
+"w": "far",
+"start": 103.8,
+"end": 104.14
+},
+{
+"w": "more",
+"start": 104.14,
+"end": 104.36
+},
+{
+"w": "often",
+"start": 104.36,
+"end": 104.66
+},
+{
+"w": "than",
+"start": 104.66,
+"end": 104.82
+},
+{
+"w": "anything",
+"start": 104.82,
+"end": 105.24
+},
+{
+"w": "flying",
+"start": 105.24,
+"end": 105.64
+},
+{
+"w": "today.",
+"start": 105.64,
+"end": 106.06
+},
+{
+"w": "So",
+"start": 107.04,
+"end": 107.3
+},
+{
+"w": "the",
+"start": 107.3,
+"end": 107.42
+},
+{
+"w": "American",
+"start": 107.42,
+"end": 107.84
+},
+{
+"w": "regulator,",
+"start": 107.84,
+"end": 108.38
+},
+{
+"w": "the",
+"start": 108.78,
+"end": 108.84
+},
+{
+"w": "FAA,",
+"start": 108.84,
+"end": 109.28
+},
+{
+"w": "wrote",
+"start": 109.78,
+"end": 110.0
+},
+{
+"w": "a",
+"start": 110.0,
+"end": 110.16
+},
+{
+"w": "simple",
+"start": 110.16,
+"end": 110.44
+},
+{
+"w": "rule.",
+"start": 110.44,
+"end": 110.8
+},
+{
+"w": "A",
+"start": 110.8,
+"end": 111.32
+},
+{
+"w": "plane",
+"start": 111.32,
+"end": 111.6
+},
+{
+"w": "with",
+"start": 111.6,
+"end": 111.86
+},
+{
+"w": "two",
+"start": 111.86,
+"end": 112.12
+},
+{
+"w": "engines",
+"start": 112.12,
+"end": 112.56
+},
+{
+"w": "had",
+"start": 112.56,
+"end": 112.9
+},
+{
+"w": "to",
+"start": 112.9,
+"end": 113.06
+},
+{
+"w": "stay",
+"start": 113.06,
+"end": 113.32
+},
+{
+"w": "within",
+"start": 113.32,
+"end": 113.6
+},
+{
+"w": "60",
+"start": 113.6,
+"end": 114.06
+},
+{
+"w": "minutes",
+"start": 114.06,
+"end": 114.34
+},
+{
+"w": "of",
+"start": 114.34,
+"end": 114.56
+},
+{
+"w": "a",
+"start": 114.56,
+"end": 114.66
+},
+{
+"w": "suitable",
+"start": 114.66,
+"end": 114.96
+},
+{
+"w": "airport.",
+"start": 114.96,
+"end": 115.44
+},
+{
+"w": "Draw",
+"start": 116.64,
+"end": 116.7
+},
+{
+"w": "those",
+"start": 116.7,
+"end": 116.96
+},
+{
+"w": "60",
+"start": 116.96,
+"end": 117.32
+},
+{
+"w": "-minute",
+"start": 117.32,
+"end": 117.44
+},
+{
+"w": "circles",
+"start": 117.44,
+"end": 117.86
+},
+{
+"w": "on",
+"start": 117.86,
+"end": 118.1
+},
+{
+"w": "a",
+"start": 118.1,
+"end": 118.26
+},
+{
+"w": "map",
+"start": 118.26,
+"end": 118.38
+},
+{
+"w": "of",
+"start": 118.38,
+"end": 118.56
+},
+{
+"w": "the",
+"start": 118.56,
+"end": 118.64
+},
+{
+"w": "North",
+"start": 118.64,
+"end": 118.82
+},
+{
+"w": "Atlantic,",
+"start": 118.82,
+"end": 119.32
+},
+{
+"w": "and",
+"start": 119.6,
+"end": 119.78
+},
+{
+"w": "the",
+"start": 119.78,
+"end": 119.9
+},
+{
+"w": "problem",
+"start": 119.9,
+"end": 120.16
+},
+{
+"w": "is",
+"start": 120.16,
+"end": 120.46
+},
+{
+"w": "obvious.",
+"start": 120.46,
+"end": 120.94
+},
+{
+"w": "They",
+"start": 121.42,
+"end": 121.56
+},
+{
+"w": "cling",
+"start": 121.56,
+"end": 121.8
+},
+{
+"w": "to",
+"start": 121.8,
+"end": 122.02
+},
+{
+"w": "the",
+"start": 122.02,
+"end": 122.14
+},
+{
+"w": "coastlines",
+"start": 122.14,
+"end": 122.68
+},
+{
+"w": "and",
+"start": 122.68,
+"end": 123.14
+},
+{
+"w": "leave",
+"start": 123.14,
+"end": 123.36
+},
+{
+"w": "the",
+"start": 123.36,
+"end": 123.56
+},
+{
+"w": "middle",
+"start": 123.56,
+"end": 123.74
+},
+{
+"w": "of",
+"start": 123.74,
+"end": 123.94
+},
+{
+"w": "the",
+"start": 123.94,
+"end": 124.06
+},
+{
+"w": "ocean",
+"start": 124.06,
+"end": 124.4
+},
+{
+"w": "empty.",
+"start": 124.4,
+"end": 124.84
+},
+{
+"w": "A",
+"start": 125.34,
+"end": 125.44
+},
+{
+"w": "twin",
+"start": 125.44,
+"end": 125.7
+},
+{
+"w": "simply",
+"start": 125.7,
+"end": 126.2
+},
+{
+"w": "couldn't",
+"start": 126.2,
+"end": 126.6
+},
+{
+"w": "cross.",
+"start": 126.6,
+"end": 126.94
+},
+{
+"w": "So",
+"start": 128.04,
+"end": 128.26
+},
+{
+"w": "the",
+"start": 128.26,
+"end": 128.42
+},
+{
+"w": "oceans",
+"start": 128.42,
+"end": 128.82
+},
+{
+"w": "belonged",
+"start": 128.82,
+"end": 129.2
+},
+{
+"w": "to",
+"start": 129.2,
+"end": 129.44
+},
+{
+"w": "planes",
+"start": 129.44,
+"end": 129.82
+},
+{
+"w": "with",
+"start": 129.82,
+"end": 130.14
+},
+{
+"w": "three",
+"start": 130.14,
+"end": 130.52
+},
+{
+"w": "and",
+"start": 130.52,
+"end": 130.74
+},
+{
+"w": "four",
+"start": 130.74,
+"end": 131.1
+},
+{
+"w": "engines.",
+"start": 131.1,
+"end": 131.54
+},
+{
+"w": "In",
+"start": 132.2,
+"end": 132.34
+},
+{
+"w": "1964,",
+"start": 132.34,
+"end": 133.14
+},
+{
+"w": "three",
+"start": 133.6,
+"end": 133.86
+},
+{
+"w": "engine",
+"start": 133.86,
+"end": 134.24
+},
+{
+"w": "jets",
+"start": 134.24,
+"end": 134.54
+},
+{
+"w": "were",
+"start": 134.54,
+"end": 134.76
+},
+{
+"w": "exempted",
+"start": 134.76,
+"end": 135.12
+},
+{
+"w": "from",
+"start": 135.12,
+"end": 135.4
+},
+{
+"w": "the",
+"start": 135.4,
+"end": 135.56
+},
+{
+"w": "rule,",
+"start": 135.56,
+"end": 135.78
+},
+{
+"w": "which",
+"start": 136.02,
+"end": 136.08
+},
+{
+"w": "opened",
+"start": 136.08,
+"end": 136.46
+},
+{
+"w": "the",
+"start": 136.46,
+"end": 136.64
+},
+{
+"w": "way",
+"start": 136.64,
+"end": 136.84
+},
+{
+"w": "for",
+"start": 136.84,
+"end": 137.12
+},
+{
+"w": "wide",
+"start": 137.12,
+"end": 137.42
+},
+{
+"w": "-body",
+"start": 137.42,
+"end": 137.78
+},
+{
+"w": "trijets",
+"start": 137.78,
+"end": 138.4
+},
+{
+"w": "like",
+"start": 138.4,
+"end": 138.64
+},
+{
+"w": "the",
+"start": 138.64,
+"end": 138.8
+},
+{
+"w": "DC",
+"start": 138.8,
+"end": 139.16
+},
+{
+"w": "-10",
+"start": 139.16,
+"end": 139.58
+},
+{
+"w": "and",
+"start": 139.58,
+"end": 139.98
+},
+{
+"w": "the",
+"start": 139.98,
+"end": 140.18
+},
+{
+"w": "Lockheed",
+"start": 140.18,
+"end": 140.44
+},
+{
+"w": "Tristar,",
+"start": 140.44,
+"end": 141.1
+},
+{
+"w": "and",
+"start": 141.5,
+"end": 141.7
+},
+{
+"w": "the",
+"start": 141.7,
+"end": 141.8
+},
+{
+"w": "four",
+"start": 141.8,
+"end": 142.06
+},
+{
+"w": "-engine",
+"start": 142.06,
+"end": 142.34
+},
+{
+"w": "Boeing",
+"start": 142.34,
+"end": 142.7
+},
+{
+"w": "747",
+"start": 142.7,
+"end": 143.46
+},
+{
+"w": "ruled",
+"start": 143.46,
+"end": 144.2
+},
+{
+"w": "the",
+"start": 144.2,
+"end": 144.44
+},
+{
+"w": "long",
+"start": 144.44,
+"end": 144.68
+},
+{
+"w": "-haul",
+"start": 144.68,
+"end": 144.92
+},
+{
+"w": "world.",
+"start": 144.92,
+"end": 145.42
+},
+{
+"w": "For",
+"start": 146.4,
+"end": 146.62
+},
+{
+"w": "decades,",
+"start": 146.62,
+"end": 146.98
+},
+{
+"w": "if",
+"start": 147.12,
+"end": 147.3
+},
+{
+"w": "you",
+"start": 147.3,
+"end": 147.44
+},
+{
+"w": "crossed",
+"start": 147.44,
+"end": 147.62
+},
+{
+"w": "an",
+"start": 147.62,
+"end": 147.84
+},
+{
+"w": "ocean,",
+"start": 147.84,
+"end": 148.08
+},
+{
+"w": "you",
+"start": 148.36,
+"end": 148.5
+},
+{
+"w": "almost",
+"start": 148.5,
+"end": 148.72
+},
+{
+"w": "certainly",
+"start": 148.72,
+"end": 149.08
+},
+{
+"w": "did",
+"start": 149.08,
+"end": 149.34
+},
+{
+"w": "it",
+"start": 149.34,
+"end": 149.44
+},
+{
+"w": "on",
+"start": 149.44,
+"end": 149.6
+},
+{
+"w": "three",
+"start": 149.6,
+"end": 149.86
+},
+{
+"w": "or",
+"start": 149.86,
+"end": 150.04
+},
+{
+"w": "four",
+"start": 150.04,
+"end": 150.28
+},
+{
+"w": "engines.",
+"start": 150.28,
+"end": 150.66
+},
+{
+"w": "But",
+"start": 151.76,
+"end": 151.96
+},
+{
+"w": "jet",
+"start": 151.96,
+"end": 152.2
+},
+{
+"w": "engines",
+"start": 152.2,
+"end": 152.56
+},
+{
+"w": "kept",
+"start": 152.56,
+"end": 152.88
+},
+{
+"w": "getting",
+"start": 152.88,
+"end": 153.28
+},
+{
+"w": "better.",
+"start": 153.28,
+"end": 153.64
+},
+{
+"w": "Much",
+"start": 154.62,
+"end": 154.8
+},
+{
+"w": "better.",
+"start": 154.8,
+"end": 155.2
+},
+{
+"w": "And",
+"start": 156.22,
+"end": 156.4
+},
+{
+"w": "airlines",
+"start": 156.4,
+"end": 156.78
+},
+{
+"w": "noticed",
+"start": 156.78,
+"end": 157.2
+},
+{
+"w": "something.",
+"start": 157.2,
+"end": 157.7
+},
+{
+"w": "Two",
+"start": 158.14,
+"end": 158.38
+},
+{
+"w": "engines",
+"start": 158.38,
+"end": 158.78
+},
+{
+"w": "burn",
+"start": 158.78,
+"end": 159.06
+},
+{
+"w": "a",
+"start": 159.06,
+"end": 159.22
+},
+{
+"w": "lot",
+"start": 159.22,
+"end": 159.38
+},
+{
+"w": "less",
+"start": 159.38,
+"end": 159.62
+},
+{
+"w": "fuel",
+"start": 159.62,
+"end": 159.92
+},
+{
+"w": "than",
+"start": 159.92,
+"end": 160.2
+},
+{
+"w": "three",
+"start": 160.2,
+"end": 160.48
+},
+{
+"w": "or",
+"start": 160.48,
+"end": 160.64
+},
+{
+"w": "four.",
+"start": 160.64,
+"end": 160.92
+},
+{
+"w": "A",
+"start": 161.32,
+"end": 161.5
+},
+{
+"w": "twin",
+"start": 161.5,
+"end": 161.72
+},
+{
+"w": "-engine",
+"start": 161.72,
+"end": 162.0
+},
+{
+"w": "jet",
+"start": 162.0,
+"end": 162.32
+},
+{
+"w": "is",
+"start": 162.32,
+"end": 162.54
+},
+{
+"w": "cheaper",
+"start": 162.54,
+"end": 162.82
+},
+{
+"w": "to",
+"start": 162.82,
+"end": 163.0
+},
+{
+"w": "buy,",
+"start": 163.0,
+"end": 163.3
+},
+{
+"w": "cheaper",
+"start": 163.66,
+"end": 163.78
+},
+{
+"w": "to",
+"start": 163.78,
+"end": 164.04
+},
+{
+"w": "maintain,",
+"start": 164.04,
+"end": 164.52
+},
+{
+"w": "and",
+"start": 164.86,
+"end": 165.02
+},
+{
+"w": "cheaper",
+"start": 165.02,
+"end": 165.26
+},
+{
+"w": "to",
+"start": 165.26,
+"end": 165.52
+},
+{
+"w": "fly.",
+"start": 165.52,
+"end": 165.8
+},
+{
+"w": "Under",
+"start": 166.76,
+"end": 167.08
+},
+{
+"w": "international",
+"start": 167.08,
+"end": 167.56
+},
+{
+"w": "rules,",
+"start": 167.56,
+"end": 168.2
+},
+{
+"w": "Airbus",
+"start": 168.66,
+"end": 168.92
+},
+{
+"w": "A300s",
+"start": 168.92,
+"end": 170.12
+},
+{
+"w": "had",
+"start": 170.12,
+"end": 170.22
+},
+{
+"w": "already",
+"start": 170.22,
+"end": 170.46
+},
+{
+"w": "been",
+"start": 170.46,
+"end": 170.72
+},
+{
+"w": "flying",
+"start": 170.72,
+"end": 171.02
+},
+{
+"w": "longer",
+"start": 171.02,
+"end": 171.48
+},
+{
+"w": "over",
+"start": 171.48,
+"end": 171.8
+},
+{
+"w": "water",
+"start": 171.8,
+"end": 172.08
+},
+{
+"w": "routes",
+"start": 172.08,
+"end": 172.44
+},
+{
+"w": "since",
+"start": 172.44,
+"end": 172.66
+},
+{
+"w": "1976",
+"start": 172.66,
+"end": 173.72
+},
+{
+"w": "with",
+"start": 173.72,
+"end": 174.22
+},
+{
+"w": "a",
+"start": 174.22,
+"end": 174.36
+},
+{
+"w": "90",
+"start": 174.36,
+"end": 174.72
+},
+{
+"w": "-minute",
+"start": 174.72,
+"end": 174.9
+},
+{
+"w": "limit.",
+"start": 174.9,
+"end": 175.32
+},
+{
+"w": "Then",
+"start": 176.38,
+"end": 176.62
+},
+{
+"w": "in",
+"start": 176.62,
+"end": 176.82
+},
+{
+"w": "1985,",
+"start": 176.82,
+"end": 177.64
+},
+{
+"w": "the",
+"start": 178.16,
+"end": 178.2
+},
+{
+"w": "FAA",
+"start": 178.2,
+"end": 178.52
+},
+{
+"w": "made",
+"start": 178.52,
+"end": 178.94
+},
+{
+"w": "its",
+"start": 178.94,
+"end": 179.12
+},
+{
+"w": "move.",
+"start": 179.12,
+"end": 179.44
+},
+{
+"w": "Twin",
+"start": 180.16,
+"end": 180.26
+},
+{
+"w": "-engine",
+"start": 180.26,
+"end": 180.54
+},
+{
+"w": "jets",
+"start": 180.54,
+"end": 180.94
+},
+{
+"w": "that",
+"start": 180.94,
+"end": 181.24
+},
+{
+"w": "met",
+"start": 181.24,
+"end": 181.42
+},
+{
+"w": "strict",
+"start": 181.42,
+"end": 181.78
+},
+{
+"w": "new",
+"start": 181.78,
+"end": 182.1
+},
+{
+"w": "standards",
+"start": 182.1,
+"end": 182.7
+},
+{
+"w": "could",
+"start": 182.7,
+"end": 183.12
+},
+{
+"w": "now",
+"start": 183.12,
+"end": 183.36
+},
+{
+"w": "fly",
+"start": 183.36,
+"end": 183.66
+},
+{
+"w": "up",
+"start": 183.66,
+"end": 183.86
+},
+{
+"w": "to",
+"start": 183.86,
+"end": 184.04
+},
+{
+"w": "120",
+"start": 184.04,
+"end": 184.76
+},
+{
+"w": "minutes",
+"start": 184.76,
+"end": 185.18
+},
+{
+"w": "from",
+"start": 185.18,
+"end": 185.42
+},
+{
+"w": "an",
+"start": 185.42,
+"end": 185.54
+},
+{
+"w": "airport.",
+"start": 185.54,
+"end": 185.86
+},
+{
+"w": "On",
+"start": 186.86,
+"end": 187.06
+},
+{
+"w": "1",
+"start": 187.06,
+"end": 187.3
+},
+{
+"w": "February",
+"start": 187.3,
+"end": 187.82
+},
+{
+"w": "1985,",
+"start": 187.82,
+"end": 188.62
+},
+{
+"w": "a",
+"start": 189.24,
+"end": 189.24
+},
+{
+"w": "TWA",
+"start": 189.24,
+"end": 189.84
+},
+{
+"w": "Boeing",
+"start": 189.84,
+"end": 190.22
+},
+{
+"w": "767",
+"start": 190.22,
+"end": 191.0
+},
+{
+"w": "took",
+"start": 191.0,
+"end": 191.42
+},
+{
+"w": "off",
+"start": 191.42,
+"end": 191.62
+},
+{
+"w": "from",
+"start": 191.62,
+"end": 191.82
+},
+{
+"w": "Boston,",
+"start": 191.82,
+"end": 192.22
+},
+{
+"w": "bound",
+"start": 192.82,
+"end": 192.84
+},
+{
+"w": "for",
+"start": 192.84,
+"end": 193.08
+},
+{
+"w": "Paris",
+"start": 193.08,
+"end": 193.44
+},
+{
+"w": "with",
+"start": 193.44,
+"end": 193.72
+},
+{
+"w": "FAA",
+"start": 193.72,
+"end": 194.2
+},
+{
+"w": "observers",
+"start": 194.2,
+"end": 194.58
+},
+{
+"w": "on",
 "start": 194.58,
 "end": 194.9
 },
 {
-"w": "fly.",
-"start": 194.9,
-"end": 195.26
-},
-{
-"w": "Under",
-"start": 196.08,
-"end": 196.38
-},
-{
-"w": "international",
-"start": 196.38,
-"end": 197.0
-},
-{
-"w": "rules,",
-"start": 197.0,
-"end": 197.86
-},
-{
-"w": "Airbus",
-"start": 198.16,
-"end": 198.52
-},
-{
-"w": "A300s",
-"start": 198.52,
-"end": 199.94
-},
-{
-"w": "had",
-"start": 199.94,
-"end": 200.08
-},
-{
-"w": "already",
-"start": 200.08,
-"end": 200.44
-},
-{
-"w": "been",
-"start": 200.44,
-"end": 200.88
-},
-{
-"w": "flying",
-"start": 200.88,
-"end": 201.26
-},
-{
-"w": "longer",
-"start": 201.26,
-"end": 201.74
-},
-{
-"w": "over",
-"start": 201.74,
-"end": 202.24
-},
-{
-"w": "water",
-"start": 202.24,
-"end": 202.64
-},
-{
-"w": "routes",
-"start": 202.64,
-"end": 203.06
-},
-{
-"w": "since",
-"start": 203.06,
-"end": 203.36
-},
-{
-"w": "1976",
-"start": 203.36,
-"end": 204.76
-},
-{
-"w": "with",
-"start": 204.76,
-"end": 205.42
-},
-{
-"w": "a",
-"start": 205.42,
-"end": 205.62
-},
-{
-"w": "90",
-"start": 205.62,
-"end": 205.98
-},
-{
-"w": "-minute",
-"start": 205.98,
-"end": 206.18
-},
-{
-"w": "limit.",
-"start": 206.18,
-"end": 206.7
-},
-{
-"w": "Then,",
-"start": 207.48,
-"end": 207.86
-},
-{
-"w": "in",
-"start": 208.0,
-"end": 208.22
-},
-{
-"w": "1985,",
-"start": 208.22,
-"end": 209.16
-},
-{
-"w": "the",
-"start": 209.7,
-"end": 209.8
-},
-{
-"w": "FAA",
-"start": 209.8,
-"end": 210.26
-},
-{
-"w": "made",
-"start": 210.26,
-"end": 210.8
-},
-{
-"w": "its",
-"start": 210.8,
-"end": 211.04
-},
-{
-"w": "move.",
-"start": 211.04,
-"end": 211.48
-},
-{
-"w": "Twin",
-"start": 212.19,
-"end": 212.58
-},
-{
-"w": "-engine",
-"start": 212.58,
-"end": 212.94
-},
-{
-"w": "jets",
-"start": 212.94,
-"end": 213.44
-},
-{
-"w": "that",
-"start": 213.44,
-"end": 213.8
-},
-{
-"w": "met",
-"start": 213.8,
-"end": 214.0
-},
-{
-"w": "strict",
-"start": 214.0,
-"end": 214.44
-},
-{
-"w": "new",
-"start": 214.44,
-"end": 214.76
-},
-{
-"w": "standards",
-"start": 214.76,
-"end": 215.42
-},
-{
-"w": "could",
-"start": 215.42,
-"end": 215.86
-},
-{
-"w": "now",
-"start": 215.86,
-"end": 216.14
-},
-{
-"w": "fly",
-"start": 216.14,
-"end": 216.44
-},
-{
-"w": "up",
-"start": 216.44,
-"end": 216.68
-},
-{
-"w": "to",
-"start": 216.68,
-"end": 216.9
-},
-{
-"w": "120",
-"start": 216.9,
-"end": 217.86
-},
-{
-"w": "minutes",
-"start": 217.86,
-"end": 218.42
-},
-{
-"w": "from",
-"start": 218.42,
-"end": 218.7
-},
-{
-"w": "an",
-"start": 218.7,
-"end": 218.86
-},
-{
-"w": "airport.",
-"start": 218.86,
-"end": 219.3
-},
-{
-"w": "On",
-"start": 220.54,
-"end": 220.68
-},
-{
-"w": "the",
-"start": 220.68,
-"end": 220.8
-},
-{
-"w": "1st",
-"start": 220.8,
-"end": 221.82
-},
-{
-"w": "of",
-"start": 221.82,
-"end": 221.82
-},
-{
-"w": "February",
-"start": 221.82,
-"end": 221.82
-},
-{
-"w": "1985,",
-"start": 221.82,
-"end": 222.84
-},
-{
-"w": "a",
-"start": 223.6,
-"end": 223.6
-},
-{
-"w": "TWA",
-"start": 223.6,
-"end": 224.48
-},
-{
-"w": "Boeing",
-"start": 224.48,
-"end": 224.92
-},
-{
-"w": "767",
-"start": 224.92,
-"end": 226.12
-},
-{
-"w": "took",
-"start": 226.12,
-"end": 226.68
-},
-{
-"w": "off",
-"start": 226.68,
-"end": 226.96
-},
-{
-"w": "from",
-"start": 226.96,
-"end": 227.2
-},
-{
-"w": "Boston,",
-"start": 227.2,
-"end": 227.72
-},
-{
-"w": "bound",
-"start": 228.3,
-"end": 228.38
-},
-{
-"w": "for",
-"start": 228.38,
-"end": 228.66
-},
-{
-"w": "Paris",
-"start": 228.66,
-"end": 229.16
-},
-{
-"w": "with",
-"start": 229.16,
-"end": 229.58
-},
-{
-"w": "FAA",
-"start": 229.58,
-"end": 230.08
-},
-{
-"w": "observers",
-"start": 230.08,
-"end": 230.66
-},
-{
-"w": "on",
-"start": 230.66,
-"end": 231.04
-},
-{
 "w": "board.",
-"start": 231.04,
-"end": 231.42
+"start": 194.9,
+"end": 195.16
 },
 {
 "w": "It",
-"start": 232.38,
-"end": 232.54
+"start": 195.16,
+"end": 195.6
 },
 {
 "w": "was",
-"start": 232.54,
-"end": 232.7
+"start": 195.6,
+"end": 195.76
 },
 {
 "w": "one",
-"start": 232.7,
-"end": 232.92
+"start": 195.76,
+"end": 195.9
 },
 {
 "w": "of",
-"start": 232.92,
-"end": 233.04
+"start": 195.9,
+"end": 196.0
 },
 {
 "w": "the",
-"start": 233.04,
-"end": 233.18
+"start": 196.0,
+"end": 196.1
 },
 {
 "w": "very",
-"start": 233.18,
-"end": 233.48
+"start": 196.1,
+"end": 196.36
 },
 {
 "w": "first",
-"start": 233.48,
-"end": 233.88
+"start": 196.36,
+"end": 196.72
 },
 {
 "w": "passenger",
-"start": 233.88,
-"end": 234.46
+"start": 196.72,
+"end": 197.12
 },
 {
 "w": "flights",
-"start": 234.46,
-"end": 234.94
+"start": 197.12,
+"end": 197.44
 },
 {
 "w": "across",
-"start": 234.94,
-"end": 235.34
+"start": 197.44,
+"end": 197.74
 },
 {
 "w": "the",
-"start": 235.34,
-"end": 235.62
+"start": 197.74,
+"end": 197.94
 },
 {
 "w": "Atlantic",
-"start": 235.62,
-"end": 236.14
+"start": 197.94,
+"end": 198.32
 },
 {
 "w": "under",
-"start": 236.14,
-"end": 236.5
+"start": 198.32,
+"end": 198.66
 },
 {
 "w": "the",
-"start": 236.5,
-"end": 236.68
+"start": 198.66,
+"end": 198.82
 },
 {
 "w": "new",
-"start": 236.68,
-"end": 236.92
+"start": 198.82,
+"end": 199.02
 },
 {
 "w": "rule.",
-"start": 236.92,
-"end": 237.3
+"start": 199.02,
+"end": 199.34
 },
 {
 "w": "On",
-"start": 237.84,
-"end": 238.22
+"start": 200.24,
+"end": 200.52
 },
 {
 "w": "the",
-"start": 238.22,
-"end": 238.38
+"start": 200.52,
+"end": 200.66
 },
 {
 "w": "map,",
-"start": 238.38,
-"end": 238.7
+"start": 200.66,
+"end": 200.94
 },
 {
 "w": "the",
-"start": 239.06,
-"end": 239.06
+"start": 201.28,
+"end": 201.36
 },
 {
-"w": "circle",
-"start": 239.06,
-"end": 239.48
+"w": "circles",
+"start": 201.36,
+"end": 201.72
 },
 {
 "w": "swelled,",
-"start": 239.48,
-"end": 240.24
+"start": 201.72,
+"end": 202.28
 },
 {
 "w": "and",
-"start": 240.66,
-"end": 240.92
+"start": 202.84,
+"end": 203.36
 },
 {
 "w": "the",
-"start": 240.92,
-"end": 241.1
+"start": 203.36,
+"end": 203.52
 },
 {
 "w": "gap",
-"start": 241.1,
-"end": 241.36
+"start": 203.52,
+"end": 203.74
 },
 {
 "w": "in",
-"start": 241.36,
-"end": 241.62
+"start": 203.74,
+"end": 203.94
 },
 {
 "w": "the",
-"start": 241.62,
-"end": 241.76
+"start": 203.94,
+"end": 204.08
 },
 {
 "w": "middle",
-"start": 241.76,
-"end": 241.98
+"start": 204.08,
+"end": 204.24
 },
 {
 "w": "of",
-"start": 241.98,
-"end": 242.14
+"start": 204.24,
+"end": 204.4
 },
 {
 "w": "the",
-"start": 242.14,
-"end": 242.3
+"start": 204.4,
+"end": 204.52
 },
 {
 "w": "Atlantic",
-"start": 242.3,
-"end": 242.8
+"start": 204.52,
+"end": 204.94
 },
 {
 "w": "closed.",
-"start": 242.8,
-"end": 243.36
+"start": 204.94,
+"end": 205.36
 },
 {
 "w": "The",
-"start": 243.94,
-"end": 244.1
+"start": 206.36,
+"end": 206.62
 },
 {
 "w": "Atlantic",
-"start": 244.1,
-"end": 244.6
+"start": 206.62,
+"end": 206.96
 },
 {
 "w": "was",
-"start": 244.6,
-"end": 245.06
+"start": 206.96,
+"end": 207.16
 },
 {
 "w": "one",
-"start": 245.06,
-"end": 245.36
+"start": 207.16,
+"end": 207.4
 },
 {
 "w": "thing.",
-"start": 245.36,
-"end": 245.68
+"start": 207.4,
+"end": 207.66
 },
 {
 "w": "The",
-"start": 245.96,
-"end": 246.06
+"start": 208.14,
+"end": 208.28
 },
 {
 "w": "Pacific",
-"start": 246.06,
-"end": 246.42
+"start": 208.28,
+"end": 208.56
 },
 {
 "w": "was",
-"start": 246.42,
-"end": 246.9
+"start": 208.56,
+"end": 208.9
 },
 {
 "w": "something",
-"start": 246.9,
-"end": 247.28
+"start": 208.9,
+"end": 209.24
 },
 {
 "w": "else",
-"start": 247.28,
-"end": 247.6
+"start": 209.24,
+"end": 209.58
 },
 {
 "w": "entirely.",
-"start": 247.6,
-"end": 248.16
+"start": 209.58,
+"end": 210.08
 },
 {
 "w": "It's",
-"start": 249.02,
-"end": 249.34
+"start": 211.08,
+"end": 211.4
 },
 {
 "w": "the",
-"start": 249.34,
-"end": 249.56
+"start": 211.4,
+"end": 211.56
 },
 {
 "w": "largest",
-"start": 249.56,
-"end": 250.02
+"start": 211.56,
+"end": 211.9
 },
 {
 "w": "ocean",
-"start": 250.02,
-"end": 250.48
+"start": 211.9,
+"end": 212.42
 },
 {
 "w": "on",
-"start": 250.48,
-"end": 250.74
+"start": 212.42,
+"end": 212.7
 },
 {
 "w": "Earth,",
-"start": 250.74,
-"end": 251.0
+"start": 212.7,
+"end": 213.02
 },
 {
 "w": "and",
-"start": 251.58,
-"end": 251.7
+"start": 213.42,
+"end": 213.52
 },
 {
 "w": "the",
-"start": 251.7,
-"end": 251.86
+"start": 213.52,
+"end": 213.66
 },
 {
 "w": "distances",
-"start": 251.86,
-"end": 252.38
+"start": 213.66,
+"end": 214.02
 },
 {
 "w": "between",
-"start": 252.38,
-"end": 253.08
+"start": 214.02,
+"end": 214.48
 },
 {
 "w": "usable",
-"start": 253.08,
-"end": 253.74
+"start": 214.48,
+"end": 214.9
 },
 {
 "w": "runways",
-"start": 253.74,
-"end": 254.46
+"start": 214.9,
+"end": 215.44
 },
 {
 "w": "are",
-"start": 254.46,
-"end": 255.06
+"start": 215.44,
+"end": 215.76
 },
 {
 "w": "enormous.",
-"start": 255.06,
-"end": 255.64
+"start": 215.76,
+"end": 216.24
 },
 {
 "w": "To",
-"start": 256.36,
-"end": 256.54
+"start": 216.82,
+"end": 216.96
 },
 {
 "w": "cross",
-"start": 256.54,
-"end": 256.8
+"start": 216.96,
+"end": 217.16
 },
 {
 "w": "it",
-"start": 256.8,
-"end": 257.08
+"start": 217.16,
+"end": 217.36
 },
 {
 "w": "reliably,",
-"start": 257.08,
-"end": 257.6
+"start": 217.36,
+"end": 217.86
 },
 {
 "w": "twins",
-"start": 258.5,
-"end": 258.66
+"start": 218.36,
+"end": 218.48
 },
 {
 "w": "needed",
-"start": 258.66,
-"end": 259.12
+"start": 218.48,
+"end": 218.78
 },
 {
 "w": "even",
-"start": 259.12,
-"end": 259.58
+"start": 218.78,
+"end": 219.14
 },
 {
 "w": "bigger",
-"start": 259.58,
-"end": 259.96
+"start": 219.14,
+"end": 219.52
 },
 {
 "w": "circles.",
-"start": 259.96,
-"end": 260.56
+"start": 219.52,
+"end": 220.04
 },
 {
 "w": "Soon,",
-"start": 261.24,
-"end": 261.66
+"start": 220.82,
+"end": 221.42
 },
 {
 "w": "the",
-"start": 262.24,
-"end": 262.26
+"start": 221.8,
+"end": 221.9
 },
 {
 "w": "limit",
-"start": 262.26,
-"end": 262.5
+"start": 221.9,
+"end": 222.08
 },
 {
 "w": "was",
-"start": 262.5,
-"end": 262.8
+"start": 222.08,
+"end": 222.3
 },
 {
 "w": "pushed",
-"start": 262.8,
-"end": 263.16
+"start": 222.3,
+"end": 222.56
 },
 {
 "w": "to",
-"start": 263.16,
-"end": 263.54
+"start": 222.56,
+"end": 222.78
 },
 {
 "w": "180",
-"start": 263.54,
-"end": 264.66
+"start": 222.78,
+"end": 223.64
 },
 {
 "w": "minutes,",
-"start": 264.66,
-"end": 265.34
+"start": 223.64,
+"end": 224.14
 },
 {
 "w": "three",
-"start": 265.86,
-"end": 266.22
+"start": 224.54,
+"end": 224.82
 },
 {
 "w": "full",
-"start": 266.22,
-"end": 266.66
+"start": 224.82,
+"end": 225.12
 },
 {
 "w": "hours",
-"start": 266.66,
-"end": 267.14
+"start": 225.12,
+"end": 225.42
 },
 {
 "w": "from",
-"start": 267.14,
+"start": 225.42,
+"end": 225.68
+},
+{
+"w": "the",
+"start": 225.68,
+"end": 225.78
+},
+{
+"w": "nearest",
+"start": 225.78,
+"end": 226.02
+},
+{
+"w": "airport.",
+"start": 226.02,
+"end": 226.44
+},
+{
+"w": "In",
+"start": 227.44,
+"end": 227.76
+},
+{
+"w": "1995,",
+"start": 227.76,
+"end": 228.4
+},
+{
+"w": "the",
+"start": 229.16,
+"end": 229.2
+},
+{
+"w": "Boeing",
+"start": 229.2,
+"end": 229.44
+},
+{
+"w": "777",
+"start": 229.44,
+"end": 230.14
+},
+{
+"w": "entered",
+"start": 230.14,
+"end": 231.08
+},
+{
+"w": "service",
+"start": 231.08,
+"end": 231.5
+},
+{
+"w": "with",
+"start": 231.5,
+"end": 231.74
+},
+{
+"w": "United",
+"start": 231.74,
+"end": 232.1
+},
+{
+"w": "Airlines.",
+"start": 232.1,
+"end": 232.5
+},
+{
+"w": "The",
+"start": 233.06,
+"end": 233.4
+},
+{
+"w": "version",
+"start": 233.4,
+"end": 233.68
+},
+{
+"w": "with",
+"start": 233.68,
+"end": 234.0
+},
+{
+"w": "Pratt",
+"start": 234.0,
+"end": 234.3
+},
+{
+"w": "and",
+"start": 234.3,
+"end": 234.52
+},
+{
+"w": "Whitney",
+"start": 234.52,
+"end": 234.82
+},
+{
+"w": "engines",
+"start": 234.82,
+"end": 235.22
+},
+{
+"w": "had",
+"start": 235.22,
+"end": 235.6
+},
+{
+"w": "been",
+"start": 235.6,
+"end": 235.74
+},
+{
+"w": "cleared",
+"start": 235.74,
+"end": 236.06
+},
+{
+"w": "for",
+"start": 236.06,
+"end": 236.32
+},
+{
+"w": "180",
+"start": 236.32,
+"end": 237.26
+},
+{
+"w": "minutes",
+"start": 237.26,
+"end": 237.8
+},
+{
+"w": "before",
+"start": 237.8,
+"end": 238.22
+},
+{
+"w": "it",
+"start": 238.22,
+"end": 238.36
+},
+{
+"w": "carried",
+"start": 238.36,
+"end": 238.64
+},
+{
+"w": "a",
+"start": 238.64,
+"end": 238.84
+},
+{
+"w": "single",
+"start": 238.84,
+"end": 239.16
+},
+{
+"w": "paying",
+"start": 239.16,
+"end": 239.42
+},
+{
+"w": "passenger.",
+"start": 239.42,
+"end": 239.96
+},
+{
+"w": "That",
+"start": 240.56,
+"end": 240.74
+},
+{
+"w": "had",
+"start": 240.74,
+"end": 240.84
+},
+{
+"w": "never",
+"start": 240.84,
+"end": 241.06
+},
+{
+"w": "happened",
+"start": 241.06,
+"end": 241.4
+},
+{
+"w": "before.",
+"start": 241.4,
+"end": 241.88
+},
+{
+"w": "Until",
+"start": 242.38,
+"end": 242.62
+},
+{
+"w": "then,",
+"start": 242.62,
+"end": 242.92
+},
+{
+"w": "a",
+"start": 243.24,
+"end": 243.36
+},
+{
+"w": "new",
+"start": 243.36,
+"end": 243.62
+},
+{
+"w": "plane",
+"start": 243.62,
+"end": 243.9
+},
+{
+"w": "had",
+"start": 243.9,
+"end": 244.14
+},
+{
+"w": "to",
+"start": 244.14,
+"end": 244.32
+},
+{
+"w": "prove",
+"start": 244.32,
+"end": 244.58
+},
+{
+"w": "itself",
+"start": 244.58,
+"end": 244.96
+},
+{
+"w": "in",
+"start": 244.96,
+"end": 245.22
+},
+{
+"w": "service",
+"start": 245.22,
+"end": 245.56
+},
+{
+"w": "first.",
+"start": 245.56,
+"end": 245.96
+},
+{
+"w": "With",
+"start": 246.89,
+"end": 247.2
+},
+{
+"w": "three",
+"start": 247.2,
+"end": 247.54
+},
+{
+"w": "-hour",
+"start": 247.54,
+"end": 247.76
+},
+{
+"w": "circles,",
+"start": 247.76,
+"end": 248.28
+},
+{
+"w": "almost",
+"start": 248.68,
+"end": 248.76
+},
+{
+"w": "the",
+"start": 248.76,
+"end": 248.98
+},
+{
+"w": "entire",
+"start": 248.98,
+"end": 249.54
+},
+{
+"w": "Pacific",
+"start": 249.54,
+"end": 249.92
+},
+{
+"w": "was",
+"start": 249.92,
+"end": 250.24
+},
+{
+"w": "suddenly",
+"start": 250.24,
+"end": 250.62
+},
+{
+"w": "within",
+"start": 250.62,
+"end": 250.96
+},
+{
+"w": "reach.",
+"start": 250.96,
+"end": 251.26
+},
+{
+"w": "Now,",
+"start": 252.5,
+"end": 252.58
+},
+{
+"w": "this",
+"start": 252.92,
+"end": 253.06
+},
+{
+"w": "is",
+"start": 253.06,
+"end": 253.22
+},
+{
+"w": "the",
+"start": 253.22,
+"end": 253.38
+},
+{
+"w": "part",
+"start": 253.38,
+"end": 253.62
+},
+{
+"w": "that",
+"start": 253.62,
+"end": 253.82
+},
+{
+"w": "makes",
+"start": 253.82,
+"end": 254.02
+},
+{
+"w": "some",
+"start": 254.02,
+"end": 254.32
+},
+{
+"w": "passengers",
+"start": 254.32,
+"end": 254.72
+},
+{
+"w": "nervous.",
+"start": 254.72,
+"end": 255.16
+},
+{
+"w": "Two",
+"start": 255.58,
+"end": 255.7
+},
+{
+"w": "engines,",
+"start": 255.7,
+"end": 256.12
+},
+{
+"w": "three",
+"start": 256.42,
+"end": 256.56
+},
+{
+"w": "hours",
+"start": 256.56,
+"end": 256.86
+},
+{
+"w": "from",
+"start": 256.86,
+"end": 257.12
+},
+{
+"w": "land.",
+"start": 257.12,
+"end": 257.42
+},
+{
+"w": "Is",
+"start": 258.46,
+"end": 258.58
+},
+{
+"w": "that",
+"start": 258.58,
+"end": 258.74
+},
+{
+"w": "really",
+"start": 258.74,
+"end": 259.12
+},
+{
+"w": "safe?",
+"start": 259.12,
+"end": 259.52
+},
+{
+"w": "The",
+"start": 260.58,
+"end": 260.76
+},
+{
+"w": "answer",
+"start": 260.76,
+"end": 261.0
+},
+{
+"w": "is,",
+"start": 261.0,
+"end": 261.36
+},
+{
+"w": "in",
+"start": 261.54,
+"end": 261.64
+},
+{
+"w": "the",
+"start": 261.64,
+"end": 261.8
+},
+{
+"w": "numbers.",
+"start": 261.8,
+"end": 262.16
+},
+{
+"w": "To",
+"start": 262.76,
+"end": 262.88
+},
+{
+"w": "qualify",
+"start": 262.88,
+"end": 263.26
+},
+{
+"w": "for",
+"start": 263.26,
+"end": 263.6
+},
+{
+"w": "180",
+"start": 263.6,
+"end": 264.26
+},
+{
+"w": "minutes,",
+"start": 264.26,
+"end": 264.72
+},
+{
+"w": "the",
+"start": 265.06,
+"end": 265.12
+},
+{
+"w": "FAA",
+"start": 265.12,
+"end": 265.44
+},
+{
+"w": "requires",
+"start": 265.44,
+"end": 266.04
+},
+{
+"w": "that",
+"start": 266.04,
+"end": 266.34
+},
+{
+"w": "engine",
+"start": 266.34,
+"end": 266.68
+},
+{
+"w": "type,",
+"start": 266.68,
+"end": 267.04
+},
+{
+"w": "across",
+"start": 267.24,
 "end": 267.5
 },
 {
 "w": "the",
 "start": 267.5,
-"end": 267.64
-},
-{
-"w": "nearest",
-"start": 267.64,
-"end": 267.96
-},
-{
-"w": "airport.",
-"start": 267.96,
-"end": 268.48
-},
-{
-"w": "In",
-"start": 269.44,
-"end": 269.64
-},
-{
-"w": "1995,",
-"start": 269.64,
-"end": 270.64
-},
-{
-"w": "the",
-"start": 271.36,
-"end": 271.36
-},
-{
-"w": "Boeing",
-"start": 271.36,
-"end": 271.76
-},
-{
-"w": "777",
-"start": 271.76,
-"end": 272.62
-},
-{
-"w": "entered",
-"start": 272.62,
-"end": 273.74
-},
-{
-"w": "service",
-"start": 273.74,
-"end": 274.22
-},
-{
-"w": "with",
-"start": 274.22,
-"end": 274.56
-},
-{
-"w": "United",
-"start": 274.56,
-"end": 275.14
-},
-{
-"w": "Airlines.",
-"start": 275.14,
-"end": 275.6
-},
-{
-"w": "The",
-"start": 276.32,
-"end": 276.46
-},
-{
-"w": "version",
-"start": 276.46,
-"end": 276.8
-},
-{
-"w": "with",
-"start": 276.8,
-"end": 277.14
-},
-{
-"w": "Pratt",
-"start": 277.14,
-"end": 277.46
-},
-{
-"w": "and",
-"start": 277.46,
-"end": 277.72
-},
-{
-"w": "Whitney",
-"start": 277.72,
-"end": 278.06
-},
-{
-"w": "engines",
-"start": 278.06,
-"end": 278.52
-},
-{
-"w": "had",
-"start": 278.52,
-"end": 278.88
-},
-{
-"w": "been",
-"start": 278.88,
-"end": 279.12
-},
-{
-"w": "cleared",
-"start": 279.12,
-"end": 279.56
-},
-{
-"w": "for",
-"start": 279.56,
-"end": 279.84
-},
-{
-"w": "180",
-"start": 279.84,
-"end": 280.78
-},
-{
-"w": "minutes",
-"start": 280.78,
-"end": 281.48
-},
-{
-"w": "before",
-"start": 281.48,
-"end": 282.04
-},
-{
-"w": "it",
-"start": 282.04,
-"end": 282.26
-},
-{
-"w": "carried",
-"start": 282.26,
-"end": 282.62
-},
-{
-"w": "a",
-"start": 282.62,
-"end": 282.9
-},
-{
-"w": "single",
-"start": 282.9,
-"end": 283.32
-},
-{
-"w": "paying",
-"start": 283.32,
-"end": 283.74
-},
-{
-"w": "passenger.",
-"start": 283.74,
-"end": 284.44
-},
-{
-"w": "That",
-"start": 285.06,
-"end": 285.32
-},
-{
-"w": "had",
-"start": 285.32,
-"end": 285.54
-},
-{
-"w": "never",
-"start": 285.54,
-"end": 285.8
-},
-{
-"w": "happened",
-"start": 285.8,
-"end": 286.22
-},
-{
-"w": "before.",
-"start": 286.22,
-"end": 286.84
-},
-{
-"w": "Until",
-"start": 287.8,
-"end": 288.32
-},
-{
-"w": "then,",
-"start": 288.32,
-"end": 288.84
-},
-{
-"w": "a",
-"start": 289.24,
-"end": 289.3
-},
-{
-"w": "new",
-"start": 289.3,
-"end": 289.58
-},
-{
-"w": "plane",
-"start": 289.58,
-"end": 289.94
-},
-{
-"w": "had",
-"start": 289.94,
-"end": 290.24
-},
-{
-"w": "to",
-"start": 290.24,
-"end": 290.44
-},
-{
-"w": "prove",
-"start": 290.44,
-"end": 290.74
-},
-{
-"w": "itself",
-"start": 290.74,
-"end": 291.16
-},
-{
-"w": "in",
-"start": 291.16,
-"end": 291.48
-},
-{
-"w": "service",
-"start": 291.48,
-"end": 291.92
-},
-{
-"w": "first.",
-"start": 291.92,
-"end": 292.46
-},
-{
-"w": "With",
-"start": 292.94,
-"end": 293.18
-},
-{
-"w": "three",
-"start": 293.18,
-"end": 293.68
-},
-{
-"w": "-hour",
-"start": 293.68,
-"end": 294.02
-},
-{
-"w": "circles,",
-"start": 294.02,
-"end": 294.74
-},
-{
-"w": "almost",
-"start": 295.32,
-"end": 295.4
-},
-{
-"w": "the",
-"start": 295.4,
-"end": 295.72
+"end": 267.76
 },
 {
 "w": "entire",
-"start": 295.72,
-"end": 296.24
-},
-{
-"w": "Pacific",
-"start": 296.24,
-"end": 296.62
-},
-{
-"w": "was",
-"start": 296.62,
-"end": 297.04
-},
-{
-"w": "suddenly",
-"start": 297.04,
-"end": 297.5
-},
-{
-"w": "within",
-"start": 297.5,
-"end": 297.98
-},
-{
-"w": "reach.",
-"start": 297.98,
-"end": 298.42
-},
-{
-"w": "Now,",
-"start": 298.92,
-"end": 299.1
-},
-{
-"w": "this",
-"start": 299.34,
-"end": 299.56
-},
-{
-"w": "is",
-"start": 299.56,
-"end": 299.72
-},
-{
-"w": "the",
-"start": 299.72,
-"end": 299.9
-},
-{
-"w": "part",
-"start": 299.9,
-"end": 300.18
-},
-{
-"w": "that",
-"start": 300.18,
-"end": 300.38
-},
-{
-"w": "makes",
-"start": 300.38,
-"end": 300.64
-},
-{
-"w": "some",
-"start": 300.64,
-"end": 301.0
-},
-{
-"w": "passengers",
-"start": 301.0,
-"end": 301.46
-},
-{
-"w": "nervous.",
-"start": 301.46,
-"end": 301.98
-},
-{
-"w": "Two",
-"start": 302.42,
-"end": 302.64
-},
-{
-"w": "engines,",
-"start": 302.64,
-"end": 303.16
-},
-{
-"w": "three",
-"start": 303.6,
-"end": 303.78
-},
-{
-"w": "hours",
-"start": 303.78,
-"end": 304.16
-},
-{
-"w": "from",
-"start": 304.16,
-"end": 304.48
-},
-{
-"w": "land.",
-"start": 304.48,
-"end": 304.86
-},
-{
-"w": "Is",
-"start": 305.38,
-"end": 305.54
-},
-{
-"w": "that",
-"start": 305.54,
-"end": 305.74
-},
-{
-"w": "really",
-"start": 305.74,
-"end": 306.12
-},
-{
-"w": "safe?",
-"start": 306.12,
-"end": 306.52
-},
-{
-"w": "The",
-"start": 307.38,
-"end": 307.68
-},
-{
-"w": "answer",
-"start": 307.68,
-"end": 308.08
-},
-{
-"w": "is",
-"start": 308.08,
-"end": 308.58
-},
-{
-"w": "in",
-"start": 308.58,
-"end": 308.78
-},
-{
-"w": "the",
-"start": 308.78,
-"end": 308.92
-},
-{
-"w": "numbers.",
-"start": 308.92,
-"end": 309.32
-},
-{
-"w": "To",
-"start": 310.06,
-"end": 310.26
-},
-{
-"w": "qualify",
-"start": 310.26,
-"end": 310.76
-},
-{
-"w": "for",
-"start": 310.76,
-"end": 311.14
-},
-{
-"w": "180",
-"start": 311.14,
-"end": 312.1
-},
-{
-"w": "minutes,",
-"start": 312.1,
-"end": 312.72
-},
-{
-"w": "the",
-"start": 312.72,
-"end": 313.42
-},
-{
-"w": "FAA",
-"start": 313.42,
-"end": 313.92
-},
-{
-"w": "requires",
-"start": 313.92,
-"end": 314.82
-},
-{
-"w": "that",
-"start": 314.82,
-"end": 315.2
-},
-{
-"w": "engine",
-"start": 315.2,
-"end": 315.66
-},
-{
-"w": "type,",
-"start": 315.66,
-"end": 316.14
-},
-{
-"w": "across",
-"start": 316.38,
-"end": 316.78
-},
-{
-"w": "the",
-"start": 316.78,
-"end": 317.06
-},
-{
-"w": "entire",
-"start": 317.06,
-"end": 317.68
+"start": 267.76,
+"end": 268.22
 },
 {
 "w": "world",
-"start": 317.68,
-"end": 318.14
+"start": 268.22,
+"end": 268.54
 },
 {
 "w": "fleet,",
-"start": 318.14,
-"end": 318.6
+"start": 268.54,
+"end": 268.88
 },
 {
 "w": "to",
-"start": 318.9,
-"end": 319.22
+"start": 269.14,
+"end": 269.32
 },
 {
 "w": "shut",
-"start": 319.22,
-"end": 319.48
+"start": 269.32,
+"end": 269.54
 },
 {
 "w": "down",
-"start": 319.48,
-"end": 319.9
+"start": 269.54,
+"end": 269.82
 },
 {
 "w": "in",
-"start": 319.9,
-"end": 320.14
+"start": 269.82,
+"end": 270.0
 },
 {
 "w": "flight",
-"start": 320.14,
-"end": 320.5
+"start": 270.0,
+"end": 270.26
 },
 {
 "w": "no",
-"start": 320.5,
-"end": 320.96
+"start": 270.26,
+"end": 270.58
 },
 {
 "w": "more",
-"start": 320.96,
-"end": 321.28
+"start": 270.58,
+"end": 270.84
 },
 {
 "w": "than",
-"start": 321.28,
-"end": 321.58
+"start": 270.84,
+"end": 271.06
 },
 {
 "w": "twice",
-"start": 321.58,
-"end": 322.0
+"start": 271.06,
+"end": 271.38
 },
 {
 "w": "in",
-"start": 322.0,
-"end": 322.38
+"start": 271.38,
+"end": 271.68
 },
 {
 "w": "every",
-"start": 322.38,
-"end": 322.84
+"start": 271.68,
+"end": 272.04
 },
 {
 "w": "hundred",
-"start": 322.84,
-"end": 323.16
+"start": 272.04,
+"end": 272.3
 },
 {
 "w": "thousand",
-"start": 323.16,
-"end": 323.82
+"start": 272.3,
+"end": 272.7
 },
 {
 "w": "engine",
-"start": 323.82,
-"end": 324.38
+"start": 272.7,
+"end": 273.14
 },
 {
 "w": "hours.",
-"start": 324.38,
-"end": 324.9
+"start": 273.14,
+"end": 273.58
 },
 {
 "w": "Modern",
-"start": 326.14,
-"end": 326.6
+"start": 274.28,
+"end": 274.84
 },
 {
 "w": "engines",
-"start": 326.6,
-"end": 327.08
+"start": 274.84,
+"end": 275.26
 },
 {
 "w": "do",
-"start": 327.08,
-"end": 327.5
+"start": 275.26,
+"end": 275.58
 },
 {
 "w": "far",
-"start": 327.5,
-"end": 327.88
+"start": 275.58,
+"end": 275.86
 },
 {
 "w": "better",
-"start": 327.88,
-"end": 328.22
+"start": 275.86,
+"end": 276.14
 },
 {
 "w": "than",
-"start": 328.22,
-"end": 328.46
+"start": 276.14,
+"end": 276.3
 },
 {
 "w": "that.",
-"start": 328.46,
-"end": 329.02
+"start": 276.3,
+"end": 276.56
 },
 {
 "w": "General",
-"start": 329.72,
-"end": 330.2
+"start": 277.06,
+"end": 277.28
 },
 {
 "w": "Electric",
-"start": 330.2,
-"end": 330.72
+"start": 277.28,
+"end": 277.56
 },
 {
 "w": "says",
-"start": 330.72,
-"end": 331.14
+"start": 277.56,
+"end": 277.9
 },
 {
 "w": "its",
-"start": 331.14,
-"end": 331.48
+"start": 277.9,
+"end": 278.12
 },
 {
-"w": "GE994B,",
-"start": 331.48,
-"end": 333.66
+"w": "GE9090",
+"start": 278.12,
+"end": 279.28
+},
+{
+"w": "Ford",
+"start": 279.28,
+"end": 279.56
+},
+{
+"w": "B,",
+"start": 279.56,
+"end": 279.92
 },
 {
 "w": "one",
-"start": 333.98,
-"end": 334.2
+"start": 280.3,
+"end": 280.52
 },
 {
 "w": "of",
-"start": 334.2,
-"end": 334.34
+"start": 280.52,
+"end": 280.6
 },
 {
 "w": "the",
-"start": 334.34,
-"end": 334.52
+"start": 280.6,
+"end": 280.74
 },
 {
 "w": "engines",
-"start": 334.52,
-"end": 334.94
+"start": 280.74,
+"end": 281.0
 },
 {
 "w": "that",
-"start": 334.94,
-"end": 335.34
+"start": 281.0,
+"end": 281.26
 },
 {
 "w": "powers",
-"start": 335.34,
-"end": 335.76
+"start": 281.26,
+"end": 281.54
 },
 {
 "w": "the",
-"start": 335.76,
-"end": 336.02
+"start": 281.54,
+"end": 281.72
 },
 {
 "w": "777,",
-"start": 336.02,
-"end": 336.74
+"start": 281.72,
+"end": 282.18
 },
 {
 "w": "has",
-"start": 337.32,
-"end": 337.7
+"start": 282.68,
+"end": 282.92
 },
 {
 "w": "an",
-"start": 337.7,
-"end": 337.92
+"start": 282.92,
+"end": 283.1
 },
 {
 "w": "engine",
-"start": 337.92,
-"end": 338.5
+"start": 283.1,
+"end": 283.44
 },
 {
 "w": "-caused",
-"start": 338.5,
-"end": 339.04
+"start": 283.44,
+"end": 283.8
 },
 {
 "w": "shutdown",
-"start": 339.04,
-"end": 339.56
+"start": 283.8,
+"end": 284.24
 },
 {
 "w": "rate",
-"start": 339.56,
-"end": 340.08
+"start": 284.24,
+"end": 284.54
 },
 {
 "w": "of",
-"start": 340.08,
-"end": 340.3
+"start": 284.54,
+"end": 284.88
 },
 {
 "w": "roughly",
-"start": 340.3,
-"end": 340.68
+"start": 284.88,
+"end": 285.16
 },
 {
 "w": "one",
-"start": 340.68,
-"end": 341.06
+"start": 285.16,
+"end": 285.44
 },
 {
 "w": "in",
-"start": 341.06,
-"end": 341.32
+"start": 285.44,
+"end": 285.58
 },
 {
 "w": "every",
-"start": 341.32,
-"end": 341.62
+"start": 285.58,
+"end": 285.82
 },
 {
-"w": "700",
-"start": 341.62,
-"end": 342.42
+"w": "seven",
+"start": 285.82,
+"end": 286.08
 },
 {
-"w": ",000",
-"start": 342.42,
-"end": 343.0
+"w": "hundred",
+"start": 286.08,
+"end": 286.36
+},
+{
+"w": "thousand",
+"start": 286.36,
+"end": 286.68
 },
 {
 "w": "hours.",
-"start": 343.0,
-"end": 343.52
+"start": 286.68,
+"end": 287.08
 },
 {
 "w": "To",
-"start": 344.52,
-"end": 344.72
+"start": 288.12,
+"end": 288.26
 },
 {
 "w": "put",
-"start": 344.72,
-"end": 344.9
+"start": 288.26,
+"end": 288.4
 },
 {
 "w": "that",
-"start": 344.9,
-"end": 345.14
+"start": 288.4,
+"end": 288.58
 },
 {
 "w": "in",
-"start": 345.14,
-"end": 345.3
+"start": 288.58,
+"end": 288.74
 },
 {
 "w": "perspective,",
-"start": 345.3,
-"end": 345.96
+"start": 288.74,
+"end": 289.18
 },
 {
 "w": "an",
-"start": 346.56,
-"end": 346.62
+"start": 289.88,
+"end": 289.96
 },
 {
 "w": "engine",
-"start": 346.62,
-"end": 347.06
+"start": 289.96,
+"end": 290.32
 },
 {
 "w": "running",
-"start": 347.06,
-"end": 347.48
+"start": 290.32,
+"end": 290.68
 },
 {
 "w": "non",
-"start": 347.48,
-"end": 347.88
+"start": 290.68,
+"end": 290.98
 },
 {
 "w": "-stop,",
-"start": 347.88,
-"end": 348.38
+"start": 290.98,
+"end": 291.38
 },
 {
 "w": "day",
-"start": 348.72,
-"end": 348.96
+"start": 291.58,
+"end": 291.8
 },
 {
 "w": "and",
-"start": 348.96,
-"end": 349.2
+"start": 291.8,
+"end": 291.96
 },
 {
 "w": "night,",
-"start": 349.2,
-"end": 349.58
+"start": 291.96,
+"end": 292.24
 },
 {
 "w": "would",
-"start": 349.8,
-"end": 349.96
+"start": 292.58,
+"end": 292.68
 },
 {
 "w": "take",
-"start": 349.96,
-"end": 350.2
+"start": 292.68,
+"end": 292.88
 },
 {
 "w": "about",
-"start": 350.2,
-"end": 350.54
+"start": 292.88,
+"end": 293.14
 },
 {
 "w": "80",
-"start": 350.54,
-"end": 350.9
+"start": 293.14,
+"end": 293.38
 },
 {
 "w": "years",
-"start": 350.9,
-"end": 351.46
+"start": 293.38,
+"end": 293.8
 },
 {
 "w": "to",
-"start": 351.46,
-"end": 351.74
+"start": 293.8,
+"end": 294.02
 },
 {
 "w": "reach",
-"start": 351.74,
-"end": 352.02
+"start": 294.02,
+"end": 294.26
 },
 {
-"w": "700",
-"start": 352.02,
-"end": 352.68
+"w": "seven",
+"start": 294.26,
+"end": 294.6
 },
 {
-"w": ",000",
-"start": 352.68,
-"end": 353.36
+"w": "hundred",
+"start": 294.6,
+"end": 294.9
+},
+{
+"w": "thousand",
+"start": 294.9,
+"end": 295.24
 },
 {
 "w": "hours.",
-"start": 353.36,
-"end": 353.88
+"start": 295.24,
+"end": 295.66
 },
 {
 "w": "And",
-"start": 354.72,
-"end": 354.94
+"start": 296.66,
+"end": 296.94
 },
 {
 "w": "ETOPS",
-"start": 354.94,
-"end": 355.38
+"start": 296.94,
+"end": 297.46
 },
 {
 "w": "isn't",
-"start": 355.38,
-"end": 355.82
+"start": 297.46,
+"end": 297.96
 },
 {
 "w": "only",
-"start": 355.82,
-"end": 356.28
+"start": 297.96,
+"end": 298.34
 },
 {
 "w": "about",
-"start": 356.28,
-"end": 356.6
+"start": 298.34,
+"end": 298.62
 },
 {
 "w": "engines.",
-"start": 356.6,
-"end": 357.16
+"start": 298.62,
+"end": 299.08
 },
 {
 "w": "A",
-"start": 357.96,
-"end": 358.18
+"start": 299.08,
+"end": 299.82
 },
 {
 "w": "plane",
+"start": 299.82,
+"end": 300.06
+},
+{
+"w": "on",
+"start": 300.06,
+"end": 300.26
+},
+{
+"w": "these",
+"start": 300.26,
+"end": 300.5
+},
+{
+"w": "routes",
+"start": 300.5,
+"end": 300.84
+},
+{
+"w": "must",
+"start": 300.84,
+"end": 301.08
+},
+{
+"w": "carry",
+"start": 301.08,
+"end": 301.46
+},
+{
+"w": "enough",
+"start": 301.46,
+"end": 301.76
+},
+{
+"w": "fuel",
+"start": 301.76,
+"end": 302.06
+},
+{
+"w": "to",
+"start": 302.06,
+"end": 302.3
+},
+{
+"w": "reach",
+"start": 302.3,
+"end": 302.5
+},
+{
+"w": "its",
+"start": 302.5,
+"end": 302.74
+},
+{
+"w": "diversion",
+"start": 302.74,
+"end": 303.22
+},
+{
+"w": "airport",
+"start": 303.22,
+"end": 303.68
+},
+{
+"w": "even",
+"start": 303.68,
+"end": 304.06
+},
+{
+"w": "after",
+"start": 304.06,
+"end": 304.38
+},
+{
+"w": "a",
+"start": 304.38,
+"end": 304.58
+},
+{
+"w": "failure.",
+"start": 304.58,
+"end": 304.9
+},
+{
+"w": "Its",
+"start": 305.62,
+"end": 305.78
+},
+{
+"w": "fire",
+"start": 305.78,
+"end": 306.14
+},
+{
+"w": "protection",
+"start": 306.14,
+"end": 306.58
+},
+{
+"w": "has",
+"start": 306.58,
+"end": 306.92
+},
+{
+"w": "to",
+"start": 306.92,
+"end": 307.12
+},
+{
+"w": "last",
+"start": 307.12,
+"end": 307.4
+},
+{
+"w": "the",
+"start": 307.4,
+"end": 307.64
+},
+{
+"w": "entire",
+"start": 307.64,
+"end": 308.08
+},
+{
+"w": "diversion,",
+"start": 308.08,
+"end": 308.68
+},
+{
+"w": "and",
+"start": 309.26,
+"end": 309.38
+},
+{
+"w": "it",
+"start": 309.38,
+"end": 309.48
+},
+{
+"w": "has",
+"start": 309.48,
+"end": 309.64
+},
+{
+"w": "to",
+"start": 309.64,
+"end": 309.8
+},
+{
+"w": "be",
+"start": 309.8,
+"end": 309.92
+},
+{
+"w": "maintained",
+"start": 309.92,
+"end": 310.42
+},
+{
+"w": "to",
+"start": 310.42,
+"end": 310.74
+},
+{
+"w": "a",
+"start": 310.74,
+"end": 310.84
+},
+{
+"w": "stricter",
+"start": 310.84,
+"end": 311.18
+},
+{
+"w": "standard",
+"start": 311.18,
+"end": 311.66
+},
+{
+"w": "than",
+"start": 311.66,
+"end": 311.92
+},
+{
+"w": "an",
+"start": 311.92,
+"end": 312.04
+},
+{
+"w": "ordinary",
+"start": 312.04,
+"end": 312.46
+},
+{
+"w": "jet.",
+"start": 312.46,
+"end": 312.78
+},
+{
+"w": "Every",
+"start": 313.42,
+"end": 313.66
+},
+{
+"w": "part",
+"start": 313.66,
+"end": 314.02
+},
+{
+"w": "of",
+"start": 314.02,
+"end": 314.22
+},
+{
+"w": "the",
+"start": 314.22,
+"end": 314.38
+},
+{
+"w": "system",
+"start": 314.38,
+"end": 314.66
+},
+{
+"w": "is",
+"start": 314.66,
+"end": 314.9
+},
+{
+"w": "built",
+"start": 314.9,
+"end": 315.12
+},
+{
+"w": "around",
+"start": 315.12,
+"end": 315.42
+},
+{
+"w": "one",
+"start": 315.42,
+"end": 315.8
+},
+{
+"w": "question.",
+"start": 315.8,
+"end": 316.26
+},
+{
+"w": "Can",
+"start": 317.24,
+"end": 317.4
+},
+{
+"w": "we",
+"start": 317.4,
+"end": 317.52
+},
+{
+"w": "get",
+"start": 317.52,
+"end": 317.68
+},
+{
+"w": "everyone",
+"start": 317.68,
+"end": 318.02
+},
+{
+"w": "safely",
+"start": 318.02,
+"end": 318.46
+},
+{
+"w": "to",
+"start": 318.46,
+"end": 318.8
+},
+{
+"w": "that",
+"start": 318.8,
+"end": 318.96
+},
+{
+"w": "runway?",
+"start": 318.96,
+"end": 319.32
+},
+{
+"w": "So",
+"start": 320.32,
+"end": 320.56
+},
+{
+"w": "what",
+"start": 320.56,
+"end": 320.66
+},
+{
+"w": "actually",
+"start": 320.66,
+"end": 321.0
+},
+{
+"w": "happens",
+"start": 321.0,
+"end": 321.32
+},
+{
+"w": "if",
+"start": 321.32,
+"end": 321.56
+},
+{
+"w": "an",
+"start": 321.56,
+"end": 321.66
+},
+{
+"w": "engine",
+"start": 321.66,
+"end": 321.92
+},
+{
+"w": "stops",
+"start": 321.92,
+"end": 322.32
+},
+{
+"w": "in",
+"start": 322.32,
+"end": 322.64
+},
+{
+"w": "the",
+"start": 322.64,
+"end": 322.72
+},
+{
+"w": "middle",
+"start": 322.72,
+"end": 322.84
+},
+{
+"w": "of",
+"start": 322.84,
+"end": 323.04
+},
+{
+"w": "the",
+"start": 323.04,
+"end": 323.1
+},
+{
+"w": "ocean?",
+"start": 323.1,
+"end": 323.36
+},
+{
+"w": "First",
+"start": 324.36,
+"end": 324.62
+},
+{
+"w": "of",
+"start": 324.62,
+"end": 324.78
+},
+{
+"w": "all,",
+"start": 324.78,
+"end": 325.0
+},
+{
+"w": "the",
+"start": 325.26,
+"end": 325.4
+},
+{
+"w": "plane",
+"start": 325.4,
+"end": 325.62
+},
+{
+"w": "does",
+"start": 325.62,
+"end": 325.78
+},
+{
+"w": "not",
+"start": 325.78,
+"end": 326.06
+},
+{
+"w": "fall",
+"start": 326.06,
+"end": 326.34
+},
+{
+"w": "out",
+"start": 326.34,
+"end": 326.52
+},
+{
+"w": "of",
+"start": 326.52,
+"end": 326.62
+},
+{
+"w": "the",
+"start": 326.62,
+"end": 326.74
+},
+{
+"w": "sky.",
+"start": 326.74,
+"end": 327.04
+},
+{
+"w": "A",
+"start": 327.04,
+"end": 327.46
+},
+{
+"w": "twin",
+"start": 327.46,
+"end": 327.7
+},
+{
+"w": "-engine",
+"start": 327.7,
+"end": 327.92
+},
+{
+"w": "jet",
+"start": 327.92,
+"end": 328.28
+},
+{
+"w": "is",
+"start": 328.28,
+"end": 328.46
+},
+{
+"w": "designed",
+"start": 328.46,
+"end": 328.82
+},
+{
+"w": "to",
+"start": 328.82,
+"end": 329.0
+},
+{
+"w": "fly",
+"start": 329.0,
+"end": 329.28
+},
+{
+"w": "safely",
+"start": 329.28,
+"end": 329.72
+},
+{
+"w": "on",
+"start": 329.72,
+"end": 329.94
+},
+{
+"w": "one",
+"start": 329.94,
+"end": 330.14
+},
+{
+"w": "engine.",
+"start": 330.14,
+"end": 330.5
+},
+{
+"w": "The",
+"start": 330.9,
+"end": 330.98
+},
+{
+"w": "crew",
+"start": 330.98,
+"end": 331.2
+},
+{
+"w": "descends",
+"start": 331.2,
+"end": 331.62
+},
+{
+"w": "to",
+"start": 331.62,
+"end": 331.86
+},
+{
+"w": "a",
+"start": 331.86,
+"end": 331.98
+},
+{
+"w": "lower",
+"start": 331.98,
+"end": 332.16
+},
+{
+"w": "altitude,",
+"start": 332.16,
+"end": 332.76
+},
+{
+"w": "where",
+"start": 333.04,
+"end": 333.2
+},
+{
+"w": "the",
+"start": 333.2,
+"end": 333.32
+},
+{
+"w": "remaining",
+"start": 333.32,
+"end": 333.64
+},
+{
+"w": "engine",
+"start": 333.64,
+"end": 334.0
+},
+{
+"w": "can",
+"start": 334.0,
+"end": 334.24
+},
+{
+"w": "keep",
+"start": 334.24,
+"end": 334.42
+},
+{
+"w": "the",
+"start": 334.42,
+"end": 334.58
+},
+{
+"w": "plane",
+"start": 334.58,
+"end": 334.78
+},
+{
+"w": "going",
+"start": 334.78,
+"end": 335.14
+},
+{
+"w": "and",
+"start": 335.14,
+"end": 335.6
+},
+{
+"w": "turns",
+"start": 335.6,
+"end": 335.92
+},
+{
+"w": "towards",
+"start": 335.92,
+"end": 336.24
+},
+{
+"w": "the",
+"start": 336.24,
+"end": 336.48
+},
+{
+"w": "nearest",
+"start": 336.48,
+"end": 336.76
+},
+{
+"w": "airport",
+"start": 336.76,
+"end": 337.22
+},
+{
+"w": "inside",
+"start": 337.22,
+"end": 337.76
+},
+{
+"w": "its",
+"start": 337.76,
+"end": 337.96
+},
+{
+"w": "circle.",
+"start": 337.96,
+"end": 338.4
+},
+{
+"w": "Which",
+"start": 339.44,
+"end": 339.54
+},
+{
+"w": "brings",
+"start": 339.54,
+"end": 339.76
+},
+{
+"w": "us",
+"start": 339.76,
+"end": 339.98
+},
+{
+"w": "to",
+"start": 339.98,
+"end": 340.16
+},
+{
+"w": "some",
+"start": 340.16,
+"end": 340.3
+},
+{
+"w": "of",
+"start": 340.3,
+"end": 340.4
+},
+{
+"w": "the",
+"start": 340.4,
+"end": 340.48
+},
+{
+"w": "most",
+"start": 340.48,
+"end": 340.66
+},
+{
+"w": "important",
+"start": 340.66,
+"end": 341.22
+},
+{
+"w": "runways",
+"start": 341.22,
+"end": 341.68
+},
+{
+"w": "in",
+"start": 341.68,
+"end": 341.98
+},
+{
+"w": "the",
+"start": 341.98,
+"end": 342.1
+},
+{
+"w": "world.",
+"start": 342.1,
+"end": 342.46
+},
+{
+"w": "Runways",
+"start": 342.94,
+"end": 343.28
+},
+{
+"w": "you've",
+"start": 343.28,
+"end": 343.56
+},
+{
+"w": "probably",
+"start": 343.56,
+"end": 343.78
+},
+{
+"w": "never",
+"start": 343.78,
+"end": 344.12
+},
+{
+"w": "heard",
+"start": 344.12,
+"end": 344.42
+},
+{
+"w": "of.",
+"start": 344.42,
+"end": 344.7
+},
+{
+"w": "Like",
+"start": 345.52,
+"end": 345.82
+},
+{
+"w": "this",
+"start": 345.82,
+"end": 346.02
+},
+{
+"w": "one.",
+"start": 346.02,
+"end": 346.32
+},
+{
+"w": "Henderson",
+"start": 347.22,
+"end": 347.26
+},
+{
+"w": "Field",
+"start": 347.26,
+"end": 347.78
+},
+{
+"w": "on",
+"start": 347.78,
+"end": 348.14
+},
+{
+"w": "Midway",
+"start": 348.14,
+"end": 348.5
+},
+{
+"w": "Atoll.",
+"start": 348.5,
+"end": 348.94
+},
+{
+"w": "A",
+"start": 349.28,
+"end": 349.4
+},
+{
+"w": "speck",
+"start": 349.4,
+"end": 349.64
+},
+{
+"w": "of",
+"start": 349.64,
+"end": 349.78
+},
+{
+"w": "sand",
+"start": 349.78,
+"end": 350.14
+},
+{
+"w": "and",
+"start": 350.14,
+"end": 350.36
+},
+{
+"w": "coral",
+"start": 350.36,
+"end": 350.72
+},
+{
+"w": "more",
+"start": 350.72,
+"end": 351.14
+},
+{
+"w": "than",
+"start": 351.14,
+"end": 351.34
+},
+{
+"w": "two",
+"start": 351.34,
+"end": 351.54
+},
+{
+"w": "thousand",
+"start": 351.54,
+"end": 352.04
+},
+{
+"w": "kilometers",
+"start": 352.04,
+"end": 352.68
+},
+{
+"w": "northwest",
+"start": 352.68,
+"end": 353.08
+},
+{
+"w": "of",
+"start": 353.08,
+"end": 353.56
+},
+{
+"w": "Honolulu.",
+"start": 353.56,
+"end": 353.9
+},
+{
+"w": "There",
+"start": 354.36,
+"end": 354.52
+},
+{
+"w": "are",
+"start": 354.52,
+"end": 354.6
+},
+{
+"w": "no",
+"start": 354.6,
+"end": 354.82
+},
+{
+"w": "scheduled",
+"start": 354.82,
+"end": 355.28
+},
+{
+"w": "passenger",
+"start": 355.28,
+"end": 355.72
+},
+{
+"w": "flights",
+"start": 355.72,
+"end": 356.06
+},
+{
+"w": "here",
+"start": 356.06,
+"end": 356.44
+},
+{
+"w": "at",
+"start": 356.44,
+"end": 356.64
+},
+{
+"w": "all.",
+"start": 356.64,
+"end": 356.92
+},
+{
+"w": "And",
+"start": 357.04,
+"end": 357.54
+},
+{
+"w": "yet",
+"start": 357.54,
+"end": 357.7
+},
+{
+"w": "United",
+"start": 357.7,
+"end": 358.18
+},
+{
+"w": "Airlines",
 "start": 358.18,
 "end": 358.46
 },
 {
-"w": "on",
+"w": "says",
 "start": 358.46,
-"end": 358.7
-},
-{
-"w": "these",
-"start": 358.7,
-"end": 358.98
-},
-{
-"w": "routes",
-"start": 358.98,
-"end": 359.32
-},
-{
-"w": "must",
-"start": 359.32,
-"end": 359.58
-},
-{
-"w": "carry",
-"start": 359.58,
-"end": 360.02
-},
-{
-"w": "enough",
-"start": 360.02,
-"end": 360.34
-},
-{
-"w": "fuel",
-"start": 360.34,
-"end": 360.72
-},
-{
-"w": "to",
-"start": 360.72,
-"end": 361.02
-},
-{
-"w": "reach",
-"start": 361.02,
-"end": 361.3
-},
-{
-"w": "its",
-"start": 361.3,
-"end": 361.58
-},
-{
-"w": "diversion",
-"start": 361.58,
-"end": 362.16
-},
-{
-"w": "airport",
-"start": 362.16,
-"end": 362.8
-},
-{
-"w": "even",
-"start": 362.8,
-"end": 363.28
-},
-{
-"w": "after",
-"start": 363.28,
-"end": 363.66
-},
-{
-"w": "a",
-"start": 363.66,
-"end": 363.9
-},
-{
-"w": "failure.",
-"start": 363.9,
-"end": 364.22
-},
-{
-"w": "Its",
-"start": 365.18,
-"end": 365.62
-},
-{
-"w": "fire",
-"start": 365.62,
-"end": 366.1
-},
-{
-"w": "protection",
-"start": 366.1,
-"end": 366.72
-},
-{
-"w": "has",
-"start": 366.72,
-"end": 367.1
-},
-{
-"w": "to",
-"start": 367.1,
-"end": 367.3
-},
-{
-"w": "last",
-"start": 367.3,
-"end": 367.62
-},
-{
-"w": "the",
-"start": 367.62,
-"end": 367.88
-},
-{
-"w": "entire",
-"start": 367.88,
-"end": 368.34
-},
-{
-"w": "diversion.",
-"start": 368.34,
-"end": 368.98
-},
-{
-"w": "And",
-"start": 369.9,
-"end": 370.16
+"end": 358.84
 },
 {
 "w": "it",
-"start": 370.16,
-"end": 370.36
+"start": 358.84,
+"end": 359.06
 },
 {
-"w": "has",
-"start": 370.36,
-"end": 370.56
+"w": "plans",
+"start": 359.06,
+"end": 359.4
 },
 {
-"w": "to",
-"start": 370.56,
-"end": 370.72
-},
-{
-"w": "be",
-"start": 370.72,
-"end": 370.9
-},
-{
-"w": "maintained",
-"start": 370.9,
-"end": 371.48
-},
-{
-"w": "to",
-"start": 371.48,
-"end": 371.94
-},
-{
-"w": "a",
-"start": 371.94,
-"end": 372.08
-},
-{
-"w": "stricter",
-"start": 372.08,
-"end": 372.46
-},
-{
-"w": "standard",
-"start": 372.46,
-"end": 373.06
+"w": "more",
+"start": 359.4,
+"end": 359.66
 },
 {
 "w": "than",
-"start": 373.06,
-"end": 373.42
+"start": 359.66,
+"end": 359.88
 },
 {
-"w": "an",
-"start": 373.42,
-"end": 373.58
+"w": "8",
+"start": 359.88,
+"end": 360.16
 },
 {
-"w": "ordinary",
-"start": 373.58,
-"end": 374.08
+"w": ",000",
+"start": 360.16,
+"end": 360.7
 },
 {
-"w": "jet.",
-"start": 374.08,
-"end": 374.48
+"w": "flights",
+"start": 360.7,
+"end": 361.04
 },
 {
-"w": "Every",
-"start": 375.7,
-"end": 376.02
+"w": "a",
+"start": 361.04,
+"end": 361.28
 },
 {
-"w": "part",
-"start": 376.02,
-"end": 376.42
-},
-{
-"w": "of",
-"start": 376.42,
-"end": 376.6
-},
-{
-"w": "the",
-"start": 376.6,
-"end": 376.8
-},
-{
-"w": "system",
-"start": 376.8,
-"end": 377.16
-},
-{
-"w": "is",
-"start": 377.16,
-"end": 377.42
-},
-{
-"w": "built",
-"start": 377.42,
-"end": 377.7
+"w": "year",
+"start": 361.28,
+"end": 361.48
 },
 {
 "w": "around",
-"start": 377.7,
-"end": 378.06
+"start": 361.48,
+"end": 361.82
 },
 {
-"w": "one",
-"start": 378.06,
-"end": 378.48
+"w": "this",
+"start": 361.82,
+"end": 362.04
 },
 {
-"w": "question.",
-"start": 378.48,
-"end": 379.06
+"w": "island,",
+"start": 362.04,
+"end": 362.34
 },
 {
-"w": "Can",
-"start": 379.86,
-"end": 380.0
+"w": "as",
+"start": 362.62,
+"end": 362.84
 },
 {
-"w": "we",
-"start": 380.0,
-"end": 380.22
+"w": "their",
+"start": 362.84,
+"end": 362.98
 },
 {
-"w": "get",
-"start": 380.22,
-"end": 380.52
+"w": "emergency",
+"start": 362.98,
+"end": 363.44
 },
 {
-"w": "everyone",
-"start": 380.52,
-"end": 381.02
+"w": "alternate.",
+"start": 363.44,
+"end": 363.88
 },
 {
-"w": "safely",
-"start": 381.02,
-"end": 381.58
+"w": "In",
+"start": 364.82,
+"end": 365.38
 },
 {
-"w": "to",
-"start": 381.58,
-"end": 381.92
+"w": "2026,",
+"start": 365.38,
+"end": 365.94
 },
 {
-"w": "that",
-"start": 381.92,
-"end": 382.1
+"w": "the",
+"start": 366.14,
+"end": 366.18
 },
 {
-"w": "runway?",
-"start": 382.1,
-"end": 382.48
+"w": "FAA",
+"start": 366.18,
+"end": 366.56
 },
 {
-"w": "So",
-"start": 383.52,
-"end": 383.84
+"w": "asked",
+"start": 366.56,
+"end": 367.04
+},
+{
+"w": "the",
+"start": 367.04,
+"end": 367.22
+},
+{
+"w": "industry",
+"start": 367.22,
+"end": 367.74
 },
 {
 "w": "what",
-"start": 383.84,
-"end": 384.08
+"start": 367.74,
+"end": 368.16
 },
 {
-"w": "actually",
-"start": 384.08,
-"end": 384.7
+"w": "would",
+"start": 368.16,
+"end": 368.34
 },
 {
-"w": "happens",
-"start": 384.7,
-"end": 385.16
+"w": "happen",
+"start": 368.34,
+"end": 368.64
 },
 {
 "w": "if",
-"start": 385.16,
-"end": 385.56
+"start": 368.64,
+"end": 368.82
 },
 {
-"w": "an",
-"start": 385.56,
-"end": 385.76
+"w": "Midway",
+"start": 368.82,
+"end": 369.2
 },
 {
-"w": "engine",
-"start": 385.76,
-"end": 386.08
+"w": "stopped",
+"start": 369.2,
+"end": 369.52
 },
 {
-"w": "stops",
-"start": 386.08,
-"end": 386.54
+"w": "serving",
+"start": 369.52,
+"end": 369.92
+},
+{
+"w": "that",
+"start": 369.92,
+"end": 370.16
+},
+{
+"w": "role.",
+"start": 370.16,
+"end": 370.46
+},
+{
+"w": "The",
+"start": 371.12,
+"end": 371.36
+},
+{
+"w": "runway",
+"start": 371.36,
+"end": 371.6
+},
+{
+"w": "needs",
+"start": 371.6,
+"end": 372.1
+},
+{
+"w": "around",
+"start": 372.1,
+"end": 372.4
+},
+{
+"w": "100",
+"start": 372.4,
+"end": 373.04
+},
+{
+"w": "million",
+"start": 373.04,
+"end": 373.46
+},
+{
+"w": "dollars",
+"start": 373.46,
+"end": 373.8
+},
+{
+"w": "of",
+"start": 373.8,
+"end": 374.04
+},
+{
+"w": "work",
+"start": 374.04,
+"end": 374.32
 },
 {
 "w": "in",
-"start": 386.54,
-"end": 386.9
+"start": 374.32,
+"end": 374.52
 },
 {
 "w": "the",
-"start": 386.9,
-"end": 387.04
+"start": 374.52,
+"end": 374.6
 },
 {
-"w": "middle",
-"start": 387.04,
-"end": 387.2
+"w": "next",
+"start": 374.6,
+"end": 374.82
 },
 {
-"w": "of",
-"start": 387.2,
-"end": 387.44
+"w": "few",
+"start": 374.82,
+"end": 375.06
+},
+{
+"w": "years,",
+"start": 375.06,
+"end": 375.44
+},
+{
+"w": "and",
+"start": 375.78,
+"end": 376.04
+},
+{
+"w": "airlines",
+"start": 376.04,
+"end": 376.52
+},
+{
+"w": "lined",
+"start": 376.52,
+"end": 376.84
+},
+{
+"w": "up",
+"start": 376.84,
+"end": 377.08
+},
+{
+"w": "with",
+"start": 377.08,
+"end": 377.22
 },
 {
 "w": "the",
-"start": 387.44,
-"end": 387.56
+"start": 377.22,
+"end": 377.36
 },
 {
-"w": "ocean?",
-"start": 387.56,
-"end": 387.94
+"w": "same",
+"start": 377.36,
+"end": 377.58
 },
 {
-"w": "First",
-"start": 388.46,
-"end": 388.68
+"w": "message,",
+"start": 377.58,
+"end": 377.94
+},
+{
+"w": "please",
+"start": 378.38,
+"end": 378.62
+},
+{
+"w": "keep",
+"start": 378.62,
+"end": 379.02
+},
+{
+"w": "it",
+"start": 379.02,
+"end": 379.16
+},
+{
+"w": "open.",
+"start": 379.16,
+"end": 379.44
+},
+{
+"w": "Without",
+"start": 379.98,
+"end": 380.2
+},
+{
+"w": "it,",
+"start": 380.2,
+"end": 380.46
+},
+{
+"w": "some",
+"start": 380.62,
+"end": 380.76
 },
 {
 "w": "of",
-"start": 388.68,
-"end": 388.9
+"start": 380.76,
+"end": 380.86
 },
 {
-"w": "all,",
-"start": 388.9,
+"w": "those",
+"start": 380.86,
+"end": 381.06
+},
+{
+"w": "invisible",
+"start": 381.06,
+"end": 381.5
+},
+{
+"w": "circles",
+"start": 381.5,
+"end": 382.0
+},
+{
+"w": "develop",
+"start": 382.0,
+"end": 382.34
+},
+{
+"w": "holes,",
+"start": 382.34,
+"end": 382.8
+},
+{
+"w": "and",
+"start": 383.18,
+"end": 383.38
+},
+{
+"w": "some",
+"start": 383.38,
+"end": 383.64
+},
+{
+"w": "routes",
+"start": 383.64,
+"end": 383.94
+},
+{
+"w": "across",
+"start": 383.94,
+"end": 384.22
+},
+{
+"w": "the",
+"start": 384.22,
+"end": 384.44
+},
+{
+"w": "Pacific",
+"start": 384.44,
+"end": 384.74
+},
+{
+"w": "would",
+"start": 384.74,
+"end": 385.14
+},
+{
+"w": "have",
+"start": 385.14,
+"end": 385.3
+},
+{
+"w": "to",
+"start": 385.3,
+"end": 385.46
+},
+{
+"w": "change.",
+"start": 385.46,
+"end": 385.8
+},
+{
+"w": "And",
+"start": 386.68,
+"end": 387.0
+},
+{
+"w": "sometimes,",
+"start": 387.0,
+"end": 387.48
+},
+{
+"w": "being",
+"start": 387.78,
+"end": 388.06
+},
+{
+"w": "inside",
+"start": 388.06,
+"end": 388.42
+},
+{
+"w": "a",
+"start": 388.42,
+"end": 388.62
+},
+{
+"w": "circle",
+"start": 388.62,
+"end": 388.96
+},
+{
+"w": "is",
+"start": 388.96,
 "end": 389.26
 },
 {
 "w": "the",
-"start": 389.56,
-"end": 389.7
+"start": 389.26,
+"end": 389.44
 },
 {
-"w": "plane",
-"start": 389.7,
-"end": 390.08
+"w": "difference",
+"start": 389.44,
+"end": 389.74
 },
 {
-"w": "does",
-"start": 390.08,
-"end": 390.38
+"w": "between",
+"start": 389.74,
+"end": 390.18
 },
 {
-"w": "not",
-"start": 390.38,
+"w": "disaster",
+"start": 390.18,
 "end": 390.66
 },
 {
-"w": "fall",
+"w": "and",
 "start": 390.66,
-"end": 391.02
-},
-{
-"w": "out",
-"start": 391.02,
-"end": 391.26
-},
-{
-"w": "of",
-"start": 391.26,
-"end": 391.4
-},
-{
-"w": "the",
-"start": 391.4,
-"end": 391.52
-},
-{
-"w": "sky.",
-"start": 391.52,
-"end": 391.94
-},
-{
-"w": "A",
-"start": 391.94,
-"end": 392.52
-},
-{
-"w": "twin",
-"start": 392.52,
-"end": 392.78
-},
-{
-"w": "-engine",
-"start": 392.78,
-"end": 393.1
-},
-{
-"w": "jet",
-"start": 393.1,
-"end": 393.5
-},
-{
-"w": "is",
-"start": 393.5,
-"end": 393.76
-},
-{
-"w": "designed",
-"start": 393.76,
-"end": 394.18
-},
-{
-"w": "to",
-"start": 394.18,
-"end": 394.4
-},
-{
-"w": "fly",
-"start": 394.4,
-"end": 394.68
-},
-{
-"w": "safely",
-"start": 394.68,
-"end": 395.24
-},
-{
-"w": "on",
-"start": 395.24,
-"end": 395.5
-},
-{
-"w": "one",
-"start": 395.5,
-"end": 395.7
-},
-{
-"w": "engine.",
-"start": 395.7,
-"end": 396.14
-},
-{
-"w": "The",
-"start": 396.86,
-"end": 397.12
-},
-{
-"w": "crew",
-"start": 397.12,
-"end": 397.48
-},
-{
-"w": "descends",
-"start": 397.48,
-"end": 398.06
-},
-{
-"w": "to",
-"start": 398.06,
-"end": 398.36
+"end": 391.24
 },
 {
 "w": "a",
-"start": 398.36,
-"end": 398.52
+"start": 391.24,
+"end": 391.36
 },
 {
-"w": "lower",
-"start": 398.52,
-"end": 398.74
+"w": "miracle.",
+"start": 391.36,
+"end": 391.76
 },
 {
-"w": "altitude,",
-"start": 398.74,
-"end": 399.42
+"w": "In",
+"start": 392.8,
+"end": 392.9
 },
 {
-"w": "where",
-"start": 399.82,
-"end": 400.0
+"w": "August",
+"start": 392.9,
+"end": 393.08
+},
+{
+"w": "2001,",
+"start": 393.08,
+"end": 394.04
+},
+{
+"w": "an",
+"start": 394.5,
+"end": 394.56
+},
+{
+"w": "Airtransat",
+"start": 394.56,
+"end": 395.32
+},
+{
+"w": "Airbus",
+"start": 395.32,
+"end": 395.72
+},
+{
+"w": "A330",
+"start": 395.72,
+"end": 396.46
+},
+{
+"w": "was",
+"start": 396.46,
+"end": 396.9
+},
+{
+"w": "crossing",
+"start": 396.9,
+"end": 397.24
 },
 {
 "w": "the",
-"start": 400.0,
-"end": 400.16
+"start": 397.24,
+"end": 397.44
 },
 {
-"w": "remaining",
-"start": 400.16,
-"end": 400.58
+"w": "Atlantic",
+"start": 397.44,
+"end": 397.82
+},
+{
+"w": "from",
+"start": 397.82,
+"end": 398.12
+},
+{
+"w": "Toronto",
+"start": 398.12,
+"end": 398.54
+},
+{
+"w": "to",
+"start": 398.54,
+"end": 398.82
+},
+{
+"w": "Lisbon,",
+"start": 398.82,
+"end": 399.16
+},
+{
+"w": "when",
+"start": 399.44,
+"end": 399.66
+},
+{
+"w": "a",
+"start": 399.66,
+"end": 399.84
+},
+{
+"w": "fuel",
+"start": 399.84,
+"end": 400.08
+},
+{
+"w": "leak",
+"start": 400.08,
+"end": 400.36
+},
+{
+"w": "drained",
+"start": 400.36,
+"end": 400.72
+},
+{
+"w": "its",
+"start": 400.72,
+"end": 400.92
+},
+{
+"w": "tanks.",
+"start": 400.92,
+"end": 401.3
+},
+{
+"w": "One",
+"start": 401.92,
+"end": 402.06
 },
 {
 "w": "engine",
-"start": 400.58,
-"end": 401.12
+"start": 402.06,
+"end": 402.34
 },
 {
-"w": "can",
-"start": 401.12,
-"end": 401.44
+"w": "stopped.",
+"start": 402.34,
+"end": 402.84
 },
 {
-"w": "keep",
-"start": 401.44,
-"end": 401.7
-},
-{
-"w": "the",
-"start": 401.7,
-"end": 401.9
-},
-{
-"w": "plane",
-"start": 401.9,
-"end": 402.18
-},
-{
-"w": "going",
-"start": 402.18,
-"end": 402.64
-},
-{
-"w": "and",
-"start": 402.64,
-"end": 403.16
-},
-{
-"w": "turns",
-"start": 403.16,
-"end": 403.58
-},
-{
-"w": "towards",
-"start": 403.58,
+"w": "Then",
+"start": 403.74,
 "end": 403.98
 },
 {
 "w": "the",
 "start": 403.98,
-"end": 404.28
-},
-{
-"w": "nearest",
-"start": 404.28,
-"end": 404.62
-},
-{
-"w": "airport",
-"start": 404.62,
-"end": 405.22
-},
-{
-"w": "inside",
-"start": 405.22,
-"end": 405.8
-},
-{
-"w": "its",
-"start": 405.8,
-"end": 406.04
-},
-{
-"w": "circle.",
-"start": 406.04,
-"end": 406.5
-},
-{
-"w": "Which",
-"start": 407.24,
-"end": 407.28
-},
-{
-"w": "brings",
-"start": 407.28,
-"end": 407.58
-},
-{
-"w": "us",
-"start": 407.58,
-"end": 407.84
-},
-{
-"w": "to",
-"start": 407.84,
-"end": 408.02
-},
-{
-"w": "some",
-"start": 408.02,
-"end": 408.22
-},
-{
-"w": "of",
-"start": 408.22,
-"end": 408.34
-},
-{
-"w": "the",
-"start": 408.34,
-"end": 408.44
-},
-{
-"w": "most",
-"start": 408.44,
-"end": 408.68
-},
-{
-"w": "important",
-"start": 408.68,
-"end": 409.28
-},
-{
-"w": "runways",
-"start": 409.28,
-"end": 409.72
-},
-{
-"w": "in",
-"start": 409.72,
-"end": 409.96
-},
-{
-"w": "the",
-"start": 409.96,
-"end": 410.06
-},
-{
-"w": "world.",
-"start": 410.06,
-"end": 410.44
-},
-{
-"w": "Runways",
-"start": 410.96,
-"end": 411.42
-},
-{
-"w": "you've",
-"start": 411.42,
-"end": 411.84
-},
-{
-"w": "probably",
-"start": 411.84,
-"end": 412.16
-},
-{
-"w": "never",
-"start": 412.16,
-"end": 412.56
-},
-{
-"w": "heard",
-"start": 412.56,
-"end": 412.94
-},
-{
-"w": "of,",
-"start": 412.94,
-"end": 413.24
-},
-{
-"w": "like",
-"start": 413.7,
-"end": 413.88
-},
-{
-"w": "this",
-"start": 413.88,
-"end": 414.14
-},
-{
-"w": "one.",
-"start": 414.14,
-"end": 414.56
-},
-{
-"w": "Henderson",
-"start": 415.3,
-"end": 415.6
-},
-{
-"w": "Field",
-"start": 415.6,
-"end": 416.16
-},
-{
-"w": "on",
-"start": 416.16,
-"end": 416.7
-},
-{
-"w": "Midway",
-"start": 416.7,
-"end": 417.1
-},
-{
-"w": "Atoll",
-"start": 417.1,
-"end": 417.6
-},
-{
-"w": "A",
-"start": 418.18,
-"end": 418.54
-},
-{
-"w": "speck",
-"start": 418.54,
-"end": 418.86
-},
-{
-"w": "of",
-"start": 418.86,
-"end": 419.04
-},
-{
-"w": "sand",
-"start": 419.04,
-"end": 419.48
-},
-{
-"w": "and",
-"start": 419.48,
-"end": 419.76
-},
-{
-"w": "coral",
-"start": 419.76,
-"end": 420.22
-},
-{
-"w": "more",
-"start": 420.22,
-"end": 420.56
-},
-{
-"w": "than",
-"start": 420.56,
-"end": 420.8
-},
-{
-"w": "2",
-"start": 420.8,
-"end": 421.12
-},
-{
-"w": ",000",
-"start": 421.12,
-"end": 421.82
-},
-{
-"w": "kilometres",
-"start": 421.82,
-"end": 422.26
-},
-{
-"w": "north",
-"start": 422.26,
-"end": 422.72
-},
-{
-"w": "-west",
-"start": 422.72,
-"end": 423.14
-},
-{
-"w": "of",
-"start": 423.14,
-"end": 423.36
-},
-{
-"w": "Honolulu.",
-"start": 423.36,
-"end": 423.76
-},
-{
-"w": "There",
-"start": 424.46,
-"end": 424.54
-},
-{
-"w": "are",
-"start": 424.54,
-"end": 424.68
-},
-{
-"w": "no",
-"start": 424.68,
-"end": 424.88
-},
-{
-"w": "scheduled",
-"start": 424.88,
-"end": 425.46
-},
-{
-"w": "passenger",
-"start": 425.46,
-"end": 426.0
-},
-{
-"w": "flights",
-"start": 426.0,
-"end": 426.4
-},
-{
-"w": "here",
-"start": 426.4,
-"end": 426.74
-},
-{
-"w": "at",
-"start": 426.74,
-"end": 426.88
-},
-{
-"w": "all.",
-"start": 426.88,
-"end": 427.22
-},
-{
-"w": "And",
-"start": 428.3,
-"end": 428.38
-},
-{
-"w": "yet",
-"start": 428.38,
-"end": 428.56
-},
-{
-"w": "United",
-"start": 428.56,
-"end": 429.16
-},
-{
-"w": "Airlines",
-"start": 429.16,
-"end": 429.54
-},
-{
-"w": "says",
-"start": 429.54,
-"end": 429.98
-},
-{
-"w": "it",
-"start": 429.98,
-"end": 430.2
-},
-{
-"w": "plans",
-"start": 430.2,
-"end": 430.62
-},
-{
-"w": "more",
-"start": 430.62,
-"end": 430.96
-},
-{
-"w": "than",
-"start": 430.96,
-"end": 431.18
-},
-{
-"w": "8",
-"start": 431.18,
-"end": 431.5
-},
-{
-"w": ",000",
-"start": 431.5,
-"end": 432.08
-},
-{
-"w": "flights",
-"start": 432.08,
-"end": 432.52
-},
-{
-"w": "a",
-"start": 432.52,
-"end": 432.74
-},
-{
-"w": "year",
-"start": 432.74,
-"end": 433.04
-},
-{
-"w": "around",
-"start": 433.04,
-"end": 433.48
-},
-{
-"w": "this",
-"start": 433.48,
-"end": 433.74
-},
-{
-"w": "island,",
-"start": 433.74,
-"end": 434.14
-},
-{
-"w": "as",
-"start": 434.58,
-"end": 434.78
-},
-{
-"w": "their",
-"start": 434.78,
-"end": 435.02
-},
-{
-"w": "emergency",
-"start": 435.02,
-"end": 435.64
-},
-{
-"w": "alternate.",
-"start": 435.64,
-"end": 436.26
-},
-{
-"w": "In",
-"start": 436.98,
-"end": 437.14
-},
-{
-"w": "2026,",
-"start": 437.14,
-"end": 438.16
-},
-{
-"w": "the",
-"start": 438.4,
-"end": 438.44
-},
-{
-"w": "FAA",
-"start": 438.44,
-"end": 438.8
-},
-{
-"w": "asked",
-"start": 438.8,
-"end": 439.36
-},
-{
-"w": "the",
-"start": 439.36,
-"end": 439.56
-},
-{
-"w": "industry",
-"start": 439.56,
-"end": 440.06
-},
-{
-"w": "what",
-"start": 440.06,
-"end": 440.34
-},
-{
-"w": "would",
-"start": 440.34,
-"end": 440.52
-},
-{
-"w": "happen",
-"start": 440.52,
-"end": 440.92
-},
-{
-"w": "if",
-"start": 440.92,
-"end": 441.14
-},
-{
-"w": "Midway",
-"start": 441.14,
-"end": 441.68
-},
-{
-"w": "stops",
-"start": 441.68,
-"end": 442.06
-},
-{
-"w": "serving",
-"start": 442.06,
-"end": 442.6
-},
-{
-"w": "that",
-"start": 442.6,
-"end": 442.86
-},
-{
-"w": "role.",
-"start": 442.86,
-"end": 443.2
-},
-{
-"w": "The",
-"start": 443.79,
-"end": 444.18
-},
-{
-"w": "runway",
-"start": 444.18,
-"end": 444.48
-},
-{
-"w": "needs",
-"start": 444.48,
-"end": 445.14
-},
-{
-"w": "around",
-"start": 445.14,
-"end": 445.54
-},
-{
-"w": "$100",
-"start": 445.54,
-"end": 446.3
-},
-{
-"w": "million",
-"start": 446.3,
-"end": 446.72
-},
-{
-"w": "of",
-"start": 446.72,
-"end": 447.4
-},
-{
-"w": "work",
-"start": 447.4,
-"end": 447.7
-},
-{
-"w": "in",
-"start": 447.7,
-"end": 447.94
-},
-{
-"w": "the",
-"start": 447.94,
-"end": 448.04
-},
-{
-"w": "next",
-"start": 448.04,
-"end": 448.28
-},
-{
-"w": "few",
-"start": 448.28,
-"end": 448.56
-},
-{
-"w": "years,",
-"start": 448.56,
-"end": 449.08
-},
-{
-"w": "and",
-"start": 449.66,
-"end": 449.96
-},
-{
-"w": "airlines",
-"start": 449.96,
-"end": 450.5
-},
-{
-"w": "lined",
-"start": 450.5,
-"end": 451.08
-},
-{
-"w": "up",
-"start": 451.08,
-"end": 451.36
-},
-{
-"w": "with",
-"start": 451.36,
-"end": 451.58
-},
-{
-"w": "the",
-"start": 451.58,
-"end": 451.76
-},
-{
-"w": "same",
-"start": 451.76,
-"end": 452.1
-},
-{
-"w": "message,",
-"start": 452.1,
-"end": 452.66
-},
-{
-"w": "please",
-"start": 453.36,
-"end": 453.68
-},
-{
-"w": "keep",
-"start": 453.68,
-"end": 454.38
-},
-{
-"w": "it",
-"start": 454.38,
-"end": 454.6
-},
-{
-"w": "open.",
-"start": 454.6,
-"end": 454.98
-},
-{
-"w": "Without",
-"start": 455.64,
-"end": 455.98
-},
-{
-"w": "it,",
-"start": 455.98,
-"end": 456.4
-},
-{
-"w": "some",
-"start": 456.64,
-"end": 456.86
-},
-{
-"w": "of",
-"start": 456.86,
-"end": 457.02
-},
-{
-"w": "those",
-"start": 457.02,
-"end": 457.3
-},
-{
-"w": "invisible",
-"start": 457.3,
-"end": 457.84
-},
-{
-"w": "circles",
-"start": 457.84,
-"end": 458.5
-},
-{
-"w": "develop",
-"start": 458.5,
-"end": 458.98
-},
-{
-"w": "holes,",
-"start": 458.98,
-"end": 459.56
-},
-{
-"w": "and",
-"start": 460.0,
-"end": 460.14
-},
-{
-"w": "some",
-"start": 460.14,
-"end": 460.44
-},
-{
-"w": "routes",
-"start": 460.44,
-"end": 460.8
-},
-{
-"w": "across",
-"start": 460.8,
-"end": 461.16
-},
-{
-"w": "the",
-"start": 461.16,
-"end": 461.42
-},
-{
-"w": "Pacific",
-"start": 461.42,
-"end": 461.74
-},
-{
-"w": "would",
-"start": 461.74,
-"end": 462.32
-},
-{
-"w": "have",
-"start": 462.32,
-"end": 462.56
-},
-{
-"w": "to",
-"start": 462.56,
-"end": 462.76
-},
-{
-"w": "change.",
-"start": 462.76,
-"end": 463.32
-},
-{
-"w": "And",
-"start": 464.32,
-"end": 464.6
-},
-{
-"w": "sometimes,",
-"start": 464.6,
-"end": 465.2
-},
-{
-"w": "being",
-"start": 465.62,
-"end": 466.02
-},
-{
-"w": "inside",
-"start": 466.02,
-"end": 466.44
-},
-{
-"w": "a",
-"start": 466.44,
-"end": 466.74
-},
-{
-"w": "circle",
-"start": 466.74,
-"end": 467.06
-},
-{
-"w": "is",
-"start": 467.06,
-"end": 467.46
-},
-{
-"w": "the",
-"start": 467.46,
-"end": 467.68
-},
-{
-"w": "difference",
-"start": 467.68,
-"end": 468.04
-},
-{
-"w": "between",
-"start": 468.04,
-"end": 468.6
-},
-{
-"w": "disaster",
-"start": 468.6,
-"end": 469.08
-},
-{
-"w": "and",
-"start": 469.08,
-"end": 469.98
-},
-{
-"w": "a",
-"start": 469.98,
-"end": 470.12
-},
-{
-"w": "miracle.",
-"start": 470.12,
-"end": 470.56
-},
-{
-"w": "In",
-"start": 471.14,
-"end": 471.58
-},
-{
-"w": "August",
-"start": 471.58,
-"end": 471.88
-},
-{
-"w": "2001,",
-"start": 471.88,
-"end": 473.0
-},
-{
-"w": "an",
-"start": 473.5,
-"end": 473.58
-},
-{
-"w": "Air",
-"start": 473.58,
-"end": 473.86
-},
-{
-"w": "Transat",
-"start": 473.86,
-"end": 474.54
-},
-{
-"w": "Airbus",
-"start": 474.54,
-"end": 475.02
-},
-{
-"w": "A330",
-"start": 475.02,
-"end": 476.1
-},
-{
-"w": "was",
-"start": 476.1,
-"end": 476.56
-},
-{
-"w": "crossing",
-"start": 476.56,
-"end": 477.02
-},
-{
-"w": "the",
-"start": 477.02,
-"end": 477.24
-},
-{
-"w": "Atlantic",
-"start": 477.24,
-"end": 477.66
-},
-{
-"w": "from",
-"start": 477.66,
-"end": 478.04
-},
-{
-"w": "Toronto",
-"start": 478.04,
-"end": 478.6
-},
-{
-"w": "to",
-"start": 478.6,
-"end": 479.1
-},
-{
-"w": "Lisbon",
-"start": 479.1,
-"end": 479.56
-},
-{
-"w": "when",
-"start": 479.56,
-"end": 480.08
-},
-{
-"w": "a",
-"start": 480.08,
-"end": 480.26
-},
-{
-"w": "fuel",
-"start": 480.26,
-"end": 480.54
-},
-{
-"w": "leak",
-"start": 480.54,
-"end": 480.82
-},
-{
-"w": "drained",
-"start": 480.82,
-"end": 481.22
-},
-{
-"w": "its",
-"start": 481.22,
-"end": 481.42
-},
-{
-"w": "tanks,",
-"start": 481.42,
-"end": 481.9
-},
-{
-"w": "one",
-"start": 482.36,
-"end": 482.54
-},
-{
-"w": "engine",
-"start": 482.54,
-"end": 482.9
-},
-{
-"w": "stopped,",
-"start": 482.9,
-"end": 483.38
-},
-{
-"w": "then",
-"start": 483.84,
-"end": 484.12
-},
-{
-"w": "the",
-"start": 484.12,
-"end": 484.32
+"end": 404.12
 },
 {
 "w": "other.",
-"start": 484.32,
-"end": 484.6
+"start": 404.12,
+"end": 404.32
 },
 {
 "w": "The",
-"start": 485.56,
-"end": 485.78
+"start": 404.84,
+"end": 404.98
 },
 {
 "w": "crew",
-"start": 485.78,
-"end": 486.12
+"start": 404.98,
+"end": 405.22
 },
 {
 "w": "glided",
-"start": 486.12,
-"end": 486.7
+"start": 405.22,
+"end": 405.64
 },
 {
 "w": "the",
-"start": 486.7,
-"end": 486.96
+"start": 405.64,
+"end": 405.84
 },
 {
 "w": "powerless",
-"start": 486.96,
-"end": 487.36
+"start": 405.84,
+"end": 406.16
 },
 {
 "w": "jet",
-"start": 487.36,
-"end": 487.74
+"start": 406.16,
+"end": 406.48
 },
 {
 "w": "for",
-"start": 487.74,
-"end": 488.06
+"start": 406.48,
+"end": 406.72
 },
 {
 "w": "19",
-"start": 488.06,
-"end": 488.78
+"start": 406.72,
+"end": 407.2
 },
 {
 "w": "minutes",
-"start": 488.78,
-"end": 489.34
+"start": 407.2,
+"end": 407.58
 },
 {
 "w": "across",
-"start": 489.34,
-"end": 490.14
+"start": 407.58,
+"end": 408.04
 },
 {
 "w": "about",
-"start": 490.14,
-"end": 490.5
+"start": 408.04,
+"end": 408.36
 },
 {
 "w": "65",
-"start": 490.5,
-"end": 491.36
+"start": 408.36,
+"end": 409.0
 },
 {
 "w": "nautical",
-"start": 491.36,
-"end": 491.98
+"start": 409.0,
+"end": 409.42
 },
 {
 "w": "miles",
-"start": 491.98,
-"end": 492.46
+"start": 409.42,
+"end": 409.74
 },
 {
 "w": "of",
-"start": 492.46,
-"end": 492.72
+"start": 409.74,
+"end": 409.96
 },
 {
-"w": "ocean",
-"start": 492.72,
-"end": 493.2
+"w": "ocean,",
+"start": 409.96,
+"end": 410.24
 },
 {
 "w": "and",
-"start": 493.2,
-"end": 493.94
+"start": 410.56,
+"end": 410.72
 },
 {
 "w": "landed",
-"start": 493.94,
-"end": 494.38
+"start": 410.72,
+"end": 411.06
 },
 {
 "w": "at",
-"start": 494.38,
-"end": 494.82
+"start": 411.06,
+"end": 411.38
 },
 {
 "w": "La",
-"start": 494.82,
-"end": 495.28
+"start": 411.38,
+"end": 411.6
 },
 {
 "w": "G\u00e8che,",
-"start": 495.28,
-"end": 495.92
+"start": 411.6,
+"end": 412.06
 },
 {
 "w": "an",
-"start": 496.34,
-"end": 496.46
+"start": 412.28,
+"end": 412.36
 },
 {
-"w": "air",
-"start": 496.46,
-"end": 496.78
-},
-{
-"w": "base",
-"start": 496.78,
-"end": 497.12
+"w": "airbase",
+"start": 412.36,
+"end": 412.82
 },
 {
 "w": "in",
-"start": 497.12,
-"end": 497.44
+"start": 412.82,
+"end": 413.06
 },
 {
 "w": "the",
-"start": 497.44,
-"end": 497.64
+"start": 413.06,
+"end": 413.22
 },
 {
 "w": "Azores.",
-"start": 497.64,
-"end": 498.08
+"start": 413.22,
+"end": 413.54
 },
 {
 "w": "All",
-"start": 499.04,
-"end": 499.52
+"start": 414.46,
+"end": 415.02
 },
 {
 "w": "306",
-"start": 499.52,
-"end": 500.26
+"start": 415.02,
+"end": 415.58
 },
 {
 "w": "people",
-"start": 500.26,
-"end": 501.04
+"start": 415.58,
+"end": 416.32
 },
 {
 "w": "on",
-"start": 501.04,
-"end": 501.3
+"start": 416.32,
+"end": 416.56
 },
 {
 "w": "board",
-"start": 501.3,
-"end": 501.58
+"start": 416.56,
+"end": 416.84
 },
 {
 "w": "survived.",
-"start": 501.58,
-"end": 502.22
+"start": 416.84,
+"end": 417.32
 },
 {
 "w": "It",
-"start": 503.18,
-"end": 503.34
+"start": 418.62,
+"end": 418.76
 },
 {
 "w": "wasn't",
-"start": 503.34,
-"end": 503.7
+"start": 418.76,
+"end": 419.04
 },
 {
 "w": "the",
-"start": 503.7,
-"end": 503.9
+"start": 419.04,
+"end": 419.22
 },
 {
 "w": "kind",
-"start": 503.9,
-"end": 504.18
+"start": 419.22,
+"end": 419.42
 },
 {
 "w": "of",
-"start": 504.18,
-"end": 504.4
+"start": 419.42,
+"end": 419.6
 },
 {
 "w": "failure",
-"start": 504.4,
-"end": 504.9
+"start": 419.6,
+"end": 420.0
 },
 {
-"w": "Etiops",
-"start": 504.9,
-"end": 505.64
+"w": "ETOPS",
+"start": 420.0,
+"end": 420.46
 },
 {
 "w": "was",
-"start": 505.64,
-"end": 505.94
+"start": 420.46,
+"end": 420.7
 },
 {
 "w": "designed",
-"start": 505.94,
-"end": 506.46
+"start": 420.7,
+"end": 421.12
 },
 {
 "w": "for,",
-"start": 506.46,
-"end": 506.88
+"start": 421.12,
+"end": 421.44
 },
 {
 "w": "but",
-"start": 507.38,
-"end": 507.76
+"start": 421.8,
+"end": 422.04
 },
 {
 "w": "it",
-"start": 507.76,
-"end": 507.9
+"start": 422.04,
+"end": 422.16
 },
 {
 "w": "shows",
-"start": 507.9,
-"end": 508.14
+"start": 422.16,
+"end": 422.38
 },
 {
 "w": "exactly",
-"start": 508.14,
-"end": 508.76
+"start": 422.38,
+"end": 422.86
 },
 {
 "w": "why",
-"start": 508.76,
-"end": 509.52
+"start": 422.86,
+"end": 423.26
 },
 {
 "w": "a",
-"start": 509.52,
-"end": 509.82
+"start": 423.26,
+"end": 423.38
 },
 {
 "w": "runway",
-"start": 509.82,
-"end": 510.22
+"start": 423.38,
+"end": 423.64
 },
 {
 "w": "within",
-"start": 510.22,
-"end": 510.82
+"start": 423.64,
+"end": 424.06
 },
 {
 "w": "reach",
-"start": 510.82,
-"end": 511.2
+"start": 424.06,
+"end": 424.38
 },
 {
 "w": "matters.",
-"start": 511.2,
-"end": 511.9
+"start": 424.38,
+"end": 424.92
 },
 {
 "w": "Today,",
-"start": 512.62,
-"end": 513.0
+"start": 426.02,
+"end": 426.34
 },
 {
 "w": "the",
-"start": 513.36,
-"end": 513.56
+"start": 426.62,
+"end": 426.76
 },
 {
 "w": "circles",
-"start": 513.56,
-"end": 513.98
+"start": 426.76,
+"end": 427.1
 },
 {
 "w": "have",
-"start": 513.98,
-"end": 514.28
+"start": 427.1,
+"end": 427.32
 },
 {
 "w": "grown",
-"start": 514.28,
-"end": 514.7
+"start": 427.32,
+"end": 427.58
 },
 {
 "w": "to",
-"start": 514.7,
-"end": 515.02
+"start": 427.58,
+"end": 427.84
 },
 {
-"w": "sizes",
-"start": 515.02,
-"end": 515.54
+"w": "sizes,",
+"start": 427.84,
+"end": 428.18
 },
 {
 "w": "the",
-"start": 515.54,
-"end": 515.98
+"start": 428.6,
+"end": 428.8
 },
 {
 "w": "authors",
-"start": 515.98,
-"end": 516.44
+"start": 428.8,
+"end": 429.18
 },
 {
 "w": "of",
-"start": 516.44,
-"end": 516.76
+"start": 429.18,
+"end": 429.36
 },
 {
 "w": "that",
-"start": 516.76,
-"end": 516.96
+"start": 429.36,
+"end": 429.52
 },
 {
 "w": "first",
-"start": 516.96,
-"end": 517.34
+"start": 429.52,
+"end": 429.82
 },
 {
 "w": "rule",
-"start": 517.34,
-"end": 517.86
+"start": 429.82,
+"end": 430.18
 },
 {
 "w": "could",
-"start": 517.86,
-"end": 518.34
+"start": 430.18,
+"end": 430.4
 },
 {
 "w": "hardly",
-"start": 518.34,
-"end": 518.84
+"start": 430.4,
+"end": 430.8
 },
 {
 "w": "have",
-"start": 518.84,
-"end": 519.08
+"start": 430.8,
+"end": 431.04
 },
 {
 "w": "imagined.",
-"start": 519.08,
-"end": 519.6
+"start": 431.04,
+"end": 431.5
 },
 {
 "w": "Since",
-"start": 520.56,
-"end": 520.88
+"start": 432.56,
+"end": 432.76
 },
 {
 "w": "2007,",
-"start": 520.88,
-"end": 521.86
+"start": 432.76,
+"end": 433.56
 },
 {
 "w": "the",
-"start": 522.42,
-"end": 522.48
+"start": 433.98,
+"end": 434.12
 },
 {
 "w": "rules",
-"start": 522.48,
-"end": 522.82
+"start": 434.12,
+"end": 434.36
 },
 {
 "w": "have",
-"start": 522.82,
-"end": 523.06
+"start": 434.36,
+"end": 434.54
 },
 {
 "w": "even",
-"start": 523.06,
-"end": 523.32
+"start": 434.54,
+"end": 434.76
 },
 {
 "w": "covered",
-"start": 523.32,
-"end": 523.74
+"start": 434.76,
+"end": 435.12
 },
 {
 "w": "planes",
-"start": 523.74,
-"end": 524.28
+"start": 435.12,
+"end": 435.52
 },
 {
 "w": "with",
-"start": 524.28,
-"end": 524.64
+"start": 435.52,
+"end": 435.8
 },
 {
 "w": "three",
-"start": 524.64,
-"end": 525.08
+"start": 435.8,
+"end": 436.18
 },
 {
 "w": "and",
-"start": 525.08,
-"end": 525.3
+"start": 436.18,
+"end": 436.38
 },
 {
 "w": "four",
-"start": 525.3,
-"end": 525.68
+"start": 436.38,
+"end": 436.68
 },
 {
-"w": "engines,",
-"start": 525.68,
-"end": 526.42
+"w": "engines",
+"start": 436.68,
+"end": 437.18
 },
 {
 "w": "once",
-"start": 526.42,
-"end": 526.98
+"start": 437.18,
+"end": 437.62
 },
 {
 "w": "they",
-"start": 526.98,
-"end": 527.26
+"start": 437.62,
+"end": 437.84
 },
 {
 "w": "fly",
-"start": 527.26,
-"end": 527.62
+"start": 437.84,
+"end": 438.1
 },
 {
 "w": "more",
-"start": 527.62,
-"end": 528.02
+"start": 438.1,
+"end": 438.34
 },
 {
 "w": "than",
-"start": 528.02,
-"end": 528.3
+"start": 438.34,
+"end": 438.54
 },
 {
 "w": "three",
-"start": 528.3,
-"end": 528.7
+"start": 438.54,
+"end": 438.82
 },
 {
 "w": "hours",
-"start": 528.7,
-"end": 529.18
+"start": 438.82,
+"end": 439.14
 },
 {
 "w": "from",
-"start": 529.18,
-"end": 529.5
+"start": 439.14,
+"end": 439.36
 },
 {
 "w": "an",
-"start": 529.5,
-"end": 529.66
+"start": 439.36,
+"end": 439.48
 },
 {
-"w": "airport.",
-"start": 529.66,
-"end": 530.1
+"w": "airport,",
+"start": 439.48,
+"end": 439.76
 },
 {
-"w": "But",
-"start": 530.82,
-"end": 531.06
+"w": "but",
+"start": 440.04,
+"end": 440.32
 },
 {
 "w": "it's",
-"start": 531.06,
-"end": 531.26
+"start": 440.32,
+"end": 440.42
 },
 {
 "w": "the",
-"start": 531.26,
-"end": 531.46
+"start": 440.42,
+"end": 440.62
 },
 {
 "w": "twins",
-"start": 531.46,
-"end": 531.78
+"start": 440.62,
+"end": 440.96
 },
 {
 "w": "that",
-"start": 531.78,
-"end": 532.14
+"start": 440.96,
+"end": 441.36
 },
 {
 "w": "keep",
-"start": 532.14,
-"end": 532.34
+"start": 441.36,
+"end": 441.54
 },
 {
 "w": "pushing",
-"start": 532.34,
-"end": 532.78
+"start": 441.54,
+"end": 441.9
+},
+{
+"w": "the",
+"start": 441.9,
+"end": 442.08
 },
 {
 "w": "limits.",
-"start": 532.78,
-"end": 533.28
+"start": 442.08,
+"end": 442.32
 },
 {
 "w": "In",
-"start": 534.9,
-"end": 535.04
+"start": 443.18,
+"end": 443.5
 },
 {
 "w": "2014,",
-"start": 535.04,
-"end": 535.86
+"start": 443.5,
+"end": 444.18
 },
 {
 "w": "Europe's",
-"start": 536.46,
-"end": 536.9
+"start": 444.76,
+"end": 445.08
 },
 {
 "w": "aviation",
-"start": 536.9,
-"end": 537.34
+"start": 445.08,
+"end": 445.54
 },
 {
 "w": "regulator",
-"start": 537.34,
-"end": 538.18
+"start": 445.54,
+"end": 446.12
 },
 {
 "w": "certified",
-"start": 538.18,
-"end": 539.08
+"start": 446.12,
+"end": 446.8
 },
 {
 "w": "the",
-"start": 539.08,
-"end": 539.36
+"start": 446.8,
+"end": 447.02
 },
 {
 "w": "Airbus",
-"start": 539.36,
-"end": 539.8
+"start": 447.02,
+"end": 447.38
 },
 {
 "w": "A350",
-"start": 539.8,
-"end": 540.86
+"start": 447.38,
+"end": 448.22
 },
 {
 "w": "for",
-"start": 541.3,
-"end": 541.7
+"start": 448.22,
+"end": 448.78
 },
 {
 "w": "diversion",
-"start": 541.7,
-"end": 542.24
+"start": 448.78,
+"end": 449.3
 },
 {
 "w": "times",
-"start": 542.24,
-"end": 542.9
+"start": 449.3,
+"end": 449.84
 },
 {
 "w": "of",
-"start": 542.9,
-"end": 543.42
+"start": 449.84,
+"end": 450.16
 },
 {
 "w": "up",
-"start": 543.42,
-"end": 543.58
+"start": 450.16,
+"end": 450.3
 },
 {
 "w": "to",
-"start": 543.58,
-"end": 543.78
+"start": 450.3,
+"end": 450.5
 },
 {
 "w": "370",
-"start": 543.78,
-"end": 544.7
+"start": 450.5,
+"end": 451.32
 },
 {
 "w": "minutes.",
-"start": 544.7,
-"end": 545.7
+"start": 451.32,
+"end": 451.98
 },
 {
 "w": "That's",
-"start": 546.28,
-"end": 546.68
+"start": 452.4,
+"end": 452.72
 },
 {
 "w": "more",
-"start": 546.68,
-"end": 546.86
+"start": 452.72,
+"end": 452.86
 },
 {
 "w": "than",
-"start": 546.86,
-"end": 547.1
+"start": 452.86,
+"end": 453.04
 },
 {
 "w": "six",
-"start": 547.1,
-"end": 547.44
+"start": 453.04,
+"end": 453.32
 },
 {
 "w": "hours",
-"start": 547.44,
-"end": 547.98
+"start": 453.32,
+"end": 453.74
 },
 {
 "w": "on",
-"start": 547.98,
-"end": 548.26
+"start": 453.74,
+"end": 453.94
 },
 {
 "w": "a",
-"start": 548.26,
-"end": 548.44
+"start": 453.94,
+"end": 454.08
 },
 {
 "w": "single",
-"start": 548.44,
-"end": 548.76
+"start": 454.08,
+"end": 454.3
 },
 {
 "w": "engine,",
-"start": 548.76,
-"end": 549.3
+"start": 454.3,
+"end": 454.7
 },
 {
 "w": "a",
-"start": 549.74,
-"end": 549.96
+"start": 455.04,
+"end": 455.28
 },
 {
 "w": "circle",
-"start": 549.96,
-"end": 550.28
+"start": 455.28,
+"end": 455.58
 },
 {
 "w": "with",
-"start": 550.28,
-"end": 550.62
+"start": 455.58,
+"end": 455.84
 },
 {
 "w": "a",
-"start": 550.62,
-"end": 550.76
+"start": 455.84,
+"end": 455.96
 },
 {
 "w": "radius",
-"start": 550.76,
-"end": 551.22
+"start": 455.96,
+"end": 456.28
 },
 {
 "w": "of",
-"start": 551.22,
-"end": 551.58
+"start": 456.28,
+"end": 456.5
 },
 {
 "w": "up",
-"start": 551.58,
-"end": 551.74
+"start": 456.5,
+"end": 456.62
 },
 {
 "w": "to",
-"start": 551.74,
-"end": 551.98
+"start": 456.62,
+"end": 456.78
 },
 {
 "w": "two",
-"start": 551.98,
-"end": 552.24
+"start": 456.78,
+"end": 456.98
 },
 {
 "w": "and",
-"start": 552.24,
-"end": 552.38
+"start": 456.98,
+"end": 457.12
 },
 {
 "w": "a",
-"start": 552.38,
-"end": 552.46
+"start": 457.12,
+"end": 457.18
 },
 {
 "w": "half",
-"start": 552.46,
-"end": 552.76
+"start": 457.18,
+"end": 457.36
 },
 {
 "w": "thousand",
-"start": 552.76,
-"end": 553.42
+"start": 457.36,
+"end": 457.86
 },
 {
 "w": "nautical",
-"start": 553.42,
-"end": 553.86
+"start": 457.86,
+"end": 458.22
 },
 {
 "w": "miles.",
-"start": 553.86,
-"end": 554.38
+"start": 458.22,
+"end": 458.76
 },
 {
 "w": "The",
-"start": 555.16,
-"end": 555.92
+"start": 459.76,
+"end": 459.9
 },
 {
 "w": "Boeing",
-"start": 555.92,
-"end": 556.3
+"start": 459.9,
+"end": 460.14
 },
 {
 "w": "787",
-"start": 556.3,
-"end": 557.12
+"start": 460.14,
+"end": 460.72
 },
 {
 "w": "can",
-"start": 557.12,
-"end": 557.88
+"start": 460.72,
+"end": 461.34
 },
 {
 "w": "be",
-"start": 557.88,
-"end": 558.12
+"start": 461.34,
+"end": 461.46
 },
 {
 "w": "approved",
-"start": 558.12,
-"end": 558.66
+"start": 461.46,
+"end": 461.96
 },
 {
 "w": "for",
-"start": 558.66,
-"end": 559.08
+"start": 461.96,
+"end": 462.32
 },
 {
 "w": "330",
-"start": 559.08,
-"end": 560.04
+"start": 462.32,
+"end": 463.22
 },
 {
 "w": "minutes.",
-"start": 560.04,
-"end": 560.84
+"start": 463.22,
+"end": 463.76
 },
 {
 "w": "And",
-"start": 561.4,
-"end": 561.7
+"start": 464.28,
+"end": 464.48
 },
 {
 "w": "that",
-"start": 561.7,
-"end": 562.08
+"start": 464.48,
+"end": 464.8
 },
 {
 "w": "is",
-"start": 562.08,
-"end": 562.4
+"start": 464.8,
+"end": 465.18
 },
 {
 "w": "what",
-"start": 562.4,
-"end": 562.6
+"start": 465.18,
+"end": 465.34
 },
 {
 "w": "made",
-"start": 562.6,
-"end": 562.9
+"start": 465.34,
+"end": 465.54
 },
 {
 "w": "one",
-"start": 562.9,
-"end": 563.16
+"start": 465.54,
+"end": 465.74
 },
 {
 "w": "of",
-"start": 563.16,
-"end": 563.3
+"start": 465.74,
+"end": 465.86
 },
 {
 "w": "the",
-"start": 563.3,
-"end": 563.44
+"start": 465.86,
+"end": 465.96
 },
 {
 "w": "most",
-"start": 563.44,
-"end": 563.76
+"start": 465.96,
+"end": 466.2
 },
 {
 "w": "remote",
-"start": 563.76,
-"end": 564.38
+"start": 466.2,
+"end": 466.68
 },
 {
 "w": "routes",
-"start": 564.38,
-"end": 564.76
+"start": 466.68,
+"end": 467.04
 },
 {
 "w": "in",
-"start": 564.76,
-"end": 565.1
+"start": 467.04,
+"end": 467.34
 },
 {
 "w": "the",
-"start": 565.1,
-"end": 565.24
+"start": 467.34,
+"end": 467.46
 },
 {
 "w": "world",
-"start": 565.24,
-"end": 565.52
+"start": 467.46,
+"end": 467.66
 },
 {
 "w": "possible.",
-"start": 565.52,
-"end": 566.2
+"start": 467.66,
+"end": 468.16
 },
 {
 "w": "Qantas",
-"start": 566.94,
-"end": 567.22
+"start": 468.16,
+"end": 469.02
 },
 {
 "w": "flies",
-"start": 567.22,
-"end": 567.58
+"start": 469.02,
+"end": 469.3
 },
 {
 "w": "from",
-"start": 567.58,
-"end": 568.0
+"start": 469.3,
+"end": 469.68
 },
 {
 "w": "Sydney",
-"start": 568.0,
-"end": 568.42
+"start": 469.68,
+"end": 469.94
 },
 {
 "w": "to",
-"start": 568.42,
-"end": 568.84
+"start": 469.94,
+"end": 470.3
 },
 {
-"w": "Santiago",
-"start": 568.84,
-"end": 569.5
+"w": "Santiago,",
+"start": 470.3,
+"end": 470.82
 },
 {
 "w": "in",
-"start": 569.5,
-"end": 570.0
+"start": 471.34,
+"end": 471.44
 },
 {
-"w": "Chile",
-"start": 570.0,
-"end": 570.38
+"w": "Chile,",
+"start": 471.44,
+"end": 471.76
 },
 {
 "w": "on",
-"start": 570.38,
-"end": 570.96
+"start": 472.08,
+"end": 472.24
 },
 {
 "w": "a",
-"start": 570.96,
-"end": 571.1
+"start": 472.24,
+"end": 472.38
 },
 {
 "w": "twin",
-"start": 571.1,
-"end": 571.4
+"start": 472.38,
+"end": 472.56
 },
 {
 "w": "-engine",
-"start": 571.4,
-"end": 571.76
+"start": 472.56,
+"end": 472.84
 },
 {
-"w": "787",
-"start": 571.76,
-"end": 572.64
+"w": "787,",
+"start": 472.84,
+"end": 473.48
 },
 {
 "w": "on",
-"start": 573.06,
-"end": 573.44
+"start": 474.0,
+"end": 474.12
 },
 {
 "w": "a",
-"start": 573.44,
-"end": 573.68
+"start": 474.12,
+"end": 474.34
 },
 {
 "w": "track",
-"start": 573.68,
-"end": 573.92
+"start": 474.34,
+"end": 474.54
 },
 {
 "w": "that",
-"start": 573.92,
-"end": 574.26
+"start": 474.54,
+"end": 474.82
 },
 {
 "w": "can",
-"start": 574.26,
-"end": 574.5
+"start": 474.82,
+"end": 474.96
 },
 {
 "w": "bend",
-"start": 574.5,
-"end": 574.8
+"start": 474.96,
+"end": 475.28
 },
 {
 "w": "far",
-"start": 574.8,
-"end": 575.2
+"start": 475.28,
+"end": 475.62
 },
 {
 "w": "to",
-"start": 575.2,
-"end": 575.42
+"start": 475.62,
+"end": 475.8
 },
 {
 "w": "the",
-"start": 575.42,
-"end": 575.62
+"start": 475.8,
+"end": 475.98
 },
 {
 "w": "south",
-"start": 575.62,
-"end": 575.96
+"start": 475.98,
+"end": 476.24
 },
 {
 "w": "towards",
-"start": 575.96,
-"end": 576.74
+"start": 476.24,
+"end": 476.82
 },
 {
 "w": "Antarctica.",
-"start": 576.74,
-"end": 577.42
+"start": 476.82,
+"end": 477.42
 },
 {
 "w": "Boeing",
-"start": 578.28,
-"end": 578.92
+"start": 478.08,
+"end": 478.2
 },
 {
 "w": "itself",
-"start": 578.92,
-"end": 579.52
+"start": 478.2,
+"end": 478.62
 },
 {
 "w": "said",
-"start": 579.52,
-"end": 579.96
+"start": 478.62,
+"end": 478.96
 },
 {
 "w": "that",
-"start": 579.96,
-"end": 580.2
+"start": 478.96,
+"end": 479.12
 },
 {
 "w": "route",
-"start": 580.2,
-"end": 580.54
+"start": 479.12,
+"end": 479.3
 },
 {
 "w": "simply",
-"start": 580.54,
-"end": 581.28
+"start": 479.3,
+"end": 479.68
 },
 {
 "w": "wasn't",
-"start": 581.28,
-"end": 581.96
+"start": 479.68,
+"end": 480.04
 },
 {
 "w": "possible",
-"start": 581.96,
-"end": 582.5
+"start": 480.04,
+"end": 480.46
 },
 {
 "w": "with",
-"start": 582.5,
-"end": 582.86
+"start": 480.46,
+"end": 480.68
 },
 {
 "w": "180",
-"start": 582.86,
-"end": 583.8
+"start": 480.68,
+"end": 481.46
 },
 {
 "w": "minutes.",
-"start": 583.8,
-"end": 584.42
+"start": 481.46,
+"end": 482.04
 },
 {
 "w": "With",
-"start": 585.1,
-"end": 585.34
+"start": 483.06,
+"end": 483.2
 },
 {
 "w": "circles",
-"start": 585.34,
-"end": 585.88
+"start": 483.2,
+"end": 483.64
 },
 {
 "w": "that",
-"start": 585.88,
-"end": 586.3
+"start": 483.64,
+"end": 483.98
 },
 {
 "w": "big,",
-"start": 586.3,
-"end": 586.78
+"start": 483.98,
+"end": 484.34
 },
 {
 "w": "very",
-"start": 587.36,
-"end": 587.56
+"start": 484.78,
+"end": 484.96
 },
 {
 "w": "little",
-"start": 587.56,
-"end": 587.88
+"start": 484.96,
+"end": 485.2
 },
 {
 "w": "of",
-"start": 587.88,
-"end": 588.12
+"start": 485.2,
+"end": 485.4
 },
 {
 "w": "the",
-"start": 588.12,
-"end": 588.28
+"start": 485.4,
+"end": 485.52
 },
 {
 "w": "planet",
-"start": 588.28,
-"end": 588.58
+"start": 485.52,
+"end": 485.78
 },
 {
 "w": "is",
-"start": 588.58,
-"end": 588.82
+"start": 485.78,
+"end": 486.0
 },
 {
 "w": "still",
-"start": 588.82,
-"end": 589.16
+"start": 486.0,
+"end": 486.26
 },
 {
 "w": "out",
-"start": 589.16,
-"end": 589.36
+"start": 486.26,
+"end": 486.44
 },
 {
 "w": "of",
-"start": 589.36,
-"end": 589.58
+"start": 486.44,
+"end": 486.62
 },
 {
 "w": "bounds,",
-"start": 589.58,
-"end": 589.94
+"start": 486.62,
+"end": 486.92
 },
 {
 "w": "just",
-"start": 590.54,
-"end": 590.86
+"start": 487.4,
+"end": 487.58
 },
 {
 "w": "a",
-"start": 590.86,
-"end": 591.06
+"start": 487.58,
+"end": 487.78
 },
 {
 "w": "few",
-"start": 591.06,
-"end": 591.32
+"start": 487.78,
+"end": 487.98
 },
 {
 "w": "corners,",
-"start": 591.32,
-"end": 591.92
+"start": 487.98,
+"end": 488.4
 },
 {
 "w": "like",
-"start": 592.34,
-"end": 592.6
+"start": 489.4,
+"end": 489.74
 },
 {
 "w": "the",
-"start": 592.6,
-"end": 592.84
+"start": 489.74,
+"end": 489.9
 },
 {
 "w": "heart",
-"start": 592.84,
-"end": 593.18
+"start": 489.9,
+"end": 490.2
 },
 {
 "w": "of",
-"start": 593.18,
-"end": 593.4
+"start": 490.2,
+"end": 490.42
 },
 {
 "w": "Antarctica.",
-"start": 593.4,
-"end": 594.02
+"start": 490.42,
+"end": 490.96
 },
 {
 "w": "So",
-"start": 594.94,
-"end": 595.18
+"start": 491.96,
+"end": 492.24
 },
 {
 "w": "the",
-"start": 595.18,
-"end": 595.34
+"start": 492.24,
+"end": 492.36
 },
 {
 "w": "next",
-"start": 595.34,
-"end": 595.56
+"start": 492.36,
+"end": 492.56
 },
 {
 "w": "time",
-"start": 595.56,
-"end": 595.88
+"start": 492.56,
+"end": 492.82
 },
 {
 "w": "you're",
-"start": 595.88,
-"end": 596.12
+"start": 492.82,
+"end": 493.0
 },
 {
 "w": "on",
-"start": 596.12,
-"end": 596.24
+"start": 493.0,
+"end": 493.1
 },
 {
 "w": "a",
-"start": 596.24,
-"end": 596.48
+"start": 493.1,
+"end": 493.24
 },
 {
 "w": "long",
-"start": 596.48,
-"end": 596.74
+"start": 493.24,
+"end": 493.42
 },
 {
 "w": "flight",
-"start": 596.74,
-"end": 597.2
+"start": 493.42,
+"end": 493.7
 },
 {
 "w": "over",
-"start": 597.2,
-"end": 597.56
+"start": 493.7,
+"end": 493.94
 },
 {
 "w": "the",
-"start": 597.56,
-"end": 597.72
+"start": 493.94,
+"end": 494.1
 },
 {
-"w": "ocean",
-"start": 597.72,
-"end": 598.16
+"w": "ocean,",
+"start": 494.1,
+"end": 494.42
 },
 {
 "w": "and",
-"start": 598.16,
-"end": 598.52
+"start": 494.42,
+"end": 494.82
 },
 {
 "w": "the",
-"start": 598.52,
-"end": 598.66
+"start": 494.82,
+"end": 494.94
 },
 {
 "w": "little",
-"start": 598.66,
-"end": 598.86
+"start": 494.94,
+"end": 495.18
 },
 {
 "w": "plane",
-"start": 598.86,
-"end": 599.3
+"start": 495.18,
+"end": 495.5
 },
 {
 "w": "on",
-"start": 599.3,
-"end": 599.5
+"start": 495.5,
+"end": 495.66
 },
 {
 "w": "the",
-"start": 599.5,
-"end": 599.66
+"start": 495.66,
+"end": 495.82
 },
 {
 "w": "screen",
-"start": 599.66,
-"end": 600.1
+"start": 495.82,
+"end": 496.16
 },
 {
 "w": "seems",
-"start": 600.1,
-"end": 600.4
+"start": 496.16,
+"end": 496.4
 },
 {
 "w": "to",
-"start": 600.4,
-"end": 600.72
+"start": 496.4,
+"end": 496.68
 },
 {
 "w": "wander",
-"start": 600.72,
-"end": 600.96
+"start": 496.68,
+"end": 496.98
 },
 {
 "w": "away",
-"start": 600.96,
-"end": 601.46
+"start": 496.98,
+"end": 497.42
 },
 {
 "w": "from",
-"start": 601.46,
-"end": 601.72
+"start": 497.42,
+"end": 497.64
 },
 {
 "w": "the",
-"start": 601.72,
-"end": 601.88
+"start": 497.64,
+"end": 497.76
 },
 {
 "w": "straight",
-"start": 601.88,
-"end": 602.16
+"start": 497.76,
+"end": 498.02
 },
 {
 "w": "line,",
-"start": 602.16,
-"end": 602.6
+"start": 498.02,
+"end": 498.38
 },
 {
 "w": "it",
-"start": 602.6,
-"end": 603.34
+"start": 498.68,
+"end": 498.88
 },
 {
 "w": "isn't",
-"start": 603.34,
-"end": 603.68
+"start": 498.88,
+"end": 499.28
 },
 {
 "w": "lost.",
-"start": 603.68,
-"end": 604.14
+"start": 499.28,
+"end": 499.7
 },
 {
 "w": "It's",
-"start": 604.96,
-"end": 605.14
+"start": 500.72,
+"end": 501.0
 },
 {
 "w": "threading",
-"start": 605.14,
-"end": 605.7
+"start": 501.0,
+"end": 501.34
 },
 {
 "w": "its",
-"start": 605.7,
-"end": 605.82
+"start": 501.34,
+"end": 501.46
 },
 {
 "w": "way",
-"start": 605.82,
-"end": 606.12
+"start": 501.46,
+"end": 501.76
 },
 {
 "w": "through",
-"start": 606.12,
-"end": 606.38
+"start": 501.76,
+"end": 501.98
 },
 {
 "w": "a",
-"start": 606.38,
-"end": 606.58
+"start": 501.98,
+"end": 502.18
 },
 {
 "w": "chain",
-"start": 606.58,
-"end": 606.9
+"start": 502.18,
+"end": 502.4
 },
 {
 "w": "of",
-"start": 606.9,
-"end": 607.14
+"start": 502.4,
+"end": 502.58
 },
 {
 "w": "invisible",
-"start": 607.14,
-"end": 607.62
+"start": 502.58,
+"end": 502.96
 },
 {
-"w": "circles.",
-"start": 607.62,
-"end": 608.5
+"w": "circles,",
+"start": 502.96,
+"end": 503.66
 },
 {
-"w": "Each",
-"start": 609.34,
-"end": 609.64
+"w": "each",
+"start": 504.08,
+"end": 504.3
 },
 {
 "w": "one",
-"start": 609.64,
-"end": 610.06
+"start": 504.3,
+"end": 504.64
 },
 {
 "w": "built",
-"start": 610.06,
-"end": 610.38
+"start": 504.64,
+"end": 504.86
 },
 {
 "w": "around",
-"start": 610.38,
-"end": 610.7
+"start": 504.86,
+"end": 505.1
 },
 {
 "w": "a",
-"start": 610.7,
-"end": 610.94
+"start": 505.1,
+"end": 505.26
 },
 {
 "w": "runway,",
-"start": 610.94,
-"end": 611.38
+"start": 505.26,
+"end": 505.62
 },
 {
 "w": "a",
-"start": 611.76,
-"end": 611.84
+"start": 505.94,
+"end": 506.0
 },
 {
 "w": "fire",
-"start": 611.84,
-"end": 612.22
+"start": 506.0,
+"end": 506.34
 },
 {
-"w": "crew,",
-"start": 612.22,
-"end": 612.6
+"w": "crew",
+"start": 506.34,
+"end": 506.62
 },
 {
 "w": "and",
-"start": 612.8,
-"end": 612.94
+"start": 506.62,
+"end": 506.82
 },
 {
 "w": "a",
-"start": 612.94,
-"end": 613.1
+"start": 506.82,
+"end": 506.94
 },
 {
 "w": "safe",
-"start": 613.1,
-"end": 613.38
+"start": 506.94,
+"end": 507.2
 },
 {
 "w": "place",
-"start": 613.38,
-"end": 613.72
+"start": 507.2,
+"end": 507.44
 },
 {
 "w": "to",
-"start": 613.72,
-"end": 614.0
+"start": 507.44,
+"end": 507.68
 },
 {
 "w": "land.",
-"start": 614.0,
-"end": 614.44
+"start": 507.68,
+"end": 508.04
 },
 {
 "w": "Engines",
-"start": 614.98,
-"end": 615.44
+"start": 509.14,
+"end": 509.5
 },
 {
 "w": "turn.",
-"start": 615.44,
-"end": 616.0
+"start": 509.5,
+"end": 509.94
 },
 {
 "w": "Passengers",
-"start": 616.76,
-"end": 617.12
+"start": 511.1,
+"end": 511.38
 },
 {
 "w": "don't",
-"start": 617.12,
-"end": 617.62
+"start": 511.38,
+"end": 511.82
 },
 {
 "w": "swim.",
-"start": 617.62,
-"end": 617.98
+"start": 511.82,
+"end": 512.12
 },
 {
 "w": "And",
-"start": 618.54,
-"end": 618.74
+"start": 513.16,
+"end": 513.42
 },
 {
 "w": "somewhere",
-"start": 618.74,
-"end": 619.16
+"start": 513.42,
+"end": 513.84
 },
 {
 "w": "beneath",
-"start": 619.16,
-"end": 619.58
+"start": 513.84,
+"end": 514.2
 },
 {
 "w": "you,",
-"start": 619.58,
-"end": 619.98
+"start": 514.2,
+"end": 514.56
 },
 {
 "w": "on",
-"start": 620.02,
-"end": 620.22
+"start": 514.68,
+"end": 514.82
 },
 {
 "w": "an",
-"start": 620.22,
-"end": 620.4
+"start": 514.82,
+"end": 514.98
 },
 {
 "w": "island",
-"start": 620.4,
-"end": 620.76
+"start": 514.98,
+"end": 515.28
 },
 {
 "w": "you",
-"start": 620.76,
-"end": 621.06
+"start": 515.28,
+"end": 515.54
 },
 {
 "w": "will",
-"start": 621.06,
-"end": 621.18
+"start": 515.54,
+"end": 515.68
 },
 {
 "w": "probably",
-"start": 621.18,
-"end": 621.52
+"start": 515.68,
+"end": 515.96
 },
 {
 "w": "never",
-"start": 621.52,
-"end": 621.92
+"start": 515.96,
+"end": 516.28
 },
 {
 "w": "visit,",
-"start": 621.92,
-"end": 622.4
+"start": 516.28,
+"end": 516.64
 },
 {
 "w": "a",
-"start": 622.8,
-"end": 622.98
+"start": 517.14,
+"end": 517.34
 },
 {
 "w": "runway",
-"start": 622.98,
-"end": 623.44
+"start": 517.34,
+"end": 517.74
 },
 {
 "w": "is",
-"start": 623.44,
-"end": 623.88
+"start": 517.74,
+"end": 518.2
 },
 {
-"w": "waiting,",
-"start": 623.88,
-"end": 624.38
+"w": "waiting.",
+"start": 518.2,
+"end": 518.58
 },
 {
-"w": "just",
-"start": 624.78,
-"end": 625.2
+"w": "Just",
+"start": 519.56,
+"end": 519.84
 },
 {
 "w": "in",
-"start": 625.2,
-"end": 625.62
+"start": 519.84,
+"end": 520.1
 },
 {
 "w": "case.",
-"start": 625.62,
-"end": 626.04
+"start": 520.1,
+"end": 520.32
 }
 ]
