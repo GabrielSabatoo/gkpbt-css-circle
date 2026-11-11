@@ -88,3 +88,32 @@ export const Watermark: React.FC = () => (
     <circle cx={430} cy={165} r={62} fill={day.dot} stroke="#fff" strokeWidth={16} />
   </svg>
 );
+
+/** Watermark B: outline bell in the familiar "notifications on" style — white strokes with a soft dark
+ *  shadow so it reads on paper and on night scenes. Transparent background. */
+export const WatermarkBell: React.FC = () => {
+  const stroke = { fill: 'none', stroke: '#ffffff', strokeWidth: 34, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
+  const shapes = (
+    <>
+      {/* bell body */}
+      <path d="M300 150 C 225 150 185 205 185 275 L 185 365 L 140 420 L 460 420 L 415 365 L 415 275 C 415 205 375 150 300 150 Z" {...stroke} />
+      {/* top knob */}
+      <path d="M300 112 L 300 150" {...stroke} />
+      {/* clapper */}
+      <path d="M262 465 C 268 492 282 505 300 505 C 318 505 332 492 338 465" {...stroke} />
+      {/* ringing waves */}
+      <path d="M150 140 C 112 175 92 220 88 270" {...stroke} strokeWidth={30} />
+      <path d="M450 140 C 488 175 508 220 512 270" {...stroke} strokeWidth={30} />
+    </>
+  );
+  return (
+    <svg width={600} height={600} viewBox="0 0 600 600">
+      <defs>
+        <filter id="wmShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="6" stdDeviation="10" floodColor="#000" floodOpacity="0.55" />
+        </filter>
+      </defs>
+      <g filter="url(#wmShadow)">{shapes}</g>
+    </svg>
+  );
+};
