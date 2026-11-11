@@ -1,6 +1,6 @@
 # Project status — YouTube automation (aviation explainers)
 
-_Last updated: 2026-11-11 (after Part 1 revisions)_
+_Last updated: 2026-11-11 04:30 UTC (full render running)_
 
 ## Done
 - **Niche:** aviation explainers — `channel/niche.md`
@@ -16,16 +16,15 @@ _Last updated: 2026-11-11 (after Part 1 revisions)_
   - Video 001 Part 1 (0:00–1:36, beats 1–25) built: `studio/src/scenes/v001/Part1.tsx`
 
 ## In progress / next
-1. Part 1 revisions are DONE in code (drifting plane, beige pilot + speech balloon, bright day palette after the hook,
-   black planes, Fraunces + IBM Plex Mono fonts, watermark removed). Render was cancelled at 248/2918 frames —
-   re-render the preview (~30–40 min) and send for review:
-   `cd studio && npx remotion render src/index.ts V001-Part1 out/v001-part1-v2-720p.mp4 --scale=0.6666666666666666 --concurrency=4`
-   - Optional: study the reference video (Manicule, "Why Planes Cross the Atlantic at Night") with the watch-video plugin
-     once its MP4 is in Google Drive (YouTube downloads are blocked on the cloud machine).
-2. Part 2: 1953 → 1985 → Pacific (beats 26–56)
-3. Part 3: safety numbers, Midway, Air Transat (beats 57–85)
-4. Part 4: today (330/370 min), outro, end screen; full 1080p render; sound design
-5. Then: agents/skill for the pipeline (Producer, Reviewer, Analyst)
+1. **Full 1080p render of video 001 is running** (started 04:29 UTC, chunked):
+   `studio/render_chunks.sh V001 16230 2700 public/audio/001-final-mix.wav out/v001-full-1080p.mp4`
+   Progress: `studio/out/chunks-V001/progress.log`. Re-running the same command resumes (finished chunks are kept).
+2. Video 001 is fully built: Part 1 (restyled to the reference look), Parts 2–4, end screen.
+   Style reference: two Manicule videos studied with watch-video (frames + audio levels).
+3. Audio: `audio/make_mix.py` → original synthesised music bed + whooshes, ~17 dB under voice, mastered to -14 LUFS
+   (`studio/public/audio/001-final-mix.wav`, not in git).
+4. To check by ear: "GE90-94B" pronunciation (~4:35), music bed taste, whoosh level.
+5. Then: thumbnail, title/description, upload; agents/skill for the pipeline (Producer, Reviewer, Analyst).
 
 ## Restoring on a new machine
 - Narration audio is not in git. Either download the backup parts from Google Drive ("YouTube Channel - Voice Backup" folder) and join them, or regenerate:
