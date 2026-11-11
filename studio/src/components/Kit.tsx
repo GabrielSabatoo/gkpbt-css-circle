@@ -73,7 +73,7 @@ export const Stamp: React.FC<{ text: string; color?: string; rotate?: number; de
 };
 
 /** Horizontal bars, e.g. minutes allowed from an airport. */
-export const Bars: React.FC<{ title: string; rows: { label: string; value: number; at: number; color?: string }[]; max: number; width?: number; unit?: string }> = ({ title, rows, max, width = 1150, unit = 'min' }) => {
+export const Bars: React.FC<{ title: string; rows: { label: string; value: number; at: number; color?: string }[]; max: number; width?: number; unit?: string; hideValue?: boolean }> = ({ title, rows, max, width = 1150, unit = 'min', hideValue = false }) => {
   const frame = useCurrentFrame();
   return (
     <div style={{ width }}>
@@ -87,7 +87,7 @@ export const Bars: React.FC<{ title: string; rows: { label: string; value: numbe
               <Label size={20} color={day.textMuted}>{r.label}</Label>
               <div style={{ display: 'flex', alignItems: 'center', gap: 18, marginTop: 8 }}>
                 <div style={{ height: 44, width: (width - 200) * (r.value / max) * p, background: r.color ?? day.circle }} />
-                <div style={{ fontFamily: theme.fontSerif, fontSize: 40, color: day.text }}>{Math.round(r.value * p)} {unit}</div>
+                {hideValue ? null : <div style={{ fontFamily: theme.fontSerif, fontSize: 40, color: day.text }}>{Math.round(r.value * p)} {unit}</div>}
               </div>
             </div>
           );
@@ -136,9 +136,15 @@ export const Checklist: React.FC<{ items: { text: string; at: number }[] }> = ({
 };
 
 /** Side-view line-art airliner with 2, 3 or 4 engines. viewBox 0 0 1000 300 */
-export const AircraftSide: React.FC<{ engines: 2 | 3 | 4; width?: number; stroke?: string; fill?: string; label?: string; deadEngine?: number }> = ({ engines, width = 700, stroke = day.text, fill = '#f6efdc', label, deadEngine }) => {
+export const AircraftSide: React.FC<{ engines: 2 | 3 | 4; width?: number; stroke?: string; fill?: string; label?: string; deadEngine?: number; props?: boolean; spin?: number }> = ({ engines, width = 700, stroke = day.text, fill = '#f6efdc', label, deadEngine, props = false, spin = 0 }) => {
   const sw = 7;
-  const eng = (x: number, y: number, i: number) => (
+  const eng = (x: number, y: number, i: number) => props ? (
+    <g key={i}>
+      <rect x={x + 10} y={y - 4} width={110} height={40} rx={16} fill={deadEngine === i ? day.danger : day.circle} stroke={stroke} strokeWidth={sw * 0.7} />
+      <ellipse cx={x + 4} cy={y + 16} rx={8} ry={40 * Math.abs(Math.cos(spin + i))} fill="none" stroke={stroke} strokeWidth={4} />
+      <circle cx={x + 6} cy={y + 16} r={6} fill={stroke} />
+    </g>
+  ) : (
     <g key={i}>
       <rect x={x} y={y} width={120} height={44} rx={20} fill={deadEngine === i ? day.danger : day.circle} stroke={stroke} strokeWidth={sw * 0.7} />
       <rect x={x + 84} y={y + 6} width={30} height={32} rx={12} fill={fill} stroke={stroke} strokeWidth={4} />

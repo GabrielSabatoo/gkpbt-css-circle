@@ -36,7 +36,7 @@ export const airports: Airport[] = [
 ];
 
 export const byCode = (code: string) => {
-  const a = airports.find((x) => x.code === code);
+  const a = airports.find((x) => x.code === code) ?? worldAirports.find((x) => x.code === code);
   if (!a) throw new Error(`Unknown airport ${code}`);
   return a;
 };
