@@ -6,7 +6,7 @@ import world from 'world-atlas/land-110m.json';
 import { theme, minutesToDegrees } from '../theme';
 import { Airport } from '../data/airports';
 
-const land = feature(world as any, (world as any).objects.land) as any;
+export const land = feature(world as any, (world as any).objects.land) as any;
 const graticule = geoGraticule10();
 
 export type Camera = { lon: number; lat: number; scale: number; roll?: number };
@@ -55,19 +55,27 @@ export const Globe: React.FC<GlobeProps> = ({ width, height, camera, dots = [], 
           strokeWidth={1}
           opacity={1 - landDim * 0.75}
         />
-        {circles.map((c, i) => {
-          const d = path(geoCircle().center(c.airport.at).radius(minutesToDegrees(c.minutes) * Math.max(0.001, c.appear))());
+        {(() => {
+          // Fills are drawn opaque inside one group and the group is made translucent,
+          // so overlapping circles merge into one even area instead of stacking up.
+          const shapes = circles
+            .filter((c) => c.appear > 0)
+            .map((c) => ({ c, d: path(geoCircle().center(c.airport.at).radius(minutesToDegrees(c.minutes) * Math.max(0.001, c.appear))()) ?? undefined }));
+          const fillOpacity = Math.min(1, Math.max(0, ...shapes.map((s) => s.c.appear)) * 1.5);
           return (
-            <path
-              key={`c${i}`}
-              d={d ?? undefined}
-              fill={c.danger ? theme.dangerSoft : theme.amberSoft}
-              stroke={c.danger ? theme.danger : theme.amber}
-              strokeWidth={2}
-              opacity={Math.min(1, c.appear * 1.5)}
-            />
+            <>
+              <g opacity={0.13 * fillOpacity}>
+                {shapes.filter((s) => !s.c.danger).map((s, i) => <path key={`f${i}`} d={s.d} fill={theme.amber} />)}
+              </g>
+              <g opacity={0.22 * fillOpacity}>
+                {shapes.filter((s) => s.c.danger).map((s, i) => <path key={`fd${i}`} d={s.d} fill={theme.danger} />)}
+              </g>
+              {shapes.map((s, i) => (
+                <path key={`s${i}`} d={s.d} fill="none" stroke={s.c.danger ? theme.danger : theme.amber} strokeWidth={s.c.danger ? 2.5 : 1.6} opacity={Math.min(1, s.c.appear * 1.5) * (shapes.length > 30 ? 0.55 : 0.9)} />
+              ))}
+            </>
           );
-        })}
+        })()}
         {dots.map((d, i) => {
           const p = projection(d.airport.at);
           const visible = p && isFront(projection, d.airport.at);
@@ -92,7 +100,7 @@ export const Globe: React.FC<GlobeProps> = ({ width, height, camera, dots = [], 
 };
 
 // true when a point is on the visible hemisphere
-const isFront = (projection: GeoProjection, at: [number, number]) => {
+export const isFront = (projection: GeoProjection, at: [number, number]) => {
   const r = projection.rotate();
   const lon = ((at[0] + r[0]) * Math.PI) / 180;
   const lat = (at[1] * Math.PI) / 180;
