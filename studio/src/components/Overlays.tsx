@@ -102,26 +102,26 @@ import { land } from './Globe';
 import { minutesToDegrees } from '../theme';
 
 const oceanCache = new Map<string, LL[]>();
-const oceanGrid = (lon0: number, lon1: number, lat0: number, lat1: number, step: number) => {
-  const key = [lon0, lon1, lat0, lat1, step].join(',');
+const oceanGrid = (lon0: number, lon1: number, lat0: number, lat1: number, step: number, includeLand = false) => {
+  const key = [lon0, lon1, lat0, lat1, step, includeLand].join(',');
   if (!oceanCache.has(key)) {
     const pts: LL[] = [];
     for (let lat = lat0; lat <= lat1; lat += step)
-      for (let lon = lon0; lon <= lon1; lon += step / Math.max(0.35, Math.cos((lat * Math.PI) / 180))) if (!geoContains(land, [lon, lat])) pts.push([lon, lat]);
+      for (let lon = lon0; lon <= lon1; lon += step / Math.max(0.35, Math.cos((lat * Math.PI) / 180))) if (includeLand || !geoContains(land, [lon, lat])) pts.push([lon, lat]);
     oceanCache.set(key, pts);
   }
   return oceanCache.get(key)!;
 };
 
 export const GapField: React.FC<{
-  projection: GeoProjection; centers: LL[]; minutes: number; bbox: [number, number, number, number]; step?: number; opacity?: number; pulse?: number;
-}> = ({ projection, centers, minutes, bbox, step = 1.1, opacity = 1, pulse = 0 }) => {
+  projection: GeoProjection; centers: LL[]; minutes: number; bbox: [number, number, number, number]; step?: number; opacity?: number; pulse?: number; includeLand?: boolean;
+}> = ({ projection, centers, minutes, bbox, step = 1.1, opacity = 1, pulse = 0, includeLand = false }) => {
   if (opacity <= 0) return null;
   // Uncovered points depend only on the inputs, not the camera: compute once and cache.
-  const key = `${bbox.join(',')}|${step}|${minutes}|${centers.length}|${centers[0]?.join(',')}`;
+  const key = `${bbox.join(',')}|${step}|${minutes}|${centers.length}|${centers[0]?.join(',')}|${includeLand}`;
   if (!gapCache.has(key)) {
     const r = (minutesToDegrees(minutes) * Math.PI) / 180;
-    gapCache.set(key, oceanGrid(bbox[0], bbox[1], bbox[2], bbox[3], step).filter((p) => !centers.some((c) => geoDistance(p, c) <= r)));
+    gapCache.set(key, oceanGrid(bbox[0], bbox[1], bbox[2], bbox[3], step, includeLand).filter((p) => !centers.some((c) => geoDistance(p, c) <= r)));
   }
   // All dots in one path (one shape for the renderer instead of thousands).
   const rr = 4 + 2 * pulse;
