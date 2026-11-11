@@ -37,6 +37,12 @@ def db(v):
 
 
 def describe(ev):
+    if ev.get('hf_peaky', 0) > 0.35 and ev['dur'] >= 0.15:
+        return 'bell / chime (bright ringing tones)'
+    if ev.get('hf_flat', 0) > 0.25 and ev['dur'] >= 0.3:
+        return 'whoosh / swish (soft noise)'
+    if ev.get('hf_flat', 0) > 0.25 and ev['dur'] < 0.3:
+        return 'scratch / tick (writing, paper, click)'
     if ev['flatness'] < 0.02 and ev['dur'] >= 0.3:
         return 'music note / chord (part of the score)'
     d, att, c0, c1, cmean, low = ev['dur'], ev['attack_ms'], ev['centroid_start'], ev['centroid_end'], ev['centroid_mean'], ev['low_share']
@@ -63,6 +69,7 @@ def main():
     ap.add_argument('--min-rise-db', type=float, default=6.0)
     ap.add_argument('--leak-db', type=float, default=99.0, help='(off by default; Demucs stems tested clean) ignore bursts this far under simultaneous speech')
     ap.add_argument('--sim', type=float, default=1.1, help='(off by default) spectral similarity to the voice above which a burst counts as leftover narration')
+    ap.add_argument('--band', choices=['full', 'high'], default='high', help='detect on full band or only above 3 kHz (effects)')
     ap.add_argument('--out')
     a = ap.parse_args()
 
@@ -77,8 +84,15 @@ def main():
     band = (freqs > 100) & (freqs < 8000)
     ps = spec[:, band] ** 2 + 1e-12
     flat = np.exp(np.log(ps).mean(axis=1)) / ps.mean(axis=1)  # 0 = pure tone, 1 = white noise
+    hb = freqs > 3000
+    hp = spec[:, hb] ** 2 + 1e-12
+    hflat = np.exp(np.log(hp).mean(axis=1)) / hp.mean(axis=1)  # noisiness above 3 kHz
+    hpeak = np.sort(hp, axis=1)[:, -8:].sum(axis=1) / hp.sum(axis=1)  # share of energy in a few strong tones (bells)
 
     level = db(rms)
+    if a.band == 'high':
+        # effects (whooshes, writing, bells) live above the piano/pluck score: detect on energy above 3 kHz
+        level = 10 * np.log10((spec[:, freqs > 3000] ** 2).sum(axis=1) + 1e-12) - 10 * np.log10(F.shape[1])
     bed = median_filter(level, size=int(3.0 / HOP), mode='nearest')  # running music level (3 s)
     hot = level - bed > a.min_rise_db
 
@@ -120,6 +134,8 @@ def main():
                 'centroid_mean': int(np.median(centroid[seg])),
                 'voice_similarity': round(sim, 2),
                 'flatness': round(float(np.median(flat[seg])), 3),
+                'hf_flat': round(float(np.median(hflat[seg])), 3),
+                'hf_peaky': round(float(np.median(hpeak[seg])), 3),
                 'low_share': round(float(np.median(low[seg])), 2),
             })
         i = j
