@@ -5,6 +5,7 @@ import { KineticText } from './components/KineticText';
 import { Part1 } from './scenes/v001/Part1';
 import { Video001 } from './scenes/v001/Video001';
 import { makeCues } from './cues';
+import { AvatarA, AvatarB, Banner, BannerGuide } from './scenes/channel/Branding';
 import { Captions } from './components/Captions';
 import { ThumbA, ThumbB, ThumbC } from './scenes/v001/Thumbnails';
 import words from './data/v001/words.json';
@@ -41,6 +42,10 @@ export const Root: React.FC = () => (
     <Composition id="ThumbA" component={ThumbA} durationInFrames={1} fps={FPS} width={1280} height={720} />
     <Composition id="ThumbB" component={ThumbB} durationInFrames={1} fps={FPS} width={1280} height={720} />
     <Composition id="ThumbC" component={ThumbC} durationInFrames={1} fps={FPS} width={1280} height={720} />
+    <Composition id="AvatarA" component={AvatarA} durationInFrames={1} fps={FPS} width={800} height={800} />
+    <Composition id="AvatarB" component={AvatarB} durationInFrames={1} fps={FPS} width={800} height={800} />
+    <Composition id="Banner" component={Banner} durationInFrames={1} fps={FPS} width={2560} height={1440} />
+    <Composition id="BannerGuide" component={BannerGuide} durationInFrames={1} fps={FPS} width={2560} height={1440} />
     <Composition id="V001-Captions" component={V001Captions} durationInFrames={Math.round(541 * FPS)} fps={FPS} width={1920} height={1080} />
   </>
 );
