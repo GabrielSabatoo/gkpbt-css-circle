@@ -18,7 +18,7 @@ The story begins in 1953. Back then, airliners were driven by piston engines. Hu
 
 So the American regulator, the FAA, wrote a simple rule. A plane with two engines had to stay within sixty minutes of a suitable airport.
 
-Draw those sixty-minute circles on a map of the North Atlantic, and the problem is obvious. They hug the coastlines, and leave the middle of the ocean empty. A twin simply couldn't cross.
+Draw those sixty-minute circles on a map of the North Atlantic, and the problem is obvious. They cling to the coastlines, and leave the middle of the ocean empty. A twin simply couldn't cross.
 
 So the oceans belonged to planes with three and four engines. In 1964, three-engine jets were exempted from the rule, which opened the way for wide-body trijets like the DC-10 and the Lockheed TriStar. And the four-engine Boeing 747 ruled the long-haul world.
 

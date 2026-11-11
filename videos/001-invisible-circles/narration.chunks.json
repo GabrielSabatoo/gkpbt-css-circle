@@ -1,0 +1,380 @@
+[
+ {
+  "text": "Right now, somewhere over the Pacific, a plane with just two engines is carrying three hundred people across thousands of kilometres of open water. There is no land beneath it for hours. And yet, every single minute of that journey,",
+  "start": 0.0,
+  "end": 13.4,
+  "pause_after_ms": 850
+ },
+ {
+  "text": "it is flying inside an invisible circle.",
+  "start": 14.25,
+  "end": 17.28,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Pilots have a dark joke about these circles. They say the rule behind them stands for:",
+  "start": 18.18,
+  "end": 22.76,
+  "pause_after_ms": 850
+ },
+ {
+  "text": "Engines Turn, Or Passengers Swim.",
+  "start": 23.61,
+  "end": 25.68,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Its real name is ETOPS. It's the reason your flight so rarely takes the straight line on the map. It's why a tiny island in the middle of the Pacific matters to thousands of flights every year. And it's the reason two engines are now trusted to cross almost anywhere on Earth.",
+  "start": 26.58,
+  "end": 43.05,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "So how did the twin-engine jet go from being kept away from the oceans... to flying towards Antarctica?",
+  "start": 43.95,
+  "end": 49.55,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Imagine every airport on Earth where a big jet could land in an emergency. A long enough runway. Fire crews. Somewhere for the passengers to go.",
+  "start": 50.45,
+  "end": 59.5,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Now draw a circle around each one. The size of that circle is surprisingly simple. It's how far the plane can fly in a set amount of time, on just one engine, in still air.",
+  "start": 60.4,
+  "end": 70.34,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Those circles are the map that really matters. A twin-engine airliner on a long overwater flight has to stay inside them. Every point of its route must be within reach of at least one runway.",
+  "start": 71.24,
+  "end": 83.04,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Over Europe or North America, the circles overlap so much that you'd never notice them. But out over the oceans, they start to pull apart. And in the gaps between them,",
+  "start": 83.94,
+  "end": 93.0,
+  "pause_after_ms": 850
+ },
+ {
+  "text": "there is simply nowhere to go.",
+  "start": 93.85,
+  "end": 95.41,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "The story begins in 1953. Back then, airliners were driven by piston engines. Huge, complicated machines that failed far more often than anything flying today.",
+  "start": 96.31,
+  "end": 106.22,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "So the American regulator, the FAA, wrote a simple rule. A plane with two engines had to stay within sixty minutes of a suitable airport.",
+  "start": 107.12,
+  "end": 115.62,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Draw those sixty-minute circles on a map of the North Atlantic, and the problem is obvious. They cling to the coastlines, and leave the middle of the ocean empty. A twin simply couldn't cross.",
+  "start": 116.52,
+  "end": 127.14,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "So the oceans belonged to planes with three and four engines. In 1964, three-engine jets were exempted from the rule, which opened the way for wide-body trijets like the DC-10 and the Lockheed TriStar. And the four-engine Boeing 747 ruled the long-haul world.",
+  "start": 128.04,
+  "end": 145.56,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "For decades, if you crossed an ocean, you almost certainly did it on three or four engines.",
+  "start": 146.46,
+  "end": 150.88,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "But jet engines kept getting better.",
+  "start": 151.78,
+  "end": 153.71,
+  "pause_after_ms": 850
+ },
+ {
+  "text": "Much better.",
+  "start": 154.56,
+  "end": 155.31,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "And airlines noticed something. Two engines burn a lot less fuel than three or four. A twin-engine jet is cheaper to buy, cheaper to maintain, and cheaper to fly.",
+  "start": 156.21,
+  "end": 165.99,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Under international rules, Airbus A300s had already been flying longer overwater routes since 1976, with a ninety-minute limit.",
+  "start": 166.89,
+  "end": 175.43,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Then, in 1985, the FAA made its move. Twin-engine jets that met strict new standards could now fly up to one hundred and twenty minutes from an airport.",
+  "start": 176.33,
+  "end": 186.03,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "On the first of February, 1985, a TWA Boeing 767 took off from Boston, bound for Paris, with FAA observers on board. It was one of the very first passenger flights across the Atlantic under the new rule.",
+  "start": 186.93,
+  "end": 199.45,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "On the map, the circles swelled.",
+  "start": 200.35,
+  "end": 202.38,
+  "pause_after_ms": 850
+ },
+ {
+  "text": "And the gap in the middle of the Atlantic closed.",
+  "start": 203.23,
+  "end": 205.6,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "The Atlantic was one thing. The Pacific was something else entirely.",
+  "start": 206.5,
+  "end": 210.31,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "It's the largest ocean on Earth, and the distances between usable runways are enormous. To cross it reliably, twins needed even bigger circles.",
+  "start": 211.21,
+  "end": 220.22,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Soon, the limit was pushed to one hundred and eighty minutes. Three full hours from the nearest airport.",
+  "start": 221.12,
+  "end": 226.58,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "In 1995, the Boeing 777 entered service with United Airlines. The version with Pratt and Whitney engines had been cleared for one hundred and eighty minutes before it carried a single paying passenger. That had never happened before.",
+  "start": 227.48,
+  "end": 241.98,
+  "pause_after_ms": 350
+ },
+ {
+  "text": "Until then, a new plane had to prove itself in service first.",
+  "start": 242.33,
+  "end": 246.16,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "With three-hour circles, almost the entire Pacific was suddenly within reach.",
+  "start": 247.06,
+  "end": 251.41,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Now, this is the part that makes some passengers nervous. Two engines, three hours from land.",
+  "start": 252.31,
+  "end": 257.61,
+  "pause_after_ms": 850
+ },
+ {
+  "text": "Is that really safe?",
+  "start": 258.46,
+  "end": 259.73,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "The answer is in the numbers. To qualify for one hundred and eighty minutes, the FAA requires that engine type, across the entire world fleet, to shut down in flight no more than twice in every hundred thousand engine hours.",
+  "start": 260.63,
+  "end": 273.71,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Modern engines do far better than that. General Electric says its GE90-94B, one of the engines that powers the 777, has an engine-caused shutdown rate of roughly one in every seven hundred thousand hours.",
+  "start": 274.61,
+  "end": 287.24,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "To put that in perspective, an engine running non-stop, day and night, would take about eighty years to reach seven hundred thousand hours.",
+  "start": 288.14,
+  "end": 295.79,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "And ETOPS isn't only about engines. A plane on these routes must carry enough fuel to reach its diversion airport even after a failure. Its fire protection has to last the entire diversion. And it has to be maintained to a stricter standard than an ordinary jet.",
+  "start": 296.69,
+  "end": 312.99,
+  "pause_after_ms": 350
+ },
+ {
+  "text": "Every part of the system is built around one question.",
+  "start": 313.34,
+  "end": 316.36,
+  "pause_after_ms": 850
+ },
+ {
+  "text": "Can we get everyone safely to that runway?",
+  "start": 317.21,
+  "end": 319.5,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "So what actually happens if an engine stops in the middle of the ocean?",
+  "start": 320.4,
+  "end": 323.47,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "First of all, the plane does not fall out of the sky. A twin-engine jet is designed to fly safely on one engine. The crew descends to a lower altitude, where the remaining engine can keep the plane going, and turns towards the nearest airport inside its circle.",
+  "start": 324.37,
+  "end": 338.49,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Which brings us to some of the most important runways in the world. Runways you've probably never heard of.",
+  "start": 339.39,
+  "end": 344.74,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Like this one. Henderson Field, on Midway Atoll. A speck of sand and coral, more than two thousand kilometres north-west of Honolulu. There are no scheduled passenger flights here at all.",
+  "start": 345.64,
+  "end": 357.02,
+  "pause_after_ms": 350
+ },
+ {
+  "text": "And yet United Airlines says it plans more than eight thousand flights a year around this island, as their emergency alternate.",
+  "start": 357.37,
+  "end": 364.01,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "In 2026, the FAA asked the industry what would happen if Midway stopped serving that role. The runway needs around one hundred million dollars of work in the next few years. And airlines lined up with the same message: please, keep it open.",
+  "start": 364.91,
+  "end": 379.57,
+  "pause_after_ms": 350
+ },
+ {
+  "text": "Without it, some of those invisible circles develop holes, and some routes across the Pacific would have to change.",
+  "start": 379.92,
+  "end": 385.98,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "And sometimes, being inside a circle is the difference between disaster and a miracle.",
+  "start": 386.88,
+  "end": 391.86,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "In August 2001, an Air Transat Airbus A330 was crossing the Atlantic from Toronto to Lisbon when a fuel leak drained its tanks. One engine stopped.",
+  "start": 392.76,
+  "end": 402.95,
+  "pause_after_ms": 850
+ },
+ {
+  "text": "Then the other. The crew glided the powerless jet for nineteen minutes, across about sixty-five nautical miles of ocean, and landed at Lajes, an air base in the Azores.",
+  "start": 403.8,
+  "end": 413.75,
+  "pause_after_ms": 850
+ },
+ {
+  "text": "All three hundred and six people on board survived.",
+  "start": 414.6,
+  "end": 417.54,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "It wasn't the kind of failure ETOPS was designed for. But it shows exactly why a runway within reach matters.",
+  "start": 418.44,
+  "end": 425.08,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Today, the circles have grown to sizes the authors of that first rule could hardly have imagined.",
+  "start": 425.98,
+  "end": 431.66,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Since 2007, the rules have even covered planes with three and four engines, once they fly more than three hours from an airport. But it's the twins that keep pushing the limits.",
+  "start": 432.56,
+  "end": 442.47,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "In 2014, Europe's aviation regulator certified the Airbus A350 for diversion times of up to three hundred and seventy minutes. That's more than six hours on a single engine. A circle with a radius of up to two and a half thousand nautical miles.",
+  "start": 443.37,
+  "end": 458.88,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "The Boeing 787 can be approved for three hundred and thirty minutes. And that is what made one of the most remote routes in the world possible. Qantas flies from Sydney to Santiago, in Chile, on a twin-engine 787, on a track that can bend far to the south, towards Antarctica.",
+  "start": 459.78,
+  "end": 477.64,
+  "pause_after_ms": 350
+ },
+ {
+  "text": "Boeing itself said that route simply wasn't possible with one hundred and eighty minutes.",
+  "start": 477.99,
+  "end": 482.14,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "With circles that big, very little of the planet is still out of bounds. Just a few corners.",
+  "start": 483.04,
+  "end": 488.59,
+  "pause_after_ms": 850
+ },
+ {
+  "text": "Like the heart of Antarctica.",
+  "start": 489.44,
+  "end": 491.19,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "So the next time you're on a long flight over the ocean, and the little plane on the screen seems to wander away from the straight line, it isn't lost.",
+  "start": 492.09,
+  "end": 499.87,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "It's threading its way through a chain of invisible circles. Each one built around a runway, a fire crew, and a safe place to land.",
+  "start": 500.77,
+  "end": 508.15,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "Engines turn.",
+  "start": 509.05,
+  "end": 510.1,
+  "pause_after_ms": 850
+ },
+ {
+  "text": "Passengers don't swim.",
+  "start": 510.95,
+  "end": 512.23,
+  "pause_after_ms": 900
+ },
+ {
+  "text": "And somewhere beneath you, on an island you will probably never visit, a runway is waiting.",
+  "start": 513.13,
+  "end": 518.76,
+  "pause_after_ms": 850
+ },
+ {
+  "text": "Just in case.",
+  "start": 519.61,
+  "end": 520.55,
+  "pause_after_ms": 0
+ }
+]

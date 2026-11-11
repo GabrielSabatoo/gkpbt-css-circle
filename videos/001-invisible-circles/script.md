@@ -59,4 +59,7 @@ Narration is AI-generated. Sources are listed below.
 ## Audio log
 - 2026-11-10: full narration generated (Chatterbox, 34 chunks, 8:19 at 1.0×).
 - Fixed by regenerating chunks 26 and 29: "2014" was read as "2004"; "ETOPS" read as "E-T-O tops" once; "Lajes" mispronounced. Pronunciation fixes now live in `voice/channel_voice.json` → `pronunciations`.
-- Final: slowed to **0.8×** with ffmpeg `atempo=0.8` (pitch kept) → **10:27**. Word timings re-aligned on the slowed file (`word-timings.json`).
+- Tried slowing to 0.8× (10:27) and 0.9× (9:17) with ffmpeg `atempo`: sounded stretched, rejected.
+- 2026-11-11, **v2 (current):** regenerated with slightly more expression (exaggeration 0.6, cfg 0.4), natural pauses (0.35 s sentence / 0.9 s paragraph / 0.85 s at 12 `[pause]` markers), normal speed → 63 chunks, **8:41**. Transcript match 99.1%.
+- v2 fix: "hug the coastlines" sounded like "HUD" → reworded to "cling to the coastlines", chunk 13 regenerated.
+- Chunk positions: `narration.chunks.json`; word timings: `word-timings.json`.
