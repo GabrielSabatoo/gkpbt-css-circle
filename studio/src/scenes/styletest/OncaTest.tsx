@@ -23,66 +23,93 @@ const T = { snap: 7.2, torch: 9.43, eyes: 12.3, reveal: 14.85, knows: 17.05, siz
 
 /* ---------- reusable drawings ---------- */
 const rnd = (k: number) => { const x = Math.sin(k * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
-type Ros = { x: number; y: number; r: number; rot: number; n: number; dot: boolean };
-const rosettes: Ros[] = [];
+
+/* Realistic stalking jaguar (side view, facing right): shoulders high, head low, lit by a torch from the left. */
+const BODY = 'M232,214 C250,188 300,178 360,190 C420,202 520,206 590,180 C625,166 665,162 700,180 C735,198 760,218 790,224 C815,214 850,216 872,232 C890,244 904,258 912,272 C914,282 906,292 896,296 C892,306 878,314 860,314 C835,316 812,308 796,300 C780,318 762,330 752,346 C748,380 762,420 772,450 C778,462 794,468 806,470 L742,472 C732,446 722,410 714,384 C706,392 700,420 698,450 C696,462 708,468 718,470 L656,472 C652,440 650,400 646,366 C620,372 560,372 500,364 C450,358 410,362 380,368 C374,400 368,430 376,455 C380,466 394,470 406,471 L340,472 C326,446 318,410 310,384 C292,400 286,430 290,455 C292,465 302,470 312,471 L254,472 C246,440 242,400 242,360 C232,320 222,270 232,214 Z';
+type Spot = { x: number; y: number; r: number; rot: number; n: number; ring: boolean };
+const spots: Spot[] = [];
 {
   let k = 0;
-  for (let y = 200; y < 330; y += 30) for (let x = 275; x < 790; x += 36) {
-    const jx = (rnd(k) - 0.5) * 18, jy = (rnd(k + 9) - 0.5) * 14;
-    rosettes.push({ x: x + jx + ((y / 30) % 2) * 18, y: y + jy, r: 9 + rnd(k + 3) * 6, rot: rnd(k + 5) * 360, n: 4 + Math.round(rnd(k + 7)), dot: rnd(k + 11) > 0.35 });
+  for (let y = 175; y < 470; y += 22) for (let x = 230; x < 830; x += 26) {
+    const jx = (rnd(k) - 0.5) * 16, jy = (rnd(k + 9) - 0.5) * 12; const yy = y + jy;
+    const onLeg = yy > 365, onNeck = x > 700;
+    const r = onLeg ? 3 + rnd(k + 3) * 3 : onNeck ? 6 + rnd(k + 3) * 4 : 8 + rnd(k + 3) * 6;
+    spots.push({ x: x + jx + ((y / 22) % 2) * 13, y: yy, r, rot: rnd(k + 5) * 360, n: 4 + Math.round(rnd(k + 7) * 2), ring: !onLeg && !onNeck ? true : rnd(k + 2) > 0.7 });
     k++;
   }
 }
-const Rosette: React.FC<Ros> = ({ x, y, r, rot, n, dot }) => (
+const SpotMark: React.FC<Spot> = ({ x, y, r, rot, n, ring }) => ring ? (
   <g transform={`translate(${x},${y}) rotate(${rot})`}>
+    <ellipse rx={r * 0.7} ry={r * 0.55} fill="#8a5418" opacity={0.6} />
     {Array.from({ length: n }).map((_, i) => {
-      const a = (i / n) * 2 * Math.PI + rnd(x + i) * 0.5;
-      return <ellipse key={i} cx={Math.cos(a) * r} cy={Math.sin(a) * r * 0.8} rx={r * (0.32 + rnd(y + i) * 0.14)} ry={r * 0.2} transform={`rotate(${(a * 180) / Math.PI + 90} ${Math.cos(a) * r} ${Math.sin(a) * r * 0.8})`} fill={C.spot} />;
+      const a = (i / n) * 2 * Math.PI + rnd(x * 3 + i) * 0.6; const cx = Math.cos(a) * r, cy = Math.sin(a) * r * 0.78;
+      return <ellipse key={i} cx={cx} cy={cy} rx={r * (0.3 + rnd(y + i) * 0.2)} ry={r * 0.17} transform={`rotate(${(a * 180) / Math.PI + 90} ${cx} ${cy})`} fill="#150c05" />;
     })}
-    {dot ? <circle r={r * 0.22} fill={C.spot} opacity={0.9} /> : null}
-    <ellipse rx={r * 0.62} ry={r * 0.5} fill="#c2852e" opacity={0.55} />
+    {rnd(x + y) > 0.45 ? <circle r={r * 0.18} fill="#150c05" /> : null}
   </g>
-);
-const TORSO = 'M248,262 C246,212 288,184 350,182 C420,180 470,196 540,196 C610,196 660,176 724,182 C780,188 812,226 808,270 C805,310 780,336 742,342 C690,350 640,330 590,334 C520,340 470,328 410,330 C350,332 300,330 272,312 C254,300 249,282 248,262 Z';
-const HEAD = 'M758,206 C768,162 818,146 864,150 C906,155 936,180 941,206 C945,227 936,247 916,254 C896,260 880,264 858,266 C818,268 778,256 766,236 Z';
+) : <ellipse cx={x} cy={y} rx={r} ry={r * 0.8} transform={`rotate(${rot} ${x} ${y})`} fill="#150c05" />;
 
-export const Jaguar: React.FC<{ eyeGlow?: number; headTurn?: number }> = ({ eyeGlow = 0, headTurn = 0 }) => (
-  <svg viewBox="140 120 820 340" width="100%" height="100%" style={{ overflow: 'visible' }}>
-    <defs>
-      <clipPath id="jbody"><path d={TORSO} /></clipPath>
-      <radialGradient id="jlight" cx="70%" cy="40%" r="70%"><stop offset="0%" stopColor="#fff3d6" stopOpacity="0.35" /><stop offset="100%" stopColor="#000" stopOpacity="0.35" /></radialGradient>
-    </defs>
-    {/* far legs + tail (darker) */}
-    <path d="M330,300 C320,350 330,395 338,432 L368,434 C366,395 366,350 380,312 Z" fill={C.furShade} />
-    <path d="M752,310 C748,360 752,400 756,430 L786,432 C788,398 786,352 792,306 Z" fill={C.furShade} />
-    <path d="M255,252 C188,262 146,322 156,392 C161,424 188,436 206,418" fill="none" stroke={C.fur} strokeWidth={24} strokeLinecap="round" />
-    {[[175, 330], [160, 362], [168, 398], [195, 420]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={7} fill={C.spot} />)}
-    {/* near legs */}
-    <path d="M268,272 C248,332 280,382 296,432 L334,434 C330,392 330,342 346,300 Z" fill={C.fur} />
-    <path d="M712,300 C704,358 708,402 714,432 L750,434 C752,404 750,360 760,312 Z" fill={C.fur} />
-    {[[315, 436], [732, 436], [353, 437], [771, 435]].map(([x, y], i) => <ellipse key={i} cx={x} cy={y} rx={24} ry={9} fill={i > 1 ? C.furShade : C.fur} />)}
-    {/* torso + neck */}
-    <path d={TORSO} fill={C.fur} />
-    <path d="M700,190 C740,176 790,180 815,200 C835,218 838,262 820,292 C800,320 760,330 720,320 Z" fill={C.fur} />
-    <path d="M290,318 C350,330 410,322 470,324 C530,326 580,326 630,322 C690,320 740,336 790,310 C770,335 735,344 700,346 C640,348 600,338 540,342 C470,344 420,336 370,338 C330,338 300,330 290,318 Z" fill={C.belly} />
-    <g clipPath="url(#jbody)">
-      {rosettes.map((r, i) => <Rosette key={i} {...r} />)}
-    </g>
-    {/* head (turns slightly toward camera) */}
-    <g transform={`translate(-14,4) translate(850,210) scale(1.08) translate(-850,-210) rotate(${-6 * headTurn} 800 230)`}>
-      <circle cx={812} cy={162} r={17} fill={C.furShade} /><circle cx={812} cy={164} r={8} fill={C.spot} />
-      <path d={HEAD} fill={C.fur} />
-      <ellipse cx={912} cy={232} rx={31} ry={20} fill={C.belly} />
-      <path d="M930,207 L946,213 L934,224 Z" fill={C.spot} />
-      <path d="M906,244 C918,252 932,250 940,242" fill="none" stroke={C.spot} strokeWidth={3} strokeLinecap="round" />
-      {[[830, 190], [850, 175], [818, 212], [842, 230], [866, 172]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={5} fill={C.spot} />)}
-      <path d="M876,192 C884,184 898,184 904,192 C897,198 884,199 876,192 Z" fill={eyeGlow > 0 ? '#ffd56a' : '#4a3210'} />
-      {eyeGlow > 0 ? <circle cx={890} cy={192} r={16} fill="#ffd56a" opacity={0.45 * eyeGlow} style={{ filter: 'blur(6px)' }} /> : null}
-      <circle cx={892} cy={192} r={3} fill={C.spot} />
-    </g>
-    <path d={TORSO} fill="url(#jlight)" style={{ mixBlendMode: 'multiply' }} />
-  </svg>
-);
+export const Jaguar: React.FC<{ eyeGlow?: number; headTurn?: number }> = ({ eyeGlow = 0, headTurn = 0 }) => {
+  const snarl = headTurn; // lips pull back as it "knows where you are"
+  return (
+    <svg viewBox="140 140 800 345" width="100%" height="100%" style={{ overflow: 'visible' }}>
+      <defs>
+        <clipPath id="jb"><path d={BODY} /></clipPath>
+        <linearGradient id="jfur" x1="0" y1="0" x2="1" y2="0.35">
+          <stop offset="0%" stopColor="#5a3a14" /><stop offset="45%" stopColor="#a8702a" /><stop offset="78%" stopColor="#d29a45" /><stop offset="100%" stopColor="#b9802f" />
+        </linearGradient>
+        <linearGradient id="jbelly" x1="0" y1="0" x2="0" y2="1"><stop offset="55%" stopColor="#e8cf9c" stopOpacity="0" /><stop offset="80%" stopColor="#e2c48c" stopOpacity="0.75" /><stop offset="100%" stopColor="#c9a468" stopOpacity="0.9" /></linearGradient>
+        <radialGradient id="jlit" cx="0.78" cy="0.3" r="0.55"><stop offset="0%" stopColor="#fff0c8" stopOpacity="0.38" /><stop offset="100%" stopColor="#fff0c8" stopOpacity="0" /></radialGradient>
+        <linearGradient id="jshadow" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#000" stopOpacity="0" /><stop offset="70%" stopColor="#000" stopOpacity="0.25" /><stop offset="100%" stopColor="#000" stopOpacity="0.75" /></linearGradient>
+        <linearGradient id="jrear" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#000" stopOpacity="0.7" /><stop offset="45%" stopColor="#000" stopOpacity="0" /></linearGradient>
+      </defs>
+      {/* tail (in shadow) */}
+      <path d="M236,216 C190,236 160,284 160,334 C160,372 176,398 198,404" fill="none" stroke="#4d3110" strokeWidth={26} strokeLinecap="round" />
+      {[[178, 262], [163, 300], [162, 338], [172, 372], [190, 398]].map(([x, y], i) => <ellipse key={i} cx={x} cy={y} rx={9} ry={6} fill="#140b04" />)}
+      {/* body */}
+      <path d={BODY} fill="url(#jfur)" />
+      <g clipPath="url(#jb)">
+        <rect x={140} y={140} width={820} height={345} fill="url(#jbelly)" />
+        {spots.map((sp, i) => <SpotMark key={i} {...sp} />)}
+        {/* muscle shading: shoulder blade, elbow, haunch */}
+        <path d="M640,175 C680,230 690,290 670,350" fill="none" stroke="#2a1806" strokeWidth={14} opacity={0.28} />
+        <path d="M700,190 C740,230 750,290 735,345" fill="none" stroke="#fff0c8" strokeWidth={6} opacity={0.18} />
+        <path d="M250,230 C320,240 345,300 330,372" fill="none" stroke="#2a1806" strokeWidth={14} opacity={0.3} />
+        <path d="M600,340 C640,352 660,352 690,340" fill="none" stroke="#2a1806" strokeWidth={10} opacity={0.25} />
+        <rect x={140} y={140} width={820} height={345} fill="url(#jlit)" />
+        <rect x={140} y={140} width={820} height={345} fill="url(#jshadow)" />
+        <rect x={140} y={140} width={820} height={345} fill="url(#jrear)" />
+      </g>
+      {/* rim light from the torch along the back and head */}
+      <path d="M590,180 C625,166 665,162 700,180 C735,198 760,218 786,222" fill="none" stroke="#ffe7b0" strokeWidth={3} opacity={0.5} />
+      {/* ear (black back with pale spot) */}
+      <path d="M806,214 C804,190 822,180 840,188 C848,198 846,212 838,220 Z" fill="#1b1007" />
+      <ellipse cx={826} cy={200} rx={5} ry={4} fill="#d8c08f" opacity={0.8} />
+      {/* face — drawn inside the head, clipped to it */}
+      <g clipPath="url(#jb)">
+        <path d="M884,262 C904,262 922,270 928,282 C928,296 914,306 900,310 C888,318 872,324 860,324 C866,312 874,298 884,290 Z" fill="#ead7ab" opacity={0.92} />
+        <path d="M842,238 C856,230 880,236 892,252 C880,252 862,250 842,238 Z" fill="#1a0f06" opacity={0.25} />
+        {[[826, 226], [838, 214], [852, 212], [818, 246], [834, 262], [850, 276], [812, 272], [826, 290], [842, 300], [866, 214], [806, 254]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={2.4 + (i % 3) * 1.1} fill="#150c05" />)}
+        <path d="M800,300 C820,312 840,318 858,322" fill="none" stroke="#2a1806" strokeWidth={8} opacity={0.3} />
+      </g>
+      <path d="M914,268 C922,266 930,272 930,280 C926,286 918,288 912,284 C908,278 908,272 914,268 Z" fill="#2d1a10" />
+      <path d={`M916,290 C912,${296 + 2 * snarl} 904,${302 + 3 * snarl} 892,${304 + 3 * snarl} C882,${306 + 2 * snarl} 872,${306 - snarl} 862,${302 - 3 * snarl}`} fill="none" stroke="#120a05" strokeWidth={3.2} strokeLinecap="round" />
+      <path d="M916,288 L918,292" stroke="#120a05" strokeWidth={2.5} />
+      <g opacity={snarl}>
+        <path d={`M900,${302 + 3 * snarl} L903,${314 + 3 * snarl} L906,${301 + 3 * snarl} Z`} fill="#f4ecdc" />
+        <path d={`M884,${305 + 2 * snarl} L886,${314 + 2 * snarl} L889,${305 + 2 * snarl} Z`} fill="#f4ecdc" />
+      </g>
+      {[[902, 294], [908, 290], [896, 297]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={1.6} fill="#120a05" />)}
+      {[0, 1, 2, 3].map((i) => <path key={i} d={`M904,${292 + i * 2.5} C926,${290 + i * 5} 948,${294 + i * 8} 966,${300 + i * 11}`} fill="none" stroke="#f4ead2" strokeWidth={1} opacity={0.55} />)}
+      {/* heavy brow + eye */}
+      <path d="M856,236 C866,228 882,228 892,238" fill="none" stroke="#1a0f06" strokeWidth={4.5} strokeLinecap="round" />
+      <path d="M860,246 C866,238 882,237 890,245 C882,251 868,252 860,246 Z" fill={eyeGlow > 0 ? '#ffdc6a' : '#9a8a2a'} />
+      <ellipse cx={876} cy={245} rx={2.2} ry={4.6} fill="#0b0703" />
+      {eyeGlow > 0 ? <circle cx={875} cy={245} r={22} fill="#ffd56a" opacity={0.5 * eyeGlow} style={{ filter: 'blur(7px)' }} /> : null}
+      <path d="M890,246 C898,256 904,264 908,272" fill="none" stroke="#1a0f06" strokeWidth={2.2} opacity={0.7} />
+    </svg>
+  );
+};
 
 const Person: React.FC<{ h: number; color?: string; torch?: boolean }> = ({ h, color = '#020806', torch }) => (
   <svg width={h * 0.42} height={h} viewBox="0 0 42 100" style={{ overflow: 'visible' }}>
@@ -180,12 +207,12 @@ const Reveal: React.FC<{ f: number }> = ({ f }) => {
   const step = ramp(f, T.reveal, T.reveal + 1.4);
   const title = ramp(f, T.reveal + 0.5, T.reveal + 1.1);
   const knows = ramp(f, T.knows, T.knows + 0.8);
-  const scale = ramp(f, T.knows + 1.4, T.knows + 2.0);
-  const push = 1 + 0.06 * ramp(f, T.knows, T.size);
+  const scale = ramp(f, T.reveal + 1.5, T.reveal + 2.1) * (1 - ramp(f, T.knows + 0.2, T.knows + 0.9));
+  const push = 1 + 2.2 * ramp(f, T.knows + 0.2, T.size + 0.2);
   return (
-    <AbsoluteFill style={{ background: `radial-gradient(ellipse at 58% 58%, #2c3a22 0%, ${C.night1} 45%, ${C.night0} 85%)`, transform: `scale(${push})`, transformOrigin: '66% 62%' }}>
+    <AbsoluteFill style={{ background: `radial-gradient(ellipse at 58% 58%, #2c3a22 0%, ${C.night1} 45%, ${C.night0} 85%)`, transform: `scale(${push})`, transformOrigin: '82% 57%' }}>
       <div style={{ position: 'absolute', left: 930 + (1 - step) * 160, top: 528, width: 700, height: 293, opacity: 0.25 + 0.75 * step }}>
-        <Jaguar eyeGlow={knows} headTurn={knows} />
+        <Jaguar eyeGlow={Math.max(knows, step * 0.5)} headTurn={knows} />
       </div>
       <svg width={1920} height={1080} style={{ position: 'absolute' }}><rect y={806} width={1920} height={274} fill="#050f0b" opacity={0.85} /></svg>
       {/* human for scale + scale bar */}
@@ -201,7 +228,7 @@ const Reveal: React.FC<{ f: number }> = ({ f }) => {
         <div style={{ fontFamily: monoFont, fontSize: 28, letterSpacing: 8, color: C.muted, marginTop: 18 }}>PANTHERA ONCA · PANTANAL</div>
       </div>
       <Particles f={f} n={22} />
-      <AbsoluteFill style={{ background: 'radial-gradient(ellipse at 60% 55%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6) 100%)' }} />
+      <AbsoluteFill style={{ background: 'radial-gradient(ellipse at 75% 58%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.82) 100%)' }} />
     </AbsoluteFill>
   );
 };
