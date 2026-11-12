@@ -6,6 +6,7 @@ import { Part1 } from './scenes/v001/Part1';
 import { Video001 } from './scenes/v001/Video001';
 import { makeCues } from './cues';
 import { AvatarA, AvatarB, Banner, BannerGuide, Watermark, WatermarkBell } from './scenes/channel/Branding';
+import { OncaTest, ONCA_FRAMES } from './scenes/styletest/OncaTest';
 import { Captions } from './components/Captions';
 import { ThumbA, ThumbB, ThumbC } from './scenes/v001/Thumbnails';
 import words from './data/v001/words.json';
@@ -48,6 +49,7 @@ export const Root: React.FC = () => (
     <Composition id="BannerGuide" component={BannerGuide} durationInFrames={1} fps={FPS} width={2560} height={1440} />
     <Composition id="Watermark" component={Watermark} durationInFrames={1} fps={FPS} width={600} height={600} />
     <Composition id="WatermarkBell" component={WatermarkBell} durationInFrames={1} fps={FPS} width={600} height={600} />
+    <Composition id="OncaTest" component={OncaTest} durationInFrames={ONCA_FRAMES} fps={FPS} width={1920} height={1080} />
     <Composition id="V001-Captions" component={V001Captions} durationInFrames={Math.round(541 * FPS)} fps={FPS} width={1920} height={1080} />
   </>
 );
