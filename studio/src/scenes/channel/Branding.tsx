@@ -52,11 +52,11 @@ export const Banner: React.FC = () => {
       </svg>
       {/* text inside the safe area */}
       <div style={{ position: 'absolute', left: 0, right: 0, top: 672, textAlign: 'center' }}>
-        <div style={{ fontFamily: theme.fontSerif, fontWeight: 700, fontSize: 132, color: day.text, letterSpacing: -1 }}>
-          How flying <span style={{ fontStyle: 'italic', color: day.circle }}>really</span> works
+        <div style={{ fontFamily: theme.fontSerif, fontWeight: 700, fontSize: 150, color: day.text, letterSpacing: -1, lineHeight: 1 }}>
+          SkyGrid <span style={{ fontStyle: 'italic', color: day.circle }}>Air</span>
         </div>
-        <div style={{ fontFamily: theme.fontMono, fontSize: 34, letterSpacing: 9, color: day.textMuted, marginTop: 26, textTransform: 'uppercase' }}>
-          Planes · pilots · routes · the rules of the sky
+        <div style={{ fontFamily: theme.fontMono, fontSize: 36, letterSpacing: 10, color: day.textMuted, marginTop: 30, textTransform: 'uppercase' }}>
+          Aviation explained · how flying really works
         </div>
       </div>
     </Paper>
