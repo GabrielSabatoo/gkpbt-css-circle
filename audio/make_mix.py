@@ -115,6 +115,7 @@ def main():
     ap.add_argument('out')
     ap.add_argument('--total', type=float, required=True, help='total length in seconds (video length)')
     ap.add_argument('--whooshes', default='', help='comma-separated times in seconds')
+    ap.add_argument('--sfx', default='', help='JSON list of {t, kind} sound-effect cues (audio/sfx.py); synced to the animation')
     ap.add_argument('--music-under-db', type=float, default=-18.0, help='music level relative to voice while talking')
     args = ap.parse_args()
 
@@ -152,6 +153,13 @@ def main():
         pan = 0.35 + 0.3 * (k % 3) / 2
         mix[s:e, 0] += w[: e - s] * (1 - pan)
         mix[s:e, 1] += w[: e - s] * pan
+    if args.sfx:
+        import json, os, sys
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import sfx
+        cues = json.load(open(args.sfx))
+        mix += sfx.render(cues, args.total, rms_db(speech))[: len(mix)]
+        print(f'added {len(cues)} sound effects')
     peak = np.max(np.abs(mix))
     if peak > 0.98:
         mix *= 0.98 / peak
