@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill } from 'remotion';
+import { AbsoluteFill, Img, staticFile } from 'remotion';
 import { Globe } from '../../components/Globe';
 import { GapField, PlaneIcon } from '../../components/Overlays';
 import { worldAirports } from '../../data/airports';
@@ -155,6 +155,47 @@ export const ThumbE: React.FC = () => {
         <div style={{ ...big(176, '#ffffff'), ...stroke(12, '#0a0d14'), letterSpacing: -3 }}>NO</div>
         <div style={{ ...big(132, '#ff2d2d'), ...stroke(10, '#ffffff'), letterSpacing: -2, marginTop: 4 }}>RUNWAY</div>
         <div style={{ marginTop: 18, display: 'inline-block', background: '#ffd400', color: '#111', fontFamily: 'PlexMonoLocal, monospace', fontWeight: 700, fontSize: 34, letterSpacing: 4, padding: '8px 16px' }}>FOR 3 HOURS</div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+/** F (Test & Compare): painted storm (generated background) + backlit airliner silhouette gliding toward the waves,
+ *  burning engine, smoke, distant island lights. Extinct-Zoo-like: image first, very little text. */
+export const ThumbF: React.FC = () => {
+  const stroke = (w: number, c: string): React.CSSProperties => ({ WebkitTextStroke: `${w}px ${c}`, paintOrder: 'stroke fill' } as any);
+  return (
+    <AbsoluteFill>
+      <Img src={staticFile('thumbs/storm19.png')} style={{ width: W, height: H, objectFit: 'cover', filter: 'contrast(1.12) saturate(1.1)' }} />
+      <svg width={W} height={H} style={{ position: 'absolute' }}>
+        <defs>
+          <radialGradient id="fireF"><stop offset="0%" stopColor="#fff2b0" /><stop offset="35%" stopColor="#ffa02a" /><stop offset="70%" stopColor="#ff3d0a" stopOpacity="0.8" /><stop offset="100%" stopColor="#ff2a00" stopOpacity="0" /></radialGradient>
+          <linearGradient id="smokeF" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stopColor="#5b5e66" stopOpacity="0.9" /><stop offset="100%" stopColor="#3a3c42" stopOpacity="0" /></linearGradient>
+          <filter id="blurF"><feGaussianBlur stdDeviation="6" /></filter>
+          <radialGradient id="islandF"><stop offset="0%" stopColor="#ffcf6a" stopOpacity="0.9" /><stop offset="100%" stopColor="#ffcf6a" stopOpacity="0" /></radialGradient>
+        </defs>
+        {/* distant runway lights glow */}
+        {/* airliner silhouette backlit by the storm, nose down to the left, burning engine + smoke trail */}
+        <g transform="translate(330,70) rotate(-11 450 160) scale(0.86)">
+          <path d="M560,212 C700,190 900,130 1180,40 L1260,0 L1300,80 C1080,150 860,220 640,250 Z" fill="url(#smokeF)" filter="url(#blurF)" opacity={0.95} />
+          <path d="M470,128 L620,124 L700,70 L680,66 Z" fill="#07080c" />
+          <path d="M40,170 C55,140 110,128 190,126 L800,122 C840,121 862,112 880,92 L935,30 L968,30 L948,120 C960,128 958,150 940,156 L200,176 C120,180 60,184 40,170 Z" fill="#090b10" />
+          <path d="M870,132 L1000,146 L996,160 L880,152 Z" fill="#090b10" />
+          <path d="M420,165 L600,170 L840,300 L790,308 Z" fill="#1b2230" />
+          <g transform="rotate(10 560 212)"><rect x={488} y={190} width={150} height={46} rx={20} fill="#0a0c11" /><ellipse cx={490} cy={213} rx={10} ry={21} fill="#1a1f29" /></g>
+          <path d="M48,166 C62,142 112,131 190,129 L800,125 C840,124 860,115 878,95 L933,33" fill="none" stroke="#dbe9f7" strokeWidth={3.5} opacity={0.85} />
+          <path d="M420,165 L600,170 L840,300 L790,308 Z" fill="none" stroke="#dbe9f7" strokeWidth={3} opacity={0.75} />
+          {Array.from({ length: 28 }).map((_, i) => <rect key={i} x={230 + i * 21} y={138} width={8} height={8} rx={2} fill="#ffe2a0" opacity={0.8} />)}
+          <circle cx={640} cy={232} r={110} fill="url(#fireF)" />
+          <circle cx={640} cy={232} r={30} fill="#fff4c0" filter="url(#blurF)" />
+        </g>
+        {/* rain */}
+        {Array.from({ length: 160 }).map((_, i) => { const x = (i * 97) % 1320 - 20, y = (i * 211) % 740 - 20; return <line key={i} x1={x} y1={y} x2={x - 10} y2={y + 34} stroke="#cfd8e0" strokeWidth={1.2} opacity={0.22} />; })}
+      </svg>
+      <AbsoluteFill style={{ background: 'radial-gradient(ellipse at 55% 50%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%)' }} />
+      <div style={{ position: 'absolute', left: 44, bottom: 30 }}>
+        <div style={{ ...big(124, '#ffffff'), ...stroke(8, '#05060c'), letterSpacing: -2 }}>NOWHERE</div>
+        <div style={{ ...big(100, '#ff3b2f'), ...stroke(7, '#05060c'), fontStyle: 'italic', marginTop: 0 }}>to land</div>
       </div>
     </AbsoluteFill>
   );
