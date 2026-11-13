@@ -186,8 +186,18 @@ export const ThumbF: React.FC = () => {
           <path d="M48,166 C62,142 112,131 190,129 L800,125 C840,124 860,115 878,95 L933,33" fill="none" stroke="#dbe9f7" strokeWidth={3.5} opacity={0.85} />
           <path d="M420,165 L600,170 L840,300 L790,308 Z" fill="none" stroke="#dbe9f7" strokeWidth={3} opacity={0.75} />
           {Array.from({ length: 28 }).map((_, i) => <rect key={i} x={230 + i * 21} y={138} width={8} height={8} rx={2} fill="#ffe2a0" opacity={0.8} />)}
-          <circle cx={640} cy={232} r={110} fill="url(#fireF)" />
-          <circle cx={640} cy={232} r={30} fill="#fff4c0" filter="url(#blurF)" />
+          {/* flames streaming back from the engine exhaust (plane flies left, flames trail right) */}
+          <defs>
+            <linearGradient id="flameF" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#fff6c8" /><stop offset="25%" stopColor="#ffc23a" /><stop offset="60%" stopColor="#ff5a14" stopOpacity="0.85" /><stop offset="100%" stopColor="#c81e00" stopOpacity="0" /></linearGradient>
+          </defs>
+          <g transform="rotate(10 560 212)">
+            <circle cx={636} cy={213} r={34} fill="#ff8a2a" opacity={0.35} filter="url(#blurF)" />
+            <path d="M632,198 C680,190 730,196 800,182 C760,205 720,214 632,228 Z" fill="url(#flameF)" />
+            <path d="M632,206 C690,206 740,218 830,214 C770,228 700,232 632,222 Z" fill="url(#flameF)" opacity={0.9} />
+            <path d="M634,212 C680,222 720,240 770,252 C720,252 670,240 634,222 Z" fill="url(#flameF)" opacity={0.75} />
+            <ellipse cx={642} cy={213} rx={16} ry={12} fill="#fff3c0" filter="url(#blurF)" />
+            {Array.from({ length: 10 }).map((_, i) => <circle key={i} cx={700 + i * 18 + (i % 3) * 7} cy={200 + ((i * 13) % 34)} r={2 + (i % 2)} fill="#ffcf6a" opacity={0.85 - i * 0.06} />)}
+          </g>
         </g>
         {/* rain */}
         {Array.from({ length: 160 }).map((_, i) => { const x = (i * 97) % 1320 - 20, y = (i * 211) % 740 - 20; return <line key={i} x1={x} y1={y} x2={x - 10} y2={y + 34} stroke="#cfd8e0" strokeWidth={1.2} opacity={0.22} />; })}
@@ -195,7 +205,7 @@ export const ThumbF: React.FC = () => {
       <AbsoluteFill style={{ background: 'radial-gradient(ellipse at 55% 50%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%)' }} />
       <div style={{ position: 'absolute', left: 44, bottom: 30 }}>
         <div style={{ ...big(124, '#ffffff'), ...stroke(8, '#05060c'), letterSpacing: -2 }}>NOWHERE</div>
-        <div style={{ ...big(100, '#ff3b2f'), ...stroke(7, '#05060c'), fontStyle: 'italic', marginTop: 0 }}>to land</div>
+        <div style={{ ...big(108, '#ff3b2f'), ...stroke(7, '#05060c'), letterSpacing: -1, marginTop: 0 }}>TO LAND?</div>
       </div>
     </AbsoluteFill>
   );
