@@ -8,7 +8,7 @@ import { makeCues } from './cues';
 import { AvatarA, AvatarB, Banner, BannerGuide, Watermark, WatermarkBell } from './scenes/channel/Branding';
 import { OncaTest, ONCA_FRAMES } from './scenes/styletest/OncaTest';
 import { Captions } from './components/Captions';
-import { ThumbA, ThumbB, ThumbC } from './scenes/v001/Thumbnails';
+import { ThumbA, ThumbB, ThumbC, ThumbD, ThumbE } from './scenes/v001/Thumbnails';
 import words from './data/v001/words.json';
 
 const FPS = 30;
@@ -43,6 +43,8 @@ export const Root: React.FC = () => (
     <Composition id="ThumbA" component={ThumbA} durationInFrames={1} fps={FPS} width={1280} height={720} />
     <Composition id="ThumbB" component={ThumbB} durationInFrames={1} fps={FPS} width={1280} height={720} />
     <Composition id="ThumbC" component={ThumbC} durationInFrames={1} fps={FPS} width={1280} height={720} />
+    <Composition id="ThumbD" component={ThumbD} durationInFrames={1} fps={FPS} width={1280} height={720} />
+    <Composition id="ThumbE" component={ThumbE} durationInFrames={1} fps={FPS} width={1280} height={720} />
     <Composition id="AvatarA" component={AvatarA} durationInFrames={1} fps={FPS} width={800} height={800} />
     <Composition id="AvatarB" component={AvatarB} durationInFrames={1} fps={FPS} width={800} height={800} />
     <Composition id="Banner" component={Banner} durationInFrames={1} fps={FPS} width={2560} height={1440} />

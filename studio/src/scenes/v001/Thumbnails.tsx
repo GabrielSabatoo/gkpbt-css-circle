@@ -86,3 +86,51 @@ export const ThumbC: React.FC = () => (
     </div>
   </AbsoluteFill>
 );
+
+/** D (Test & Compare): night ocean, big black plane with a burning red engine, smoke trail, "NOWHERE TO LAND". */
+export const ThumbD: React.FC = () => (
+  <AbsoluteFill style={{ background: 'radial-gradient(ellipse at 70% 45%, #1d3550 0%, #0c1626 55%, #05080f 100%)' }}>
+    <svg width={W} height={H} style={{ position: 'absolute' }}>
+      <defs>
+        <radialGradient id="fire"><stop offset="0%" stopColor="#ffd27a" /><stop offset="35%" stopColor="#ff5a2a" /><stop offset="100%" stopColor="#ff2a00" stopOpacity="0" /></radialGradient>
+        <linearGradient id="smoke" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#8a8f98" stopOpacity="0.75" /><stop offset="100%" stopColor="#8a8f98" stopOpacity="0" /></linearGradient>
+      </defs>
+      {/* ocean texture */}
+      {Array.from({ length: 60 }).map((_, i) => (
+        <path key={i} d={`M${(i * 173) % 1400 - 80},${120 + ((i * 97) % 600)} q30,-6 60,0 t60,0`} fill="none" stroke="#4d6f92" strokeWidth={2} opacity={0.18} />
+      ))}
+      {/* distant runway, far away */}
+      <circle cx={120} cy={640} r={150} fill="none" stroke="#e9b44c" strokeWidth={3} strokeDasharray="10 10" opacity={0.55} />
+      <circle cx={120} cy={640} r={9} fill="#e0452f" stroke="#fff" strokeWidth={3} />
+      <line x1={150} y1={625} x2={700} y2={470} stroke="#e9b44c" strokeWidth={3} strokeDasharray="4 12" opacity={0.7} />
+      {/* smoke trail from the dead engine */}
+      <path d="M880,500 C960,560 1100,640 1300,720 L1180,720 C1060,660 950,600 875,530 Z" fill="url(#smoke)" />
+      <circle cx={889} cy={512} r={75} fill="url(#fire)" opacity={0.9} />
+      <PlaneIcon x={900} y={380} size={520} heading={-62} engineOut />
+      <circle cx={889} cy={512} r={22} fill="#ffb347" opacity={0.8} style={{ filter: 'blur(4px)' }} />
+    </svg>
+    <div style={{ position: 'absolute', left: 50, top: 40 }}>
+      <div style={{ ...big(150, '#f6efdc'), letterSpacing: -2 }}>NOWHERE</div>
+      <div style={{ ...big(118, '#ff4d3d'), fontStyle: 'italic', marginTop: 4 }}>to land</div>
+    </div>
+  </AbsoluteFill>
+);
+
+/** E (Test & Compare): one huge plane over a flat blue ocean, one big red no-runway zone, 2 huge words. */
+export const ThumbE: React.FC = () => (
+  <AbsoluteFill style={{ background: '#9fc3d6' }}>
+    <svg width={W} height={H} style={{ position: 'absolute' }}>
+      <defs>
+        <pattern id="hatch" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="22" fill="#e0452f" opacity="0.35" /></pattern>
+      </defs>
+      <circle cx={940} cy={380} r={300} fill="#e0452f" opacity={0.22} />
+      <circle cx={940} cy={380} r={300} fill="url(#hatch)" />
+      <circle cx={940} cy={380} r={300} fill="none" stroke="#c23b2b" strokeWidth={10} strokeDasharray="34 18" />
+      <PlaneIcon x={940} y={380} size={400} heading={58} />
+    </svg>
+    <div style={{ position: 'absolute', left: 46, top: 36 }}>
+      <div style={{ ...big(170, '#16181d'), textShadow: '0 4px 0 #f3ecd8', letterSpacing: -3 }}>NO</div>
+      <div style={{ ...big(124, '#c23b2b'), textShadow: '0 4px 0 #f3ecd8', letterSpacing: -2 }}>RUNWAY</div>
+    </div>
+  </AbsoluteFill>
+);
