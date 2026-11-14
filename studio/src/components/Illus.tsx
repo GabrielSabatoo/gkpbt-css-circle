@@ -82,7 +82,7 @@ export const Cabin: React.FC<{ speak?: number }> = ({ speak = 0 }) => {
       const rad = 46 * k, sw = Math.max(1.2, 4 * k);
       const seed = r * 7 + i + (key === 'R' ? 50 : 0);
       const hasHead = heads && rr(seed) > 0.35;
-      const hx = (ax + bx) / 2 + (rr(seed + 2) - 0.5) * 30 * k, hy = ty - 18 * k, hr = 52 * k;
+      const hx = (ax + bx) / 2 + (rr(seed + 2) - 0.5) * 30 * k, hy = ty + 8 * k, hr = 46 * k;
       return (
         <g key={`${key}${r}${i}`}>
           {hasHead ? (
