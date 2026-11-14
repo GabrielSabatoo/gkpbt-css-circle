@@ -451,15 +451,30 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
               <rect x={1020} y={915} width={820} height={36} fill="#5d6168" stroke={day.text} strokeWidth={4} />
               {Array.from({ length: 9 }).map((_, i) => <rect key={i} x={1060 + i * 86} y={930} width={44} height={6} fill="#f3ecd8" />)}
               {[0, 1, 2, 3].map((i) => <rect key={`t${i}`} x={1800 - 0} y={919 + i * 8} width={30} height={4} fill="#f3ecd8" />)}
-              {[0, 1, 2].map((i) => {
-                const q = ((frame - F.gs) / fps / 6 + i / 3) % 1;
-                let x, y, hd, o = 1;
-                if (q < 0.5) { const u = q / 0.5; x = 1980 - u * 230; y = 600 + u * 330; hd = 235 + u * 25; }
-                else if (q < 0.88) { const u = (q - 0.5) / 0.38; x = 1750 - (1 - (1 - u) * (1 - u)) * 600; y = 932; hd = 270; }
-                else { const u = (q - 0.88) / 0.12; x = 1150 - u * 40; y = 932 - u * 60; hd = 330; o = 1 - u; }
-                return <g key={i} opacity={o}><PlaneIcon x={x} y={y} size={70} heading={hd} /></g>;
+              {/* holding pattern: planes circle, then leave one by one, land, roll out and taxi off */}
+              <ellipse cx={1520} cy={590} rx={280} ry={95} fill="none" stroke={day.circle} strokeWidth={3} strokeDasharray="10 10" opacity={0.6} />
+              {Array.from({ length: 5 }).map((_, i) => {
+                const t = (frame - F.gs) / fps;
+                const leave = 2.2 + i * 2.6;
+                type XY = [number, number];
+                const L = (p0: XY, p1: XY, u: number): XY => [p0[0] + (p1[0] - p0[0]) * u, p0[1] + (p1[1] - p0[1]) * u];
+                const circ = (tt: number): XY => { const ang = tt * 0.9 + (i * Math.PI * 2) / 5; return [1520 + Math.cos(ang) * 280, 590 + Math.sin(ang) * 95]; };
+                const fix: XY = [1990, 800], td: XY = [1760, 932], stop: XY = [1220, 932], spot: XY = [1150 + i * 130, 1012];
+                const pos = (tt: number): XY => {
+                  if (tt < leave) return circ(tt);
+                  const d = tt - leave;
+                  if (d < 1.4) return L(circ(leave), fix, d / 1.4);
+                  if (d < 2.6) return L(fix, td, (d - 1.4) / 1.2);
+                  if (d < 4.0) { const u = (d - 2.6) / 1.4; return L(td, stop, 1 - (1 - u) * (1 - u)); }
+                  return L(stop, spot, Math.min(1, (d - 4.0) / 1.0));
+                };
+                const cur = pos(t), nxt = pos(t + 0.05);
+                const moving = Math.hypot(nxt[0] - cur[0], nxt[1] - cur[1]) > 0.05;
+                const hd = moving ? (Math.atan2(nxt[0] - cur[0], -(nxt[1] - cur[1])) * 180) / Math.PI : 180;
+                const onGround = t > leave + 2.6;
+                return <PlaneIcon key={i} x={cur[0]} y={cur[1]} size={onGround ? 56 : 70} heading={hd} />;
               })}
-              <text x={1280} y={600} fontFamily="PlexMonoLocal, monospace" fontSize={26} fill={day.circle} opacity={ramp(frame, F.still, F.still + 10)}>ALREADY FLYING: GUIDED IN TO LAND</text>
+              <text x={1300} y={455} fontFamily="PlexMonoLocal, monospace" fontSize={26} fill={day.circle} opacity={ramp(frame, F.still, F.still + 10)}>ALREADY FLYING: GUIDED IN TO LAND</text>
             </Box>
           ) : null}
           {frame >= F.gatePlane && frame < F.landed ? (
