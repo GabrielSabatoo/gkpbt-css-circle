@@ -11,6 +11,8 @@ import { Paper, Title, Label, InfoCard, Stamp, BigNumber, Checklist, AircraftSid
 import { byCode } from '../../data/airports';
 import { day, theme } from '../../theme';
 import { ramp } from '../../anim';
+import { Box, Tower, RadarDish, CentreBuilding, Cabin, BurntWire, Excavator, Underground, BuildingFire, Server, FileIcon, Trash, NetRack, Reboot, Shield, RadioMast, NetNode, CommandRoom, ParkedRunway, Person } from '../../components/Illus';
+import { US_AIRPORTS } from '../../components/USMap';
 
 /** Video 002 — "How One Outage Stopped Every Plane in America". Scenes are timed by narration cues. */
 
@@ -136,6 +138,30 @@ const BackupLines: React.FC<{ cutA: number; cutB: number }> = ({ cutA, cutB }) =
   );
 };
 
+/* ---------- 9/11: every aircraft lands at the nearest airport ---------- */
+const rr2 = (k: number) => { const x = Math.sin(k * 78.233 + 12.9898) * 43758.5453; return x - Math.floor(x); };
+const LAND = Array.from({ length: 170 }, (_, i) => {
+  const at: [number, number] = [-121 + rr2(i) * 48, 28.5 + rr2(i + 400) * 18];
+  const hd = rr2(i + 800) * 360;
+  let best = US_AIRPORTS[0].at, bd = 1e9;
+  for (const a of US_AIRPORTS) { const d = Math.hypot((a.at[0] - at[0]) * Math.cos((at[1] * Math.PI) / 180), a.at[1] - at[1]); if (d < bd) { bd = d; best = a.at; } }
+  return { at, hd, to: best, dist: bd, delay: rr2(i + 1200) * 1.5 };
+});
+const LandAll: React.FC<{ projection: any; drift: number; land: (i: number, dist: number, delay: number) => number }> = ({ projection: p, drift, land }) => (
+  <g>
+    {LAND.map((pl, i) => {
+      const rad = (pl.hd * Math.PI) / 180;
+      const d0: [number, number] = [pl.at[0] + Math.sin(rad) * drift * 0.6, pl.at[1] + Math.cos(rad) * drift * 0.45];
+      const q = land(i, pl.dist, pl.delay);
+      if (q >= 1) return null;
+      const pos: [number, number] = [d0[0] + (pl.to[0] - d0[0]) * q, d0[1] + (pl.to[1] - d0[1]) * q];
+      const xy = p(pos), tgt = p(pl.to); if (!xy || !tgt) return null;
+      const hdg = q > 0 ? (Math.atan2(tgt[0] - xy[0], -(tgt[1] - xy[1])) * 180) / Math.PI : pl.hd;
+      return <PlaneIcon key={i} x={xy[0]} y={xy[1]} size={24 * (1 - 0.5 * q * q)} heading={hdg} color={q > 0 ? day.danger : day.plane} />;
+    })}
+  </g>
+);
+
 /* ---------- the video ---------- */
 export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-final-mix.wav' }) => {
   const frame = useCurrentFrame();
@@ -194,10 +220,12 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
         </Center>
       </AbsoluteFill>
     ) },
-    // 2 — departure board flips to HOLD
-    { from: F.gate, to: F.exact + s(0.6), render: (l) => (
+    // 2 — in the cabin at the gate; the captain's announcement
+    { from: F.gate, to: F.folks + s(1.9), render: () => <Cabin speak={ramp(frame, F.folks, F.folks + 10)} /> },
+    // 2b — departure board flips to HOLD
+    { from: F.folks + s(1.9), to: F.exact + s(0.6), render: () => (
       <AbsoluteFill style={{ backgroundColor: '#07090d' }}>
-        <Center><Board holdAt={F.folks - F.gate + s(0.8)} /></Center>
+        <Center><Board holdAt={s(0.2)} /></Center>
       </AbsoluteFill>
     ) },
     // 3 — whole country: every airport turns red
@@ -235,6 +263,7 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
       const atl = airportAt('ATL');
       const z = interpolate(frame, [F.tower, F.centres, F.centres + s(1.5)], [5, 3.2, 1.2], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
       return (
+        <AbsoluteFill>
         <USMap zoom={{ x: 1330 - 960, y: 690 - 540, s: z }} centers={ramp(frame, F.centres, F.centres + s(1))} centerLabels={ramp(frame, F.centres + s(1), F.centres + s(2))}>
           {(p) => { const xy = p(atl)!; return (
             <g>
@@ -246,6 +275,15 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
             </g>
           ); }}
         </USMap>
+        <div style={{ position: 'absolute', right: 70, top: 70, width: 520, height: 470, background: '#f3ecd8', border: `4px solid ${day.text}`, boxShadow: '0 16px 40px rgba(0,0,0,0.25)' }}>
+          <svg width={520} height={400} viewBox="-260 -380 520 420">
+            <g opacity={1 - ramp(frame, F.approach, F.approach + 8)}><Tower s={1} /></g>
+            <g opacity={ramp(frame, F.approach, F.approach + 8) * (1 - ramp(frame, F.centres, F.centres + 8))}><RadarDish s={1.3} spin={frame / 12} /></g>
+            <g opacity={ramp(frame, F.centres, F.centres + 8)}><CentreBuilding s={0.9} /></g>
+          </svg>
+          <Label size={30} color={day.text} style={{ textAlign: 'center' }}>{frame < F.approach ? '1 · TOWER' : frame < F.centres ? '2 · APPROACH CONTROL' : '3 · EN-ROUTE CENTRE (×20)'}</Label>
+        </div>
+      </AbsoluteFill>
       );
     } },
     // 7 — sectors + handoffs across the country
@@ -280,22 +318,35 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
     // 10 — Newark 2025
     { from: F.newark, to: F.dallas, render: (l) => (
       <Paper>
-        <div style={{ position: 'absolute', left: 220, top: 240 }}><Radar dead={ramp(l, s(1), s(1.6))} t={l / fps} /></div>
-        <InfoCard head="April 2025" lines={['Newark approach control', 'Radar + radio lost', '≈ 90 seconds · DOT Inspector General']} style={{ right: 200, top: 300 }} width={680} />
-        <On at={F.cause}><Stamp text="A burnt copper wire" delay={s(0.9)} size={38} style={{ whiteSpace: 'nowrap', right: 230, top: 650 }} /></On>
+        {frame < F.cause + s(0.6) ? <>
+          <div style={{ position: 'absolute', left: 220, top: 240 }}><Radar dead={ramp(l, s(1), s(1.6))} t={l / fps} /></div>
+          <InfoCard head="April 2025" lines={['Newark approach control', 'Radar + radio lost', '≈ 90 seconds · DOT Inspector General']} style={{ right: 200, top: 300 }} width={680} />
+        </> : <>
+          <Box x={0} y={0} w={1920} h={1080} vb="-960 -560 1920 1080"><BurntWire burn={ramp(frame, F.cause + s(0.8), F.cause + s(1.6))} /></Box>
+          <Stamp text="A burnt copper wire" delay={s(1.4)} size={44} style={{ whiteSpace: 'nowrap', left: 640, top: 760 }} />
+        </>}
       </Paper>
     ) },
     // 11 — Dallas 2025
     { from: F.dallas, to: F.backup, render: () => (
       <Paper>
-        <InfoCard head="Sept 2025" lines={['Dallas · two fibre cables cut', 'Both big airports stopped for hours']} style={{ left: 200, top: 200 }} width={760} />
-        <On at={F.outdated}><div style={{ position: 'absolute', left: 200, top: 620 }}><Quote text="A clear example of outdated infrastructure" who="FAA, on the Dallas outage" /></div></On>
+        <Box x={0} y={0} w={1920} h={1080} vb="-960 -640 1920 1080">
+          <Underground cut={ramp(frame, F.dallas + s(3.2), F.dallas + s(3.6))} cables={2} sparkAt={150} w={1920} />
+          <Excavator dig={ramp(frame, F.dallas + s(1), F.dallas + s(3.4))} x={-120} y={-14} s={1.1} />
+          <Tower x={-650} y={-14} s={0.6} /><Tower x={650} y={-14} s={0.6} />
+          <text x={-650} y={-220} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={26} fill={day.text}>DFW</text>
+          <text x={650} y={-220} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={26} fill={day.text}>LOVE FIELD</text>
+          {frame > F.dallas + s(3.6) ? <><text x={-650} y={-260} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={30} fill={day.danger}>HOLD</text><text x={650} y={-260} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={30} fill={day.danger}>HOLD</text></> : null}
+        </Box>
+        <InfoCard head="Sept 2025 · Dallas" lines={['A contractor cuts two fibre cables', 'Both big airports stopped for hours']} style={{ left: 60, top: 50 }} width={640} />
+        <On at={F.outdated}><div style={{ position: 'absolute', right: 80, top: 60 }}><Quote text="A clear example of outdated infrastructure" who="FAA, on the Dallas outage" width={900} /></div></On>
       </Paper>
     ) },
     // 12 — backups: primary and backup both cut
     { from: F.backup, to: F.dark, render: () => (
       <Paper>
         <Center><BackupLines cutA={ramp(frame, F.dallasBk, F.dallasBk + 10)} cutB={ramp(frame, F.philly + s(2.5), F.philly + s(3))} /></Center>
+        <On at={F.philly + s(1.5)}><Box x={760} y={560} w={400} h={260} vb="-200 -230 400 260"><Excavator dig={0.8} s={0.7} x={-30} y={0} /><line x1={-200} y1={0} x2={200} y2={0} stroke={day.text} strokeWidth={5} /></Box></On>
         <On at={F.philly}><InfoCard head="Sept 2026" lines={['Philadelphia & Newark area', 'Circuit failed · backup cable cut', 'at a New Jersey construction site']} style={{ right: 110, top: 70 }} width={640} /></On>
         <On at={F.both}><Stamp text="Both gone" delay={0} size={52} style={{ whiteSpace: 'nowrap', left: 820, top: 820 }} /></On>
       </Paper>
@@ -311,16 +362,46 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
       return (
         <AbsoluteFill>
           <USMap centers={1} centerLabels={0.8} centerTint={tint} />
-          {frame >= F.chicago && frame < F.different ? <InfoCard head="Sept 2014" lines={['Chicago Center · fire cut its cables', 'Thousands of flights cancelled', 'Neighbours covered · back in ≈ 2 weeks']} style={{ left: 70, bottom: 70 }} width={700} /> : null}
+          {frame >= F.chicago && frame < F.different ? <>
+            <div style={{ position: 'absolute', left: 50, bottom: 50, width: 640, height: 470, background: '#f3ecd8', border: `4px solid ${day.text}`, boxShadow: '0 16px 40px rgba(0,0,0,0.25)' }}>
+              <svg width={640} height={380} viewBox="-430 -330 860 520"><BuildingFire fire={ramp(frame, F.chicago + s(4.5), F.chicago + s(5.5)) * (1 - ramp(frame, F.stretch + s(4), F.stretch + s(5)))} dark={ramp(frame, F.chicago + s(6), F.chicago + s(6.5)) * (1 - ramp(frame, F.stretch + s(6), F.stretch + s(6.5)))} /></svg>
+              <Label size={22} color={day.text} style={{ padding: '0 20px' }}>SEPT 2014 · CHICAGO CENTER · FIRE CUTS CABLES</Label>
+              <Label size={20} color={day.textMuted} style={{ padding: '6px 20px' }}>{frame < F.stretch ? 'Thousands of flights cancelled' : 'Neighbours cover · back in ≈ 2 weeks'}</Label>
+            </div>
+          </> : null}
           <On at={F.different}><Stamp text="Friday: more than one centre" delay={0} size={40} rotate={-3} style={{ whiteSpace: 'nowrap', left: 80, bottom: 90 }} /></On>
         </AbsoluteFill>
       );
     } },
     // 14 — "stop feeding it"
     { from: F.safest, to: F.gs, render: () => (
-      <Paper><Center>
-        {frame < F.feed ? <Title pre="What's the " accent="safest" post=" move?" size={110} /> : <Title pre="Don't clear the sky. " accent="Stop feeding it." size={96} />}
-      </Center></Paper>
+      <Paper>
+        <div style={{ position: 'absolute', left: 0, right: 0, top: 50 }}>
+          {frame < F.feed ? <Title pre="What's the " accent="safest" post=" move?" size={84} /> : <Title pre="Don't clear the sky. " accent="Stop feeding it." size={80} />}
+        </div>
+        <Box x={0} y={0} w={1920} h={1080} vb="0 0 1920 1080">
+          {/* the sector in the sky */}
+          <rect x={560} y={220} width={1100} height={430} rx={30} fill="rgba(44,85,120,0.10)" stroke={day.circle} strokeWidth={5} strokeDasharray="18 12" />
+          <text x={590} y={270} fontFamily="PlexMonoLocal, monospace" fontSize={28} fill={day.circle}>SECTOR · CONTROLLER CAN'T TALK</text>
+          {Array.from({ length: 7 }).map((_, i) => {
+            const a = frame / 40 + i * 0.9;
+            return <PlaneIcon key={i} x={1110 + Math.cos(a) * (380 - i * 18)} y={450 + Math.sin(a) * (140 - i * 6)} size={58} heading={(a * 180) / Math.PI + 180} />;
+          })}
+          {/* ground: runway feeding planes up */}
+          <rect x={60} y={900} width={1800} height={60} fill="#9aa3ad" stroke={day.text} strokeWidth={4} />
+          {Array.from({ length: 4 }).map((_, i) => {
+            const stopped = frame >= F.feed + s(1);
+            const t = ((frame / 60 + i * 0.25) % 1);
+            const x = stopped ? 150 + i * 110 : 150 + t * 700, y = stopped ? 930 : 930 - Math.max(0, t - 0.4) * 500;
+            return <PlaneIcon key={i} x={x} y={y} size={64} heading={stopped ? 90 : 90 - Math.max(0, t - 0.4) * 60} />;
+          })}
+          <g opacity={ramp(frame, F.feed + s(0.6), F.feed + s(1))}>
+            <rect x={620} y={820} width={26} height={140} fill={day.danger} />
+            <rect x={540} y={810} width={190} height={30} fill={day.danger} />
+            <text x={680} y={800} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={30} fill={day.danger}>NO NEW DEPARTURES</text>
+          </g>
+        </Box>
+      </Paper>
     ) },
     // 15 — ground stop definition + gate vs circling
     { from: F.gs, to: F.pilot, render: (l) => {
@@ -328,11 +409,21 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
       return (
         <Paper>
           {frame < F.gatePlane ? (
-            <div style={{ position: 'absolute', left: 230, top: 260 }}>
+            <div style={{ position: 'absolute', left: 230, top: 150 }}>
               <Quote text="A process that requires aircraft … to remain on the ground." who="FAA definition of a ground stop" width={1450} />
             </div>
           ) : null}
-          {frame >= F.still && frame < F.gatePlane ? <Label size={30} color={day.text} style={{ position: 'absolute', left: 230, top: 700 }}>Planes already flying: still controlled, sector by sector, until they land</Label> : null}
+          {frame < F.gatePlane ? (
+            <Box x={0} y={0} w={1920} h={1080} vb="0 0 1920 1080">
+              <rect x={0} y={930} width={1920} height={150} fill="#cdbf9c" />
+              <rect x={120} y={820} width={620} height={110} fill="#f3ecd8" stroke={day.text} strokeWidth={5} />
+              <text x={140} y={870} fontFamily="PlexMonoLocal, monospace" fontSize={26} fill={day.text}>GATES</text>
+              {[0, 1, 2, 3].map((i) => <PlaneIcon key={i} x={210 + i * 150} y={990} size={110} heading={180} />)}
+              <g transform="translate(830,880)"><rect x={-24} y={-70} width={48} height={110} rx={10} fill="#1d2330" /><circle cy={-40} r={16} fill={day.danger} /><circle cy={2} r={16} fill="#3a3f47" /><line x1={0} y1={40} x2={0} y2={60} stroke="#1d2330" strokeWidth={8} /></g>
+              {[0, 1, 2].map((i) => { const q = ((frame - F.gs) / fps / 6 + i / 3) % 1; return <PlaneIcon key={i} x={1900 - q * 700} y={640 + q * 290} size={70} heading={240} />; })}
+              <text x={1280} y={600} fontFamily="PlexMonoLocal, monospace" fontSize={26} fill={day.circle} opacity={ramp(frame, F.still, F.still + 10)}>ALREADY FLYING: GUIDED IN TO LAND</text>
+            </Box>
+          ) : null}
           {frame >= F.gatePlane && frame < F.landed ? (
             <AbsoluteFill style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
               <div style={{ textAlign: 'center' }}>
@@ -372,6 +463,13 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
           <AbsoluteFill style={{ padding: '140px 200px' }}>
             <Label size={30} color={day.textMuted} style={{ marginBottom: 50 }}>Lost radio · written into federal rules (14 CFR 91.185)</Label>
             <Checklist items={[{ text: 'Fly the route you were cleared for', at: F.route - F.pilot }, { text: 'Highest of: assigned, minimum safe', at: F.alt - F.pilot }, { text: 'Arrive when you were expected', at: F.arrive - F.pilot }]} />
+            <Box x={1000} y={520} w={820} h={360} vb="0 0 820 360">
+              <path d="M30,300 L250,120 L620,120 L780,300" fill="none" stroke={day.circle} strokeWidth={5} strokeDasharray="14 10" />
+              <circle cx={780} cy={300} r={14} fill={day.dot} stroke="#fff" strokeWidth={4} />
+              {(() => { const q = ramp(frame, F.route, F.everyone); const pts = [[30, 300], [250, 120], [620, 120], [780, 300]]; const seg = Math.min(2, Math.floor(q * 3)), u = q * 3 - seg; const a = pts[seg], b = pts[seg + 1]; const x = a[0] + (b[0] - a[0]) * u, y = a[1] + (b[1] - a[1]) * u; return <PlaneIcon x={x} y={y} size={70} heading={(Math.atan2(b[0] - a[0], -(b[1] - a[1])) * 180) / Math.PI} />; })()}
+              <text x={330} y={100} fontFamily="PlexMonoLocal, monospace" fontSize={24} fill={day.circle} opacity={ramp(frame, F.alt, F.alt + 10)}>HIGHEST ALTITUDE</text>
+              <text x={660} y={350} fontFamily="PlexMonoLocal, monospace" fontSize={24} fill={day.dot} opacity={ramp(frame, F.arrive, F.arrive + 10)}>ON TIME</text>
+            </Box>
             <On at={F.everyone}><Stamp text="Everyone knows the plan" color={day.circle} delay={0} size={36} style={{ whiteSpace: 'nowrap', right: 200, bottom: 150 }} /></On>
           </AbsoluteFill>
         )}
@@ -386,21 +484,40 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
         </div>
       </Center></Paper>
     ) },
-    // 18 — 9/11
-    { from: F.sept11, to: F.canada, render: () => (
-      <Paper>
-        <div style={{ position: 'absolute', left: 160, top: 160, display: 'flex', gap: 70 }}>
-          <Clock h={9} m={frame < F.landall ? 25 : 42} size={300} label={frame < F.landall ? '9:25 · ALL DEPARTURES STOPPED' : '9:42 · EVERY AIRCRAFT: LAND NOW'} />
-        </div>
-        <InfoCard head="11 Sept 2001" lines={['FAA Command Center', 'Nationwide ground stop, then land-all']} style={{ right: 160, top: 160 }} width={660} />
-        {frame >= F.sliney ? <div style={{ position: 'absolute', right: 160, top: 520, width: 660 }}>
-          <div style={{ fontFamily: theme.fontSerif, fontSize: 80, color: day.text }}>Ben Sliney</div>
-          <Label size={24} color={day.textMuted}>National Operations Manager</Label>
-        </div> : null}
-        <On at={F.firstday}><Stamp text="His first day" delay={0} size={44} style={{ whiteSpace: 'nowrap', right: 220, top: 700 }} /></On>
-        <On at={F.commission}><div style={{ position: 'absolute', left: 160, bottom: 110 }}><Counter value={4500} label="aircraft landed without incident · 9/11 Commission" /></div></On>
-      </Paper>
-    ) },
+    // 18 — 9/11: departures stop, then every aircraft lands at the nearest airport
+    { from: F.sept11, to: F.canada, render: () => {
+      const landStart = F.landall + s(0.8);
+      const land = (i: number, dist: number, delay: number) => ramp(frame, landStart + s(delay), landStart + s(delay + 1.5 + dist * 0.9));
+      const landed = LAND.filter((pl) => land(0, pl.dist, pl.delay) >= 1).length;
+      const drift = (Math.min(frame, landStart) - F.sept11) / fps * 0.04;
+      return (
+        <AbsoluteFill>
+          <USMap airportColor={() => (frame >= F.sept11 + s(2) ? day.danger : day.dot)}>
+            {(p) => <LandAll projection={p} drift={drift} land={land} />}
+          </USMap>
+          <div style={{ position: 'absolute', left: 50, top: 40, display: 'flex', gap: 30, alignItems: 'center', background: 'rgba(243,236,216,0.92)', padding: '16px 26px', border: `3px solid ${day.text}` }}>
+            <Clock h={9} m={frame < F.landall ? 25 : 42} size={150} />
+            <div>
+              <Label size={22} color={day.textMuted}>11 SEPTEMBER 2001 · FAA COMMAND CENTER</Label>
+              <div style={{ fontFamily: theme.fontSerif, fontSize: 46, color: frame < F.landall ? day.text : day.danger, marginTop: 6 }}>{frame < F.landall ? '9:25 — all departures stopped' : '9:42 — every aircraft: land now'}</div>
+            </div>
+          </div>
+          {frame >= F.sliney && frame < F.commission ? (
+            <div style={{ position: 'absolute', right: 50, bottom: 50, width: 700, height: 470, overflow: 'hidden', border: `4px solid ${day.text}`, boxShadow: '0 16px 40px rgba(0,0,0,0.3)' }}>
+              <div style={{ transform: 'scale(0.365)', transformOrigin: '0 0', width: 1920, height: 1080 }}><CommandRoom alarm={1} /></div>
+              <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '10px 20px 14px', background: 'rgba(8,14,26,0.9)' }}>
+                <div style={{ fontFamily: theme.fontSerif, fontSize: 46, lineHeight: 1.1, color: CREAM }}>Ben Sliney</div>
+                <Label size={18} color="#9fb3c9">NATIONAL OPERATIONS MANAGER</Label>
+              </div>
+              <On at={F.firstday}><Stamp text="His first day" delay={0} size={36} style={{ whiteSpace: 'nowrap', right: 20, top: 20, background: 'rgba(8,14,26,0.85)' }} color="#ff5a4a" /></On>
+            </div>
+          ) : null}
+          {frame >= F.landall ? <div style={{ position: 'absolute', left: 50, bottom: 50 }}>
+            <Counter value={frame >= F.commission ? 4500 : Math.round((landed / LAND.length) * 4500)} label={frame >= F.commission ? 'aircraft landed without incident · 9/11 Commission' : 'aircraft landed'} delay={-100} />
+          </div> : null}
+        </AbsoluteFill>
+      );
+    } },
     // 19 — Canada / Gander
     { from: F.canada, to: F.notam, render: () => {
       const g = byCode('YQX') as any;
@@ -415,18 +532,52 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
             </g>
           )}
         </Globe>
-        <div style={{ position: 'absolute', right: 120, top: 140, display: 'flex', flexDirection: 'column', gap: 24 }}>
+        <div style={{ position: 'absolute', left: 60, bottom: 60, display: 'flex', flexDirection: 'column', gap: 24 }}>
           <Counter value={200} suffix="+" label="US-bound flights sent to Canada" delay={s(0.5)} />
           <On at={F.gander}><Counter value={38} label="landed at Gander, Newfoundland" /></On>
         </div>
+        <On at={F.gander}>
+          <div style={{ position: 'absolute', right: 60, top: 60, width: 520, height: 960, background: '#7f9a6a', border: `4px solid ${day.text}`, boxShadow: '0 16px 40px rgba(0,0,0,0.3)', overflow: 'hidden' }}>
+            <svg width={520} height={960} viewBox="-260 -440 520 900"><ParkedRunway n={Math.round(ramp(frame, F.gander, F.gander + s(3)) * 38)} /></svg>
+            <Label size={22} color="#fffaf0" style={{ position: 'absolute', left: 16, bottom: 12, background: 'rgba(29,35,48,0.8)', padding: '4px 10px' }}>GANDER · 11 SEPT 2001</Label>
+          </div>
+        </On>
         </AbsoluteFill>
       );
     } },
     // 20 — 2023 NOTAM + UK
     { from: F.notam, to: F.third, render: () => (
       <Paper>
-        <InfoCard head="Jan 2023" lines={['Safety-notice database (NOTAM) fails', 'Files deleted by mistake', 'Nationwide stop · ≈ 90 minutes']} style={{ left: 160, top: 220 }} width={720} />
-        <On at={F.uk}><InfoCard head="Aug 2023 · UK" lines={['One unusual flight plan', 'stops UK flight-plan processing', '700,000+ passengers · UK CAA']} style={{ right: 160, top: 420 }} width={720} /></On>
+        {frame < F.uk ? <>
+          <Box x={0} y={0} w={1920} h={1080} vb="0 0 1920 1080">
+            <Server x={520} y={820} s={1.6} err={frame > F.notam + s(4) ? 1 : 0} />
+            <Trash x={1250} y={820} s={1.4} />
+            {Array.from({ length: 6 }).map((_, i) => {
+              const q = ramp(frame, F.notam + s(1.5 + i * 0.35), F.notam + s(2.6 + i * 0.35));
+              const x = 620 + (1250 - 620) * q, y = 500 - Math.sin(q * Math.PI) * 220 + q * 180;
+              return q < 1 ? <FileIcon key={i} x={x} y={y} s={1.1} rot={q * 200} /> : null;
+            })}
+            <path d="M700,560 Q930,300 1180,560" fill="none" stroke={day.textMuted} strokeWidth={4} strokeDasharray="12 10" />
+          </Box>
+          <InfoCard head="Jan 2023" lines={['Pilots\' safety-notice database fails', 'Files deleted by mistake', 'Departures stopped ≈ 90 minutes']} style={{ right: 80, top: 70 }} width={640} />
+        </> : <>
+          <Box x={0} y={0} w={1920} h={1080} vb="0 0 1920 1080">
+            <g transform="translate(520,560) rotate(-4)">
+              <rect x={-260} y={-330} width={520} height={660} fill="#fffaf0" stroke={day.text} strokeWidth={6} />
+              <text x={-220} y={-270} fontFamily="PlexMonoLocal, monospace" fontSize={30} fill={day.text}>FLIGHT PLAN</text>
+              {Array.from({ length: 10 }).map((_, i) => <line key={i} x1={-220} y1={-210 + i * 52} x2={i === 6 ? 120 : 220} y2={-210 + i * 52} stroke={i === 6 ? day.danger : '#9aa3ad'} strokeWidth={i === 6 ? 10 : 6} />)}
+              <circle cx={170} cy={102} r={40} fill="none" stroke={day.danger} strokeWidth={8} opacity={ramp(frame, F.uk + s(1.5), F.uk + s(2))} />
+            </g>
+            <g transform="translate(1300,520)" opacity={ramp(frame, F.uk + s(2.5), F.uk + s(3))}>
+              <rect x={-300} y={-200} width={600} height={380} rx={16} fill="#0b2a3a" stroke={day.text} strokeWidth={8} />
+              <path d="M0,-120 L90,40 L-90,40 Z" fill="none" stroke="#ff3b2f" strokeWidth={14} strokeLinejoin="round" />
+              <text x={0} y={20} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={70} fill="#ff3b2f">!</text>
+              <text x={0} y={120} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={34} fill="#ff3b2f">PROCESSING STOPPED</text>
+              <rect x={-40} y={180} width={80} height={60} fill={day.text} />
+            </g>
+          </Box>
+          <InfoCard head="Aug 2023 · UK" lines={['One unusual flight plan', 'stops UK flight-plan processing', '700,000+ passengers · UK CAA']} style={{ right: 80, bottom: 60 }} width={640} />
+        </>}
       </Paper>
     ) },
     // 21 — the third: Friday
@@ -467,6 +618,10 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
               </g>
             ); }}
           </USMap>
+          <On at={F.knock + s(6)}><div style={{ position: 'absolute', right: 80, top: 80, display: 'flex', gap: 20, alignItems: 'center', background: '#f3ecd8', border: `3px solid ${day.text}`, padding: '14px 22px' }}>
+            <svg width={150} height={200} viewBox="-75 -200 150 210"><Person x={0} y={0} s={1} color={day.circle} /></svg>
+            <div><Clock h={23} m={50} size={120} /><Label size={22} color={day.danger}>CREW: OUT OF LEGAL HOURS</Label></div>
+          </div></On>
           <On at={F.oneStop}><Stamp text="Ripples all weekend" delay={0} size={38} style={{ whiteSpace: 'nowrap', left: 80, top: 70 }} /></On>
         </AbsoluteFill>
       );
@@ -475,13 +630,18 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
     { from: F.broke, to: F.old, render: () => (
       <Paper>
         <Stamp text="Under investigation · as of 14 Nov" delay={s(0.6)} size={30} rotate={-3} style={{ whiteSpace: 'nowrap', right: 140, top: 70 }} />
-        <div style={{ position: 'absolute', left: 140, top: 230, display: 'flex', flexDirection: 'column', gap: 30 }}>
+        <div style={{ position: 'absolute', left: 100, top: 170, display: 'flex', flexDirection: 'column', gap: 26 }}>
           {[['The Transportation Secretary', 'Old switches and routers overloaded with data', F.secretary], ['CBS News · unnamed sources', 'A network update → reboot → crash', F.cbs], ['Officials', 'No sign of a cyberattack', F.cyber]].map(([who, what, at], i) => {
             const o = ramp(frame, at as number, (at as number) + 12);
             return (
-              <div key={i} style={{ opacity: o, transform: `translateX(${(1 - o) * 30}px)`, padding: '20px 30px', background: '#f3ecd8', border: `2px solid ${day.text}`, width: 1300 }}>
-                <Label size={22} color={day.textMuted}>{who as string}</Label>
-                <div style={{ fontFamily: theme.fontSerif, fontSize: 52, color: day.text, marginTop: 8 }}>{what as string}</div>
+              <div key={i} style={{ opacity: o, transform: `translateX(${(1 - o) * 30}px)`, display: 'flex', alignItems: 'center', gap: 30 }}>
+                <svg width={230} height={200} viewBox="-150 -260 300 280" style={{ background: '#f3ecd8', border: `2px solid ${day.text}` }}>
+                  {i === 0 ? <NetRack overload={ramp(frame, (at as number) + s(1), (at as number) + s(3))} /> : i === 1 ? <g transform="translate(0,-110)"><Reboot s={1.3} /></g> : <g transform="translate(0,-110)"><Shield s={1.3} /></g>}
+                </svg>
+                <div style={{ padding: '20px 30px', background: '#f3ecd8', border: `2px solid ${day.text}`, width: 1150 }}>
+                  <Label size={22} color={day.textMuted}>{who as string}</Label>
+                  <div style={{ fontFamily: theme.fontSerif, fontSize: 52, color: day.text, marginTop: 8 }}>{what as string}</div>
+                </div>
               </div>
             );
           })}
@@ -510,12 +670,15 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
     // 26 — the plan
     { from: F.plan, to: F.back, render: () => (
       <Paper>
-        <div style={{ position: 'absolute', left: 140, top: 160, display: 'flex', gap: 40 }}>
-          <Counter value={5000} suffix="+" label="new network connections" delay={s(0.5)} />
-          <Counter value={27000} suffix="+" label="new radios" delay={s(1.4)} />
-          <Counter value={600} suffix="+" label="new radars" delay={s(2.3)} />
+        <div style={{ position: 'absolute', left: 140, top: 90, display: 'flex', gap: 60 }}>
+          {[[<NetNode key="n" s={1.1} />, 5000, 'new network connections', 0.5], [<RadioMast key="r" s={1.1} />, 27000, 'new radios', 1.4], [<RadarDish key="d" s={1.1} spin={frame / 12} />, 600, 'new radars', 2.3]].map(([ico, v, lab, d], i) => (
+            <div key={i} style={{ width: 460, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, opacity: ramp(frame, F.plan + s(d as number), F.plan + s((d as number) + 0.3)) }}>
+              <svg width={300} height={260} viewBox={i === 0 ? '-150 -150 300 260' : '-150 -250 300 260'}>{ico as React.ReactNode}</svg>
+              <Counter value={v as number} suffix="+" label={lab as string} delay={s(d as number)} />
+            </div>
+          ))}
         </div>
-        <Label size={34} color={day.text} style={{ position: 'absolute', left: 140, top: 470, opacity: ramp(frame, F.plan + s(3), F.plan + s(3.4)) }}>Target: end of 2028</Label>
+        <Label size={34} color={day.text} style={{ position: 'absolute', left: 140, top: 640, opacity: ramp(frame, F.plan + s(3), F.plan + s(3.4)) }}>Target: end of 2028</Label>
         <On at={F.congress}><div style={{ position: 'absolute', left: 140, bottom: 150 }}><Counter value={12.5} decimals={1} prefix="$" suffix=" bn" label="approved by Congress so far" color={day.circle} /></div></On>
         <On at={F.until}><Stamp text="Still on the old wiring" delay={s(0.8)} size={34} style={{ whiteSpace: 'nowrap', right: 140, bottom: 150 }} /></On>
       </Paper>
