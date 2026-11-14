@@ -61,52 +61,85 @@ export const CentreBuilding: React.FC<{ x?: number; y?: number; s?: number; dark
 );
 
 /* ---------------- cabin at the gate ---------------- */
+/** Airliner cabin seen down the aisle (one-point perspective): seats, overhead bins, windows, seatbelt sign. */
 export const Cabin: React.FC<{ speak?: number }> = ({ speak = 0 }) => {
   const f = useCurrentFrame();
+  const VX = 960, VY = 430;
+  const P = (x: number, y: number, k: number) => [VX + (x - VX) * k, VY + (y - VY) * k];
+  const poly = (pts: number[][]) => pts.map((q) => q.join(',')).join(' ');
+  const ROWS = 7;
+  const kOf = (r: number) => 1 / (1 + r * 0.42);
+  const seatBlock = (x0: number, x1: number, r: number, key: string) => {
+    const k = kOf(r), n = 3, w = (x1 - x0) / n;
+    return Array.from({ length: n }).map((_, i) => {
+      const xa = x0 + i * w + 8, xb = x0 + (i + 1) * w - 8;
+      const [ax, ay] = P(xa, 1080, k), [bx] = P(xb, 1080, k), [, ty] = P(xa, 560, k), [, hy] = P(xa, 625, k);
+      const rad = 30 * k;
+      return (
+        <g key={`${key}${i}`}>
+          <path d={`M${ax},${ay} L${ax},${ty + rad} Q${ax},${ty} ${ax + rad},${ty} L${bx - rad},${ty} Q${bx},${ty} ${bx},${ty + rad} L${bx},${ay} Z`} fill={r % 2 ? '#2b4f7e' : '#2e5487'} stroke="#13233a" strokeWidth={Math.max(1.5, 5 * k)} />
+          <rect x={ax + 12 * k} y={ty + 8 * k} width={bx - ax - 24 * k} height={hy - ty} rx={10 * k} fill="#f4efe2" />
+        </g>
+      );
+    });
+  };
+  const win = (side: number, r: number) => {
+    const k = kOf(r + 0.5), x = side < 0 ? 40 : 1880, [cx, cy] = P(x, 470, k);
+    return <ellipse key={`w${side}${r}`} cx={cx} cy={cy} rx={34 * k} ry={52 * k} fill="#a9cdea" stroke="#8c8370" strokeWidth={Math.max(1, 6 * k)} />;
+  };
+  const far = kOf(ROWS + 0.4);
   return (
     <svg width={1920} height={1080} style={{ position: 'absolute', inset: 0 }}>
-      <rect width={1920} height={1080} fill="#1b2433" />
-      {/* ceiling + bins */}
-      <path d="M0,0 L1920,0 L1920,250 C1500,330 420,330 0,250 Z" fill="#e9e1cc" />
-      {[0, 1, 2, 3].map((i) => <path key={i} d={`M${120 + i * 430},215 L${500 + i * 430},215 L${520 + i * 430},300 L${100 + i * 430},300 Z`} fill="#f4eedd" stroke={INK} strokeWidth={4} />)}
-      {[0, 1, 2, 3].map((i) => <rect key={i} x={270 + i * 430} y={260} width={80} height={12} rx={6} fill="#b9b09a" />)}
-      {/* window with the terminal outside */}
-      <g transform="translate(1660,520)">
-        <ellipse rx={120} ry={170} fill="#cfe2f1" stroke={INK} strokeWidth={10} />
-        <clipPath id="win"><ellipse rx={110} ry={160} /></clipPath>
-        <g clipPath="url(#win)">
-          <rect x={-120} y={20} width={240} height={160} fill="#9aa3ad" />
-          <rect x={-120} y={-60} width={240} height={80} fill="#d8c9a6" />
-          {[-90, -40, 10, 60].map((wx) => <rect key={wx} x={wx} y={-40} width={36} height={40} fill="#6e8bab" />)}
-          <rect x={-120} y={10} width={150} height={40} fill="#c9c2b2" stroke={INK} strokeWidth={3} />
+      {/* walls, ceiling, floor */}
+      <rect width={1920} height={1080} fill="#ece4d0" />
+      <polygon points={poly([[0, 0], [1920, 0], P(1920, 0, far), P(0, 0, far)])} fill="#f6f1e4" />
+      <polygon points={poly([[0, 0], P(0, 0, far), P(0, 1080, far), [0, 1080]])} fill="#e3d9c2" />
+      <polygon points={poly([[1920, 0], P(1920, 0, far), P(1920, 1080, far), [1920, 1080]])} fill="#e3d9c2" />
+      <polygon points={poly([[0, 1080], [1920, 1080], P(1920, 1080, far), P(0, 1080, far)])} fill="#6b6f78" />
+      {/* aisle carpet */}
+      <polygon points={poly([[800, 1080], [1120, 1080], P(1120, 1080, far), P(800, 1080, far)])} fill="#4a5a7a" />
+      {/* back wall: galley curtain + exit sign */}
+      {(() => { const [x0, y0] = P(0, 0, far), [x1, y1] = P(1920, 1080, far); return (
+        <g>
+          <rect x={x0} y={y0} width={x1 - x0} height={y1 - y0} fill="#d8cfb9" stroke="#b3a88f" strokeWidth={3} />
+          <rect x={VX - 50} y={VY - 40} width={100} height={130} fill="#8f2f3a" />
+          <rect x={VX - 34} y={VY - 70} width={68} height={22} rx={4} fill="#1f8f4e" />
+          <text x={VX} y={VY - 53} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={15} fill="#fff">EXIT</text>
         </g>
-      </g>
-      {/* seat backs in rows */}
-      {[0, 1, 2].map((row) => {
-        const sc = 1 - row * 0.22, y = 1080 - row * 190, w = 300 * sc;
-        return [-1, 0, 1].map((c) => {
-          const cx = 760 + c * (w + 30) * 1.05 + (c > 0 ? 120 * sc : c < 0 ? -120 * sc : 0) - 200;
-          return (
-            <g key={`${row}${c}`}>
-              <path d={`M${cx - w / 2},${y} L${cx - w / 2 + 20 * sc},${y - 420 * sc} Q${cx},${y - 470 * sc} ${cx + w / 2 - 20 * sc},${y - 420 * sc} L${cx + w / 2},${y} Z`} fill={row === 0 ? '#2f4a6e' : row === 1 ? '#355377' : '#3b5b82'} stroke="#0f1724" strokeWidth={5} />
-              <rect x={cx - w / 3} y={y - 430 * sc} width={(w * 2) / 3} height={60 * sc} rx={14 * sc} fill="#e9e1cc" />
-            </g>
-          );
-        });
+      ); })()}
+      {/* windows along both walls */}
+      {Array.from({ length: ROWS }).map((_, r) => [win(-1, ROWS - 1 - r), win(1, ROWS - 1 - r)])}
+      {/* overhead bins, both sides */}
+      {[-1, 1].map((side) => {
+        const xo = side < 0 ? 0 : 1920, xi = side < 0 ? 720 : 1200;
+        return (
+          <g key={side}>
+            <polygon points={poly([[xo, 120], [xi, 120], P(xi, 120, far), P(xo, 120, far)])} fill="#fbf8ef" stroke="#b3a88f" strokeWidth={3} />
+            <polygon points={poly([[xi, 120], [xi, 330], P(xi, 330, far), P(xi, 120, far)])} fill="#f1ebdc" stroke="#b3a88f" strokeWidth={3} />
+            {Array.from({ length: ROWS }).map((_, r) => { const [ax, ay] = P(xi, 330, kOf(r)), [, by] = P(xi, 120, kOf(r)); return <line key={r} x1={ax} y1={ay} x2={ax} y2={by} stroke="#b3a88f" strokeWidth={3 * kOf(r)} />; })}
+            {Array.from({ length: ROWS }).map((_, r) => { const [ax, ay] = P(xi, 300, kOf(r + 0.5)); return <rect key={`h${r}`} x={ax - 30 * kOf(r)} y={ay} width={60 * kOf(r)} height={8 * kOf(r)} rx={3} fill="#a79c84" />; })}
+          </g>
+        );
       })}
-      {/* PA speaker + speech bubble */}
-      <g transform="translate(960,150)">
-        <circle r={34} fill="#d8cfb8" stroke={INK} strokeWidth={4} />
-        {[-14, 0, 14].map((d) => <line key={d} x1={-20} y1={d} x2={20} y2={d} stroke={INK} strokeWidth={3} />)}
-        {[1, 2, 3].map((k) => <path key={k} d={`M${40 + k * 16},-20 Q${52 + k * 16},0 ${40 + k * 16},20`} fill="none" stroke={day.dot} strokeWidth={4} opacity={speak > 0 ? 0.4 + 0.6 * Math.abs(Math.sin(f / 4 + k)) : 0} />)}
+      {/* ceiling light strip */}
+      <polygon points={poly([[900, 0], [1020, 0], P(1020, 0, far), P(900, 0, far)])} fill="#fffbe9" opacity={0.9} />
+      {/* seats: far rows first */}
+      {Array.from({ length: ROWS }).map((_, i) => { const r = ROWS - 1 - i; return <g key={r}>{seatBlock(60, 780, r, `L${r}`)}{seatBlock(1140, 1860, r, `R${r}`)}</g>; })}
+      {/* fasten seatbelt sign + PA speaker */}
+      <g transform="translate(960,70)">
+        <rect x={-120} y={-34} width={240} height={68} rx={12} fill="#2d333c" />
+        <circle cx={-60} cy={0} r={22} fill={speak > 0 && f % 30 < 20 ? '#ffd27a' : '#6b6f78'} />
+        <path d="M-70,-8 Q-60,8 -50,-8" fill="none" stroke="#2d333c" strokeWidth={4} />
+        <circle cx={-60} cy={-10} r={5} fill="#2d333c" />
+        <text x={0} y={8} fontFamily="PlexMonoLocal, monospace" fontSize={22} fill="#ffd27a">SEATBELT</text>
       </g>
-      <g opacity={speak} transform={`translate(560,${380 - 20 * (1 - speak)})`}>
+      {[1, 2, 3].map((k) => <path key={k} d={`M${1090 + k * 16},50 Q${1102 + k * 16},70 ${1090 + k * 16},90`} fill="none" stroke={day.dot} strokeWidth={5} opacity={speak > 0 ? 0.4 + 0.6 * Math.abs(Math.sin(f / 4 + k)) : 0} />)}
+      <g opacity={speak} transform={`translate(560,${150 - 20 * (1 - speak)})`}>
         <rect width={800} height={160} rx={30} fill="#fffaf0" stroke={INK} strokeWidth={6} />
-        <path d="M380,0 L400,-40 L430,0 Z" fill="#fffaf0" stroke={INK} strokeWidth={6} strokeLinejoin="round" />
-        <rect x={383} y={-3} width={44} height={8} fill="#fffaf0" />
         <text x={400} y={70} textAnchor="middle" fontFamily={theme.fontSerif} fontStyle="italic" fontSize={44} fill={INK}>“Folks, we've just been told</text>
         <text x={400} y={122} textAnchor="middle" fontFamily={theme.fontSerif} fontStyle="italic" fontSize={44} fill={INK}>to stay on the ground.”</text>
       </g>
+      <text x={90} y={1035} fontFamily="PlexMonoLocal, monospace" fontSize={30} fill="#fffaf0" opacity={0.9}>AT THE GATE · BOARDING COMPLETE</text>
     </svg>
   );
 };

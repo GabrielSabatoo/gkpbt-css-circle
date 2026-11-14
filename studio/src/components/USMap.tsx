@@ -40,6 +40,22 @@ export const airportAt = (code: string) => US_AIRPORTS.find((a) => a.code === co
 
 const rnd = (k: number) => { const x = Math.sin(k * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
 
+/** Every airport gets one runway (fixed heading). Coordinates in lon/lat; L = runway length in degrees. */
+type LL = [number, number];
+const RWY_L = 0.9;
+export const runwayAt = (at: LL) => {
+  const i = US_AIRPORTS.findIndex((a) => a.at[0] === at[0] && a.at[1] === at[1]);
+  const ang = (Math.floor(rnd(i + 31) * 8) * Math.PI) / 8 + 0.2;
+  const c = Math.cos((at[1] * Math.PI) / 180);
+  const dir: LL = [Math.cos(ang) / c, Math.sin(ang)];
+  const perp: LL = [-Math.sin(ang) / c, Math.cos(ang)];
+  const thr: LL = [at[0] - (dir[0] * RWY_L) / 2, at[1] - (dir[1] * RWY_L) / 2];
+  const end: LL = [at[0] + (dir[0] * RWY_L) / 2, at[1] + (dir[1] * RWY_L) / 2];
+  return { thr, end, dir, perp };
+};
+const lerp = (a: LL, b: LL, t: number): LL => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+const easeOut = (t: number) => 1 - (1 - t) * (1 - t);
+
 /** Deterministic traffic: each plane repeats a route; departures after `stopAt` (s) never leave. */
 export type Traffic = { n: number; t: number; stopAt?: number; durScale?: number };
 const ROUTES = Array.from({ length: 160 }, (_, i) => {
@@ -49,7 +65,7 @@ const ROUTES = Array.from({ length: 160 }, (_, i) => {
   return { a: a.at, b: b.at, phase: rnd(i + 7) * 40, dur: 14 + rnd(i + 3) * 16, gap: 4 + rnd(i + 5) * 10 };
 });
 export const planesAt = ({ n, t, stopAt, durScale = 1 }: Traffic) => {
-  const out: { at: [number, number]; next: [number, number]; p: number; key: number }[] = [];
+  const out: { at: [number, number]; next: [number, number]; p: number; key: number; ground: boolean }[] = [];
   for (let i = 0; i < Math.min(n, ROUTES.length); i++) {
     const r = ROUTES[i]; const dur = r.dur * durScale; const period = dur + r.gap;
     const k = Math.floor((t - r.phase) / period);
@@ -58,7 +74,20 @@ export const planesAt = ({ n, t, stopAt, durScale = 1 }: Traffic) => {
     if (p < 0 || p >= 1) continue;
     if (stopAt !== undefined && dep >= stopAt) continue;
     const interp = geoInterpolate(r.a, r.b);
-    out.push({ at: interp(p) as [number, number], next: interp(Math.min(1, p + 0.01)) as [number, number], p, key: i });
+    const ra = runwayAt(r.a), rb = runwayAt(r.b);
+    // take-off roll → climb-out → cruise → final approach → touchdown → roll-out
+    const pos = (q: number): LL => {
+      if (q < 0.03) return lerp(ra.thr, ra.end, easeOut(q / 0.03) * 0.8 + (q / 0.03) * 0.2);
+      if (q < 0.1) return lerp(ra.end, interp(0.1) as LL, (q - 0.03) / 0.07);
+      if (q < 0.88) return interp(q) as LL;
+      const fix: LL = [rb.thr[0] - rb.dir[0] * 1.6, rb.thr[1] - rb.dir[1] * 1.6];
+      if (q < 0.93) return lerp(interp(0.88) as LL, fix, (q - 0.88) / 0.05);
+      if (q < 0.97) return lerp(fix, rb.thr, (q - 0.93) / 0.04);
+      return lerp(rb.thr, lerp(rb.thr, rb.end, 0.75), easeOut((q - 0.97) / 0.03));
+    };
+    const at = pos(p);
+    const nx = p > 0.995 ? ([at[0] + rb.dir[0] * 0.05, at[1] + rb.dir[1] * 0.05] as LL) : p < 0.03 ? ([at[0] + ra.dir[0] * 0.05, at[1] + ra.dir[1] * 0.05] as LL) : pos(Math.min(1, p + 0.004));
+    out.push({ at, next: nx, p, key: i, ground: p < 0.03 || p > 0.97 });
   }
   return out;
 };
@@ -144,13 +173,20 @@ export const USMap: React.FC<USMapProps> = ({ night = 0, zoom = { x: 0, y: 0, s:
           )) : null}
           {airports > 0 ? US_AIRPORTS.map((a) => {
             const xy = projection(a.at); if (!xy) return null;
+            const rw = runwayAt(a.at); const t = projection(rw.thr), e = projection(rw.end); if (!t || !e) return null;
             const col = airportColor?.(a.code) ?? day.dot;
-            return <circle key={a.code} cx={xy[0]} cy={xy[1]} r={6.5 / zoom.s} fill={col} stroke="#fff" strokeWidth={2.2 / zoom.s} opacity={airports} />;
+            return (
+              <g key={a.code} opacity={airports}>
+                <line x1={t[0]} y1={t[1]} x2={e[0]} y2={e[1]} stroke={night > 0.5 ? '#7f93ab' : '#5d6168'} strokeWidth={9 / zoom.s} strokeLinecap="butt" />
+                <line x1={t[0]} y1={t[1]} x2={e[0]} y2={e[1]} stroke={night > 0.5 ? '#0c1626' : '#f3ecd8'} strokeWidth={1.4 / zoom.s} strokeDasharray={`${3 / zoom.s} ${3 / zoom.s}`} />
+                <circle cx={xy[0] + (e[1] - t[1]) * 0.35} cy={xy[1] - (e[0] - t[0]) * 0.35} r={5 / zoom.s} fill={col} stroke="#fff" strokeWidth={1.8 / zoom.s} />
+              </g>
+            );
           }) : null}
           {planes.map((pl) => {
             const xy = projection(pl.at), nx = projection(pl.next); if (!xy || !nx) return null;
             const hd = (Math.atan2(nx[0] - xy[0], -(nx[1] - xy[1])) * 180) / Math.PI;
-            return <PlaneIcon key={pl.key} x={xy[0]} y={xy[1]} size={(traffic?.size ?? 26) / zoom.s} heading={hd} color={traffic?.color ?? C.plane} outline={night > 0.5 ? '#0c1626' : '#f6f0e2'} />;
+            return <PlaneIcon key={pl.key} x={xy[0]} y={xy[1]} size={((traffic?.size ?? 26) * (pl.ground ? 0.75 : 1)) / zoom.s} heading={hd} color={traffic?.color ?? C.plane} outline={night > 0.5 ? '#0c1626' : '#f6f0e2'} />;
           })}
           {children ? children(projection) : null}
         </g>

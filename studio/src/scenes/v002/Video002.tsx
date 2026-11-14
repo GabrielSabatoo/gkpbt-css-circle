@@ -7,12 +7,12 @@ type Seg = { from: number; to: number; fade?: number; render: (local: number) =>
 import { USMap, airportAt, planesAt } from '../../components/USMap';
 import { Globe } from '../../components/Globe';
 import { GeoLine, Pin, PlaneIcon } from '../../components/Overlays';
-import { Paper, Title, Label, InfoCard, Stamp, BigNumber, Checklist, AircraftSide } from '../../components/Kit';
+import { Paper, Title, Label, Stamp, BigNumber, Checklist, AircraftSide } from '../../components/Kit';
 import { byCode } from '../../data/airports';
 import { day, theme } from '../../theme';
 import { ramp } from '../../anim';
 import { Box, Tower, RadarDish, CentreBuilding, Cabin, BurntWire, Excavator, Underground, BuildingFire, Server, FileIcon, Trash, NetRack, Reboot, Shield, RadioMast, NetNode, CommandRoom, ParkedRunway, Person } from '../../components/Illus';
-import { US_AIRPORTS } from '../../components/USMap';
+import { US_AIRPORTS, runwayAt } from '../../components/USMap';
 
 /** Video 002 — "How One Outage Stopped Every Plane in America". Scenes are timed by narration cues. */
 
@@ -36,6 +36,18 @@ const Segments: React.FC<{ segs: Seg[] }> = ({ segs }) => {
       </Sequence>
     );
   })}</>);
+};
+
+/** Readable card: serif heading + plain sentence-case lines with generous padding (replaces the Kit InfoCard here). */
+const InfoCard: React.FC<{ head: string; lines: string[]; style?: React.CSSProperties; width?: number }> = ({ head, lines, style, width = 560 }) => {
+  const f = useCurrentFrame(); const o = ramp(f, 0, 12);
+  return (
+    <div style={{ position: 'absolute', width, boxSizing: 'border-box', padding: '30px 44px 34px', background: '#f6efdc', border: `3px solid ${day.text}`, boxShadow: '0 14px 34px rgba(0,0,0,0.18)', opacity: o, transform: `translateY(${(1 - o) * 24}px)`, ...style }}>
+      <div style={{ fontFamily: theme.fontSerif, fontSize: 60, color: day.text, lineHeight: 1.05 }}>{head}</div>
+      <div style={{ height: 2, background: day.text, opacity: 0.25, margin: '16px 0 16px' }} />
+      {lines.map((l, i) => <div key={i} style={{ fontFamily: theme.fontSerif, fontSize: 34, lineHeight: 1.35, color: day.text }}>{l}</div>)}
+    </div>
+  );
 };
 
 const useC = () => { const { fps } = useVideoConfig(); return makeCues(words as any, fps); };
@@ -94,9 +106,9 @@ const Board: React.FC<{ holdAt: number; dark?: boolean }> = ({ holdAt }) => {
 const Counter: React.FC<{ value: number; label: string; delay?: number; dark?: boolean; prefix?: string; suffix?: string; color?: string; decimals?: number }> = ({ value, label, delay = 0, dark = false, prefix = '', suffix = '', color, decimals = 0 }) => {
   const f = useCurrentFrame(); const p = ramp(f, delay, delay + 30);
   return (
-    <div style={{ padding: '18px 28px', background: dark ? 'rgba(12,22,38,0.82)' : 'rgba(243,236,216,0.92)', border: `2px solid ${dark ? '#9fb3c9' : day.text}`, opacity: Math.min(1, p * 3) }}>
+    <div style={{ padding: '22px 40px 26px', maxWidth: 640, boxSizing: 'border-box', background: dark ? 'rgba(12,22,38,0.88)' : 'rgba(246,239,220,0.95)', border: `3px solid ${dark ? '#9fb3c9' : day.text}`, opacity: Math.min(1, p * 3) }}>
       <div style={{ fontFamily: theme.fontSerif, fontSize: 84, lineHeight: 1, color: color ?? (dark ? CREAM : day.text) }}>{prefix}{(value * p).toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}{suffix}</div>
-      <Label size={22} color={dark ? '#9fb3c9' : day.textMuted} style={{ marginTop: 10 }}>{label}</Label>
+      <div style={{ fontFamily: theme.fontSerif, fontSize: 30, lineHeight: 1.25, marginTop: 10, color: dark ? '#c9d6e6' : day.textMuted }}>{label}</div>
     </div>
   );
 };
@@ -145,19 +157,34 @@ const LAND = Array.from({ length: 170 }, (_, i) => {
   const hd = rr2(i + 800) * 360;
   let best = US_AIRPORTS[0].at, bd = 1e9;
   for (const a of US_AIRPORTS) { const d = Math.hypot((a.at[0] - at[0]) * Math.cos((at[1] * Math.PI) / 180), a.at[1] - at[1]); if (d < bd) { bd = d; best = a.at; } }
-  return { at, hd, to: best, dist: bd, delay: rr2(i + 1200) * 1.5 };
+  return { at, hd, to: best, dist: bd, delay: rr2(i + 1200) * 1.5, slot: 0 };
 });
+{ const n = new Map<string, number>(); for (const pl of LAND) { const k = pl.to.join(); pl.slot = n.get(k) ?? 0; n.set(k, pl.slot + 1); } }
+type LL2 = [number, number];
+const lp = (a: LL2, b: LL2, t: number): LL2 => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+/** fly to a fix on the extended centreline, final approach, touchdown, roll out, park beside the runway */
+const landPos = (pl: (typeof LAND)[number], d0: LL2, q: number): { at: LL2; ground: boolean } => {
+  const rw = runwayAt(pl.to);
+  const fix: LL2 = [rw.thr[0] - rw.dir[0] * 1.3, rw.thr[1] - rw.dir[1] * 1.3];
+  const row = pl.slot % 4, col = Math.floor(pl.slot / 4);
+  const park: LL2 = [rw.thr[0] + rw.dir[0] * (0.15 + row * 0.25) + rw.perp[0] * (0.45 + col * 0.35), rw.thr[1] + rw.dir[1] * (0.15 + row * 0.25) + rw.perp[1] * (0.45 + col * 0.35)];
+  const stop = lp(rw.thr, rw.end, 0.85);
+  if (q < 0.6) return { at: lp(d0, fix, q / 0.6), ground: false };
+  if (q < 0.78) return { at: lp(fix, rw.thr, (q - 0.6) / 0.18), ground: false };
+  if (q < 0.9) { const u = (q - 0.78) / 0.12; return { at: lp(rw.thr, stop, 1 - (1 - u) * (1 - u)), ground: true }; }
+  return { at: lp(stop, park, (q - 0.9) / 0.1), ground: true };
+};
 const LandAll: React.FC<{ projection: any; drift: number; land: (i: number, dist: number, delay: number) => number }> = ({ projection: p, drift, land }) => (
   <g>
     {LAND.map((pl, i) => {
       const rad = (pl.hd * Math.PI) / 180;
       const d0: [number, number] = [pl.at[0] + Math.sin(rad) * drift * 0.6, pl.at[1] + Math.cos(rad) * drift * 0.45];
-      const q = land(i, pl.dist, pl.delay);
-      if (q >= 1) return null;
-      const pos: [number, number] = [d0[0] + (pl.to[0] - d0[0]) * q, d0[1] + (pl.to[1] - d0[1]) * q];
-      const xy = p(pos), tgt = p(pl.to); if (!xy || !tgt) return null;
-      const hdg = q > 0 ? (Math.atan2(tgt[0] - xy[0], -(tgt[1] - xy[1])) * 180) / Math.PI : pl.hd;
-      return <PlaneIcon key={i} x={xy[0]} y={xy[1]} size={24 * (1 - 0.5 * q * q)} heading={hdg} color={q > 0 ? day.danger : day.plane} />;
+      const q = Math.min(1, land(i, pl.dist, pl.delay));
+      const cur = landPos(pl, d0, q), nxt = landPos(pl, d0, Math.min(1, q + 0.01));
+      const xy = p(cur.at), nx = p(q >= 0.99 ? landPos(pl, d0, 0.89).at : nxt.at); if (!xy || !nx) return null;
+      const back = q >= 0.99 ? p(landPos(pl, d0, 0.85).at) : null;
+      const hdg = q <= 0 ? pl.hd : back ? (Math.atan2(nx[0] - back[0], -(nx[1] - back[1])) * 180) / Math.PI : (Math.atan2(nx[0] - xy[0], -(nx[1] - xy[1])) * 180) / Math.PI;
+      return <PlaneIcon key={i} x={xy[0]} y={xy[1]} size={cur.ground ? 15 : 24} heading={hdg} color={q >= 1 ? '#6b6f78' : q > 0 ? day.danger : day.plane} />;
     })}
   </g>
 );
@@ -275,13 +302,13 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
             </g>
           ); }}
         </USMap>
-        <div style={{ position: 'absolute', right: 70, top: 70, width: 520, height: 470, background: '#f3ecd8', border: `4px solid ${day.text}`, boxShadow: '0 16px 40px rgba(0,0,0,0.25)' }}>
+        <div style={{ position: 'absolute', right: 70, top: 70, width: 560, height: 500, background: '#f3ecd8', border: `4px solid ${day.text}`, boxShadow: '0 16px 40px rgba(0,0,0,0.25)' }}>
           <svg width={520} height={400} viewBox="-260 -380 520 420">
             <g opacity={1 - ramp(frame, F.approach, F.approach + 8)}><Tower s={1} /></g>
             <g opacity={ramp(frame, F.approach, F.approach + 8) * (1 - ramp(frame, F.centres, F.centres + 8))}><RadarDish s={1.3} spin={frame / 12} /></g>
             <g opacity={ramp(frame, F.centres, F.centres + 8)}><CentreBuilding s={0.9} /></g>
           </svg>
-          <Label size={30} color={day.text} style={{ textAlign: 'center' }}>{frame < F.approach ? '1 · TOWER' : frame < F.centres ? '2 · APPROACH CONTROL' : '3 · EN-ROUTE CENTRE (×20)'}</Label>
+          <Label size={26} color={day.text} style={{ textAlign: 'center', letterSpacing: '0.08em', padding: '0 20px' }}>{frame < F.approach ? '1 · TOWER' : frame < F.centres ? '2 · APPROACH CONTROL' : '3 · EN-ROUTE CENTRE (×20)'}</Label>
         </div>
       </AbsoluteFill>
       );
@@ -338,7 +365,7 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
           <text x={650} y={-220} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={26} fill={day.text}>LOVE FIELD</text>
           {frame > F.dallas + s(3.6) ? <><text x={-650} y={-260} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={30} fill={day.danger}>HOLD</text><text x={650} y={-260} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={30} fill={day.danger}>HOLD</text></> : null}
         </Box>
-        <InfoCard head="Sept 2025 · Dallas" lines={['A contractor cuts two fibre cables', 'Both big airports stopped for hours']} style={{ left: 60, top: 50 }} width={640} />
+        <InfoCard head="Sept 2025 · Dallas" lines={['A contractor cuts two fibre cables', 'Both big airports stopped for hours']} style={{ left: 50, top: 40 }} width={700} />
         <On at={F.outdated}><div style={{ position: 'absolute', right: 80, top: 60 }}><Quote text="A clear example of outdated infrastructure" who="FAA, on the Dallas outage" width={900} /></div></On>
       </Paper>
     ) },
@@ -347,7 +374,7 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
       <Paper>
         <Center><BackupLines cutA={ramp(frame, F.dallasBk, F.dallasBk + 10)} cutB={ramp(frame, F.philly + s(2.5), F.philly + s(3))} /></Center>
         <On at={F.philly + s(1.5)}><Box x={760} y={560} w={400} h={260} vb="-200 -230 400 260"><Excavator dig={0.8} s={0.7} x={-30} y={0} /><line x1={-200} y1={0} x2={200} y2={0} stroke={day.text} strokeWidth={5} /></Box></On>
-        <On at={F.philly}><InfoCard head="Sept 2026" lines={['Philadelphia & Newark area', 'Circuit failed · backup cable cut', 'at a New Jersey construction site']} style={{ right: 110, top: 70 }} width={640} /></On>
+        <On at={F.philly}><InfoCard head="Sept 2026" lines={['Philadelphia & Newark area', 'Circuit failed · backup cable cut', 'at a New Jersey construction site']} style={{ right: 90, top: 60 }} width={720} /></On>
         <On at={F.both}><Stamp text="Both gone" delay={0} size={52} style={{ whiteSpace: 'nowrap', left: 820, top: 820 }} /></On>
       </Paper>
     ) },
@@ -363,10 +390,10 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
         <AbsoluteFill>
           <USMap centers={1} centerLabels={0.8} centerTint={tint} />
           {frame >= F.chicago && frame < F.different ? <>
-            <div style={{ position: 'absolute', left: 50, bottom: 50, width: 640, height: 470, background: '#f3ecd8', border: `4px solid ${day.text}`, boxShadow: '0 16px 40px rgba(0,0,0,0.25)' }}>
+            <div style={{ position: 'absolute', left: 50, bottom: 50, width: 680, height: 560, background: '#f3ecd8', border: `4px solid ${day.text}`, boxShadow: '0 16px 40px rgba(0,0,0,0.25)' }}>
               <svg width={640} height={380} viewBox="-430 -330 860 520"><BuildingFire fire={ramp(frame, F.chicago + s(4.5), F.chicago + s(5.5)) * (1 - ramp(frame, F.stretch + s(4), F.stretch + s(5)))} dark={ramp(frame, F.chicago + s(6), F.chicago + s(6.5)) * (1 - ramp(frame, F.stretch + s(6), F.stretch + s(6.5)))} /></svg>
-              <Label size={22} color={day.text} style={{ padding: '0 20px' }}>SEPT 2014 · CHICAGO CENTER · FIRE CUTS CABLES</Label>
-              <Label size={20} color={day.textMuted} style={{ padding: '6px 20px' }}>{frame < F.stretch ? 'Thousands of flights cancelled' : 'Neighbours cover · back in ≈ 2 weeks'}</Label>
+              <div style={{ padding: '4px 30px', fontFamily: theme.fontSerif, fontSize: 40, color: day.text }}>Sept 2014 · Chicago Center</div>
+              <div style={{ padding: '4px 30px', fontFamily: theme.fontSerif, fontSize: 30, color: day.textMuted }}>{frame < F.stretch ? 'A fire cuts the cables · thousands of flights cancelled' : 'Neighbours cover · back in about 2 weeks'}</div>
             </div>
           </> : null}
           <On at={F.different}><Stamp text="Friday: more than one centre" delay={0} size={40} rotate={-3} style={{ whiteSpace: 'nowrap', left: 80, bottom: 90 }} /></On>
@@ -465,7 +492,7 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
             <Checklist items={[{ text: 'Fly the route you were cleared for', at: F.route - F.pilot }, { text: 'Highest of: assigned, minimum safe', at: F.alt - F.pilot }, { text: 'Arrive when you were expected', at: F.arrive - F.pilot }]} />
             <Box x={1000} y={520} w={820} h={360} vb="0 0 820 360">
               <path d="M30,300 L250,120 L620,120 L780,300" fill="none" stroke={day.circle} strokeWidth={5} strokeDasharray="14 10" />
-              <circle cx={780} cy={300} r={14} fill={day.dot} stroke="#fff" strokeWidth={4} />
+              <rect x={700} y={296} width={110} height={16} fill="#5d6168" /><line x1={705} y1={304} x2={805} y2={304} stroke="#f3ecd8" strokeWidth={2} strokeDasharray="8 6" />
               {(() => { const q = ramp(frame, F.route, F.everyone); const pts = [[30, 300], [250, 120], [620, 120], [780, 300]]; const seg = Math.min(2, Math.floor(q * 3)), u = q * 3 - seg; const a = pts[seg], b = pts[seg + 1]; const x = a[0] + (b[0] - a[0]) * u, y = a[1] + (b[1] - a[1]) * u; return <PlaneIcon x={x} y={y} size={70} heading={(Math.atan2(b[0] - a[0], -(b[1] - a[1])) * 180) / Math.PI} />; })()}
               <text x={330} y={100} fontFamily="PlexMonoLocal, monospace" fontSize={24} fill={day.circle} opacity={ramp(frame, F.alt, F.alt + 10)}>HIGHEST ALTITUDE</text>
               <text x={660} y={350} fontFamily="PlexMonoLocal, monospace" fontSize={24} fill={day.dot} opacity={ramp(frame, F.arrive, F.arrive + 10)}>ON TIME</text>
@@ -488,7 +515,7 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
     { from: F.sept11, to: F.canada, render: () => {
       const landStart = F.landall + s(0.8);
       const land = (i: number, dist: number, delay: number) => ramp(frame, landStart + s(delay), landStart + s(delay + 1.5 + dist * 0.9));
-      const landed = LAND.filter((pl) => land(0, pl.dist, pl.delay) >= 1).length;
+      const landed = LAND.filter((pl) => land(0, pl.dist, pl.delay) >= 0.78).length;
       const drift = (Math.min(frame, landStart) - F.sept11) / fps * 0.04;
       return (
         <AbsoluteFill>
@@ -559,7 +586,7 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
             })}
             <path d="M700,560 Q930,300 1180,560" fill="none" stroke={day.textMuted} strokeWidth={4} strokeDasharray="12 10" />
           </Box>
-          <InfoCard head="Jan 2023" lines={['Pilots\' safety-notice database fails', 'Files deleted by mistake', 'Departures stopped ≈ 90 minutes']} style={{ right: 80, top: 70 }} width={640} />
+          <InfoCard head="Jan 2023" lines={['Pilots\' safety-notice database fails', 'Files deleted by mistake', 'Departures stopped ≈ 90 minutes']} style={{ right: 70, top: 60 }} width={720} />
         </> : <>
           <Box x={0} y={0} w={1920} h={1080} vb="0 0 1920 1080">
             <g transform="translate(520,560) rotate(-4)">
