@@ -70,9 +70,9 @@ export const Cabin: React.FC<{ speak?: number }> = ({ speak = 0 }) => {
   const P = (x: number, y: number, k: number): [number, number] => [VX + (x - VX) * k, VY + (y - VY) * k];
   const poly = (pts: number[][]) => pts.map((q) => q.join(',')).join(' ');
   const quad = (a: [number, number], b: [number, number], k0: number, k1: number) => poly([P(a[0], a[1], k0), P(b[0], b[1], k0), P(b[0], b[1], k1), P(a[0], a[1], k1)]);
-  const kOf = (r: number) => 1 / (1 + r * 0.36);
-  const NEAR = 1.0, FAR = kOf(9);
-  const ROWS = 8;
+  const kOf = (r: number) => 1 / (1 + r * 0.3);
+  const NEAR = 1.0, FAR = kOf(11);
+  const ROWS = 10;
   const HAIR = ['#3b2a20', '#6b4a2b', '#1f1a17', '#a4743f', '#555', '#2d2018'];
   const seat = (x0: number, x1: number, r: number, key: string, heads: boolean) => {
     const k = kOf(r + 0.6), n = 3, w = (x1 - x0) / n;
@@ -97,6 +97,7 @@ export const Cabin: React.FC<{ speak?: number }> = ({ speak = 0 }) => {
           <rect x={ax + 26 * k} y={ty + 210 * k} width={bx - ax - 52 * k} height={150 * k} rx={8 * k} fill="#1f3d58" stroke={LN} strokeWidth={sw * 0.7} />
           {[0, 1, 2].map((s2) => <line key={s2} x1={ax + 40 * k} y1={ty + (240 + s2 * 40) * k} x2={bx - 40 * k} y2={ty + (240 + s2 * 40) * k} stroke="#4f7698" strokeWidth={Math.max(1, 5 * k)} />)}
           <rect x={(ax + bx) / 2 - 20 * k} y={ty + 150 * k} width={40 * k} height={14 * k} rx={4 * k} fill="#b9ab8a" />
+          {(key === 'L' && i === n - 1) || (key === 'R' && i === 0) ? (() => { const [rx0, ry0] = P(key === 'L' ? xb + 4 : xa - 22, 830, k); return <rect x={rx0} y={ry0} width={18 * k} height={140 * k} rx={6 * k} fill="#f6efdc" stroke={LN} strokeWidth={Math.max(1, 3 * k)} />; })() : null}
         </g>
       );
     });
@@ -148,16 +149,17 @@ export const Cabin: React.FC<{ speak?: number }> = ({ speak = 0 }) => {
       {(() => { const [x0, y0] = P(520, 300, FAR), [x1, y1] = P(1500, 1180, FAR); return (
         <g>
           <rect x={x0} y={y0} width={x1 - x0} height={y1 - y0} fill="#e4d8bb" stroke={LN} strokeWidth={3} />
-          <rect x={VX - 34} y={y0 + 8} width={68} height={y1 - y0 - 8} fill="#9a3a2e" />
+          <rect x={VX - 34} y={y0 + 8} width={68} height={y1 - y0 - 8} fill="#2c5578" />
           <rect x={VX - 30} y={y0 - 26} width={60} height={20} rx={3} fill="#1f8f4e" />
           <text x={VX} y={y0 - 11} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={14} fill="#fff">EXIT</text>
         </g>
       ); })()}
       {/* floor + aisle */}
-      <polygon points={quad([-60, 1180], [2080, 1180], NEAR, FAR)} fill="#b9ab8a" />
-      <polygon points={quad([860, 1180], [1160, 1180], NEAR, FAR)} fill="#c2563f" />
+      <polygon points={quad([-60, 1180], [2080, 1180], NEAR, FAR)} fill="#a19d93" />
+      <polygon points={quad([905, 1180], [1115, 1180], NEAR, FAR)} fill="#8d8b84" />
+      {Array.from({ length: 10 }).map((_, i) => { const [x0, y0] = P(905, 1180, kOf(i)), [x1] = P(1115, 1180, kOf(i)); return <line key={i} x1={x0} y1={y0} x2={x1} y2={y0} stroke="#7b7972" strokeWidth={Math.max(1, 3 * kOf(i))} />; })}
       {/* seats, far rows first; heads above the seats */}
-      {Array.from({ length: ROWS }).map((_, i) => { const r = ROWS - 1 - i; return <g key={r}>{seat(-40, 820, r, 'L', true)}{seat(1200, 2060, r, 'R', true)}</g>; })}
+      {Array.from({ length: ROWS }).map((_, i) => { const r = ROWS - 1 - i; return <g key={r}>{seat(-40, 890, r, 'L', true)}{seat(1130, 2060, r, 'R', true)}</g>; })}
       {/* the seat right in front of us */}
       {(() => { const k = 1.55, sw = 6; const [ax, ay] = P(200, 1180, k), [bx] = P(760, 1180, k), [, ty] = P(200, 600, k); return (
         <g>

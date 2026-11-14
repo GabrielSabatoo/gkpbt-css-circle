@@ -447,7 +447,18 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
               <text x={140} y={870} fontFamily="PlexMonoLocal, monospace" fontSize={26} fill={day.text}>GATES</text>
               {[0, 1, 2, 3].map((i) => <PlaneIcon key={i} x={210 + i * 150} y={990} size={110} heading={180} />)}
               <g transform="translate(830,880)"><rect x={-24} y={-70} width={48} height={110} rx={10} fill="#1d2330" /><circle cy={-40} r={16} fill={day.danger} /><circle cy={2} r={16} fill="#3a3f47" /><line x1={0} y1={40} x2={0} y2={60} stroke="#1d2330" strokeWidth={8} /></g>
-              {[0, 1, 2].map((i) => { const q = ((frame - F.gs) / fps / 6 + i / 3) % 1; return <PlaneIcon key={i} x={1900 - q * 700} y={640 + q * 290} size={70} heading={240} />; })}
+              {/* runway: arriving planes descend, touch down and roll out */}
+              <rect x={1020} y={915} width={820} height={36} fill="#5d6168" stroke={day.text} strokeWidth={4} />
+              {Array.from({ length: 9 }).map((_, i) => <rect key={i} x={1060 + i * 86} y={930} width={44} height={6} fill="#f3ecd8" />)}
+              {[0, 1, 2, 3].map((i) => <rect key={`t${i}`} x={1800 - 0} y={919 + i * 8} width={30} height={4} fill="#f3ecd8" />)}
+              {[0, 1, 2].map((i) => {
+                const q = ((frame - F.gs) / fps / 6 + i / 3) % 1;
+                let x, y, hd, o = 1;
+                if (q < 0.5) { const u = q / 0.5; x = 1980 - u * 230; y = 600 + u * 330; hd = 235 + u * 25; }
+                else if (q < 0.88) { const u = (q - 0.5) / 0.38; x = 1750 - (1 - (1 - u) * (1 - u)) * 600; y = 932; hd = 270; }
+                else { const u = (q - 0.88) / 0.12; x = 1150 - u * 40; y = 932 - u * 60; hd = 330; o = 1 - u; }
+                return <g key={i} opacity={o}><PlaneIcon x={x} y={y} size={70} heading={hd} /></g>;
+              })}
               <text x={1280} y={600} fontFamily="PlexMonoLocal, monospace" fontSize={26} fill={day.circle} opacity={ramp(frame, F.still, F.still + 10)}>ALREADY FLYING: GUIDED IN TO LAND</text>
             </Box>
           ) : null}
@@ -492,7 +503,7 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
             <Checklist items={[{ text: 'Fly the route you were cleared for', at: F.route - F.pilot }, { text: 'Highest of: assigned, minimum safe', at: F.alt - F.pilot }, { text: 'Arrive when you were expected', at: F.arrive - F.pilot }]} />
             <Box x={1000} y={520} w={820} h={360} vb="0 0 820 360">
               <path d="M30,300 L250,120 L620,120 L780,300" fill="none" stroke={day.circle} strokeWidth={5} strokeDasharray="14 10" />
-              <rect x={700} y={296} width={110} height={16} fill="#5d6168" /><line x1={705} y1={304} x2={805} y2={304} stroke="#f3ecd8" strokeWidth={2} strokeDasharray="8 6" />
+              <circle cx={780} cy={300} r={14} fill={day.dot} stroke="#fff" strokeWidth={4} />
               {(() => { const q = ramp(frame, F.route, F.everyone); const pts = [[30, 300], [250, 120], [620, 120], [780, 300]]; const seg = Math.min(2, Math.floor(q * 3)), u = q * 3 - seg; const a = pts[seg], b = pts[seg + 1]; const x = a[0] + (b[0] - a[0]) * u, y = a[1] + (b[1] - a[1]) * u; return <PlaneIcon x={x} y={y} size={70} heading={(Math.atan2(b[0] - a[0], -(b[1] - a[1])) * 180) / Math.PI} />; })()}
               <text x={330} y={100} fontFamily="PlexMonoLocal, monospace" fontSize={24} fill={day.circle} opacity={ramp(frame, F.alt, F.alt + 10)}>HIGHEST ALTITUDE</text>
               <text x={660} y={350} fontFamily="PlexMonoLocal, monospace" fontSize={24} fill={day.dot} opacity={ramp(frame, F.arrive, F.arrive + 10)}>ON TIME</text>
