@@ -61,85 +61,127 @@ export const CentreBuilding: React.FC<{ x?: number; y?: number; s?: number; dark
 );
 
 /* ---------------- cabin at the gate ---------------- */
-/** Airliner cabin seen down the aisle (one-point perspective): seats, overhead bins, windows, seatbelt sign. */
+/** Airliner cabin from a passenger seat (one-point perspective, sketch style): curved ceiling, bins with
+ *  passenger service units, windows, seat backs with pockets, other passengers' heads, seatbelt sign. */
 export const Cabin: React.FC<{ speak?: number }> = ({ speak = 0 }) => {
   const f = useCurrentFrame();
-  const VX = 960, VY = 430;
-  const P = (x: number, y: number, k: number) => [VX + (x - VX) * k, VY + (y - VY) * k];
+  const VX = 1010, VY = 380;
+  const LN = INK;
+  const P = (x: number, y: number, k: number): [number, number] => [VX + (x - VX) * k, VY + (y - VY) * k];
   const poly = (pts: number[][]) => pts.map((q) => q.join(',')).join(' ');
-  const ROWS = 7;
-  const kOf = (r: number) => 1 / (1 + r * 0.42);
-  const seatBlock = (x0: number, x1: number, r: number, key: string) => {
-    const k = kOf(r), n = 3, w = (x1 - x0) / n;
+  const quad = (a: [number, number], b: [number, number], k0: number, k1: number) => poly([P(a[0], a[1], k0), P(b[0], b[1], k0), P(b[0], b[1], k1), P(a[0], a[1], k1)]);
+  const kOf = (r: number) => 1 / (1 + r * 0.36);
+  const NEAR = 1.0, FAR = kOf(9);
+  const ROWS = 8;
+  const HAIR = ['#3b2a20', '#6b4a2b', '#1f1a17', '#a4743f', '#555', '#2d2018'];
+  const seat = (x0: number, x1: number, r: number, key: string, heads: boolean) => {
+    const k = kOf(r + 0.6), n = 3, w = (x1 - x0) / n;
     return Array.from({ length: n }).map((_, i) => {
-      const xa = x0 + i * w + 8, xb = x0 + (i + 1) * w - 8;
-      const [ax, ay] = P(xa, 1080, k), [bx] = P(xb, 1080, k), [, ty] = P(xa, 560, k), [, hy] = P(xa, 625, k);
-      const rad = 30 * k;
+      const xa = x0 + i * w + 10, xb = x0 + (i + 1) * w - 10;
+      const [ax, ay] = P(xa, 1180, k), [bx] = P(xb, 1180, k), [, ty] = P(xa, 560, k);
+      const rad = 46 * k, sw = Math.max(1.2, 4 * k);
+      const seed = r * 7 + i + (key === 'R' ? 50 : 0);
+      const hasHead = heads && rr(seed) > 0.35;
+      const hx = (ax + bx) / 2 + (rr(seed + 2) - 0.5) * 30 * k, hy = ty - 18 * k, hr = 52 * k;
       return (
-        <g key={`${key}${i}`}>
-          <path d={`M${ax},${ay} L${ax},${ty + rad} Q${ax},${ty} ${ax + rad},${ty} L${bx - rad},${ty} Q${bx},${ty} ${bx},${ty + rad} L${bx},${ay} Z`} fill={r % 2 ? '#2b4f7e' : '#2e5487'} stroke="#13233a" strokeWidth={Math.max(1.5, 5 * k)} />
-          <rect x={ax + 12 * k} y={ty + 8 * k} width={bx - ax - 24 * k} height={hy - ty} rx={10 * k} fill="#f4efe2" />
+        <g key={`${key}${r}${i}`}>
+          {hasHead ? (
+            <g>
+              <ellipse cx={hx} cy={hy + 6 * k} rx={hr * 0.92} ry={hr} fill="#e8c4a0" stroke={LN} strokeWidth={sw * 0.8} />
+              <path d={`M${hx - hr * 0.95},${hy + 10 * k} Q${hx - hr},${hy - hr * 1.15} ${hx},${hy - hr * 1.02} Q${hx + hr},${hy - hr * 1.15} ${hx + hr * 0.95},${hy + 10 * k} Q${hx},${hy - hr * 0.2} ${hx - hr * 0.95},${hy + 10 * k} Z`} fill={HAIR[seed % HAIR.length]} />
+            </g>
+          ) : null}
+          <path d={`M${ax},${ay} L${ax},${ty + rad} Q${ax},${ty} ${ax + rad},${ty} L${bx - rad},${ty} Q${bx},${ty} ${bx},${ty + rad} L${bx},${ay} Z`} fill={day.circle} stroke={LN} strokeWidth={sw} strokeLinejoin="round" />
+          <path d={`M${ax + rad * 0.5},${ty + 4 * k} L${bx - rad * 0.5},${ty + 4 * k}`} stroke={day.gold} strokeWidth={Math.max(1.5, 7 * k)} strokeLinecap="round" />
+          <rect x={ax + 14 * k} y={ty + 18 * k} width={bx - ax - 28 * k} height={70 * k} rx={12 * k} fill="#f6efdc" stroke={LN} strokeWidth={sw * 0.6} />
+          <rect x={ax + 26 * k} y={ty + 210 * k} width={bx - ax - 52 * k} height={150 * k} rx={8 * k} fill="#1f3d58" stroke={LN} strokeWidth={sw * 0.7} />
+          {[0, 1, 2].map((s2) => <line key={s2} x1={ax + 40 * k} y1={ty + (240 + s2 * 40) * k} x2={bx - 40 * k} y2={ty + (240 + s2 * 40) * k} stroke="#4f7698" strokeWidth={Math.max(1, 5 * k)} />)}
+          <rect x={(ax + bx) / 2 - 20 * k} y={ty + 150 * k} width={40 * k} height={14 * k} rx={4 * k} fill="#b9ab8a" />
         </g>
       );
     });
   };
-  const win = (side: number, r: number) => {
-    const k = kOf(r + 0.5), x = side < 0 ? 40 : 1880, [cx, cy] = P(x, 470, k);
-    return <ellipse key={`w${side}${r}`} cx={cx} cy={cy} rx={34 * k} ry={52 * k} fill="#a9cdea" stroke="#8c8370" strokeWidth={Math.max(1, 6 * k)} />;
-  };
-  const far = kOf(ROWS + 0.4);
   return (
     <svg width={1920} height={1080} style={{ position: 'absolute', inset: 0 }}>
-      {/* walls, ceiling, floor */}
-      <rect width={1920} height={1080} fill="#ece4d0" />
-      <polygon points={poly([[0, 0], [1920, 0], P(1920, 0, far), P(0, 0, far)])} fill="#f6f1e4" />
-      <polygon points={poly([[0, 0], P(0, 0, far), P(0, 1080, far), [0, 1080]])} fill="#e3d9c2" />
-      <polygon points={poly([[1920, 0], P(1920, 0, far), P(1920, 1080, far), [1920, 1080]])} fill="#e3d9c2" />
-      <polygon points={poly([[0, 1080], [1920, 1080], P(1920, 1080, far), P(0, 1080, far)])} fill="#6b6f78" />
-      {/* aisle carpet */}
-      <polygon points={poly([[800, 1080], [1120, 1080], P(1120, 1080, far), P(800, 1080, far)])} fill="#4a5a7a" />
-      {/* back wall: galley curtain + exit sign */}
-      {(() => { const [x0, y0] = P(0, 0, far), [x1, y1] = P(1920, 1080, far); return (
-        <g>
-          <rect x={x0} y={y0} width={x1 - x0} height={y1 - y0} fill="#d8cfb9" stroke="#b3a88f" strokeWidth={3} />
-          <rect x={VX - 50} y={VY - 40} width={100} height={130} fill="#8f2f3a" />
-          <rect x={VX - 34} y={VY - 70} width={68} height={22} rx={4} fill="#1f8f4e" />
-          <text x={VX} y={VY - 53} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={15} fill="#fff">EXIT</text>
-        </g>
-      ); })()}
-      {/* windows along both walls */}
-      {Array.from({ length: ROWS }).map((_, r) => [win(-1, ROWS - 1 - r), win(1, ROWS - 1 - r)])}
-      {/* overhead bins, both sides */}
+      <rect width={1920} height={1080} fill="#ece2c8" />
+      {/* ceiling between the bins */}
+      <polygon points={quad([520, 120], [1500, 120], NEAR, FAR)} fill="#f6efdc" stroke={LN} strokeWidth={4} />
+      <polygon points={quad([900, 120], [1120, 120], NEAR, FAR)} fill="#fbf6e8" />
+      {[0, 2, 4, 6].map((r) => { const [x0, y0] = P(980, 120, kOf(r)), [x1] = P(1040, 120, kOf(r)); return <rect key={r} x={x0} y={y0} width={x1 - x0} height={4 + 20 * kOf(r)} rx={4} fill="#e4d8bb" stroke={LN} strokeWidth={2 * kOf(r)} />; })}
+      {/* side walls with windows */}
       {[-1, 1].map((side) => {
-        const xo = side < 0 ? 0 : 1920, xi = side < 0 ? 720 : 1200;
+        const xo = side < 0 ? -60 : 2080;
         return (
-          <g key={side}>
-            <polygon points={poly([[xo, 120], [xi, 120], P(xi, 120, far), P(xo, 120, far)])} fill="#fbf8ef" stroke="#b3a88f" strokeWidth={3} />
-            <polygon points={poly([[xi, 120], [xi, 330], P(xi, 330, far), P(xi, 120, far)])} fill="#f1ebdc" stroke="#b3a88f" strokeWidth={3} />
-            {Array.from({ length: ROWS }).map((_, r) => { const [ax, ay] = P(xi, 330, kOf(r)), [, by] = P(xi, 120, kOf(r)); return <line key={r} x1={ax} y1={ay} x2={ax} y2={by} stroke="#b3a88f" strokeWidth={3 * kOf(r)} />; })}
-            {Array.from({ length: ROWS }).map((_, r) => { const [ax, ay] = P(xi, 300, kOf(r + 0.5)); return <rect key={`h${r}`} x={ax - 30 * kOf(r)} y={ay} width={60 * kOf(r)} height={8 * kOf(r)} rx={3} fill="#a79c84" />; })}
+          <g key={`wall${side}`}>
+            <polygon points={poly([P(xo, 330, NEAR), P(xo, 1180, NEAR), P(xo, 1180, FAR), P(xo, 330, FAR)])} fill="#e6dcc2" stroke={LN} strokeWidth={4} />
+            {Array.from({ length: ROWS + 1 }).map((_, r) => {
+              const k = kOf(r + 0.3), [cx, cy] = P(xo + side * -10, 560, k);
+              return <g key={r}><rect x={cx - 34 * k} y={cy - 60 * k} width={68 * k} height={110 * k} rx={30 * k} fill="#bcd6ec" stroke={LN} strokeWidth={Math.max(1, 4 * k)} /><rect x={cx - 26 * k} y={cy - 52 * k} width={52 * k} height={30 * k} rx={12 * k} fill="#e9e1cc" /></g>;
+            })}
           </g>
         );
       })}
-      {/* ceiling light strip */}
-      <polygon points={poly([[900, 0], [1020, 0], P(1020, 0, far), P(900, 0, far)])} fill="#fffbe9" opacity={0.9} />
-      {/* seats: far rows first */}
-      {Array.from({ length: ROWS }).map((_, i) => { const r = ROWS - 1 - i; return <g key={r}>{seatBlock(60, 780, r, `L${r}`)}{seatBlock(1140, 1860, r, `R${r}`)}</g>; })}
-      {/* fasten seatbelt sign + PA speaker */}
-      <g transform="translate(960,70)">
-        <rect x={-120} y={-34} width={240} height={68} rx={12} fill="#2d333c" />
-        <circle cx={-60} cy={0} r={22} fill={speak > 0 && f % 30 < 20 ? '#ffd27a' : '#6b6f78'} />
-        <path d="M-70,-8 Q-60,8 -50,-8" fill="none" stroke="#2d333c" strokeWidth={4} />
-        <circle cx={-60} cy={-10} r={5} fill="#2d333c" />
-        <text x={0} y={8} fontFamily="PlexMonoLocal, monospace" fontSize={22} fill="#ffd27a">SEATBELT</text>
+      {/* overhead bins + passenger service units */}
+      {[-1, 1].map((side) => {
+        const xo = side < 0 ? -60 : 2080, xi = side < 0 ? 520 : 1500;
+        return (
+          <g key={`bin${side}`}>
+            <polygon points={quad([xo, 40], [xi, 120], NEAR, FAR)} fill="#f6efdc" stroke={LN} strokeWidth={4} />
+            <polygon points={quad([xi, 120], [xi, 300], NEAR, FAR)} fill="#efe6cf" stroke={LN} strokeWidth={4} />
+            <polygon points={quad([xi, 300], [xo, 340], NEAR, FAR)} fill="#ddd0b2" stroke={LN} strokeWidth={4} />
+            {Array.from({ length: ROWS + 1 }).map((_, r) => {
+              const k0 = kOf(r), [ax, ay] = P(xi, 300, k0), [, by] = P(xi, 120, k0);
+              const [lx, ly] = P(xi, 180, kOf(r + 0.5));
+              const [px, py] = P(xi + side * 160, 322, kOf(r + 0.5));
+              return (
+                <g key={r}>
+                  <line x1={ax} y1={ay} x2={ax} y2={by} stroke={LN} strokeWidth={Math.max(1, 3 * k0)} />
+                  <rect x={lx - 28 * k0} y={ly} width={56 * k0} height={12 * k0} rx={5 * k0} fill="#b5a888" />
+                  {[0, 1, 2].map((v) => <circle key={v} cx={px + side * (v - 1) * 36 * k0} cy={py} r={Math.max(1.5, 10 * k0)} fill={v === 1 ? '#ffe39a' : '#cfc3a5'} stroke={LN} strokeWidth={Math.max(0.8, 2.5 * k0)} />)}
+                </g>
+              );
+            })}
+          </g>
+        );
+      })}
+      {/* back of the cabin: galley curtain + exit sign */}
+      {(() => { const [x0, y0] = P(520, 300, FAR), [x1, y1] = P(1500, 1180, FAR); return (
+        <g>
+          <rect x={x0} y={y0} width={x1 - x0} height={y1 - y0} fill="#e4d8bb" stroke={LN} strokeWidth={3} />
+          <rect x={VX - 34} y={y0 + 8} width={68} height={y1 - y0 - 8} fill="#9a3a2e" />
+          <rect x={VX - 30} y={y0 - 26} width={60} height={20} rx={3} fill="#1f8f4e" />
+          <text x={VX} y={y0 - 11} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={14} fill="#fff">EXIT</text>
+        </g>
+      ); })()}
+      {/* floor + aisle */}
+      <polygon points={quad([-60, 1180], [2080, 1180], NEAR, FAR)} fill="#b9ab8a" />
+      <polygon points={quad([860, 1180], [1160, 1180], NEAR, FAR)} fill="#c2563f" />
+      {/* seats, far rows first; heads above the seats */}
+      {Array.from({ length: ROWS }).map((_, i) => { const r = ROWS - 1 - i; return <g key={r}>{seat(-40, 820, r, 'L', true)}{seat(1200, 2060, r, 'R', true)}</g>; })}
+      {/* the seat right in front of us */}
+      {(() => { const k = 1.55, sw = 6; const [ax, ay] = P(200, 1180, k), [bx] = P(760, 1180, k), [, ty] = P(200, 600, k); return (
+        <g>
+          <path d={`M${ax},${ay} L${ax},${ty + 60} Q${ax},${ty} ${ax + 60},${ty} L${bx - 60},${ty} Q${bx},${ty} ${bx},${ty + 60} L${bx},${ay} Z`} fill={day.circle} stroke={LN} strokeWidth={sw} />
+          <path d={`M${ax + 40},${ty + 8} L${bx - 40},${ty + 8}`} stroke={day.gold} strokeWidth={10} strokeLinecap="round" />
+          <rect x={ax + 30} y={ty + 30} width={bx - ax - 60} height={90} rx={16} fill="#f6efdc" stroke={LN} strokeWidth={4} />
+          <rect x={ax + 70} y={ty + 170} width={bx - ax - 140} height={150} rx={12} fill="#1d2330" stroke={LN} strokeWidth={4} />
+          <text x={(ax + bx) / 2} y={ty + 255} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={26} fill="#7fd0ff">✈ WELCOME ABOARD</text>
+        </g>
+      ); })()}
+      <defs><radialGradient id="cabvig" cx="50%" cy="45%" r="75%"><stop offset="60%" stopColor="#000" stopOpacity="0" /><stop offset="100%" stopColor="#5a4320" stopOpacity="0.22" /></radialGradient></defs>
+      <rect width={1920} height={1080} fill="url(#cabvig)" />
+      {/* fasten seatbelt sign + PA chime */}
+      <g transform="translate(1010,170)">
+        <rect x={-90} y={-26} width={180} height={52} rx={10} fill="#2d333c" />
+        <circle cx={-52} cy={0} r={16} fill={speak > 0 && f % 30 < 20 ? '#ffd27a' : '#6b6f78'} />
+        <text x={14} y={8} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={18} fill="#ffd27a">SEATBELT</text>
       </g>
-      {[1, 2, 3].map((k) => <path key={k} d={`M${1090 + k * 16},50 Q${1102 + k * 16},70 ${1090 + k * 16},90`} fill="none" stroke={day.dot} strokeWidth={5} opacity={speak > 0 ? 0.4 + 0.6 * Math.abs(Math.sin(f / 4 + k)) : 0} />)}
-      <g opacity={speak} transform={`translate(560,${150 - 20 * (1 - speak)})`}>
+      {[1, 2, 3].map((k) => <path key={k} d={`M${1110 + k * 14},150 Q${1122 + k * 14},170 ${1110 + k * 14},190`} fill="none" stroke={day.dot} strokeWidth={5} opacity={speak > 0 ? 0.4 + 0.6 * Math.abs(Math.sin(f / 4 + k)) : 0} />)}
+      <g opacity={speak} transform={`translate(1060,${230 - 20 * (1 - speak)})`}>
         <rect width={800} height={160} rx={30} fill="#fffaf0" stroke={INK} strokeWidth={6} />
         <text x={400} y={70} textAnchor="middle" fontFamily={theme.fontSerif} fontStyle="italic" fontSize={44} fill={INK}>“Folks, we've just been told</text>
         <text x={400} y={122} textAnchor="middle" fontFamily={theme.fontSerif} fontStyle="italic" fontSize={44} fill={INK}>to stay on the ground.”</text>
       </g>
-      <text x={90} y={1035} fontFamily="PlexMonoLocal, monospace" fontSize={30} fill="#fffaf0" opacity={0.9}>AT THE GATE · BOARDING COMPLETE</text>
     </svg>
   );
 };
