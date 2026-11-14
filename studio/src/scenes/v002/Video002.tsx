@@ -59,7 +59,7 @@ const Clock: React.FC<{ h: number; m: number; size?: number; dark?: boolean; lab
 const Quote: React.FC<{ text: string; who: string; delay?: number; dark?: boolean; width?: number }> = ({ text, who, delay = 0, dark = false, width = 1300 }) => {
   const f = useCurrentFrame(); const s = ramp(f, delay, delay + 14);
   return (
-    <div style={{ width, opacity: s, transform: `translateY(${(1 - s) * 24}px)`, borderLeft: `8px solid ${day.dot}`, padding: '10px 0 10px 40px' }}>
+    <div style={{ width, opacity: s, transform: `translateY(${(1 - s) * 24}px)`, borderLeft: `8px solid ${day.dot}`, padding: dark ? '24px 36px 24px 40px' : '10px 0 10px 40px', background: dark ? 'rgba(8,14,26,0.88)' : undefined }}>
       <div style={{ fontFamily: theme.fontSerif, fontStyle: 'italic', fontSize: 66, lineHeight: 1.18, color: dark ? CREAM : day.text }}>“{text}”</div>
       <Label size={26} color={dark ? '#9fb3c9' : day.textMuted} style={{ marginTop: 22 }}>{who}</Label>
     </div>
@@ -89,11 +89,11 @@ const Board: React.FC<{ holdAt: number; dark?: boolean }> = ({ holdAt }) => {
   );
 };
 
-const Counter: React.FC<{ value: number; label: string; delay?: number; dark?: boolean; prefix?: string; suffix?: string; color?: string }> = ({ value, label, delay = 0, dark = false, prefix = '', suffix = '', color }) => {
+const Counter: React.FC<{ value: number; label: string; delay?: number; dark?: boolean; prefix?: string; suffix?: string; color?: string; decimals?: number }> = ({ value, label, delay = 0, dark = false, prefix = '', suffix = '', color, decimals = 0 }) => {
   const f = useCurrentFrame(); const p = ramp(f, delay, delay + 30);
   return (
     <div style={{ padding: '18px 28px', background: dark ? 'rgba(12,22,38,0.82)' : 'rgba(243,236,216,0.92)', border: `2px solid ${dark ? '#9fb3c9' : day.text}`, opacity: Math.min(1, p * 3) }}>
-      <div style={{ fontFamily: theme.fontSerif, fontSize: 84, lineHeight: 1, color: color ?? (dark ? CREAM : day.text) }}>{prefix}{Math.round(value * p).toLocaleString('en-US')}{suffix}</div>
+      <div style={{ fontFamily: theme.fontSerif, fontSize: 84, lineHeight: 1, color: color ?? (dark ? CREAM : day.text) }}>{prefix}{(value * p).toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}{suffix}</div>
       <Label size={22} color={dark ? '#9fb3c9' : day.textMuted} style={{ marginTop: 10 }}>{label}</Label>
     </div>
   );
@@ -117,7 +117,7 @@ const Radar: React.FC<{ dead: number; t: number }> = ({ dead, t }) => {
 const BackupLines: React.FC<{ cutA: number; cutB: number }> = ({ cutA, cutB }) => {
   const line = (y: number, cut: number, label: string) => (
     <g>
-      <text x={-560} y={y - 24} fontFamily="PlexMonoLocal, monospace" fontSize={26} letterSpacing={4} fill={day.textMuted}>{label}</text>
+      <text x={-470} y={y - 24} fontFamily="PlexMonoLocal, monospace" fontSize={26} letterSpacing={4} fill={day.textMuted}>{label}</text>
       <line x1={-480} y1={y} x2={-40} y2={y} stroke={cut > 0 ? '#9a3a2e' : '#c98a3a'} strokeWidth={10} />
       <line x1={40} y1={y} x2={480} y2={y} stroke={cut > 0 ? '#9a3a2e' : '#c98a3a'} strokeWidth={10} />
       <line x1={-40} y1={y} x2={40} y2={y} stroke="#c98a3a" strokeWidth={10} opacity={1 - cut} />
@@ -152,28 +152,28 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
     thousands: A('Thousands of planes are still'), fr24: A('According to'), notone: A('Not one of them was told'),
     q1: A('So how does one broken link'), q2: A('Why were the planes in the air'), q3: A('And why did the last person'),
     relay: A('To understand Friday'), tower: A('When you take off'), approach: A("Within minutes, you're passed"),
-    centres: A("Then you're handed to one of"), sectors: A('Every centre is cut into'), faa: A('The Federal Aviation Administration handles'),
+    centres: A("Then you're handed to one of"), sectors: A('is cut into smaller'), faa: A('The Federal Aviation Administration handles'),
     busiest: A('At the busiest moments'), handoff: A('And every single handoff'), lines: A('Those voices and that data'),
     quiet: A('Which raises the obvious question'), newark: A('We already have a pretty good idea'), cause: A('The cause'),
     dallas: A('Five months later'), outdated: A('The FAA called it'), backup: A('You might be thinking'),
     dallasBk: A('But in Dallas'), philly: A('And in September this year'), both: A('Two paths'),
-    dark: A('And what if a whole centre'), chicago: A('In September', c.sec('And what if a whole centre')), stretch: A('But the neighbouring centres'),
+    dark: A('And what if a whole'), chicago: A('In September', c.sec('And what if a whole')), stretch: A('But the neighboring'),
     different: A('Friday was different'), safest: A("So if a controller can't talk"), feed: A("It isn't to clear the sky"),
     gs: A("That's what a ground stop is"), still: A('The planes already flying are still'), gatePlane: A('A plane waiting at a gate'),
     landed: A("That's why on Friday, the flights"), annoying: A('Annoying'), pilot: A("And if you're a pilot up there"),
     squawk: A('You set your transponder'), script: A('Then you follow a script'), route: A('Keep flying the route'),
     alt: A('Hold the highest'), arrive: A('And time your arrival'), everyone: A('Even if everyone stops talking'),
-    rare: A('A nationwide stop like this'), three: A('But stopping every departure'), sept11: A('The first was the eleventh'),
+    rare: A('A nationwide stop like this'), three: A('But stopping every departure'), sept11: A('The first was the'),
     landall: A('the man running it ordered'), sliney: A('His name was'), firstday: A('It was his first day'),
     commission: A('later wrote that'), canada: A('Flights heading for the United States'), gander: A('to one small town'),
     notam: A('The second came in January'), uk: A("And it isn't only an American"), third: A('And the third was last Friday'),
     small: A('It started small'), stop: A('due to what it called'), cited: A('It cited communication problems'),
     evening: A('By early evening'), lifted: A('The stop was lifted'), cancels: A('had counted more than'),
     knock: A("And it didn't end there"), denver: A('A plane that should have finished'), morning: A('So the next morning'),
-    oneStop: A('One four-hour stop'), broke: A('So what actually broke'), asof: A('As of the fourteenth'),
-    secretary: A('The Transportation Secretary said'), cbs: A('citing unnamed sources'), cyber: A("And officials said they'd seen"),
+    oneStop: A('One four hour stop'), broke: A('So what actually broke'), asof: A('As of the'),
+    secretary: A('The Transportation Secretary said'), cbs: A('citing unnamed sources'), cyber: A('no sign of a cyber'),
     inv: A('The investigation is still going on'), old: A('What we do know is how old'), gao: A('the Government Accountability Office'),
-    unsust: A('were rated unsustainable'), potential: A('potentially unsustainable'), plan: A('A plan is under way'),
+    unsust: A('were rated unsustainable'), potential: A('potentially unsustainable'), plan: A('A plan is underway'),
     congress: A('Congress has approved'), until: A("Until it's finished"), back: A('So, back to that gate'),
     working: A('But it was also the system working'), home: A('Every plane already in the sky'),
     wire: A('Somewhere beneath the busiest sky'), country: A('And on Friday, a whole country'),
@@ -182,7 +182,7 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
   const TOTAL = END + s(9);
 
   // traffic clock: one running timeline for the map scenes (seconds)
-  const trafficT = 60 + t * 1.6;
+  const trafficT = 200 + t * 0.5;
 
   const segs: Seg[] = [
     // 1 — cold open: date + clock
@@ -202,15 +202,13 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
     ) },
     // 3 — whole country: every airport turns red
     { from: F.exact, to: F.q1, render: (l) => {
-      const stopT = 60 + (F.exact / fps) * 1.6;
+      const stopT = 200 + (F.exact / fps) * 0.5;
       return (
         <AbsoluteFill>
           <USMap night={1} traffic={{ n: 150, t: trafficT, stopAt: stopT, size: 22 }} airportColor={(code) => (l > 10 + (code.charCodeAt(0) % 20) ? '#ff3b2f' : '#f2c14e')} />
-          <div style={{ position: 'absolute', left: 80, top: 60 }}>
-            <Stamp text="All departures stopped" color="#ff5a4a" delay={s(0.8)} size={40} rotate={-4} />
-          </div>
+          <Stamp text="All departures stopped" color="#ff5a4a" delay={s(0.8)} size={40} rotate={-4} style={{ background: 'rgba(8,14,26,0.85)', whiteSpace: 'nowrap', left: 90, top: 60 }} />
           <On at={F.fr24}><div style={{ position: 'absolute', right: 80, bottom: 70 }}><Counter value={4000} prefix="" suffix="+" label="flights to US airports in the air · Flightradar24" dark delay={0} /></div></On>
-          <On at={F.notone}><div style={{ position: 'absolute', right: 120, top: 70 }}><Stamp text="None told to land" color={CREAM} delay={0} size={34} rotate={3} /></div></On>
+          <On at={F.notone}><Stamp text="None told to land" color={CREAM} delay={0} size={34} rotate={3} style={{ background: 'rgba(8,14,26,0.85)', whiteSpace: 'nowrap', right: 120, top: 70 }} /></On>
         </AbsoluteFill>
       );
     } },
@@ -231,7 +229,7 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
       </AbsoluteFill>
     ) },
     // 5 — title: relay race
-    { from: F.relay, to: F.tower, render: () => <Paper><Center><Title eyebrow="HOW AMERICA'S SKY WORKS" pre="The invisible" accent="relay race" size={120} /></Center></Paper> },
+    { from: F.relay, to: F.tower, render: () => <Paper><Center><Title eyebrow="HOW AMERICA'S SKY WORKS" pre="The invisible " accent="relay race" size={120} /></Center></Paper> },
     // 6 — tower → approach → centre, zoomed on Atlanta
     { from: F.tower, to: F.sectors, render: (l) => {
       const atl = airportAt('ATL');
@@ -284,7 +282,7 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
       <Paper>
         <div style={{ position: 'absolute', left: 220, top: 240 }}><Radar dead={ramp(l, s(1), s(1.6))} t={l / fps} /></div>
         <InfoCard head="April 2025" lines={['Newark approach control', 'Radar + radio lost', '≈ 90 seconds · DOT Inspector General']} style={{ right: 200, top: 300 }} width={680} />
-        <On at={F.cause}><Stamp text="A burnt copper wire" delay={s(0.9)} size={38} style={{ right: 230, top: 650 }} /></On>
+        <On at={F.cause}><Stamp text="A burnt copper wire" delay={s(0.9)} size={38} style={{ whiteSpace: 'nowrap', right: 230, top: 650 }} /></On>
       </Paper>
     ) },
     // 11 — Dallas 2025
@@ -299,7 +297,7 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
       <Paper>
         <Center><BackupLines cutA={ramp(frame, F.dallasBk, F.dallasBk + 10)} cutB={ramp(frame, F.philly + s(2.5), F.philly + s(3))} /></Center>
         <On at={F.philly}><InfoCard head="Sept 2026" lines={['Philadelphia & Newark area', 'Circuit failed · backup cable cut', 'at a New Jersey construction site']} style={{ right: 110, top: 70 }} width={640} /></On>
-        <On at={F.both}><Stamp text="Both gone" delay={0} size={52} style={{ left: 820, top: 820 }} /></On>
+        <On at={F.both}><Stamp text="Both gone" delay={0} size={52} style={{ whiteSpace: 'nowrap', left: 820, top: 820 }} /></On>
       </Paper>
     ) },
     // 13 — Chicago 2014: one centre dark, neighbours cover
@@ -314,14 +312,14 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
         <AbsoluteFill>
           <USMap centers={1} centerLabels={0.8} centerTint={tint} />
           {frame >= F.chicago && frame < F.different ? <InfoCard head="Sept 2014" lines={['Chicago Center · fire cut its cables', 'Thousands of flights cancelled', 'Neighbours covered · back in ≈ 2 weeks']} style={{ left: 70, bottom: 70 }} width={700} /> : null}
-          <On at={F.different}><div style={{ position: 'absolute', left: 80, bottom: 90 }}><Stamp text="Friday: more than one centre" delay={0} size={40} rotate={-3} /></div></On>
+          <On at={F.different}><Stamp text="Friday: more than one centre" delay={0} size={40} rotate={-3} style={{ whiteSpace: 'nowrap', left: 80, bottom: 90 }} /></On>
         </AbsoluteFill>
       );
     } },
     // 14 — "stop feeding it"
     { from: F.safest, to: F.gs, render: () => (
       <Paper><Center>
-        {frame < F.feed ? <Title pre="What's the" accent="safest" post="move?" size={110} /> : <Title pre="Don't clear the sky." accent="Stop feeding it." size={96} />}
+        {frame < F.feed ? <Title pre="What's the " accent="safest" post=" move?" size={110} /> : <Title pre="Don't clear the sky. " accent="Stop feeding it." size={96} />}
       </Center></Paper>
     ) },
     // 15 — ground stop definition + gate vs circling
@@ -349,11 +347,11 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
           ) : null}
           {frame >= F.landed ? (
             <AbsoluteFill>
-              <USMap traffic={{ n: 150, t: trafficT, stopAt: 60 + (F.landed / fps) * 1.6 - 2, size: 22 }} airportColor={() => '#c23b2b'} />
+              <USMap traffic={{ n: 150, t: trafficT, stopAt: 200 + (F.landed / fps) * 0.5 - 2, size: 22 }} airportColor={() => '#c23b2b'} />
               <div style={{ position: 'absolute', left: 70, bottom: 70 }}>
-                <Counter value={planesAt({ n: 150, t: trafficT, stopAt: 60 + (F.landed / fps) * 1.6 - 2 }).length} label="still airborne · all landing" delay={0} />
+                <Counter value={planesAt({ n: 150, t: trafficT, stopAt: 200 + (F.landed / fps) * 0.5 - 2 }).length} label="still airborne · all landing" delay={0} />
               </div>
-              <On at={F.annoying}><div style={{ position: 'absolute', right: 120, top: 80 }}><Stamp text="Working as designed" color={day.circle} delay={0} size={36} rotate={3} /></div></On>
+              <On at={F.annoying}><Stamp text="Working as designed" color={day.circle} delay={0} size={36} rotate={3} style={{ whiteSpace: 'nowrap', right: 120, top: 80 }} /></On>
             </AbsoluteFill>
           ) : null}
         </Paper>
@@ -374,7 +372,7 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
           <AbsoluteFill style={{ padding: '140px 200px' }}>
             <Label size={30} color={day.textMuted} style={{ marginBottom: 50 }}>Lost radio · written into federal rules (14 CFR 91.185)</Label>
             <Checklist items={[{ text: 'Fly the route you were cleared for', at: F.route - F.pilot }, { text: 'Highest of: assigned, minimum safe', at: F.alt - F.pilot }, { text: 'Arrive when you were expected', at: F.arrive - F.pilot }]} />
-            <On at={F.everyone}><div style={{ position: 'absolute', right: 200, bottom: 150 }}><Stamp text="Everyone knows the plan" color={day.circle} delay={0} size={36} /></div></On>
+            <On at={F.everyone}><Stamp text="Everyone knows the plan" color={day.circle} delay={0} size={36} style={{ whiteSpace: 'nowrap', right: 200, bottom: 150 }} /></On>
           </AbsoluteFill>
         )}
       </AbsoluteFill>
@@ -382,7 +380,7 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
     // 17 — rare: three times this century
     { from: F.rare, to: F.sept11, render: () => (
       <Paper><Center>
-        <Title pre="Every departure stopped:" accent="three times" post="this century" size={84} />
+        <Title pre="Every departure stopped: " accent="three times" post=" this century" size={84} />
         <div style={{ display: 'flex', gap: 60, marginTop: 70 }}>
           {['2001', '2023', '2026'].map((y, i) => <div key={y} style={{ fontFamily: theme.fontSerif, fontSize: 96, color: i === 2 ? day.danger : day.text, opacity: ramp(frame, F.three + s(0.6 + i * 0.5), F.three + s(1 + i * 0.5)) }}>{y}</div>)}
         </div>
@@ -399,7 +397,7 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
           <div style={{ fontFamily: theme.fontSerif, fontSize: 80, color: day.text }}>Ben Sliney</div>
           <Label size={24} color={day.textMuted}>National Operations Manager</Label>
         </div> : null}
-        <On at={F.firstday}><Stamp text="His first day" delay={0} size={44} style={{ right: 220, top: 700 }} /></On>
+        <On at={F.firstday}><Stamp text="His first day" delay={0} size={44} style={{ whiteSpace: 'nowrap', right: 220, top: 700 }} /></On>
         <On at={F.commission}><div style={{ position: 'absolute', left: 160, bottom: 110 }}><Counter value={4500} label="aircraft landed without incident · 9/11 Commission" /></div></On>
       </Paper>
     ) },
@@ -408,7 +406,8 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
       const g = byCode('YQX') as any;
       const srcs: [number, number][] = [[-0.45, 51.47], [2.55, 49.0], [8.57, 50.03], [-6.27, 53.42], [4.76, 52.31]];
       return (
-        <Globe width={1920} height={1080} camera={{ lon: -35, lat: 50, scale: 900 }} day={1} dots={g ? [{ airport: g, appear: 1 }] : []}>
+        <AbsoluteFill>
+        <Globe width={1920} height={1080} camera={{ lon: -28, lat: 47, scale: 620 }} day={1} dots={g ? [{ airport: g, appear: 1 }] : []}>
           {(p) => (
             <g>
               {srcs.map((sxy, i) => <GeoLine key={i} projection={p} points={[sxy, [-54.57, 48.94]]} progress={ramp(frame, F.canada + i * 6, F.canada + s(2) + i * 6)} color={day.gold} width={4} />)}
@@ -416,6 +415,11 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
             </g>
           )}
         </Globe>
+        <div style={{ position: 'absolute', right: 120, top: 140, display: 'flex', flexDirection: 'column', gap: 24 }}>
+          <Counter value={200} suffix="+" label="US-bound flights sent to Canada" delay={s(0.5)} />
+          <On at={F.gander}><Counter value={38} label="landed at Gander, Newfoundland" /></On>
+        </div>
+        </AbsoluteFill>
       );
     } },
     // 20 — 2023 NOTAM + UK
@@ -431,7 +435,7 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
     ) },
     // 22 — Friday timeline on the night map
     { from: F.small, to: F.knock, render: () => {
-      const stopT = 60 + (F.stop / fps) * 1.6;
+      const stopT = 200 + (F.stop / fps) * 0.5;
       const alerts = ['ZNY', 'ZBW', 'ZDC'];
       const tint: Record<string, string> = {};
       alerts.forEach((a, i) => { if (frame >= F.small + s(1.5 + i * 1.2)) tint[a] = 'rgba(255,59,47,0.35)'; });
@@ -463,14 +467,14 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
               </g>
             ); }}
           </USMap>
-          <On at={F.oneStop}><div style={{ position: 'absolute', left: 80, top: 70 }}><Stamp text="Ripples all weekend" delay={0} size={38} /></div></On>
+          <On at={F.oneStop}><Stamp text="Ripples all weekend" delay={0} size={38} style={{ whiteSpace: 'nowrap', left: 80, top: 70 }} /></On>
         </AbsoluteFill>
       );
     } },
     // 24 — what broke: under investigation
     { from: F.broke, to: F.old, render: () => (
       <Paper>
-        <div style={{ position: 'absolute', right: 140, top: 70 }}><Stamp text="Under investigation · as of 14 Nov" delay={s(0.6)} size={30} rotate={-3} /></div>
+        <Stamp text="Under investigation · as of 14 Nov" delay={s(0.6)} size={30} rotate={-3} style={{ whiteSpace: 'nowrap', right: 140, top: 70 }} />
         <div style={{ position: 'absolute', left: 140, top: 230, display: 'flex', flexDirection: 'column', gap: 30 }}>
           {[['The Transportation Secretary', 'Old switches and routers overloaded with data', F.secretary], ['CBS News · unnamed sources', 'A network update → reboot → crash', F.cbs], ['Officials', 'No sign of a cyberattack', F.cyber]].map(([who, what, at], i) => {
             const o = ramp(frame, at as number, (at as number) + 12);
@@ -512,16 +516,16 @@ export const Video002: React.FC<{ audio?: string }> = ({ audio = 'audio/002-fina
           <Counter value={600} suffix="+" label="new radars" delay={s(2.3)} />
         </div>
         <Label size={34} color={day.text} style={{ position: 'absolute', left: 140, top: 470, opacity: ramp(frame, F.plan + s(3), F.plan + s(3.4)) }}>Target: end of 2028</Label>
-        <On at={F.congress}><div style={{ position: 'absolute', left: 140, bottom: 150 }}><Counter value={12.5} prefix="$" suffix=" bn" label="approved by Congress so far" color={day.circle} /></div></On>
-        <On at={F.until}><div style={{ position: 'absolute', right: 140, bottom: 150 }}><Stamp text="Still on the old wiring" delay={s(0.8)} size={34} /></div></On>
+        <On at={F.congress}><div style={{ position: 'absolute', left: 140, bottom: 150 }}><Counter value={12.5} decimals={1} prefix="$" suffix=" bn" label="approved by Congress so far" color={day.circle} /></div></On>
+        <On at={F.until}><Stamp text="Still on the old wiring" delay={s(0.8)} size={34} style={{ whiteSpace: 'nowrap', right: 140, bottom: 150 }} /></On>
       </Paper>
     ) },
     // 27 — back to the gate, every plane home
     { from: F.back, to: F.wire, render: () => (
       frame < F.working ? <AbsoluteFill style={{ backgroundColor: '#07090d' }}><Center><Board holdAt={-100} /></Center></AbsoluteFill> : (
         <AbsoluteFill>
-          <USMap night={1} traffic={{ n: 150, t: trafficT, stopAt: 60 + (F.working / fps) * 1.6 - 3, size: 22 }} airportColor={() => '#f2c14e'} />
-          <On at={F.home}><div style={{ position: 'absolute', left: 80, top: 70 }}><Stamp text="Every plane came home" color={CREAM} delay={0} size={36} rotate={-3} /></div></On>
+          <USMap night={1} traffic={{ n: Math.round(150 * (1 - ramp(frame, F.working, F.home + s(2.5)))), t: trafficT, stopAt: 200 + (F.working / fps) * 0.5 - 3, size: 22 }} airportColor={() => '#f2c14e'} />
+          <On at={F.home}><Stamp text="Every plane came home" color={CREAM} delay={0} size={36} rotate={-3} style={{ background: 'rgba(8,14,26,0.85)', whiteSpace: 'nowrap', left: 80, top: 70 }} /></On>
         </AbsoluteFill>
       )
     ) },

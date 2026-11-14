@@ -1,0 +1,398 @@
+[
+{
+"t": 5.0,
+"kind": "whoosh"
+},
+{
+"t": 11.08,
+"kind": "tick",
+"hi": true
+},
+{
+"t": 11.21,
+"kind": "tick",
+"hi": false
+},
+{
+"t": 11.35,
+"kind": "tick",
+"hi": true
+},
+{
+"t": 11.48,
+"kind": "tick",
+"hi": false
+},
+{
+"t": 11.61,
+"kind": "tick",
+"hi": true
+},
+{
+"t": 11.75,
+"kind": "tick",
+"hi": false
+},
+{
+"t": 11.88,
+"kind": "tick",
+"hi": true
+},
+{
+"t": 12.01,
+"kind": "tick",
+"hi": false
+},
+{
+"t": 13.42,
+"kind": "whoosh"
+},
+{
+"t": 14.22,
+"kind": "thump"
+},
+{
+"t": 21.72,
+"kind": "roll"
+},
+{
+"t": 27.64,
+"kind": "thump"
+},
+{
+"t": 30.54,
+"kind": "whoosh"
+},
+{
+"t": 30.54,
+"kind": "ding"
+},
+{
+"t": 34.8,
+"kind": "ding"
+},
+{
+"t": 37.88,
+"kind": "ding"
+},
+{
+"t": 43.36,
+"kind": "whoosh"
+},
+{
+"t": 49.28,
+"kind": "whoosh"
+},
+{
+"t": 52.42,
+"kind": "pop"
+},
+{
+"t": 57.2,
+"kind": "swish"
+},
+{
+"t": 64.3,
+"kind": "whoosh"
+},
+{
+"t": 70.58,
+"kind": "whoosh"
+},
+{
+"t": 70.58,
+"kind": "roll"
+},
+{
+"t": 75.26,
+"kind": "roll"
+},
+{
+"t": 79.54,
+"kind": "whoosh"
+},
+{
+"t": 87.06,
+"kind": "scratch"
+},
+{
+"t": 97.92,
+"kind": "whoosh"
+},
+{
+"t": 98.92,
+"kind": "pop"
+},
+{
+"t": 112.1,
+"kind": "thump"
+},
+{
+"t": 114.36,
+"kind": "whoosh"
+},
+{
+"t": 114.36,
+"kind": "pop"
+},
+{
+"t": 122.06,
+"kind": "pop"
+},
+{
+"t": 127.06,
+"kind": "whoosh"
+},
+{
+"t": 134.5,
+"kind": "scratch"
+},
+{
+"t": 138.2,
+"kind": "pop"
+},
+{
+"t": 140.9,
+"kind": "scratch"
+},
+{
+"t": 149.06,
+"kind": "thump"
+},
+{
+"t": 152.82,
+"kind": "whoosh"
+},
+{
+"t": 157.02,
+"kind": "pop"
+},
+{
+"t": 177.84,
+"kind": "thump"
+},
+{
+"t": 183.06,
+"kind": "whoosh"
+},
+{
+"t": 190.76,
+"kind": "swish"
+},
+{
+"t": 195.3,
+"kind": "whoosh"
+},
+{
+"t": 212.98,
+"kind": "pop"
+},
+{
+"t": 226.46,
+"kind": "thump"
+},
+{
+"t": 230.74,
+"kind": "whoosh"
+},
+{
+"t": 236.84,
+"kind": "bell"
+},
+{
+"t": 247.94,
+"kind": "tick"
+},
+{
+"t": 249.7,
+"kind": "tick"
+},
+{
+"t": 254.78,
+"kind": "tick"
+},
+{
+"t": 258.04,
+"kind": "thump"
+},
+{
+"t": 263.4,
+"kind": "whoosh"
+},
+{
+"t": 270.36,
+"kind": "pop"
+},
+{
+"t": 270.86,
+"kind": "pop"
+},
+{
+"t": 271.36,
+"kind": "pop"
+},
+{
+"t": 275.02,
+"kind": "whoosh"
+},
+{
+"t": 286.1,
+"kind": "tick"
+},
+{
+"t": 291.54,
+"kind": "pop"
+},
+{
+"t": 293.32,
+"kind": "thump"
+},
+{
+"t": 296.52,
+"kind": "roll"
+},
+{
+"t": 302.08,
+"kind": "whoosh"
+},
+{
+"t": 302.58,
+"kind": "roll"
+},
+{
+"t": 308.3,
+"kind": "roll"
+},
+{
+"t": 311.72,
+"kind": "whoosh"
+},
+{
+"t": 311.72,
+"kind": "pop"
+},
+{
+"t": 325.28,
+"kind": "pop"
+},
+{
+"t": 340.84,
+"kind": "whoosh"
+},
+{
+"t": 340.84,
+"kind": "bell"
+},
+{
+"t": 343.1,
+"kind": "whoosh"
+},
+{
+"t": 358.24,
+"kind": "thump"
+},
+{
+"t": 367.32,
+"kind": "tick"
+},
+{
+"t": 371.62,
+"kind": "tick"
+},
+{
+"t": 378.34,
+"kind": "roll"
+},
+{
+"t": 381.52,
+"kind": "whoosh"
+},
+{
+"t": 389.52,
+"kind": "pop"
+},
+{
+"t": 395.38,
+"kind": "thump"
+},
+{
+"t": 400.18,
+"kind": "whoosh"
+},
+{
+"t": 400.78,
+"kind": "thump"
+},
+{
+"t": 406.02,
+"kind": "pop"
+},
+{
+"t": 411.9,
+"kind": "pop"
+},
+{
+"t": 420.12,
+"kind": "pop"
+},
+{
+"t": 424.68,
+"kind": "whoosh"
+},
+{
+"t": 429.2,
+"kind": "roll"
+},
+{
+"t": 434.76,
+"kind": "pop"
+},
+{
+"t": 437.74,
+"kind": "pop"
+},
+{
+"t": 441.88,
+"kind": "whoosh"
+},
+{
+"t": 442.38,
+"kind": "roll"
+},
+{
+"t": 443.28,
+"kind": "roll"
+},
+{
+"t": 444.18,
+"kind": "roll"
+},
+{
+"t": 452.58,
+"kind": "roll"
+},
+{
+"t": 456.46,
+"kind": "thump"
+},
+{
+"t": 460.36,
+"kind": "whoosh"
+},
+{
+"t": 469.2,
+"kind": "swish"
+},
+{
+"t": 471.56,
+"kind": "thump"
+},
+{
+"t": 476.3,
+"kind": "whoosh"
+},
+{
+"t": 482.06,
+"kind": "bell"
+}
+]
