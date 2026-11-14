@@ -7,6 +7,9 @@ import { Video001 } from './scenes/v001/Video001';
 import { makeCues } from './cues';
 import { AvatarA, AvatarB, Banner, BannerGuide, Watermark, WatermarkBell } from './scenes/channel/Branding';
 import { OncaTest, ONCA_FRAMES } from './scenes/styletest/OncaTest';
+import { MapTest } from './scenes/v002/MapTest';
+import { Video002 } from './scenes/v002/Video002';
+import words002 from './data/v002/words.json';
 import { Captions } from './components/Captions';
 import { ThumbA, ThumbB, ThumbC, ThumbD, ThumbE, ThumbF } from './scenes/v001/Thumbnails';
 import words from './data/v001/words.json';
@@ -53,6 +56,9 @@ export const Root: React.FC = () => (
     <Composition id="Watermark" component={Watermark} durationInFrames={1} fps={FPS} width={600} height={600} />
     <Composition id="WatermarkBell" component={WatermarkBell} durationInFrames={1} fps={FPS} width={600} height={600} />
     <Composition id="OncaTest" component={OncaTest} durationInFrames={ONCA_FRAMES} fps={FPS} width={1920} height={1080} />
+    <Composition id="V002" component={Video002} defaultProps={{ audio: 'audio/002-narration.wav' }} durationInFrames={Math.round(((words002 as any).at(-1).end + 10.5) * FPS)} fps={FPS} width={1920} height={1080} />
+    <Composition id="MapTest" component={MapTest} durationInFrames={30} fps={FPS} width={1920} height={1080} />
+    <Composition id="MapTestNight" component={MapTest} defaultProps={{ night: 1 }} durationInFrames={30} fps={FPS} width={1920} height={1080} />
     <Composition id="V001-Captions" component={V001Captions} durationInFrames={Math.round(541 * FPS)} fps={FPS} width={1920} height={1080} />
   </>
 );
