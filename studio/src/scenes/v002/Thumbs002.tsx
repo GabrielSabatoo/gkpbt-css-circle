@@ -2,6 +2,7 @@ import React from 'react';
 import { AbsoluteFill } from 'remotion';
 import { USMap, US_AIRPORTS, CENTERS } from '../../components/USMap';
 import { theme } from '../../theme';
+import { PlaneIcon } from '../../components/Overlays';
 
 /** Thumbnails for video 002 (rendered at 1920×1080, exported at 1280×720). */
 
@@ -70,6 +71,97 @@ export const Thumb002H: React.FC = () => {
         <div style={big(150, '#ff3b2f')}>PLANE</div>
         <div style={big(150, '#f6efe0')}>IN AMERICA</div>
       </div>
+    </AbsoluteFill>
+  );
+};
+
+/* ---------- more dramatic versions ---------- */
+const rr = (k: number) => { const x = Math.sin(k * 91.7 + 13.3) * 43758.5453; return x - Math.floor(x); };
+const crack = (x0: number, y0: number, ang: number, len: number, seed: number) => {
+  const pts: [number, number][] = [[x0, y0]]; let x = x0, y = y0, a = ang;
+  for (let i = 0; i < 9; i++) { a += (rr(seed + i) - 0.5) * 0.9; const step = len / 9; x += Math.cos(a) * step; y += Math.sin(a) * step; pts.push([x, y]); }
+  return pts.map((p) => p.join(',')).join(' ');
+};
+const glitch = (size: number, color: string): React.CSSProperties => ({
+  fontFamily: theme.fontBlock ?? theme.fontSerif, fontWeight: 900, fontSize: size, lineHeight: 0.9, color, letterSpacing: -1,
+  textShadow: `6px 0 0 rgba(0,229,255,0.55), -6px 0 0 rgba(255,0,60,0.75), 0 10px 40px rgba(0,0,0,0.9)`,
+});
+const Hazard: React.FC<{ text: string; top: number }> = ({ text, top }) => (
+  <div style={{ position: 'absolute', left: -40, right: -40, top, height: 92, transform: 'rotate(-3deg)', background: 'repeating-linear-gradient(-45deg, #ffcc00 0 40px, #111 40px 80px)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 40px rgba(0,0,0,0.7)' }}>
+    <span style={{ background: '#111', color: '#ffcc00', fontFamily: theme.fontMono, fontWeight: 700, fontSize: 52, letterSpacing: 10, padding: '4px 30px' }}>{text}</span>
+  </div>
+);
+
+/** I: red-alert night map, the country cracking from one broken link, a giant dark jet overhead. */
+export const Thumb002I: React.FC = () => (
+  <AbsoluteFill style={{ backgroundColor: '#050203' }}>
+    <USMap night={1} airports={0}>
+      {(p) => {
+        const s = p(CENTERS.find((c) => c.id === 'ZOB')!.at)!;
+        return (
+          <g>
+            {US_AIRPORTS.map((ap) => { const xy = p(ap.at); if (!xy) return null; return (
+              <g key={ap.code}><circle cx={xy[0]} cy={xy[1]} r={34} fill="#ff1a0f" opacity={0.28} /><circle cx={xy[0]} cy={xy[1]} r={10} fill="#ff2a1f" stroke="#ffd0c8" strokeWidth={3} /></g>
+            ); })}
+            {Array.from({ length: 11 }).map((_, i) => (
+              <polyline key={i} points={crack(s[0], s[1], (i / 11) * Math.PI * 2, 260 + rr(i) * 420, i * 17)} fill="none" stroke="#ff3b1f" strokeWidth={6 - (i % 3)} strokeLinejoin="round" opacity={0.9} style={{ filter: 'drop-shadow(0 0 10px #ff2a00)' }} />
+            ))}
+            <circle cx={s[0]} cy={s[1]} r={130} fill="#ff4a1a" opacity={0.25} />
+            <circle cx={s[0]} cy={s[1]} r={46} fill="#ffb27a" opacity={0.7} />
+            <circle cx={s[0]} cy={s[1]} r={16} fill="#fff1e0" />
+          </g>
+        );
+      }}
+    </USMap>
+    {/* red alarm wash + vignette */}
+    <AbsoluteFill style={{ background: 'radial-gradient(ellipse at 60% 45%, rgba(120,0,0,0.15) 0%, rgba(60,0,0,0.55) 55%, rgba(0,0,0,0.92) 100%)', mixBlendMode: 'multiply' }} />
+    <AbsoluteFill style={{ background: 'rgba(255,20,10,0.10)' }} />
+    {/* giant jet overhead, seen from below */}
+    <svg width={1920} height={1080} style={{ position: 'absolute', inset: 0 }}>
+      <g style={{ filter: 'drop-shadow(0 0 40px rgba(255,40,20,0.6))' }}>
+        <PlaneIcon x={1560} y={330} size={640} heading={-55} color="#030303" outline="#5a1410" />
+      </g>
+      <circle cx={1452} cy={480} r={0} fill="#ff2a1f" style={{ filter: 'drop-shadow(0 0 18px #ff2a1f)' }} />
+    </svg>
+    <div style={{ position: 'absolute', left: 60, top: 70 }}>
+      <div style={glitch(200, '#ffffff')}>AMERICA</div>
+      <div style={glitch(200, '#ff2a1f')}>GROUNDED</div>
+    </div>
+    <Hazard text="⚠ EVERY FLIGHT STOPPED" top={880} />
+  </AbsoluteFill>
+);
+
+/** J: radar scope, every target lost. */
+export const Thumb002J: React.FC = () => {
+  const blips = Array.from({ length: 34 }).map((_, i) => [rr(i) * 2 - 1, rr(i + 50) * 2 - 1]).filter(([x, y]) => x * x + y * y < 0.85);
+  return (
+    <AbsoluteFill style={{ backgroundColor: '#020504' }}>
+      <svg width={1920} height={1080} style={{ position: 'absolute', inset: 0 }}>
+        <defs>
+          <radialGradient id="scope"><stop offset="0%" stopColor="#0d2a1c" /><stop offset="100%" stopColor="#020806" /></radialGradient>
+          <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#ff2a1f" stopOpacity="0" /><stop offset="100%" stopColor="#ff2a1f" stopOpacity="0.55" /></linearGradient>
+        </defs>
+        <g transform="translate(1340,540)">
+          <circle r={520} fill="url(#scope)" stroke="#1f5a3e" strokeWidth={6} />
+          {[130, 260, 390].map((r) => <circle key={r} r={r} fill="none" stroke="#174a33" strokeWidth={3} />)}
+          <line x1={-520} y1={0} x2={520} y2={0} stroke="#174a33" strokeWidth={3} /><line x1={0} y1={-520} x2={0} y2={520} stroke="#174a33" strokeWidth={3} />
+          <path d="M0,0 L520,0 A520,520 0 0,0 368,-368 Z" fill="url(#sweep)" />
+          {blips.map(([x, y], i) => (
+            <g key={i} transform={`translate(${x * 520},${y * 520})`}>
+              <circle r={22} fill="#ff1a0f" opacity={0.3} /><circle r={8} fill="#ff3b2f" />
+              <path d="M-14,-14 L14,14 M14,-14 L-14,14" stroke="#ffd0c8" strokeWidth={3} opacity={0.8} />
+            </g>
+          ))}
+          <text y={20} textAnchor="middle" fontFamily="PlexMonoLocal, monospace" fontSize={64} fontWeight={700} fill="#ff2a1f" letterSpacing={10} style={{ filter: 'drop-shadow(0 0 16px #ff2a1f)' }}>SIGNAL LOST</text>
+        </g>
+      </svg>
+      <AbsoluteFill style={{ background: 'radial-gradient(ellipse at 70% 50%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%)' }} />
+      <div style={{ position: 'absolute', left: 60, top: 120 }}>
+        <div style={glitch(150, '#ffffff')}>THE SKY</div>
+        <div style={glitch(150, '#ffffff')}>WENT</div>
+        <div style={glitch(190, '#ff2a1f')}>DARK</div>
+      </div>
+      <Hazard text="⚠ ALL US FLIGHTS STOPPED" top={890} />
     </AbsoluteFill>
   );
 };
