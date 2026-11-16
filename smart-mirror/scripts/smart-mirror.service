@@ -1,0 +1,18 @@
+# Starts the mirror server on boot.
+# Install:  sudo cp scripts/smart-mirror.service /etc/systemd/system/
+#           sudo systemctl enable --now smart-mirror
+# Adjust User and paths if your username isn't "pi".
+[Unit]
+Description=Smart Mirror server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/smart-mirror
+ExecStart=/home/pi/smart-mirror/.venv/bin/python -m mirror.app
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

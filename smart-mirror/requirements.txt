@@ -1,0 +1,8 @@
+anthropic>=2.9.0
+flask>=3.0
+pillow>=10.0
+requests>=2.31
+# On a USB webcam (not needed with the Raspberry Pi camera, which uses picamera2 from apt):
+# opencv-python-headless>=4.9
+# Physical button on the Pi (usually preinstalled on Raspberry Pi OS):
+# gpiozero>=2.0

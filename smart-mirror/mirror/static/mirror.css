@@ -1,0 +1,72 @@
+/* Mirror screen. Keep the background pure black: behind a two-way mirror,
+   black pixels are invisible and only the bright text shows. */
+:root {
+  --fg: #ffffff;
+  --muted: #9a9a9a;
+  --accent: #7fd1ff;
+  --good: #8ee59b;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #000;
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  cursor: none; /* hide the mouse on the mirror */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4vh 5vw;
+}
+
+header { display: flex; justify-content: space-between; align-items: flex-start; }
+#clock { font-size: 9vh; font-weight: 200; line-height: 1; }
+#date { color: var(--muted); font-size: 2.4vh; margin-top: 1vh; }
+.weather { text-align: right; font-size: 2.6vh; line-height: 1.5; }
+.weather .temp { font-size: 6vh; font-weight: 200; }
+
+/* The result sits on the sides/top so it doesn't cover your reflection's torso */
+.result { max-width: 42vw; font-size: 2.6vh; line-height: 1.45; }
+.result.hidden { display: none; }
+.result h2 { font-weight: 400; font-size: 3.6vh; margin: 0 0 1.5vh; }
+.result .score { color: var(--accent); font-size: 5vh; font-weight: 200; }
+.result ul { padding-left: 1.2em; margin: 0.6vh 0 1.6vh; }
+.result .good li::marker { color: var(--good); }
+.result .label { color: var(--muted); font-size: 2vh; text-transform: uppercase; letter-spacing: 0.08em; }
+.result .error { color: #ff9b9b; }
+.thumbs { display: flex; gap: 1vw; flex-wrap: wrap; margin-top: 1vh; }
+.thumbs figure { margin: 0; width: 9vw; text-align: center; font-size: 1.6vh; color: var(--muted); }
+.thumbs img { width: 100%; border-radius: 8px; opacity: 0.95; }
+
+.spinner {
+  width: 5vh; height: 5vh; border-radius: 50%;
+  border: 3px solid #333; border-top-color: var(--fg);
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+footer { text-align: center; }
+#hint { color: var(--muted); font-size: 2vh; margin-bottom: 1.5vh; }
+.buttons { display: flex; gap: 2vw; justify-content: center; }
+button, select {
+  background: transparent; color: var(--fg);
+  border: 1px solid #555; border-radius: 999px;
+  font-size: 2.2vh; padding: 1.2vh 2.4vw;
+  cursor: pointer;
+}
+button:active { background: #222; }
+.occasion { margin-top: 1.5vh; color: var(--muted); font-size: 2vh; }
+select { padding: 0.6vh 1.5vw; font-size: 2vh; }
+select option { background: #000; }
+
+@media (max-width: 700px) {
+  .result { max-width: 100%; }
+  .thumbs figure { width: 22vw; }
+  .buttons { flex-direction: column; }
+}

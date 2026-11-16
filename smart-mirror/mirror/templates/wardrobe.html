@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meu Armário</title>
+  <style>
+    :root {
+      --bg: #f6f5f2; --card: #ffffff; --fg: #1d1d1f; --muted: #6b6b70;
+      --border: #e2e0db; --accent: #2b6cb0; --danger: #c53030;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #121214; --card: #1c1c1f; --fg: #f2f2f2; --muted: #a0a0a8;
+              --border: #2e2e33; --accent: #7fb3ff; --danger: #ff8a8a; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg);
+           font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    main { max-width: 900px; margin: 0 auto; padding: 16px; }
+    h1 { font-size: 1.5rem; margin: 8px 0 4px; }
+    p.sub { color: var(--muted); margin: 0 0 16px; }
+    .add { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+    .add label.btn { display: inline-block; background: var(--accent); color: #fff; padding: 12px 18px;
+                     border-radius: 999px; font-weight: 600; cursor: pointer; }
+    .add input { display: none; }
+    #status { margin-top: 10px; color: var(--muted); min-height: 1.2em; }
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .filters button { border: 1px solid var(--border); background: var(--card); color: var(--fg);
+                      padding: 6px 12px; border-radius: 999px; cursor: pointer; }
+    .filters button.on { background: var(--fg); color: var(--bg); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+    .item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .item.off { opacity: 0.45; }
+    .item img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: var(--border); }
+    .item .info { padding: 8px 10px; font-size: 0.85rem; }
+    .item .name { font-weight: 600; margin-bottom: 2px; }
+    .item .meta { color: var(--muted); }
+    .item .actions { display: flex; justify-content: space-between; padding: 0 10px 10px; font-size: 0.8rem; }
+    .item .actions button { background: none; border: none; color: var(--accent); cursor: pointer; padding: 4px 0; }
+    .item .actions button.del { color: var(--danger); }
+    .empty { color: var(--muted); text-align: center; padding: 32px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Meu armário</h1>
+  <p class="sub">Fotografe uma peça por vez sobre um fundo liso. A IA preenche os detalhes.</p>
+
+  <section class="add">
+    <label class="btn">📷 Adicionar peça
+      <input id="photo" type="file" accept="image/*" capture="environment" multiple>
+    </label>
+    <div id="status"></div>
+  </section>
+
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<script>
+const CATS = { "": "Tudo", top: "Partes de cima", bottom: "Partes de baixo", dress: "Vestidos",
+               outerwear: "Casacos", shoes: "Calçados", accessory: "Acessórios" };
+let items = [];
+let filter = "";
+
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const status = (t) => (document.getElementById("status").textContent = t);
+
+async function load() {
+  items = await (await fetch("/api/wardrobe")).json();
+  render();
+}
+
+function render() {
+  document.getElementById("filters").innerHTML = Object.entries(CATS).map(([k, v]) =>
+    `<button class="${k === filter ? "on" : ""}" data-cat="${k}">${v}</button>`).join("");
+  const shown = items.filter((i) => !filter || i.category === filter);
+  document.getElementById("grid").innerHTML = shown.length ? shown.map((i) => `
+    <div class="item ${i.available === false ? "off" : ""}">
+      <img src="/wardrobe-images/${esc(i.id)}.jpg?${esc(i.id)}" alt="">
+      <div class="info">
+        <div class="name">${esc(i.name)}</div>
+        <div class="meta">${esc(i.color)} · ${esc(i.formality)} · ${esc(i.warmth)}</div>
+      </div>
+      <div class="actions">
+        <button data-toggle="${esc(i.id)}">${i.available === false ? "Disponível" : "Na lavanderia"}</button>
+        <button class="del" data-del="${esc(i.id)}">Remover</button>
+      </div>
+    </div>`).join("") : '<div class="empty">Nenhuma peça ainda.</div>';
+}
+
+document.getElementById("filters").addEventListener("click", (e) => {
+  if (e.target.dataset.cat === undefined) return;
+  filter = e.target.dataset.cat; render();
+});
+
+document.getElementById("grid").addEventListener("click", async (e) => {
+  const { toggle, del } = e.target.dataset;
+  if (toggle) {
+    const item = items.find((i) => i.id === toggle);
+    await fetch(`/api/wardrobe/${toggle}`, { method: "PATCH", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ available: item.available === false }) });
+    load();
+  } else if (del && confirm("Remover esta peça?")) {
+    await fetch(`/api/wardrobe/${del}`, { method: "DELETE" });
+    load();
+  }
+});
+
+document.getElementById("photo").addEventListener("change", async (e) => {
+  const files = [...e.target.files];
+  for (const [n, file] of files.entries()) {
+    status(`Analisando peça ${n + 1} de ${files.length}...`);
+    const form = new FormData();
+    form.append("photo", file);
+    const res = await fetch("/api/wardrobe", { method: "POST", body: form });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) { status(`Erro: ${data.error || res.statusText}`); return; }
+  }
+  status(`${files.length} peça(s) adicionada(s).`);
+  e.target.value = "";
+  load();
+});
+
+load();
+</script>
+</body>
+</html>
